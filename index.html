@@ -263,6 +263,15 @@
   tr:hover td { background: rgba(230, 190, 101, 0.08) !important; }
 
   .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
+  .kol-link {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+  }
+  .kol-link:hover { color: var(--ro-gold-light); text-decoration: underline; }
 
   .time-badge {
     display: inline-block;
@@ -369,6 +378,19 @@
     border-radius: 4px;
     border: 1px solid #3c4866;
     font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .kol-pill.clickable:hover {
+    background: var(--ro-gold);
+    color: #12151e;
+    border-color: var(--ro-gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px rgba(230, 190, 101, 0.4);
   }
 
   .search-box {
@@ -514,6 +536,51 @@
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGzNgfcJel1fHmVleohR3ohjNijXgXpJO0YIwm8NIIxMAYcQ0L9AN583L1uCx6XdWU/exec";
   let currentLang = 'th';
 
+  // 25 KOLs Channel URLs Mapping
+  const KOL_LINKS = {
+    "Jaymeander": "https://www.youtube.com/@JayMeander",
+    "KamonWay": "https://www.youtube.com/@KamonWay",
+    "Jungko": "https://www.youtube.com/@junqko20",
+    "Shipdont": "https://www.youtube.com/@shipdont",
+    "basz17": "https://www.youtube.com/@baszsone17",
+    "Doraraz": "https://www.youtube.com/@Doraraz",
+    "FOMU Ch.": "https://www.youtube.com/@fomuch",
+    "Jeon": "https://www.youtube.com/@JeonNaKub",
+    "NCZ": "https://www.youtube.com/@NCZCH",
+    "SC Forlife": "https://www.youtube.com/@SCForlife",
+    "TIMTIMChannel": "https://www.facebook.com/TIMTIMChannelLive",
+    "TKGaming": "https://www.youtube.com/@TKGaming156",
+    "Viva-Tz": "https://www.youtube.com/@viva-tz",
+    "WhiteBearZBank": "https://www.youtube.com/@WhiteBearZBank",
+    "แชงค์888": "https://www.youtube.com/@YTShanks888",
+    "bAllz HD": "https://www.youtube.com/@bAllzHD",
+    "YOGURTz": "https://www.facebook.com/YOGURTzzz",
+    "ลุงโย - Yogurting": "https://www.youtube.com/@%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2",
+    "MimiwPK": "https://www.youtube.com/@mimiwpk",
+    "PoP Chanal": "https://www.youtube.com/@popchanal8349",
+    "ValduzCH": "https://www.youtube.com/@valduzch",
+    "VCartz": "https://www.youtube.com/@VCartz",
+    "OhBIGz": "https://www.youtube.com/@OhBIGz",
+    "ZixmaOne": "https://www.youtube.com/@ZixmaOne",
+    "iamaii": "https://www.youtube.com/@iammaii/streams"
+  };
+
+  function getKolTag(name) {
+    const url = KOL_LINKS[name];
+    if (url) {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="kol-pill clickable" title="คลิกเพื่อไปที่ช่อง ${name}">${name} ↗</a>`;
+    }
+    return `<span class="kol-pill">${name}</span>`;
+  }
+
+  function getKolNameHtml(name) {
+    const url = KOL_LINKS[name];
+    if (url) {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="kol-link" title="คลิกเพื่อไปที่ช่อง ${name}">${name} ↗</a>`;
+    }
+    return name;
+  }
+
   const DATE_CONFIG = [
     { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화요일) - Grand Open", isHighlight: true },
     { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수요일)" },
@@ -539,7 +606,6 @@
     { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화요일)" }
   ];
 
-  // Base Data Model (Fallback / Initial Dataset)
   let kolsData = [
     { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
     { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
@@ -568,7 +634,6 @@
     { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
   ];
 
-  // Render UI Components
   function renderAll() {
     renderDailyCards();
     renderAugustTable();
@@ -600,7 +665,7 @@
 
       let slotRowsHtml = "";
       Object.keys(timeSlots).sort().forEach(timeKey => {
-        const pills = timeSlots[timeKey].map(name => `<span class="kol-pill">${name}</span>`).join('');
+        const pills = timeSlots[timeKey].map(name => getKolTag(name)).join('');
         slotRowsHtml += `
           <div class="slot-row">
             <span class="slot-time">${timeKey} น.</span>
@@ -638,7 +703,7 @@
         }
       }
       const tr = document.createElement('tr');
-      tr.innerHTML = `<td class="sticky-col kol-name">${kol.name}</td>${cells}`;
+      tr.innerHTML = `<td class="sticky-col kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
       tbody.appendChild(tr);
     });
   }
@@ -660,12 +725,11 @@
         }
       }
       const tr = document.createElement('tr');
-      tr.innerHTML = `<td class="sticky-col kol-name">${kol.name}</td>${cells}`;
+      tr.innerHTML = `<td class="sticky-col kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
       tbody.appendChild(tr);
     });
   }
 
-  // Real-time Fetch from Google Sheet Web App API
   function fetchLiveData() {
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
@@ -717,7 +781,6 @@
     }
   }
 
-  // Switch Tabs
   function switchView(viewId, btn) {
     document.getElementById('daily-view').style.display = 'none';
     document.getElementById('table-aug-view').style.display = 'none';
@@ -728,7 +791,6 @@
     btn.classList.add('active');
   }
 
-  // Language Switch
   function setLanguage(lang) {
     currentLang = lang;
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
@@ -755,7 +817,6 @@
     }
   }
 
-  // Auto fetch on load
   window.addEventListener('DOMContentLoaded', () => {
     renderAll();
     fetchLiveData();
