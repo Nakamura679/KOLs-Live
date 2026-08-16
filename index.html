@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ragnarok Zero: Global - 25 KOLs Live Stream Schedule</title>
+<title>Ragnarok Zero: Global - KOLs Live Schedule (Real-time Live Sync)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -37,10 +37,11 @@
 
   .container { max-width: 1450px; margin: 0 auto; }
 
+  /* Header */
   .header {
     text-align: center;
     padding: 28px 20px 20px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     background: linear-gradient(180deg, rgba(27, 32, 46, 0.95) 0%, rgba(18, 21, 30, 0.98) 100%);
     border: 2px solid var(--ro-border-gold);
     border-radius: 12px;
@@ -112,6 +113,61 @@
     color: var(--ro-gold-light);
   }
 
+  /* Live Sync Control Bar */
+  .sync-bar {
+    background: var(--ro-panel);
+    border: 1px solid var(--ro-border);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .sync-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--ro-text-muted);
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 8px #3fb950;
+    display: inline-block;
+  }
+  .status-dot.syncing { background: #e6be65; box-shadow: 0 0 8px #e6be65; }
+  .status-dot.error { background: #e05252; box-shadow: 0 0 8px #e05252; }
+
+  .sync-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .sync-btn {
+    background: linear-gradient(180deg, #2e374e 0%, #1e2433 100%);
+    border: 1px solid var(--ro-border-gold);
+    color: var(--ro-gold-light);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sync-btn:hover { background: var(--ro-panel-light); border-color: var(--ro-gold); }
+
+  /* Navigation Tabs */
   .tab-group {
     display: flex;
     justify-content: center;
@@ -232,7 +288,6 @@
     color: #d2a8ff;
   }
 
-  /* Daily Schedule Cards View */
   .grid-days {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -326,7 +381,6 @@
     width: 240px;
     outline: none;
   }
-
   .search-box:focus { border-color: var(--ro-gold); }
 
   .footer {
@@ -342,6 +396,7 @@
     .main-title { font-size: 20px; }
     .lang-switch { position: static; justify-content: center; margin-bottom: 12px; }
     .grid-days { grid-template-columns: 1fr; }
+    .sync-bar { flex-direction: column; align-items: stretch; }
   }
 </style>
 </head>
@@ -356,11 +411,22 @@
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
     </div>
     <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ ตารางไลฟ์สตรีม 25 KOLs (สิงหาคม - กันยายน 2569) 🛡️" data-kr="⚔️ 25인 인플루언서 라이브 방송 통합 스케줄 (2026년 8월 - 9월) 🛡️">⚔️ ตารางไลฟ์สตรีม 25 KOLs (สิงหาคม - กันยายน 2569) 🛡️</h1>
+    <h1 class="main-title" data-th="⚔️ ตารางไลฟ์สตรีม 25 KOLs (Real-time Live Sync) 🛡️" data-kr="⚔️ 25인 인플루언서 실시간 라이브 스케줄 연동 🛡️">⚔️ ตารางไลฟ์สตรีม 25 KOLs (Real-time Live Sync) 🛡️</h1>
     <div class="badge-container">
       <div class="ro-badge" data-th="🔥 Grand Open: 18 ส.ค. 2569 (08:00 น.)" data-kr="🔥 그랜드 오픈: 2026년 8월 18일 (08:00)">🔥 Grand Open: 18 ส.ค. 2569 (08:00 น.)</div>
       <div class="ro-badge" data-th="👥 KOLs ทั้งหมด: 25 ท่าน" data-kr="👥 총 인플루언서: 25명">👥 KOLs ทั้งหมด: 25 ท่าน</div>
-      <div class="ro-badge" data-th="🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)" data-kr="🎥 총 라이브 방송: 249회 (8/18 - 9/8)">🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)</div>
+      <div class="ro-badge" id="totalLiveBadge" data-th="🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)" data-kr="🎥 총 라이브 방송: 249회 (8/18 - 9/8)">🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)</div>
+    </div>
+  </div>
+
+  <!-- Real-time Sync Bar -->
+  <div class="sync-bar">
+    <div class="sync-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="syncText" data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" data-kr="상태: 구글 시트 실시간 연결 완료 (자동 동기화)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
+    </div>
+    <div class="sync-controls">
+      <button class="sync-btn" onclick="fetchLiveData()" data-th="🔄 ซิงค์ข้อมูลล่าสุด" data-kr="🔄 최신 데이터 새로고침">🔄 ซิงค์ข้อมูลล่าสุด</button>
     </div>
   </div>
 
@@ -371,933 +437,21 @@
     <button class="tab-btn" onclick="switchView('table-sep-view', this)" data-th="🍂 ตารางรายคน เดือนกันยายน (1 - 8 ก.ย.)" data-kr="🍂 9월 인플루언서별 스케줄 (9/1 - 9/8)">🍂 ตารางรายคน เดือนกันยายน (1 - 8 ก.ย.)</button>
   </div>
 
-  <!-- VIEW 1: Daily Schedule (NO times trailing after KOL names) -->
+  <!-- VIEW 1: Daily Schedule -->
   <div id="daily-view" class="panel">
     <div class="panel-header">
       <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (Daily Time Slot Breakdown)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (Daily Time Slot Breakdown)</div>
       <div class="ro-badge" data-th="🗓️ 18 สิงหาคม - 8 กันยายน 2569" data-kr="🗓️ 2026년 8월 18일 - 9월 8일">🗓️ 18 สิงหาคม - 8 กันยายน 2569</div>
     </div>
-
-    <div class="grid-days">
-
-      <div class="day-card highlight-day">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอังคารที่ 18 ส.ค. 2569 (Grand Open)" data-kr="8월 18일 (화요일) - Grand Open">วันอังคารที่ 18 ส.ค. 2569 (Grand Open)</div>
-          <span class="day-tag" data-th="24 สตรีม" data-kr="24회 방송">24 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Jungko</span><span class="kol-pill">SC Forlife</span><span class="kol-pill">YOGURTz</span><span class="kol-pill">PoP Chanal</span><span class="kol-pill">VCartz</span><span class="kol-pill">OhBIGz</span><span class="kol-pill">ZixmaOne</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">แชงค์888</span><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span><span class="kol-pill">FOMU Ch.</span><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพุธที่ 19 ส.ค. 2569" data-kr="8월 19일 (수요일)">วันพุธที่ 19 ส.ค. 2569</div>
-          <span class="day-tag" data-th="24 สตรีม" data-kr="24회 방송">24 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span><span class="kol-pill">SC Forlife</span><span class="kol-pill">TIMTIMChannel</span><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพฤหัสบดีที่ 20 ส.ค. 2569" data-kr="8월 20일 (목요일)">วันพฤหัสบดีที่ 20 ส.ค. 2569</div>
-          <span class="day-tag" data-th="23 สตรีม" data-kr="23회 방송">23 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span><span class="kol-pill">PoP Chanal</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">VCartz</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันศุกร์ที่ 21 ส.ค. 2569" data-kr="8월 21일 (금요일)">วันศุกร์ที่ 21 ส.ค. 2569</div>
-          <span class="day-tag" data-th="24 สตรีม" data-kr="24회 방송">24 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span><span class="kol-pill">SC Forlife</span><span class="kol-pill">TIMTIMChannel</span><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Jungko</span><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">NCZ</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card highlight-day">
-        <div class="day-header">
-          <div class="day-title" data-th="วันเสาร์ที่ 22 ส.ค. 2569" data-kr="8월 22일 (토요일)">วันเสาร์ที่ 22 ส.ค. 2569</div>
-          <span class="day-tag" data-th="21 สตรีม" data-kr="21회 방송">21 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Jungko</span><span class="kol-pill">Doraraz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">NCZ</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span><span class="kol-pill">VCartz</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card highlight-day">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอาทิตย์ที่ 23 ส.ค. 2569" data-kr="8월 23일 (일요일)">วันอาทิตย์ที่ 23 ส.ค. 2569</div>
-          <span class="day-tag" data-th="21 สตรีม" data-kr="21회 방송">21 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span><span class="kol-pill">Doraraz</span><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span><span class="kol-pill">TIMTIMChannel</span><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span><span class="kol-pill">VCartz</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันจันทร์ที่ 24 ส.ค. 2569" data-kr="8월 24일 (월요일)">วันจันทร์ที่ 24 ส.ค. 2569</div>
-          <span class="day-tag" data-th="11 สตรีม" data-kr="11회 방송">11 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอังคารที่ 25 ส.ค. 2569" data-kr="8월 25일 (화요일)">วันอังคารที่ 25 ส.ค. 2569</div>
-          <span class="day-tag" data-th="6 สตรีม" data-kr="6회 방송">6 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพุธที่ 26 ส.ค. 2569" data-kr="8월 26일 (수요일)">วันพุธที่ 26 ส.ค. 2569</div>
-          <span class="day-tag" data-th="6 สตรีม" data-kr="6회 방송">6 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพฤหัสบดีที่ 27 ส.ค. 2569" data-kr="8월 27일 (목요일)">วันพฤหัสบดีที่ 27 ส.ค. 2569</div>
-          <span class="day-tag" data-th="7 สตรีม" data-kr="7회 방송">7 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span><span class="kol-pill">OhBIGz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันศุกร์ที่ 28 ส.ค. 2569" data-kr="8월 28일 (금요일)">วันศุกร์ที่ 28 ส.ค. 2569</div>
-          <span class="day-tag" data-th="9 สตรีม" data-kr="9회 방송">9 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Doraraz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันเสาร์ที่ 29 ส.ค. 2569" data-kr="8월 29일 (토요일)">วันเสาร์ที่ 29 ส.ค. 2569</div>
-          <span class="day-tag" data-th="9 สตรีม" data-kr="9회 방송">9 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">NCZ</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอาทิตย์ที่ 30 ส.ค. 2569" data-kr="8월 30일 (일요일)">วันอาทิตย์ที่ 30 ส.ค. 2569</div>
-          <span class="day-tag" data-th="4 สตรีม" data-kr="4회 방송">4 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันจันทร์ที่ 31 ส.ค. 2569" data-kr="8월 31일 (월요일)">วันจันทร์ที่ 31 ส.ค. 2569</div>
-          <span class="day-tag" data-th="8 สตรีม" data-kr="8회 방송">8 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card highlight-day">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอังคารที่ 1 ก.ย. 2569" data-kr="9월 1일 (화요일)">วันอังคารที่ 1 ก.ย. 2569</div>
-          <span class="day-tag" data-th="16 สตรีม" data-kr="16회 방송">16 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">08:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span><span class="kol-pill">Doraraz</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ลุงโย - Yogurting</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพุธที่ 2 ก.ย. 2569" data-kr="9월 2일 (수요일)">วันพุธที่ 2 ก.ย. 2569</div>
-          <span class="day-tag" data-th="4 สตรีม" data-kr="4회 방송">4 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันพฤหัสบดีที่ 3 ก.ย. 2569" data-kr="9월 3일 (목요일)">วันพฤหัสบดีที่ 3 ก.ย. 2569</div>
-          <span class="day-tag" data-th="1 สตรีม" data-kr="1회 방송">1 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันศุกร์ที่ 4 ก.ย. 2569" data-kr="9월 4일 (금요일)">วันศุกร์ที่ 4 ก.ย. 2569</div>
-          <span class="day-tag" data-th="11 สตรีม" data-kr="11회 방송">11 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">11:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TKGaming</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">12:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">iamaii</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jungko</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">TIMTIMChannel</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">OhBIGz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">19:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">MimiwPK</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Shipdont</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">22:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันเสาร์ที่ 5 ก.ย. 2569" data-kr="9월 5일 (토요일)">วันเสาร์ที่ 5 ก.ย. 2569</div>
-          <span class="day-tag" data-th="7 สตรีม" data-kr="7회 방송">7 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">09:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">แชงค์888</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ZixmaOne</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">basz17</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Doraraz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">YOGURTz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">18:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">bAllz HD</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">FOMU Ch.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอาทิตย์ที่ 6 ก.ย. 2569" data-kr="9월 6일 (일요일)">วันอาทิตย์ที่ 6 ก.ย. 2569</div>
-          <span class="day-tag" data-th="5 สตรีม" data-kr="5회 방송">5 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">10:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Viva-Tz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">SC Forlife</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">15:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">KamonWay</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">20:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">NCZ</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันจันทร์ที่ 7 ก.ย. 2569" data-kr="9월 7일 (월요일)">วันจันทร์ที่ 7 ก.ย. 2569</div>
-          <span class="day-tag" data-th="3 สตรีม" data-kr="3회 방송">3 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jaymeander</span><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">21:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">WhiteBearZBank</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title" data-th="วันอังคารที่ 8 ก.ย. 2569" data-kr="9월 8일 (화요일)">วันอังคารที่ 8 ก.ย. 2569</div>
-          <span class="day-tag" data-th="5 สตรีม" data-kr="5회 방송">5 สตรีม</span>
-        </div>
-        <div class="day-slots">
-          <div class="slot-row">
-            <span class="slot-time">13:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">VCartz</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">14:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">ValduzCH</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">16:30 น.</span>
-            <div class="slot-kols"><span class="kol-pill">Jeon</span></div>
-          </div>
-          <div class="slot-row">
-            <span class="slot-time">17:00 น.</span>
-            <div class="slot-kols"><span class="kol-pill">PoP Chanal</span><span class="kol-pill">OhBIGz</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="grid-days" id="dailyCardsContainer"></div>
   </div>
 
-  <!-- VIEW 2: August Table View (18 - 31 Aug) -->
+  <!-- VIEW 2: August Table View -->
   <div id="table-aug-view" class="panel" style="display:none;">
     <div class="panel-header">
       <div class="panel-title" data-th="📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)" data-kr="📊 8월 25인 인플루언서 라이브 스케줄 (8/18 - 8/31)">📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)</div>
       <input type="text" class="search-box" placeholder="🔍 ค้นหารายชื่อ KOL / 검색..." onkeyup="filterKOLTable('augTable', this.value)">
     </div>
-
     <div class="table-wrapper">
       <table id="augTable">
         <thead>
@@ -1319,44 +473,17 @@
             <th>31 ส.ค.<br><small>จ.</small></th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td class="sticky-col kol-name">Jaymeander</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">KamonWay</td><td><span class="time-badge night">21:00</span></td><td><span class="time-badge">17:00</span></td><td><span class="time-badge">17:00</span></td><td><span class="time-badge">17:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">20:00</span></td><td>-</td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Jungko</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">08:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Shipdont</td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge night">20:30</span></td><td><span class="time-badge night">20:30</span></td><td><span class="time-badge night">20:30</span></td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">basz17</td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Doraraz</td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">FOMU Ch.</td><td><span class="time-badge night">21:00</span></td><td><span class="time-badge night">21:00</span></td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge night">21:00</span></td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Jeon</td><td><span class="time-badge">16:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge">16:30</span></td><td><span class="time-badge">16:30</span></td><td><span class="time-badge">16:30</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">16:30</span></td></tr>
-          <tr><td class="sticky-col kol-name">NCZ</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">15:00</span></td><td><span class="time-badge night">20:30</span></td><td><span class="time-badge night">20:30</span></td><td><span class="time-badge">15:00</span></td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">SC Forlife</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge">08:00</span></td><td><span class="time-badge">13:00</span></td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">08:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">TIMTIMChannel</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">13:00</span></td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">15:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">15:00</span></td><td><span class="time-badge">15:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">TKGaming</td><td><span class="time-badge">11:00</span></td><td><span class="time-badge">11:00</span></td><td><span class="time-badge">11:00</span></td><td><span class="time-badge">11:00</span></td><td><span class="time-badge">11:00</span></td><td>-</td><td><span class="time-badge">11:00</span></td><td>-</td><td><span class="time-badge">11:00</span></td><td>-</td><td>-</td><td><span class="time-badge">11:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Viva-Tz</td><td>-</td><td><span class="time-badge">15:30</span></td><td><span class="time-badge">10:00</span></td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">15:30</span></td><td><span class="time-badge">10:00</span></td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">10:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">WhiteBearZBank</td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge night">21:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">แชงค์888</td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">bAllz HD</td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td><span class="time-badge">18:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">18:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">YOGURTz</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">16:00</span></td><td><span class="time-badge">16:00</span></td><td><span class="time-badge">16:00</span></td><td><span class="time-badge">16:00</span></td><td><span class="time-badge">16:00</span></td><td><span class="time-badge">16:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">16:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">ลุงโย - Yogurting</td><td><span class="time-badge">09:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">MimiwPK</td><td><span class="time-badge">19:00</span></td><td><span class="time-badge">19:00</span></td><td><span class="time-badge">19:00</span></td><td><span class="time-badge">19:00</span></td><td><span class="time-badge">19:00</span></td><td><span class="time-badge">19:00</span></td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td><span class="time-badge">19:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">PoP Chanal</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge night">22:00</span></td><td><span class="time-badge">17:00</span></td><td><span class="time-badge night">22:00</span></td><td><span class="time-badge night">22:00</span></td><td><span class="time-badge night">22:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">ValduzCH</td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">VCartz</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge night">22:00</span></td><td><span class="time-badge">13:00</span></td><td><span class="time-badge night">22:00</span></td><td><span class="time-badge night">22:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">OhBIGz</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">ZixmaOne</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">08:00</span></td><td><span class="time-badge">08:00</span></td><td><span class="time-badge">08:00</span></td><td><span class="time-badge">10:00</span></td><td><span class="time-badge">10:00</span></td><td><span class="time-badge">08:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">08:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">iamaii</td><td><span class="time-badge launch">08:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td></tr>
-        </tbody>
+        <tbody id="augTableBody"></tbody>
       </table>
     </div>
   </div>
 
-  <!-- VIEW 3: September Table View (1 - 8 Sep) -->
+  <!-- VIEW 3: September Table View -->
   <div id="table-sep-view" class="panel" style="display:none;">
     <div class="panel-header">
       <div class="panel-title" data-th="🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)" data-kr="🍂 9월 25인 인플루언서 라이브 스케줄 (9/1 - 9/8)">🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)</div>
       <input type="text" class="search-box" placeholder="🔍 ค้นหารายชื่อ KOL / 검색..." onkeyup="filterKOLTable('sepTable', this.value)">
     </div>
-
     <div class="table-wrapper">
       <table id="sepTable">
         <thead>
@@ -1372,69 +499,246 @@
             <th>8 ก.ย.<br><small>อ.</small></th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td class="sticky-col kol-name">Jaymeander</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">KamonWay</td><td>-</td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Jungko</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Shipdont</td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">basz17</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Doraraz</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">FOMU Ch.</td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Jeon</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">16:30</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">16:30</span></td></tr>
-          <tr><td class="sticky-col kol-name">NCZ</td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">20:30</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">SC Forlife</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">TIMTIMChannel</td><td><span class="time-badge">15:00</span></td><td>-</td><td>-</td><td><span class="time-badge">15:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">TKGaming</td><td><span class="time-badge">11:00</span></td><td>-</td><td>-</td><td><span class="time-badge">11:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">Viva-Tz</td><td><span class="time-badge">10:00</span></td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">WhiteBearZBank</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">21:00</span></td><td>-</td><td><span class="time-badge">15:00</span></td><td><span class="time-badge night">21:00</span></td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">แชงค์888</td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">09:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">bAllz HD</td><td><span class="time-badge">18:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">18:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">YOGURTz</td><td><span class="time-badge">16:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">16:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">ลุงโย - Yogurting</td><td><span class="time-badge night">20:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">MimiwPK</td><td><span class="time-badge">19:00</span></td><td>-</td><td>-</td><td><span class="time-badge">19:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">PoP Chanal</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge night">22:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">ValduzCH</td><td><span class="time-badge">14:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">14:00</span></td><td><span class="time-badge">14:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">VCartz</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">13:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">OhBIGz</td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">17:00</span></td></tr>
-          <tr><td class="sticky-col kol-name">ZixmaOne</td><td><span class="time-badge">08:00</span></td><td>-</td><td>-</td><td>-</td><td><span class="time-badge">10:00</span></td><td>-</td><td>-</td><td>-</td></tr>
-          <tr><td class="sticky-col kol-name">iamaii</td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td><td><span class="time-badge">12:00</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-        </tbody>
+        <tbody id="sepTableBody"></tbody>
       </table>
     </div>
   </div>
 
-  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Complete 25 KOLs Live Schedule" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 25인 인플루언서 라이브 방송 관리 시스템">
-    © 2026 Gravity Game Tech | Ragnarok Zero: Global Complete 25 KOLs Live Schedule
+  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live Schedule" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 시스템">
+    © 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live Schedule
   </div>
 
 </div>
 
 <script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGzNgfcJel1fHmVleohR3ohjNijXgXpJO0YIwm8NIIxMAYcQ0L9AN583L1uCx6XdWU/exec";
   let currentLang = 'th';
 
+  const DATE_CONFIG = [
+    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화요일) - Grand Open", isHighlight: true },
+    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수요일)" },
+    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목요일)" },
+    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금요일)" },
+    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토요일)", isHighlight: true },
+    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일요일)", isHighlight: true },
+    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월요일)" },
+    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화요일)" },
+    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수요일)" },
+    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목요일)" },
+    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금요일)" },
+    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토요일)" },
+    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일요일)" },
+    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월요일)" },
+    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화요일)", isHighlight: true },
+    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수요일)" },
+    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목요일)" },
+    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금요일)" },
+    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토요일)" },
+    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일요일)" },
+    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월요일)" },
+    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화요일)" }
+  ];
+
+  // Base Data Model (Fallback / Initial Dataset)
+  let kolsData = [
+    { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
+    { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
+    { name: "Jungko", times: ["08:00","08:00","18:00","14:00","14:00","14:00",null,null,"10:00",null,null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,null] },
+    { name: "Shipdont", times: ["09:00","09:00","20:30","20:30","20:30","09:00",null,null,"09:00",null,null,"20:30",null,null,"09:00",null,null,"20:30",null,null,null,null] },
+    { name: "basz17", times: ["13:00","13:00","13:00","13:00","13:00","13:00","13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null] },
+    { name: "Doraraz", times: ["14:00","14:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null,null,null] },
+    { name: "FOMU Ch.", times: ["21:00","21:00","21:00",null,"21:00","21:00",null,"21:00",null,null,"21:00",null,"21:00",null,"21:00",null,null,null,"21:00",null,null,null] },
+    { name: "Jeon", times: ["16:00","20:00","16:30","16:30","16:30","14:00",null,null,null,"14:00",null,null,null,"16:30",null,null,null,"16:30",null,null,null,"16:30"] },
+    { name: "NCZ", times: ["15:00","15:00","15:00","20:30","20:30","15:00",null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null] },
+    { name: "SC Forlife", times: ["08:00","13:00","13:00","13:00","08:00","13:00",null,"13:00",null,null,null,"08:00",null,null,null,"13:00",null,null,null,"13:00",null,null] },
+    { name: "TIMTIMChannel", times: ["15:00","13:00",null,"13:00",null,"15:00","15:00",null,null,null,null,"15:00","15:00","15:00","15:00",null,null,"15:00",null,null,null,null] },
+    { name: "TKGaming", times: ["11:00","11:00","11:00","11:00","11:00",null,"11:00",null,"11:00",null,null,"11:00",null,null,"11:00",null,null,"11:00",null,null,null,null] },
+    { name: "Viva-Tz", times: [null,"15:30","10:00","10:00",null,null,null,"15:30","10:00","10:00",null,null,null,"10:00","10:00","10:00",null,null,null,"10:00",null,null] },
+    { name: "WhiteBearZBank", times: ["21:00",null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null] },
+    { name: "แชงค์888", times: ["09:00","09:00","09:00","09:00","09:00","09:00","09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null] },
+    { name: "bAllz HD", times: ["18:00","18:00","18:00","18:00","18:00","18:00","18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null] },
+    { name: "YOGURTz", times: ["08:00","16:00","16:00","16:00","16:00","16:00","16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null] },
+    { name: "ลุงโย - Yogurting", times: ["09:00","20:00","20:00","20:00","20:00","20:00","20:00",null,null,null,"20:00",null,null,null,"20:00",null,null,null,null,null,null,null] },
+    { name: "MimiwPK", times: ["19:00","19:00","19:00","19:00","19:00","19:00",null,null,"21:00",null,null,"19:00",null,null,"19:00",null,null,"19:00",null,null,null,null] },
+    { name: "PoP Chanal", times: ["08:00","22:00","17:00","22:00","22:00","22:00",null,null,null,"17:00",null,null,null,"14:00",null,null,null,"22:00",null,null,null,"17:00"] },
+    { name: "ValduzCH", times: ["14:00","14:00","14:00","14:00",null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00"] },
+    { name: "VCartz", times: ["08:00","13:00","22:00","13:00","22:00","22:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00"] },
+    { name: "OhBIGz", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00"] },
+    { name: "ZixmaOne", times: ["08:00","08:00","08:00","08:00","10:00","10:00","08:00",null,null,null,"08:00",null,null,null,"08:00",null,null,null,"10:00",null,null,null] },
+    { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
+  ];
+
+  // Render UI Components
+  function renderAll() {
+    renderDailyCards();
+    renderAugustTable();
+    renderSeptemberTable();
+  }
+
+  function renderDailyCards() {
+    const container = document.getElementById('dailyCardsContainer');
+    container.innerHTML = "";
+
+    DATE_CONFIG.forEach((cfg, colIdx) => {
+      const timeSlots = {};
+      kolsData.forEach(kol => {
+        const t = kol.times[colIdx];
+        if (t) {
+          if (!timeSlots[t]) timeSlots[t] = [];
+          timeSlots[t].push(kol.name);
+        }
+      });
+
+      const totalSlots = Object.values(timeSlots).reduce((acc, curr) => acc + curr.length, 0);
+      if (totalSlots === 0) return;
+
+      const card = document.createElement('div');
+      card.className = `day-card ${cfg.isHighlight ? 'highlight-day' : ''}`;
+
+      const title = currentLang === 'kr' ? cfg.kr : cfg.th;
+      const countTag = currentLang === 'kr' ? `${totalSlots}회 방송` : `${totalSlots} สตรีม`;
+
+      let slotRowsHtml = "";
+      Object.keys(timeSlots).sort().forEach(timeKey => {
+        const pills = timeSlots[timeKey].map(name => `<span class="kol-pill">${name}</span>`).join('');
+        slotRowsHtml += `
+          <div class="slot-row">
+            <span class="slot-time">${timeKey} น.</span>
+            <div class="slot-kols">${pills}</div>
+          </div>`;
+      });
+
+      card.innerHTML = `
+        <div class="day-header">
+          <div class="day-title" data-th="${cfg.th}" data-kr="${cfg.kr}">${title}</div>
+          <span class="day-tag" data-th="${totalSlots} สตรีม" data-kr="${totalSlots}회 방송">${countTag}</span>
+        </div>
+        <div class="day-slots">${slotRowsHtml}</div>`;
+      
+      container.appendChild(card);
+    });
+  }
+
+  function renderAugustTable() {
+    const tbody = document.getElementById('augTableBody');
+    tbody.innerHTML = "";
+
+    kolsData.forEach(kol => {
+      let cells = "";
+      for (let i = 0; i < 14; i++) {
+        const t = kol.times[i];
+        if (!t) {
+          cells += "<td>-</td>";
+        } else if (t === "08:00" && i === 0) {
+          cells += `<td><span class="time-badge launch">${t}</span></td>`;
+        } else if (parseInt(t.split(':')[0]) >= 20) {
+          cells += `<td><span class="time-badge night">${t}</span></td>`;
+        } else {
+          cells += `<td><span class="time-badge">${t}</span></td>`;
+        }
+      }
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="sticky-col kol-name">${kol.name}</td>${cells}`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderSeptemberTable() {
+    const tbody = document.getElementById('sepTableBody');
+    tbody.innerHTML = "";
+
+    kolsData.forEach(kol => {
+      let cells = "";
+      for (let i = 14; i < 22; i++) {
+        const t = kol.times[i];
+        if (!t) {
+          cells += "<td>-</td>";
+        } else if (parseInt(t.split(':')[0]) >= 20) {
+          cells += `<td><span class="time-badge night">${t}</span></td>`;
+        } else {
+          cells += `<td><span class="time-badge">${t}</span></td>`;
+        }
+      }
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="sticky-col kol-name">${kol.name}</td>${cells}`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Real-time Fetch from Google Sheet Web App API
+  function fetchLiveData() {
+    const dot = document.getElementById('statusDot');
+    const syncText = document.getElementById('syncText');
+    dot.className = "status-dot syncing";
+    syncText.innerText = currentLang === 'kr' ? "구글 시트에서 최신 데이터 가져오는 중..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...";
+
+    fetch(SCRIPT_URL)
+      .then(res => res.json())
+      .then(rows => {
+        parseSheetData(rows);
+        dot.className = "status-dot";
+        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)";
+        renderAll();
+      })
+      .catch(err => {
+        console.error(err);
+        dot.className = "status-dot error";
+        syncText.innerText = currentLang === 'kr' ? "연결 실패 (기본 데이터 사용)" : "เชื่อมต่อไม่สำเร็จ (แสดงข้อมูลสำรอง)";
+        renderAll();
+      });
+  }
+
+  function parseSheetData(rows) {
+    const newKols = [];
+    for (let r = 4; r < rows.length; r++) {
+      const row = rows[r];
+      let name = row[1];
+      if (!name || name === "Branding") continue;
+
+      if (r === 13) name = "SC Forlife";
+      if (r === 25) name = "VCartz";
+
+      const times = [];
+      for (let c = 2; c < 24; c++) {
+        let val = row[c];
+        if (val === undefined || val === null || val === "") {
+          times.push(null);
+        } else {
+          let s = String(val).replace('น.', '').replace('น', '').replace('.', ':').trim();
+          if (s === 'เวลาเกมเปิด') s = '08:00';
+          if (s.length <= 2 && !isNaN(s)) s = s.padStart(2, '0') + ":00";
+          times.push(s);
+        }
+      }
+      newKols.push({ name: name, times: times });
+    }
+    if (newKols.length > 0) {
+      kolsData = newKols;
+    }
+  }
+
+  // Switch Tabs
   function switchView(viewId, btn) {
     document.getElementById('daily-view').style.display = 'none';
     document.getElementById('table-aug-view').style.display = 'none';
     document.getElementById('table-sep-view').style.display = 'none';
     
     document.getElementById(viewId).style.display = 'block';
-    
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
+  // Language Switch
   function setLanguage(lang) {
     currentLang = lang;
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
     document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
 
     document.querySelectorAll('[data-th]').forEach(el => {
-      if (lang === 'kr' && el.getAttribute('data-kr')) {
-        el.innerText = el.getAttribute('data-kr');
-      } else {
-        el.innerText = el.getAttribute('data-th');
-      }
+      el.innerText = lang === 'kr' ? el.getAttribute('data-kr') : el.getAttribute('data-th');
     });
+
+    renderAll();
   }
 
   function filterKOLTable(tableId, query) {
@@ -1450,6 +754,12 @@
       }
     }
   }
+
+  // Auto fetch on load
+  window.addEventListener('DOMContentLoaded', () => {
+    renderAll();
+    fetchLiveData();
+  });
 </script>
 
 </body>
