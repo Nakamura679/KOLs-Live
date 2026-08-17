@@ -323,6 +323,7 @@
   .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
   .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
   .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
+  .badge-tag.wait { background: rgba(149, 165, 198, 0.15); border: 1px solid #3d4a66; color: #95a5c6; }
 
   .vod-link-btn {
     color: var(--ro-gold);
@@ -417,6 +418,13 @@
     outline: none;
   }
   .search-box:focus { border-color: var(--ro-gold); }
+
+  .no-data-msg {
+    text-align: center;
+    padding: 30px;
+    color: var(--ro-text-muted);
+    font-size: 14px;
+  }
 
   .footer {
     text-align: center;
@@ -535,30 +543,30 @@
     <div class="kpi-grid">
       <div class="kpi-card gold-border">
         <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-kr="🔥 총 누적 조회수 (Total Views)" data-en="🔥 Total Campaign Views">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
-        <div class="kpi-value" id="kpiTotalViews">1,485,200</div>
+        <div class="kpi-value" id="kpiTotalViews">0</div>
         <div class="kpi-sub" data-th="สะสมจากการไลฟ์และ VOD ย้อนหลัง" data-kr="라이브 및 VOD 누적 합계" data-en="Accumulated from Live & VOD Archives">สะสมจากการไลฟ์และ VOD ย้อนหลัง</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-title" data-th="👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)" data-kr="👥 최고 동시 시청자수 (Peak CCU)" data-en="👥 Peak Concurrent Viewers">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
-        <div class="kpi-value" id="kpiPeakViews">42,850</div>
+        <div class="kpi-value" id="kpiPeakViews">0</div>
         <div class="kpi-sub" data-th="สถิติ Peak รวมของทุกช่อง" data-kr="전체 채널 최고 피크 합산" data-en="Highest Concurrent Peak Across All Channels">สถิติ Peak รวมของทุกช่อง</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-kr="🔄 총 공유수 (Total Shares)" data-en="🔄 Total Social Shares">🔄 ยอดแชร์รวม (Total Shares)</div>
-        <div class="kpi-value" id="kpiTotalShares">18,420</div>
+        <div class="kpi-value" id="kpiTotalShares">0</div>
         <div class="kpi-sub" data-th="การแชร์ไปยัง Social Media" data-kr="소셜 미디어 공유 합계" data-en="Total Shares to Social Media">การแชร์ไปยัง Social Media</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-kr="🎥 완료된 라이브 방송수" data-en="🎥 Completed Streams">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
-        <div class="kpi-value" id="kpiCompletedStreams">48 <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span></div>
-        <div class="kpi-sub" data-th="คิดเป็น 19.2% ของแคมเปญ" data-kr="전체 캠페인의 19.2% 진행됨" data-en="19.2% Campaign Progress">คิดเป็น 19.2% ของแคมเปญ</div>
+        <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span></div>
+        <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของแคมเปญ" data-kr="전체 캠페인의 0.0% 진행됨" data-en="0.0% Campaign Progress">คิดเป็น 0.0% ของแคมเปญ</div>
       </div>
     </div>
 
     <!-- Charts Row -->
     <div class="charts-grid">
       <div class="chart-box">
-        <div class="panel-title" style="font-size:15px; margin-bottom:10px;" data-th="🏆 Top 8 KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-kr="🏆 최고 조회수 Top 8 인플루언서" data-en="🏆 Top 8 KOLs Views Leaderboard">🏆 Top 8 KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+        <div class="panel-title" style="font-size:15px; margin-bottom:10px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-kr="🏆 최고 조회수 인플루언서" data-en="🏆 Top KOLs Views Leaderboard">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
         <canvas id="topKolsChart"></canvas>
       </div>
       <div class="chart-box">
@@ -726,41 +734,26 @@
     { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
   ];
 
-  let kolsSummaryReport = [
-    { name: "Jaymeander", platform: "YouTube", done: 3, views: 185400, peak: 4800, shares: 1950, likes: 6200 },
-    { name: "KamonWay", platform: "YouTube", done: 3, views: 162000, peak: 4200, shares: 1420, likes: 5800 },
-    { name: "Jungko", platform: "YouTube", done: 2, views: 114500, peak: 3100, shares: 980, likes: 4100 },
-    { name: "Shipdont", platform: "YouTube", done: 2, views: 98200, peak: 2900, shares: 850, likes: 3700 },
-    { name: "basz17", platform: "YouTube", done: 3, views: 89400, peak: 2400, shares: 720, likes: 3100 },
-    { name: "Doraraz", platform: "YouTube", done: 2, views: 82100, peak: 2100, shares: 690, likes: 2900 },
-    { name: "FOMU Ch.", platform: "YouTube", done: 2, views: 76500, peak: 1950, shares: 610, likes: 2600 },
-    { name: "Jeon", platform: "YouTube", done: 2, views: 68400, peak: 1800, shares: 540, likes: 2400 },
-    { name: "NCZ", platform: "YouTube", done: 2, views: 64200, peak: 1700, shares: 520, likes: 2250 },
-    { name: "SC Forlife", platform: "YouTube", done: 2, views: 59800, peak: 1550, shares: 480, likes: 2100 },
-    { name: "TIMTIMChannel", platform: "Facebook", done: 2, views: 54200, peak: 1400, shares: 1100, likes: 1950 },
-    { name: "TKGaming", platform: "YouTube", done: 2, views: 51200, peak: 1350, shares: 450, likes: 1800 },
-    { name: "Viva-Tz", platform: "YouTube", done: 1, views: 42100, peak: 1200, shares: 380, likes: 1500 },
-    { name: "WhiteBearZBank", platform: "YouTube", done: 2, views: 46800, peak: 1300, shares: 420, likes: 1650 },
-    { name: "แชงค์888", platform: "YouTube", done: 2, views: 39500, peak: 1100, shares: 360, likes: 1400 },
-    { name: "bAllz HD", platform: "YouTube", done: 2, views: 37200, peak: 1050, shares: 340, likes: 1320 },
-    { name: "YOGURTz", platform: "Facebook", done: 2, views: 36400, peak: 980, shares: 890, likes: 1250 },
-    { name: "ลุงโย - Yogurting", platform: "YouTube", done: 2, views: 35100, peak: 950, shares: 310, likes: 1200 },
-    { name: "MimiwPK", platform: "YouTube", done: 2, views: 33800, peak: 920, shares: 300, likes: 1150 },
-    { name: "PoP Chanal", platform: "YouTube", done: 2, views: 31200, peak: 890, shares: 280, likes: 1080 },
-    { name: "ValduzCH", platform: "YouTube", done: 2, views: 28900, peak: 820, shares: 260, likes: 990 },
-    { name: "VCartz", platform: "YouTube", done: 2, views: 27400, peak: 790, shares: 250, likes: 940 },
-    { name: "OhBIGz", platform: "YouTube", done: 2, views: 24800, peak: 750, shares: 230, likes: 880 },
-    { name: "ZixmaOne", platform: "YouTube", done: 2, views: 21600, peak: 680, shares: 210, likes: 780 },
-    { name: "iamaii", platform: "YouTube", done: 2, views: 18900, peak: 620, shares: 190, likes: 710 }
+  // Default: Start with 0 (No hardcoded mockup stats)
+  const INITIAL_KOL_NAMES = [
+    "Jaymeander", "KamonWay", "Jungko", "Shipdont", "basz17",
+    "Doraraz", "FOMU Ch.", "Jeon", "NCZ", "SC Forlife",
+    "TIMTIMChannel", "TKGaming", "Viva-Tz", "WhiteBearZBank", "แชงค์888",
+    "bAllz HD", "YOGURTz", "ลุงโย - Yogurting", "MimiwPK", "PoP Chanal",
+    "ValduzCH", "VCartz", "OhBIGz", "ZixmaOne", "iamaii"
   ];
 
-  let liveDataRecords = [
-    { no: 1, name: "Jaymeander", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample1", views: 98200, peak: 4800, shares: 1100, status: "จบแล้ว" },
-    { no: 2, name: "KamonWay", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample2", views: 88500, peak: 4200, shares: 820, status: "จบแล้ว" },
-    { no: 3, name: "Jungko", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample3", views: 64200, peak: 3100, shares: 540, status: "จบแล้ว" },
-    { no: 4, name: "TIMTIMChannel", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "Facebook", url: "https://www.facebook.com/watch/live/?v=sample4", views: 32400, peak: 1400, shares: 690, status: "จบแล้ว" },
-    { no: 5, name: "YOGURTz", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "Facebook", url: "https://www.facebook.com/watch/live/?v=sample5", views: 21800, peak: 980, shares: 510, status: "จบแล้ว" }
-  ];
+  let kolsSummaryReport = INITIAL_KOL_NAMES.map(name => ({
+    name: name,
+    platform: (name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube",
+    done: 0,
+    views: 0,
+    peak: 0,
+    shares: 0,
+    likes: 0
+  }));
+
+  let liveDataRecords = [];
 
   function renderAll() {
     renderDailyCards();
@@ -887,11 +880,28 @@
     document.getElementById('kpiPeakViews').innerText = totalPeak.toLocaleString();
     document.getElementById('kpiTotalShares').innerText = totalShares.toLocaleString();
     document.getElementById('kpiCompletedStreams').innerHTML = `${totalDone} <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span>`;
+
+    const progressPct = ((totalDone / 249) * 100).toFixed(1);
+    const subEl = document.getElementById('kpiProgressSub');
+    if (subEl) {
+      if (currentLang === 'kr') subEl.innerText = `전체 캠페인의 ${progressPct}% 진행됨`;
+      else if (currentLang === 'en') subEl.innerText = `${progressPct}% Campaign Progress`;
+      else subEl.innerText = `คิดเป็น ${progressPct}% ของแคมเปญ`;
+    }
   }
 
   function renderLiveDataRecords() {
     const tbody = document.getElementById('liveDataTableBody');
     tbody.innerHTML = "";
+
+    if (liveDataRecords.length === 0) {
+      let emptyMsg = "ยังไม่มีข้อมูลการไลฟ์ (กรุณากรอกลิงก์หรือข้อมูลในชีต Live_Data)";
+      if (currentLang === 'kr') emptyMsg = "등록된 라이브 방송 기록이 없습니다 (Live_Data 시트에 입력해주세요)";
+      else if (currentLang === 'en') emptyMsg = "No live stream records yet (Please enter data in Live_Data sheet)";
+      
+      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">${emptyMsg}</td></tr>`;
+      return;
+    }
 
     const vodBtnText = currentLang === 'kr' ? "▶ VOD 보기" : (currentLang === 'en' ? "▶ Watch VOD" : "▶ ดูคลิปย้อนหลัง");
 
@@ -900,8 +910,15 @@
       const linkHtml = item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="vod-link-btn">${vodBtnText}</a>` : '-';
       
       let statusText = item.status;
-      if (currentLang === 'kr' && statusText === 'จบแล้ว') statusText = '완료됨';
-      else if (currentLang === 'en' && statusText === 'จบแล้ว') statusText = 'Completed';
+      let badgeClass = "badge-tag done";
+      if (statusText === 'รอไลฟ์') {
+        badgeClass = "badge-tag wait";
+        if (currentLang === 'kr') statusText = '방송 대기';
+        else if (currentLang === 'en') statusText = 'Pending';
+      } else {
+        if (currentLang === 'kr' && (statusText === 'จบแล้ว' || statusText === 'อัปเดตแล้ว')) statusText = '완료됨';
+        else if (currentLang === 'en' && (statusText === 'จบแล้ว' || statusText === 'อัปเดตแล้ว')) statusText = 'Completed';
+      }
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -914,24 +931,27 @@
         <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
         <td style="text-align:right;">${item.peak.toLocaleString()}</td>
         <td style="text-align:right;">${item.shares.toLocaleString()}</td>
-        <td><span class="badge-tag done">${statusText}</span></td>
+        <td><span class="${badgeClass}">${statusText}</span></td>
       `;
       tbody.appendChild(tr);
     });
   }
 
   function renderCharts() {
-    const top10 = [...kolsSummaryReport].sort((a,b) => b.views - a.views).slice(0, 8);
+    const topKols = [...kolsSummaryReport].filter(k => k.views > 0).sort((a,b) => b.views - a.views).slice(0, 8);
     const ctxBar = document.getElementById('topKolsChart').getContext('2d');
     
+    const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : INITIAL_KOL_NAMES.slice(0, 6);
+    const chartData = topKols.length > 0 ? topKols.map(k => k.views) : [0, 0, 0, 0, 0, 0];
+
     if (topChartInstance) topChartInstance.destroy();
     topChartInstance = new Chart(ctxBar, {
       type: 'bar',
       data: {
-        labels: top10.map(k => k.name),
+        labels: chartLabels,
         datasets: [{
           label: 'Total Views',
-          data: top10.map(k => k.views),
+          data: chartData,
           backgroundColor: '#e6be65',
           borderColor: '#fff2a3',
           borderWidth: 1,
@@ -944,7 +964,7 @@
         plugins: { legend: { display: false } },
         scales: {
           x: { ticks: { color: '#95a5c6', font: { family: 'Kanit' } }, grid: { display: false } },
-          y: { ticks: { color: '#95a5c6', font: { family: 'Kanit' } }, grid: { color: 'rgba(61, 74, 102, 0.4)' } }
+          y: { ticks: { color: '#95a5c6', font: { family: 'Kanit' } }, grid: { color: 'rgba(61, 74, 102, 0.4)' }, beginAtZero: true }
         }
       }
     });
@@ -999,7 +1019,7 @@
       .catch(err => {
         console.error(err);
         dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 실패 (기본 데이터 사용)" : (currentLang === 'en' ? "Sync Failed (Using fallback data)" : "เชื่อมต่อไม่สำเร็จ (แสดงข้อมูลสำรอง)");
+        syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ");
         renderAll();
       });
   }
@@ -1035,14 +1055,21 @@
       const row = rows[r];
       const name = row[1];
       if (!name || name.includes("รวมทั้งหมด")) continue;
+      
+      const cleanNum = (val) => {
+        if (!val) return 0;
+        let s = String(val).replace(/,/g, '').trim();
+        return Number(s) || 0;
+      };
+
       newSummary.push({
         name: name,
         platform: (name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube",
-        done: Number(row[2]) || 0,
-        views: Number(row[3]) || 0,
-        peak: Number(row[4]) || 0,
-        shares: Number(row[5]) || 0,
-        likes: Number(row[6]) || 0
+        done: cleanNum(row[2]),
+        views: cleanNum(row[3]),
+        peak: cleanNum(row[4]),
+        shares: cleanNum(row[5]),
+        likes: cleanNum(row[6])
       });
     }
     if (newSummary.length > 0) kolsSummaryReport = newSummary;
@@ -1054,23 +1081,40 @@
       const row = rows[r];
       const name = row[1];
       const url = row[5];
+      const rawViews = row[6];
+      const rawPeak = row[7];
+      const rawShares = row[8];
+      const status = row[10] || "";
+
       if (!name) continue;
-      if (url || Number(row[6]) > 0) {
+
+      const cleanNum = (val) => {
+        if (!val) return 0;
+        let s = String(val).replace(/,/g, '').trim();
+        return Number(s) || 0;
+      };
+
+      const views = cleanNum(rawViews);
+      const peak = cleanNum(rawPeak);
+      const shares = cleanNum(rawShares);
+
+      // Only display rows that have an actual URL filled OR have stats > 0 OR status is filled
+      if (url || views > 0 || peak > 0 || shares > 0 || (status && status !== 'รอไลฟ์')) {
         newRecords.push({
-          no: row[0] || (r - 1),
+          no: row[0] || newRecords.length + 1,
           name: name,
-          liveNo: row[2] || "Live",
+          liveNo: row[2] || `Live #${newRecords.length + 1}`,
           date: row[3] || "-",
-          platform: row[4] || "YouTube",
+          platform: row[4] || ((name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube"),
           url: url || "",
-          views: Number(row[6]) || 0,
-          peak: Number(row[7]) || 0,
-          shares: Number(row[8]) || 0,
-          status: row[10] || "จบแล้ว"
+          views: views,
+          peak: peak,
+          shares: shares,
+          status: status || "จบแล้ว"
         });
       }
     }
-    if (newRecords.length > 0) liveDataRecords = newRecords;
+    liveDataRecords = newRecords;
   }
 
   function switchMainSection(sectionId, btn) {
