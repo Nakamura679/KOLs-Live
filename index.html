@@ -22,6 +22,8 @@
     --ro-green: #3fb950;
     --ro-purple: #a371f7;
     --ro-red: #f85149;
+    --ro-soop: #00d282;
+    --ro-twitch: #9146ff;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -322,6 +324,8 @@
   }
   .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
   .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
+  .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
+  .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
   .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
   .badge-tag.wait { background: rgba(149, 165, 198, 0.15); border: 1px solid #3d4a66; color: #95a5c6; }
 
@@ -455,7 +459,7 @@
       <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 English</button>
     </div>
     <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ KOLs Live Portal & Report Dashboard 🛡️" data-kr="⚔️ 25인 인플루언서 라이브 포털 및 성과 리포트 🛡️" data-en="⚔️ KOLs Live Portal & Performance Dashboard 🛡️">⚔️ KOLs Live Portal & Report Dashboard 🛡️</h1>
+    <h1 class="main-title" data-th="⚔️ KOLs Live Portal & Report Dashboard 🛡️" data-kr="⚔️ 인플루언서 라이브 포털 및 성과 리포트 🛡️" data-en="⚔️ KOLs Live Portal & Performance Dashboard 🛡️">⚔️ KOLs Live Portal & Report Dashboard 🛡️</h1>
   </div>
 
   <!-- Real-time Sync Bar -->
@@ -496,7 +500,7 @@
     <!-- Sub View 2: August Table -->
     <div id="table-aug-view" class="panel" style="display:none;">
       <div class="panel-header">
-        <div class="panel-title" data-th="📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)" data-kr="📊 8월 25인 인플루언서 라이브 스케줄 (8/18 - 8/31)" data-en="📊 25 KOLs Live Schedule (August 18 - 31, 2026)">📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)</div>
+        <div class="panel-title" data-th="📊 ตารางเวลาไลฟ์สตรีมรายคน (18 - 31 สิงหาคม 2569)" data-kr="📊 8월 인플루언서 라이브 스케줄 (8/18 - 8/31)" data-en="📊 KOLs Live Schedule (August 18 - 31, 2026)">📊 ตารางเวลาไลฟ์สตรีมรายคน (18 - 31 สิงหาคม 2569)</div>
         <input type="text" class="search-box" placeholder="🔍 ค้นหา KOL / Search..." onkeyup="filterTable('augTable', this.value)">
       </div>
       <div class="table-wrapper">
@@ -518,7 +522,7 @@
     <!-- Sub View 3: September Table -->
     <div id="table-sep-view" class="panel" style="display:none;">
       <div class="panel-header">
-        <div class="panel-title" data-th="🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)" data-kr="🍂 9월 25인 인플루언서 라이브 스케줄 (9/1 - 9/8)" data-en="🍂 25 KOLs Live Schedule (September 1 - 8, 2026)">🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)</div>
+        <div class="panel-title" data-th="🍂 ตารางเวลาไลฟ์สตรีมรายคน (1 - 8 กันยายน 2569)" data-kr="🍂 9월 인플루언서 라이브 스케줄 (9/1 - 9/8)" data-en="🍂 KOLs Live Schedule (September 1 - 8, 2026)">🍂 ตารางเวลาไลฟ์สตรีมรายคน (1 - 8 กันยายน 2569)</div>
         <input type="text" class="search-box" placeholder="🔍 ค้นหา KOL / Search..." onkeyup="filterTable('sepTable', this.value)">
       </div>
       <div class="table-wrapper">
@@ -559,7 +563,7 @@
       <div class="kpi-card">
         <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-kr="🎥 완료된 라이브 방송수" data-en="🎥 Completed Streams">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
         <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span></div>
-        <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของแคมเปญ" data-kr="전체 캠페인의 0.0% 진행됨" data-en="0.0% Campaign Progress">คิดเป็น 0.0% ของแคมเปญ</div>
+        <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของแคมเปญ" data-kr="전체 캠เป인의 0.0% 진행됨" data-en="0.0% Campaign Progress">คิดเป็น 0.0% ของแคมเปญ</div>
       </div>
     </div>
 
@@ -641,7 +645,9 @@
   let topChartInstance = null;
   let platformChartInstance = null;
 
+  // Complete KOL URL Mapping (39 KOLs: 25 Main + 14 Additional)
   const KOL_LINKS = {
+    // 25 Main KOLs
     "Jaymeander": "https://www.youtube.com/@JayMeander",
     "KamonWay": "https://www.youtube.com/@KamonWay",
     "Jungko": "https://www.youtube.com/@junqko20",
@@ -666,19 +672,57 @@
     "VCartz": "https://www.youtube.com/@VCartz",
     "OhBIGz": "https://www.youtube.com/@OhBIGz",
     "ZixmaOne": "https://www.youtube.com/@ZixmaOne",
-    "iamaii": "https://www.youtube.com/@iammaii/streams"
+    "iamaii": "https://www.youtube.com/@iammaii/streams",
+
+    // 14 Additional KOLs
+    "MinORu": "https://www.youtube.com/@MinORuOnly",
+    "พี่แว่น": "https://www.sooplive.com/station/pvanpbas",
+    "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
+    "Ezqulusia": "https://www.youtube.com/@GreenEzqelusia",
+    "Gssspotted": "https://www.twitch.tv/gssspotted",
+    "Takluz": "https://www.twitch.tv/takluz/videos?filter=archives&sort=time",
+    "Bounglengame": "https://www.youtube.com/@bigboungstudio",
+    "NAKLAS GAMER": "https://www.youtube.com/@NAKLASGAMER",
+    "SKIZZ TV (Feat. OPZ)": "https://www.youtube.com/@SkizzTV59",
+    "โกโจ อ้วน (พี่ซี๊ด)": "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99",
+    "BreakGate": "https://www.youtube.com/@BreakGate/streams",
+    "RUBSARB (จ๊อบ)": "https://www.youtube.com/@RUBSARBproduction/streams",
+    "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
+    "THISKK": "https://www.twitch.tv/thiskk"
   };
 
+  function getCleanName(name) {
+    return String(name || '').trim();
+  }
+
   function getKolTag(name) {
-    const url = KOL_LINKS[name];
-    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${name} ↗</a>`;
-    return `<span class="kol-pill">${name}</span>`;
+    const clean = getCleanName(name);
+    const url = KOL_LINKS[clean];
+    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${clean} ↗</a>`;
+    return `<span class="kol-pill">${clean}</span>`;
   }
 
   function getKolNameHtml(name) {
-    const url = KOL_LINKS[name];
-    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-link">${name} ↗</a>`;
-    return name;
+    const clean = getCleanName(name);
+    const url = KOL_LINKS[clean];
+    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a>`;
+    return clean;
+  }
+
+  function getPlatformBadge(platform) {
+    const p = String(platform || '').toLowerCase();
+    if (p.includes('twitch')) return '<span class="badge-tag twitch">Twitch</span>';
+    if (p.includes('soop') || p.includes('afreeca')) return '<span class="badge-tag soop">SOOP</span>';
+    if (p.includes('face') || p.includes('fb')) return '<span class="badge-tag fb">Facebook</span>';
+    return '<span class="badge-tag yt">YouTube</span>';
+  }
+
+  function detectPlatformByName(name) {
+    const clean = getCleanName(name);
+    if (["NoctisAK47", "Gssspotted", "Takluz", "THISKK"].includes(clean)) return "Twitch";
+    if (["พี่แว่น"].includes(clean)) return "SOOP";
+    if (["TIMTIMChannel", "YOGURTz"].includes(clean)) return "Facebook";
+    return "YouTube";
   }
 
   const DATE_CONFIG = [
@@ -734,18 +778,11 @@
     { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
   ];
 
-  // Default: Start with 0 (No hardcoded mockup stats)
-  const INITIAL_KOL_NAMES = [
-    "Jaymeander", "KamonWay", "Jungko", "Shipdont", "basz17",
-    "Doraraz", "FOMU Ch.", "Jeon", "NCZ", "SC Forlife",
-    "TIMTIMChannel", "TKGaming", "Viva-Tz", "WhiteBearZBank", "แชงค์888",
-    "bAllz HD", "YOGURTz", "ลุงโย - Yogurting", "MimiwPK", "PoP Chanal",
-    "ValduzCH", "VCartz", "OhBIGz", "ZixmaOne", "iamaii"
-  ];
+  const ALL_KOL_NAMES = Object.keys(KOL_LINKS);
 
-  let kolsSummaryReport = INITIAL_KOL_NAMES.map(name => ({
+  let kolsSummaryReport = ALL_KOL_NAMES.map(name => ({
     name: name,
-    platform: (name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube",
+    platform: detectPlatformByName(name),
     done: 0,
     views: 0,
     peak: 0,
@@ -861,12 +898,11 @@
       totalLikes += item.likes;
       totalDone += item.done;
 
-      const badgePlat = item.platform === 'YouTube' ? 'badge-tag yt' : 'badge-tag fb';
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${idx + 1}</td>
         <td class="kol-name">${getKolNameHtml(item.name)}</td>
-        <td><span class="${badgePlat}">${item.platform}</span></td>
+        <td>${getPlatformBadge(item.platform)}</td>
         <td><strong>${item.done}</strong> / 10</td>
         <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
         <td style="text-align:right;">${item.peak.toLocaleString()}</td>
@@ -884,7 +920,7 @@
     const progressPct = ((totalDone / 249) * 100).toFixed(1);
     const subEl = document.getElementById('kpiProgressSub');
     if (subEl) {
-      if (currentLang === 'kr') subEl.innerText = `전체 캠페인의 ${progressPct}% 진행됨`;
+      if (currentLang === 'kr') subEl.innerText = `전체 캠เป인의 ${progressPct}% 진행됨`;
       else if (currentLang === 'en') subEl.innerText = `${progressPct}% Campaign Progress`;
       else subEl.innerText = `คิดเป็น ${progressPct}% ของแคมเปญ`;
     }
@@ -906,7 +942,6 @@
     const vodBtnText = currentLang === 'kr' ? "▶ VOD 보기" : (currentLang === 'en' ? "▶ Watch VOD" : "▶ ดูคลิปย้อนหลัง");
 
     liveDataRecords.forEach(item => {
-      const badgePlat = item.platform === 'YouTube' ? 'badge-tag yt' : 'badge-tag fb';
       const linkHtml = item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="vod-link-btn">${vodBtnText}</a>` : '-';
       
       let statusText = item.status;
@@ -926,7 +961,7 @@
         <td class="kol-name">${getKolNameHtml(item.name)}</td>
         <td><span class="badge-tag done">${item.liveNo}</span></td>
         <td>${item.date}</td>
-        <td><span class="${badgePlat}">${item.platform}</span></td>
+        <td>${getPlatformBadge(item.platform)}</td>
         <td>${linkHtml}</td>
         <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
         <td style="text-align:right;">${item.peak.toLocaleString()}</td>
@@ -941,7 +976,7 @@
     const topKols = [...kolsSummaryReport].filter(k => k.views > 0).sort((a,b) => b.views - a.views).slice(0, 8);
     const ctxBar = document.getElementById('topKolsChart').getContext('2d');
     
-    const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : INITIAL_KOL_NAMES.slice(0, 6);
+    const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : ALL_KOL_NAMES.slice(0, 6);
     const chartData = topKols.length > 0 ? topKols.map(k => k.views) : [0, 0, 0, 0, 0, 0];
 
     if (topChartInstance) topChartInstance.destroy();
@@ -972,19 +1007,27 @@
     const ctxPie = document.getElementById('platformChart').getContext('2d');
     if (platformChartInstance) platformChartInstance.destroy();
     
-    const ytCount = kolsSummaryReport.filter(k => k.platform === 'YouTube').length;
-    const fbCount = kolsSummaryReport.filter(k => k.platform === 'Facebook').length;
-
-    const ytLabel = currentLang === 'kr' ? '유튜브 (23 채널)' : (currentLang === 'en' ? 'YouTube (23 Channels)' : 'YouTube (23 ช่อง)');
-    const fbLabel = currentLang === 'kr' ? '페이스북 (2 채널)' : (currentLang === 'en' ? 'Facebook (2 Channels)' : 'Facebook (2 ช่อง)');
+    let ytCount = 0, fbCount = 0, twitchCount = 0, soopCount = 0;
+    kolsSummaryReport.forEach(k => {
+      const p = String(k.platform || '').toLowerCase();
+      if (p.includes('twitch')) twitchCount++;
+      else if (p.includes('soop') || p.includes('afreeca')) soopCount++;
+      else if (p.includes('face') || p.includes('fb')) fbCount++;
+      else ytCount++;
+    });
 
     platformChartInstance = new Chart(ctxPie, {
       type: 'doughnut',
       data: {
-        labels: [ytLabel, fbLabel],
+        labels: [
+          `YouTube (${ytCount})`,
+          `Twitch (${twitchCount})`,
+          `Facebook (${fbCount})`,
+          `SOOP (${soopCount})`
+        ],
         datasets: [{
-          data: [ytCount, fbCount],
-          backgroundColor: ['#f85149', '#388bfd'],
+          data: [ytCount, twitchCount, fbCount, soopCount],
+          backgroundColor: ['#f85149', '#9146ff', '#388bfd', '#00d282'],
           borderColor: '#1b202e',
           borderWidth: 2
         }]
@@ -1028,7 +1071,7 @@
     const newKols = [];
     for (let r = 4; r < rows.length; r++) {
       const row = rows[r];
-      let name = row[1];
+      let name = getCleanName(row[1]);
       if (!name || name === "Branding") continue;
       if (r === 13) name = "SC Forlife";
       if (r === 25) name = "VCartz";
@@ -1053,7 +1096,7 @@
     const newSummary = [];
     for (let r = 6; r < rows.length; r++) {
       const row = rows[r];
-      const name = row[1];
+      const name = getCleanName(row[1]);
       if (!name || name.includes("รวมทั้งหมด")) continue;
       
       const cleanNum = (val) => {
@@ -1064,7 +1107,7 @@
 
       newSummary.push({
         name: name,
-        platform: (name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube",
+        platform: detectPlatformByName(name),
         done: cleanNum(row[2]),
         views: cleanNum(row[3]),
         peak: cleanNum(row[4]),
@@ -1079,7 +1122,7 @@
     const newRecords = [];
     for (let r = 2; r < rows.length; r++) {
       const row = rows[r];
-      const name = row[1];
+      const name = getCleanName(row[1]);
       const url = row[5];
       const rawViews = row[6];
       const rawPeak = row[7];
@@ -1098,14 +1141,13 @@
       const peak = cleanNum(rawPeak);
       const shares = cleanNum(rawShares);
 
-      // Only display rows that have an actual URL filled OR have stats > 0 OR status is filled
       if (url || views > 0 || peak > 0 || shares > 0 || (status && status !== 'รอไลฟ์')) {
         newRecords.push({
           no: row[0] || newRecords.length + 1,
           name: name,
           liveNo: row[2] || `Live #${newRecords.length + 1}`,
           date: row[3] || "-",
-          platform: row[4] || ((name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube"),
+          platform: row[4] || detectPlatformByName(name),
           url: url || "",
           views: views,
           peak: peak,
