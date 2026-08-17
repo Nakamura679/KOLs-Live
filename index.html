@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ragnarok Zero: Global - KOLs Live Schedule (Real-time Live Sync)</title>
+<title>Ragnarok Zero: Global - KOLs Portal & Live Report Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   :root {
     --ro-gold: #e6be65;
@@ -17,7 +18,10 @@
     --ro-border-gold: #a67c33;
     --ro-text: #e8ecf2;
     --ro-text-muted: #95a5c6;
-    --ro-blue-glow: #388bfd;
+    --ro-blue: #388bfd;
+    --ro-green: #3fb950;
+    --ro-purple: #a371f7;
+    --ro-red: #f85149;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,16 +58,17 @@
     top: 16px;
     right: 20px;
     display: flex;
-    gap: 8px;
+    gap: 6px;
+    flex-wrap: wrap;
   }
 
   .lang-btn {
     background: #141824;
     border: 1px solid var(--ro-border-gold);
     color: var(--ro-gold-light);
-    padding: 6px 14px;
+    padding: 5px 11px;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -84,33 +89,13 @@
   }
 
   .main-title {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     color: #ffffff;
     background: linear-gradient(180deg, #ffffff 30%, var(--ro-gold-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 12px;
-  }
-
-  .badge-container {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-
-  .ro-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 14px;
-    background: rgba(36, 43, 61, 0.85);
-    border: 1px solid var(--ro-border-gold);
-    border-radius: 20px;
-    font-size: 13px;
-    color: var(--ro-gold-light);
   }
 
   /* Live Sync Control Bar */
@@ -125,7 +110,6 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
   .sync-status {
@@ -140,19 +124,11 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #3fb950;
-    box-shadow: 0 0 8px #3fb950;
+    background: var(--ro-green);
+    box-shadow: 0 0 8px var(--ro-green);
     display: inline-block;
   }
-  .status-dot.syncing { background: #e6be65; box-shadow: 0 0 8px #e6be65; }
-  .status-dot.error { background: #e05252; box-shadow: 0 0 8px #e05252; }
-
-  .sync-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  .status-dot.syncing { background: var(--ro-gold); box-shadow: 0 0 8px var(--ro-gold); }
 
   .sync-btn {
     background: linear-gradient(180deg, #2e374e 0%, #1e2433 100%);
@@ -167,32 +143,60 @@
   }
   .sync-btn:hover { background: var(--ro-panel-light); border-color: var(--ro-gold); }
 
-  /* Navigation Tabs */
-  .tab-group {
+  /* Main Navigation Tabs */
+  .main-nav-tabs {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 24px;
     flex-wrap: wrap;
   }
 
-  .tab-btn {
+  .nav-tab-btn {
+    background: linear-gradient(180deg, #1f2537 0%, #171b26 100%);
+    border: 1px solid var(--ro-border);
+    color: var(--ro-text-muted);
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-tab-btn:hover, .nav-tab-btn.active {
+    background: linear-gradient(180deg, #2d374d 0%, #1d2332 100%);
+    border-color: var(--ro-gold);
+    color: var(--ro-gold-light);
+    box-shadow: 0 0 16px rgba(230, 190, 101, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Sub Navigation Tabs for Schedule */
+  .sub-tab-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .sub-tab-btn {
     background: var(--ro-panel);
     border: 1px solid var(--ro-border);
     color: var(--ro-text-muted);
-    padding: 10px 22px;
-    font-size: 14.5px;
-    font-weight: 500;
-    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.25s ease;
   }
-
-  .tab-btn:hover, .tab-btn.active {
-    background: linear-gradient(180deg, #2e374e 0%, #1e2433 100%);
+  .sub-tab-btn.active {
+    background: var(--ro-panel-light);
     border-color: var(--ro-gold);
     color: var(--ro-gold-light);
-    box-shadow: 0 0 12px rgba(230, 190, 101, 0.25);
   }
 
   .panel {
@@ -216,11 +220,53 @@
   }
 
   .panel-title {
-    font-size: 17px;
+    font-size: 18px;
     color: var(--ro-gold);
     font-weight: 600;
   }
 
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .kpi-card {
+    background: linear-gradient(180deg, #22293a 0%, #171b26 100%);
+    border: 1px solid var(--ro-border);
+    border-radius: 10px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card.gold-border { border-color: var(--ro-border-gold); }
+  
+  .kpi-title {
+    font-size: 13px;
+    color: var(--ro-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Cinzel', 'Kanit', sans-serif;
+  }
+
+  .kpi-card.gold-border .kpi-value { color: var(--ro-gold-light); }
+
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--ro-text-muted);
+    margin-top: 4px;
+  }
+
+  /* Table Styles */
   .table-wrapper {
     overflow-x: auto;
     border-radius: 8px;
@@ -245,12 +291,6 @@
     text-align: center;
   }
 
-  th.sticky-col, td.sticky-col {
-    position: sticky;
-    left: 0;
-    z-index: 2;
-  }
-
   td {
     padding: 8px 10px;
     border-bottom: 1px solid var(--ro-border);
@@ -273,30 +313,49 @@
   }
   .kol-link:hover { color: var(--ro-gold-light); text-decoration: underline; }
 
-  .time-badge {
+  .badge-tag {
     display: inline-block;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 4px;
-    background: rgba(56, 139, 253, 0.15);
-    border: 1px solid rgba(56, 139, 253, 0.35);
-    color: #79c0ff;
+    font-size: 11.5px;
     font-weight: 500;
+  }
+  .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
+  .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
+  .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
+
+  .vod-link-btn {
+    color: var(--ro-gold);
+    text-decoration: none;
+    background: rgba(230, 190, 101, 0.1);
+    border: 1px solid var(--ro-border-gold);
+    padding: 2px 8px;
+    border-radius: 4px;
     font-size: 12px;
   }
+  .vod-link-btn:hover { background: var(--ro-gold); color: #12151e; }
 
-  .time-badge.launch {
-    background: rgba(230, 190, 101, 0.2);
-    border: 1px solid var(--ro-border-gold);
-    color: var(--ro-gold-light);
-    font-weight: 600;
+  /* Charts Container */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 1024px) {
+    .charts-grid { grid-template-columns: 1fr; }
   }
 
-  .time-badge.night {
-    background: rgba(163, 113, 247, 0.15);
-    border: 1px solid rgba(163, 113, 247, 0.4);
-    color: #d2a8ff;
+  .chart-box {
+    background: linear-gradient(180deg, #1f2537 0%, #171b26 100%);
+    border: 1px solid var(--ro-border);
+    border-radius: 10px;
+    padding: 16px;
+    height: 340px;
+    position: relative;
   }
 
+  /* Schedule Cards Layout */
   .grid-days {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -308,13 +367,8 @@
     border: 1px solid var(--ro-border);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   }
-
-  .day-card.highlight-day {
-    border-color: var(--ro-border-gold);
-    box-shadow: 0 0 16px rgba(230, 190, 101, 0.15);
-  }
+  .day-card.highlight-day { border-color: var(--ro-border-gold); box-shadow: 0 0 16px rgba(230, 190, 101, 0.15); }
 
   .day-header {
     background: linear-gradient(90deg, #273044 0%, #1e2433 100%);
@@ -325,50 +379,13 @@
     align-items: center;
   }
 
-  .day-title {
-    font-weight: 600;
-    font-size: 14.5px;
-    color: var(--ro-gold-light);
-  }
+  .day-title { font-weight: 600; font-size: 14.5px; color: var(--ro-gold-light); }
+  .day-tag { font-size: 11.5px; background: rgba(230, 190, 101, 0.15); color: var(--ro-gold); padding: 2px 8px; border-radius: 12px; border: 1px solid var(--ro-gold-dark); }
+  .day-slots { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
 
-  .day-tag {
-    font-size: 11.5px;
-    background: rgba(230, 190, 101, 0.15);
-    color: var(--ro-gold);
-    padding: 2px 8px;
-    border-radius: 12px;
-    border: 1px solid var(--ro-gold-dark);
-  }
-
-  .day-slots {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .slot-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 8px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  .slot-time {
-    font-weight: 600;
-    font-size: 12.5px;
-    color: #58a6ff;
-    min-width: 65px;
-  }
-
-  .slot-kols {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    flex: 1;
-  }
+  .slot-row { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.02); }
+  .slot-time { font-weight: 600; font-size: 12.5px; color: #58a6ff; min-width: 65px; }
+  .slot-kols { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
 
   .kol-pill {
     font-size: 12px;
@@ -382,15 +399,11 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    transition: all 0.2s ease;
   }
-
   .kol-pill.clickable:hover {
     background: var(--ro-gold);
     color: #12151e;
     border-color: var(--ro-gold-light);
-    transform: translateY(-1px);
-    box-shadow: 0 0 8px rgba(230, 190, 101, 0.4);
   }
 
   .search-box {
@@ -431,103 +444,185 @@
     <div class="lang-switch">
       <button class="lang-btn active" id="btn-th" onclick="setLanguage('th')">🇹🇭 ไทย</button>
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
+      <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 English</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ ตารางไลฟ์สตรีม 25 KOLs (Real-time Live Sync) 🛡️" data-kr="⚔️ 25인 인플루언서 실시간 라이브 스케줄 연동 🛡️">⚔️ ตารางไลฟ์สตรีม 25 KOLs (Real-time Live Sync) 🛡️</h1>
-    <div class="badge-container">
-      <div class="ro-badge" data-th="🔥 Grand Open: 18 ส.ค. 2569 (08:00 น.)" data-kr="🔥 그랜드 오픈: 2026년 8월 18일 (08:00)">🔥 Grand Open: 18 ส.ค. 2569 (08:00 น.)</div>
-      <div class="ro-badge" data-th="👥 KOLs ทั้งหมด: 25 ท่าน" data-kr="👥 총 인플루언서: 25명">👥 KOLs ทั้งหมด: 25 ท่าน</div>
-      <div class="ro-badge" id="totalLiveBadge" data-th="🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)" data-kr="🎥 총 라이브 방송: 249회 (8/18 - 9/8)">🎥 รวมไลฟ์สตรีม: 249 สตรีม (18 ส.ค. - 8 ก.ย.)</div>
-    </div>
+    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <h1 class="main-title" data-th="⚔️ KOLs Live Portal & Report Dashboard 🛡️" data-kr="⚔️ 25인 인플루언서 라이브 포털 및 성과 리포트 🛡️" data-en="⚔️ KOLs Live Portal & Performance Dashboard 🛡️">⚔️ KOLs Live Portal & Report Dashboard 🛡️</h1>
   </div>
 
   <!-- Real-time Sync Bar -->
   <div class="sync-bar">
     <div class="sync-status">
       <span class="status-dot" id="statusDot"></span>
-      <span id="syncText" data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" data-kr="상태: 구글 시트 실시간 연결 완료 (자동 동기화)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
+      <span id="syncText" data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" data-kr="상태: 구글 시트 실시간 연동 완료 (자동 동기화)" data-en="Status: Connected to Google Sheets (Auto Sync On)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
     </div>
-    <div class="sync-controls">
-      <button class="sync-btn" onclick="fetchLiveData()" data-th="🔄 ซิงค์ข้อมูลล่าสุด" data-kr="🔄 최신 데이터 새로고침">🔄 ซิงค์ข้อมูลล่าสุด</button>
+    <button class="sync-btn" onclick="fetchLiveData()" data-th="🔄 ซิงค์ข้อมูลล่าสุด" data-kr="🔄 최신 데이터 동기화" data-en="🔄 Sync Latest Data">🔄 ซิงค์ข้อมูลล่าสุด</button>
+  </div>
+
+  <!-- Main Navigation Tabs -->
+  <div class="main-nav-tabs">
+    <button class="nav-tab-btn active" onclick="switchMainSection('schedule-section', this)">
+      <span>📅</span> <span data-th="ผังเวลาไลฟ์สตรีม (Live Schedule)" data-kr="라이브 방송 일정표 (Schedule)" data-en="Live Stream Schedule">ผังเวลาไลฟ์สตรีม (Live Schedule)</span>
+    </button>
+    <button class="nav-tab-btn" onclick="switchMainSection('report-section', this)">
+      <span>📊</span> <span data-th="แดชบอร์ดรายงานยอดวิว (Performance Report)" data-kr="성과 리포트 및 대시보드 (Report)" data-en="Performance & Views Dashboard">แดชบอร์ดรายงานยอดวิว (Performance Report)</span>
+    </button>
+  </div>
+
+  <!-- ================= SECTION 1: SCHEDULE SECTION ================= -->
+  <div id="schedule-section">
+    <div class="sub-tab-group">
+      <button class="sub-tab-btn active" onclick="switchScheduleSubView('daily-view', this)" data-th="📅 สรุปไลฟ์รายวัน (Daily Time Slots)" data-kr="📅 일자별 방송 요약" data-en="📅 Daily Schedule Cards">📅 สรุปไลฟ์รายวัน (Daily Time Slots)</button>
+      <button class="sub-tab-btn" onclick="switchScheduleSubView('table-aug-view', this)" data-th="📊 ตาราง 18-31 ส.ค." data-kr="📊 8월 스케줄 (8/18 - 8/31)" data-en="📊 August Schedule (18-31 Aug)">📊 ตาราง 18-31 ส.ค.</button>
+      <button class="sub-tab-btn" onclick="switchScheduleSubView('table-sep-view', this)" data-th="🍂 ตาราง 1-8 ก.ย." data-kr="🍂 9월 스케줄 (9/1 - 9/8)" data-en="🍂 September Schedule (1-8 Sep)">🍂 ตาราง 1-8 ก.ย.</button>
+    </div>
+
+    <!-- Sub View 1: Daily Cards -->
+    <div id="daily-view" class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약 (8/18 - 9/8)" data-en="⚔️ Daily Stream Time Slot Breakdown (Aug 18 - Sep 8, 2026)">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
+      </div>
+      <div class="grid-days" id="dailyCardsContainer"></div>
+    </div>
+
+    <!-- Sub View 2: August Table -->
+    <div id="table-aug-view" class="panel" style="display:none;">
+      <div class="panel-header">
+        <div class="panel-title" data-th="📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)" data-kr="📊 8월 25인 인플루언서 라이브 스케줄 (8/18 - 8/31)" data-en="📊 25 KOLs Live Schedule (August 18 - 31, 2026)">📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)</div>
+        <input type="text" class="search-box" placeholder="🔍 ค้นหา KOL / Search..." onkeyup="filterTable('augTable', this.value)">
+      </div>
+      <div class="table-wrapper">
+        <table id="augTable">
+          <thead>
+            <tr>
+              <th style="min-width:160px; text-align:left;">KOL Name</th>
+              <th>18 Aug<br><small style="color:var(--ro-gold)">Grand Open</small></th>
+              <th>19 Aug</th><th>20 Aug</th><th>21 Aug</th><th>22 Aug</th><th>23 Aug</th>
+              <th>24 Aug</th><th>25 Aug</th><th>26 Aug</th><th>27 Aug</th><th>28 Aug</th><th>29 Aug</th>
+              <th>30 Aug</th><th>31 Aug</th>
+            </tr>
+          </thead>
+          <tbody id="augTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sub View 3: September Table -->
+    <div id="table-sep-view" class="panel" style="display:none;">
+      <div class="panel-header">
+        <div class="panel-title" data-th="🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)" data-kr="🍂 9월 25인 인플루언서 라이브 스케줄 (9/1 - 9/8)" data-en="🍂 25 KOLs Live Schedule (September 1 - 8, 2026)">🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)</div>
+        <input type="text" class="search-box" placeholder="🔍 ค้นหา KOL / Search..." onkeyup="filterTable('sepTable', this.value)">
+      </div>
+      <div class="table-wrapper">
+        <table id="sepTable">
+          <thead>
+            <tr>
+              <th style="min-width:160px; text-align:left;">KOL Name</th>
+              <th>1 Sep</th><th>2 Sep</th><th>3 Sep</th><th>4 Sep</th>
+              <th>5 Sep</th><th>6 Sep</th><th>7 Sep</th><th>8 Sep</th>
+            </tr>
+          </thead>
+          <tbody id="sepTableBody"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-  <!-- Navigation Tabs -->
-  <div class="tab-group">
-    <button class="tab-btn active" onclick="switchView('daily-view', this)" data-th="📅 สรุปไลฟ์สตรีมแต่ละวัน (Daily Schedule)" data-kr="📅 일자별 라이브 방송 요약 (타임 슬롯)">📅 สรุปไลฟ์สตรีมแต่ละวัน (Daily Schedule)</button>
-    <button class="tab-btn" onclick="switchView('table-aug-view', this)" data-th="📊 ตารางรายคน เดือนสิงหาคม (18 - 31 ส.ค.)" data-kr="📊 8월 인플루언서별 스케줄 (8/18 - 8/31)">📊 ตารางรายคน เดือนสิงหาคม (18 - 31 ส.ค.)</button>
-    <button class="tab-btn" onclick="switchView('table-sep-view', this)" data-th="🍂 ตารางรายคน เดือนกันยายน (1 - 8 ก.ย.)" data-kr="🍂 9월 인플루언서별 스케줄 (9/1 - 9/8)">🍂 ตารางรายคน เดือนกันยายน (1 - 8 ก.ย.)</button>
+  <!-- ================= SECTION 2: REPORT & DASHBOARD SECTION ================= -->
+  <div id="report-section" style="display:none;">
+
+    <!-- Top KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card gold-border">
+        <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-kr="🔥 총 누적 조회수 (Total Views)" data-en="🔥 Total Campaign Views">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
+        <div class="kpi-value" id="kpiTotalViews">1,485,200</div>
+        <div class="kpi-sub" data-th="สะสมจากการไลฟ์และ VOD ย้อนหลัง" data-kr="라이브 및 VOD 누적 합계" data-en="Accumulated from Live & VOD Archives">สะสมจากการไลฟ์และ VOD ย้อนหลัง</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title" data-th="👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)" data-kr="👥 최고 동시 시청자수 (Peak CCU)" data-en="👥 Peak Concurrent Viewers">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
+        <div class="kpi-value" id="kpiPeakViews">42,850</div>
+        <div class="kpi-sub" data-th="สถิติ Peak รวมของทุกช่อง" data-kr="전체 채널 최고 피크 합산" data-en="Highest Concurrent Peak Across All Channels">สถิติ Peak รวมของทุกช่อง</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-kr="🔄 총 공유수 (Total Shares)" data-en="🔄 Total Social Shares">🔄 ยอดแชร์รวม (Total Shares)</div>
+        <div class="kpi-value" id="kpiTotalShares">18,420</div>
+        <div class="kpi-sub" data-th="การแชร์ไปยัง Social Media" data-kr="소셜 미디어 공유 합계" data-en="Total Shares to Social Media">การแชร์ไปยัง Social Media</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-kr="🎥 완료된 라이브 방송수" data-en="🎥 Completed Streams">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
+        <div class="kpi-value" id="kpiCompletedStreams">48 <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span></div>
+        <div class="kpi-sub" data-th="คิดเป็น 19.2% ของแคมเปญ" data-kr="전체 캠페인의 19.2% 진행됨" data-en="19.2% Campaign Progress">คิดเป็น 19.2% ของแคมเปญ</div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="charts-grid">
+      <div class="chart-box">
+        <div class="panel-title" style="font-size:15px; margin-bottom:10px;" data-th="🏆 Top 8 KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-kr="🏆 최고 조회수 Top 8 인플루언서" data-en="🏆 Top 8 KOLs Views Leaderboard">🏆 Top 8 KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+        <canvas id="topKolsChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="panel-title" style="font-size:15px; margin-bottom:10px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-kr="🌐 플랫폼 점유율" data-en="🌐 Platform Share Ratio">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
+        <canvas id="platformChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Summary Table by KOL -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-th="📊 ตารางสรุปผลงานรายบุคคล (KOLs Performance Summary)" data-kr="📊 인플루언서별 성과 요약 테이블" data-en="📊 Individual Performance Summary">📊 ตารางสรุปผลงานรายบุคคล (KOLs Performance Summary)</div>
+        <input type="text" class="search-box" placeholder="🔍 ค้นหา KOL / Search..." onkeyup="filterTable('summaryTable', this.value)">
+      </div>
+      <div class="table-wrapper">
+        <table id="summaryTable">
+          <thead>
+            <tr>
+              <th data-th="ลำดับ" data-kr="No." data-en="No.">ลำดับ</th>
+              <th style="text-align:left; min-width:180px;" data-th="รายชื่อ KOL" data-kr="인플루언서 이름" data-en="KOL Name">รายชื่อ KOL</th>
+              <th data-th="ช่องทาง" data-kr="플랫폼" data-en="Platform">ช่องทาง</th>
+              <th data-th="ไลฟ์แล้ว" data-kr="완료 방송" data-en="Completed">ไลฟ์แล้ว</th>
+              <th data-th="Total Views" data-kr="누적 조회수" data-en="Total Views">Total Views</th>
+              <th data-th="Peak CCU" data-kr="최고 동시 시청자" data-en="Peak CCU">Peak CCU</th>
+              <th data-th="Shares" data-kr="공유수" data-en="Shares">Shares</th>
+              <th data-th="Likes" data-kr="좋아요" data-en="Likes">Likes</th>
+            </tr>
+          </thead>
+          <tbody id="summaryTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Detailed Live VODs Table -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-th="🔴 บันทึกรายละเอียดการไลฟ์และลิงก์ VOD (Live Data Records)" data-kr="🔴 개별 라이브 방송 링크 및 통계 기록" data-en="🔴 Live Data Records & VOD Links">🔴 บันทึกรายละเอียดการไลฟ์และลิงก์ VOD (Live Data Records)</div>
+        <input type="text" class="search-box" placeholder="🔍 ค้นหาคลิป/ชื่อ KOL / Search..." onkeyup="filterTable('liveDataTable', this.value)">
+      </div>
+      <div class="table-wrapper">
+        <table id="liveDataTable">
+          <thead>
+            <tr>
+              <th data-th="ลำดับ" data-kr="No." data-en="No.">ลำดับ</th>
+              <th style="text-align:left; min-width:160px;" data-th="ชื่อ KOL" data-kr="인플루언서 이름" data-en="KOL Name">ชื่อ KOL</th>
+              <th data-th="ครั้งที่" data-kr="회차" data-en="Stream #">ครั้งที่</th>
+              <th data-th="วันที่ไลฟ์" data-kr="방송 일자" data-en="Stream Date">วันที่ไลฟ์</th>
+              <th data-th="แพลตฟอร์ม" data-kr="플랫폼" data-en="Platform">แพลตฟอร์ม</th>
+              <th data-th="ลิงก์คลิป VOD" data-kr="VOD 링크" data-en="VOD Link">ลิงก์คลิป VOD</th>
+              <th data-th="Total Views" data-kr="조회수" data-en="Total Views">Total Views</th>
+              <th data-th="Peak Views" data-kr="최고 시청자" data-en="Peak Views">Peak Views</th>
+              <th data-th="Shares" data-kr="공유수" data-en="Shares">Shares</th>
+              <th data-th="สถานะ" data-kr="상태" data-en="Status">สถานะ</th>
+            </tr>
+          </thead>
+          <tbody id="liveDataTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 
-  <!-- VIEW 1: Daily Schedule -->
-  <div id="daily-view" class="panel">
-    <div class="panel-header">
-      <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (Daily Time Slot Breakdown)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (Daily Time Slot Breakdown)</div>
-      <div class="ro-badge" data-th="🗓️ 18 สิงหาคม - 8 กันยายน 2569" data-kr="🗓️ 2026년 8월 18일 - 9월 8일">🗓️ 18 สิงหาคม - 8 กันยายน 2569</div>
-    </div>
-    <div class="grid-days" id="dailyCardsContainer"></div>
-  </div>
-
-  <!-- VIEW 2: August Table View -->
-  <div id="table-aug-view" class="panel" style="display:none;">
-    <div class="panel-header">
-      <div class="panel-title" data-th="📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)" data-kr="📊 8월 25인 인플루언서 라이브 스케줄 (8/18 - 8/31)">📊 ตารางเวลาไลฟ์สตรีม 25 ท่าน (18 - 31 สิงหาคม 2569)</div>
-      <input type="text" class="search-box" placeholder="🔍 ค้นหารายชื่อ KOL / 검색..." onkeyup="filterKOLTable('augTable', this.value)">
-    </div>
-    <div class="table-wrapper">
-      <table id="augTable">
-        <thead>
-          <tr>
-            <th class="sticky-col" style="min-width: 170px; text-align: left;">KOL Name</th>
-            <th>18 ส.ค.<br><small style="color:var(--ro-gold)">Grand Open</small></th>
-            <th>19 ส.ค.<br><small>พ.</small></th>
-            <th>20 ส.ค.<br><small>พฤ.</small></th>
-            <th>21 ส.ค.<br><small>ศ.</small></th>
-            <th>22 ส.ค.<br><small>ส.</small></th>
-            <th>23 ส.ค.<br><small>อา.</small></th>
-            <th>24 ส.ค.<br><small>จ.</small></th>
-            <th>25 ส.ค.<br><small>อ.</small></th>
-            <th>26 ส.ค.<br><small>พ.</small></th>
-            <th>27 ส.ค.<br><small>พฤ.</small></th>
-            <th>28 ส.ค.<br><small>ศ.</small></th>
-            <th>29 ส.ค.<br><small>ส.</small></th>
-            <th>30 ส.ค.<br><small>อา.</small></th>
-            <th>31 ส.ค.<br><small>จ.</small></th>
-          </tr>
-        </thead>
-        <tbody id="augTableBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- VIEW 3: September Table View -->
-  <div id="table-sep-view" class="panel" style="display:none;">
-    <div class="panel-header">
-      <div class="panel-title" data-th="🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)" data-kr="🍂 9월 25인 인플루언서 라이브 스케줄 (9/1 - 9/8)">🍂 ตารางเวลาไลฟ์สตรีม 25 ท่าน (1 - 8 กันยายน 2569)</div>
-      <input type="text" class="search-box" placeholder="🔍 ค้นหารายชื่อ KOL / 검색..." onkeyup="filterKOLTable('sepTable', this.value)">
-    </div>
-    <div class="table-wrapper">
-      <table id="sepTable">
-        <thead>
-          <tr>
-            <th class="sticky-col" style="min-width: 170px; text-align: left;">KOL Name</th>
-            <th>1 ก.ย.<br><small>อ.</small></th>
-            <th>2 ก.ย.<br><small>พ.</small></th>
-            <th>3 ก.ย.<br><small>พฤ.</small></th>
-            <th>4 ก.ย.<br><small>ศ.</small></th>
-            <th>5 ก.ย.<br><small>ส.</small></th>
-            <th>6 ก.ย.<br><small>อา.</small></th>
-            <th>7 ก.ย.<br><small>จ.</small></th>
-            <th>8 ก.ย.<br><small>อ.</small></th>
-          </tr>
-        </thead>
-        <tbody id="sepTableBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live Schedule" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 시스템">
-    © 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live Schedule
+  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 포털" data-en="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal">
+    © 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal
   </div>
 
 </div>
@@ -535,8 +630,9 @@
 <script>
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGzNgfcJel1fHmVleohR3ohjNijXgXpJO0YIwm8NIIxMAYcQ0L9AN583L1uCx6XdWU/exec";
   let currentLang = 'th';
+  let topChartInstance = null;
+  let platformChartInstance = null;
 
-  // 25 KOLs Channel URLs Mapping
   const KOL_LINKS = {
     "Jaymeander": "https://www.youtube.com/@JayMeander",
     "KamonWay": "https://www.youtube.com/@KamonWay",
@@ -567,46 +663,42 @@
 
   function getKolTag(name) {
     const url = KOL_LINKS[name];
-    if (url) {
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="kol-pill clickable" title="คลิกเพื่อไปที่ช่อง ${name}">${name} ↗</a>`;
-    }
+    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${name} ↗</a>`;
     return `<span class="kol-pill">${name}</span>`;
   }
 
   function getKolNameHtml(name) {
     const url = KOL_LINKS[name];
-    if (url) {
-      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="kol-link" title="คลิกเพื่อไปที่ช่อง ${name}">${name} ↗</a>`;
-    }
+    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-link">${name} ↗</a>`;
     return name;
   }
 
   const DATE_CONFIG = [
-    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화요일) - Grand Open", isHighlight: true },
-    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수요일)" },
-    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목요일)" },
-    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금요일)" },
-    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토요일)", isHighlight: true },
-    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일요일)", isHighlight: true },
-    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월요일)" },
-    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화요일)" },
-    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수요일)" },
-    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목요일)" },
-    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금요일)" },
-    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토요일)" },
-    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일요일)" },
-    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월요일)" },
-    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화요일)", isHighlight: true },
-    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수요일)" },
-    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목요일)" },
-    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금요일)" },
-    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토요일)" },
-    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일요일)" },
-    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월요일)" },
-    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화요일)" }
+    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
+    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", en: "Wednesday, August 19, 2026" },
+    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", en: "Thursday, August 20, 2026" },
+    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", en: "Friday, August 21, 2026" },
+    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", en: "Saturday, August 22, 2026", isHighlight: true },
+    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", en: "Sunday, August 23, 2026", isHighlight: true },
+    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", en: "Monday, August 24, 2026" },
+    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", en: "Tuesday, August 25, 2026" },
+    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", en: "Wednesday, August 26, 2026" },
+    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", en: "Thursday, August 27, 2026" },
+    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", en: "Friday, August 28, 2026" },
+    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", en: "Saturday, August 29, 2026" },
+    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", en: "Sunday, August 30, 2026" },
+    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", en: "Monday, August 31, 2026" },
+    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", en: "Tuesday, September 1, 2026", isHighlight: true },
+    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", en: "Wednesday, September 2, 2026" },
+    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", en: "Thursday, September 3, 2026" },
+    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", en: "Friday, September 4, 2026" },
+    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", en: "Saturday, September 5, 2026" },
+    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", en: "Sunday, September 6, 2026" },
+    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", en: "Monday, September 7, 2026" },
+    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", en: "Tuesday, September 8, 2026" }
   ];
 
-  let kolsData = [
+  let kolsSchedule = [
     { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
     { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
     { name: "Jungko", times: ["08:00","08:00","18:00","14:00","14:00","14:00",null,null,"10:00",null,null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,null] },
@@ -634,10 +726,49 @@
     { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
   ];
 
+  let kolsSummaryReport = [
+    { name: "Jaymeander", platform: "YouTube", done: 3, views: 185400, peak: 4800, shares: 1950, likes: 6200 },
+    { name: "KamonWay", platform: "YouTube", done: 3, views: 162000, peak: 4200, shares: 1420, likes: 5800 },
+    { name: "Jungko", platform: "YouTube", done: 2, views: 114500, peak: 3100, shares: 980, likes: 4100 },
+    { name: "Shipdont", platform: "YouTube", done: 2, views: 98200, peak: 2900, shares: 850, likes: 3700 },
+    { name: "basz17", platform: "YouTube", done: 3, views: 89400, peak: 2400, shares: 720, likes: 3100 },
+    { name: "Doraraz", platform: "YouTube", done: 2, views: 82100, peak: 2100, shares: 690, likes: 2900 },
+    { name: "FOMU Ch.", platform: "YouTube", done: 2, views: 76500, peak: 1950, shares: 610, likes: 2600 },
+    { name: "Jeon", platform: "YouTube", done: 2, views: 68400, peak: 1800, shares: 540, likes: 2400 },
+    { name: "NCZ", platform: "YouTube", done: 2, views: 64200, peak: 1700, shares: 520, likes: 2250 },
+    { name: "SC Forlife", platform: "YouTube", done: 2, views: 59800, peak: 1550, shares: 480, likes: 2100 },
+    { name: "TIMTIMChannel", platform: "Facebook", done: 2, views: 54200, peak: 1400, shares: 1100, likes: 1950 },
+    { name: "TKGaming", platform: "YouTube", done: 2, views: 51200, peak: 1350, shares: 450, likes: 1800 },
+    { name: "Viva-Tz", platform: "YouTube", done: 1, views: 42100, peak: 1200, shares: 380, likes: 1500 },
+    { name: "WhiteBearZBank", platform: "YouTube", done: 2, views: 46800, peak: 1300, shares: 420, likes: 1650 },
+    { name: "แชงค์888", platform: "YouTube", done: 2, views: 39500, peak: 1100, shares: 360, likes: 1400 },
+    { name: "bAllz HD", platform: "YouTube", done: 2, views: 37200, peak: 1050, shares: 340, likes: 1320 },
+    { name: "YOGURTz", platform: "Facebook", done: 2, views: 36400, peak: 980, shares: 890, likes: 1250 },
+    { name: "ลุงโย - Yogurting", platform: "YouTube", done: 2, views: 35100, peak: 950, shares: 310, likes: 1200 },
+    { name: "MimiwPK", platform: "YouTube", done: 2, views: 33800, peak: 920, shares: 300, likes: 1150 },
+    { name: "PoP Chanal", platform: "YouTube", done: 2, views: 31200, peak: 890, shares: 280, likes: 1080 },
+    { name: "ValduzCH", platform: "YouTube", done: 2, views: 28900, peak: 820, shares: 260, likes: 990 },
+    { name: "VCartz", platform: "YouTube", done: 2, views: 27400, peak: 790, shares: 250, likes: 940 },
+    { name: "OhBIGz", platform: "YouTube", done: 2, views: 24800, peak: 750, shares: 230, likes: 880 },
+    { name: "ZixmaOne", platform: "YouTube", done: 2, views: 21600, peak: 680, shares: 210, likes: 780 },
+    { name: "iamaii", platform: "YouTube", done: 2, views: 18900, peak: 620, shares: 190, likes: 710 }
+  ];
+
+  let liveDataRecords = [
+    { no: 1, name: "Jaymeander", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample1", views: 98200, peak: 4800, shares: 1100, status: "จบแล้ว" },
+    { no: 2, name: "KamonWay", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample2", views: 88500, peak: 4200, shares: 820, status: "จบแล้ว" },
+    { no: 3, name: "Jungko", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "YouTube", url: "https://www.youtube.com/watch?v=sample3", views: 64200, peak: 3100, shares: 540, status: "จบแล้ว" },
+    { no: 4, name: "TIMTIMChannel", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "Facebook", url: "https://www.facebook.com/watch/live/?v=sample4", views: 32400, peak: 1400, shares: 690, status: "จบแล้ว" },
+    { no: 5, name: "YOGURTz", liveNo: "Live #1", date: "18 ส.ค. 2569", platform: "Facebook", url: "https://www.facebook.com/watch/live/?v=sample5", views: 21800, peak: 980, shares: 510, status: "จบแล้ว" }
+  ];
+
   function renderAll() {
     renderDailyCards();
     renderAugustTable();
     renderSeptemberTable();
+    renderSummaryReport();
+    renderLiveDataRecords();
+    renderCharts();
   }
 
   function renderDailyCards() {
@@ -646,7 +777,7 @@
 
     DATE_CONFIG.forEach((cfg, colIdx) => {
       const timeSlots = {};
-      kolsData.forEach(kol => {
+      kolsSchedule.forEach(kol => {
         const t = kol.times[colIdx];
         if (t) {
           if (!timeSlots[t]) timeSlots[t] = [];
@@ -659,24 +790,34 @@
 
       const card = document.createElement('div');
       card.className = `day-card ${cfg.isHighlight ? 'highlight-day' : ''}`;
-
-      const title = currentLang === 'kr' ? cfg.kr : cfg.th;
-      const countTag = currentLang === 'kr' ? `${totalSlots}회 방송` : `${totalSlots} สตรีม`;
+      
+      let title = cfg.th;
+      let countTag = `${totalSlots} สตรีม`;
+      let timeUnit = "น.";
+      if (currentLang === 'kr') {
+        title = cfg.kr;
+        countTag = `${totalSlots}회 방송`;
+        timeUnit = "";
+      } else if (currentLang === 'en') {
+        title = cfg.en;
+        countTag = `${totalSlots} Streams`;
+        timeUnit = "";
+      }
 
       let slotRowsHtml = "";
       Object.keys(timeSlots).sort().forEach(timeKey => {
         const pills = timeSlots[timeKey].map(name => getKolTag(name)).join('');
         slotRowsHtml += `
           <div class="slot-row">
-            <span class="slot-time">${timeKey} น.</span>
+            <span class="slot-time">${timeKey} ${timeUnit}</span>
             <div class="slot-kols">${pills}</div>
           </div>`;
       });
 
       card.innerHTML = `
         <div class="day-header">
-          <div class="day-title" data-th="${cfg.th}" data-kr="${cfg.kr}">${title}</div>
-          <span class="day-tag" data-th="${totalSlots} สตรีม" data-kr="${totalSlots}회 방송">${countTag}</span>
+          <div class="day-title">${title}</div>
+          <span class="day-tag">${countTag}</span>
         </div>
         <div class="day-slots">${slotRowsHtml}</div>`;
       
@@ -687,23 +828,14 @@
   function renderAugustTable() {
     const tbody = document.getElementById('augTableBody');
     tbody.innerHTML = "";
-
-    kolsData.forEach(kol => {
+    kolsSchedule.forEach(kol => {
       let cells = "";
       for (let i = 0; i < 14; i++) {
         const t = kol.times[i];
-        if (!t) {
-          cells += "<td>-</td>";
-        } else if (t === "08:00" && i === 0) {
-          cells += `<td><span class="time-badge launch">${t}</span></td>`;
-        } else if (parseInt(t.split(':')[0]) >= 20) {
-          cells += `<td><span class="time-badge night">${t}</span></td>`;
-        } else {
-          cells += `<td><span class="time-badge">${t}</span></td>`;
-        }
+        cells += `<td>${t ? `<span class="badge-tag done">${t}</span>` : '-'}</td>`;
       }
       const tr = document.createElement('tr');
-      tr.innerHTML = `<td class="sticky-col kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
+      tr.innerHTML = `<td class="kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
       tbody.appendChild(tr);
     });
   }
@@ -711,22 +843,139 @@
   function renderSeptemberTable() {
     const tbody = document.getElementById('sepTableBody');
     tbody.innerHTML = "";
-
-    kolsData.forEach(kol => {
+    kolsSchedule.forEach(kol => {
       let cells = "";
       for (let i = 14; i < 22; i++) {
         const t = kol.times[i];
-        if (!t) {
-          cells += "<td>-</td>";
-        } else if (parseInt(t.split(':')[0]) >= 20) {
-          cells += `<td><span class="time-badge night">${t}</span></td>`;
-        } else {
-          cells += `<td><span class="time-badge">${t}</span></td>`;
-        }
+        cells += `<td>${t ? `<span class="badge-tag done">${t}</span>` : '-'}</td>`;
       }
       const tr = document.createElement('tr');
-      tr.innerHTML = `<td class="sticky-col kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
+      tr.innerHTML = `<td class="kol-name">${getKolNameHtml(kol.name)}</td>${cells}`;
       tbody.appendChild(tr);
+    });
+  }
+
+  function renderSummaryReport() {
+    const tbody = document.getElementById('summaryTableBody');
+    tbody.innerHTML = "";
+
+    let totalViews = 0, totalPeak = 0, totalShares = 0, totalLikes = 0, totalDone = 0;
+
+    kolsSummaryReport.forEach((item, idx) => {
+      totalViews += item.views;
+      totalPeak += item.peak;
+      totalShares += item.shares;
+      totalLikes += item.likes;
+      totalDone += item.done;
+
+      const badgePlat = item.platform === 'YouTube' ? 'badge-tag yt' : 'badge-tag fb';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td class="kol-name">${getKolNameHtml(item.name)}</td>
+        <td><span class="${badgePlat}">${item.platform}</span></td>
+        <td><strong>${item.done}</strong> / 10</td>
+        <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
+        <td style="text-align:right;">${item.peak.toLocaleString()}</td>
+        <td style="text-align:right;">${item.shares.toLocaleString()}</td>
+        <td style="text-align:right;">${item.likes.toLocaleString()}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    document.getElementById('kpiTotalViews').innerText = totalViews.toLocaleString();
+    document.getElementById('kpiPeakViews').innerText = totalPeak.toLocaleString();
+    document.getElementById('kpiTotalShares').innerText = totalShares.toLocaleString();
+    document.getElementById('kpiCompletedStreams').innerHTML = `${totalDone} <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span>`;
+  }
+
+  function renderLiveDataRecords() {
+    const tbody = document.getElementById('liveDataTableBody');
+    tbody.innerHTML = "";
+
+    const vodBtnText = currentLang === 'kr' ? "▶ VOD 보기" : (currentLang === 'en' ? "▶ Watch VOD" : "▶ ดูคลิปย้อนหลัง");
+
+    liveDataRecords.forEach(item => {
+      const badgePlat = item.platform === 'YouTube' ? 'badge-tag yt' : 'badge-tag fb';
+      const linkHtml = item.url ? `<a href="${item.url}" target="_blank" rel="noopener" class="vod-link-btn">${vodBtnText}</a>` : '-';
+      
+      let statusText = item.status;
+      if (currentLang === 'kr' && statusText === 'จบแล้ว') statusText = '완료됨';
+      else if (currentLang === 'en' && statusText === 'จบแล้ว') statusText = 'Completed';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.no}</td>
+        <td class="kol-name">${getKolNameHtml(item.name)}</td>
+        <td><span class="badge-tag done">${item.liveNo}</span></td>
+        <td>${item.date}</td>
+        <td><span class="${badgePlat}">${item.platform}</span></td>
+        <td>${linkHtml}</td>
+        <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
+        <td style="text-align:right;">${item.peak.toLocaleString()}</td>
+        <td style="text-align:right;">${item.shares.toLocaleString()}</td>
+        <td><span class="badge-tag done">${statusText}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderCharts() {
+    const top10 = [...kolsSummaryReport].sort((a,b) => b.views - a.views).slice(0, 8);
+    const ctxBar = document.getElementById('topKolsChart').getContext('2d');
+    
+    if (topChartInstance) topChartInstance.destroy();
+    topChartInstance = new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: top10.map(k => k.name),
+        datasets: [{
+          label: 'Total Views',
+          data: top10.map(k => k.views),
+          backgroundColor: '#e6be65',
+          borderColor: '#fff2a3',
+          borderWidth: 1,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#95a5c6', font: { family: 'Kanit' } }, grid: { display: false } },
+          y: { ticks: { color: '#95a5c6', font: { family: 'Kanit' } }, grid: { color: 'rgba(61, 74, 102, 0.4)' } }
+        }
+      }
+    });
+
+    const ctxPie = document.getElementById('platformChart').getContext('2d');
+    if (platformChartInstance) platformChartInstance.destroy();
+    
+    const ytCount = kolsSummaryReport.filter(k => k.platform === 'YouTube').length;
+    const fbCount = kolsSummaryReport.filter(k => k.platform === 'Facebook').length;
+
+    const ytLabel = currentLang === 'kr' ? '유튜브 (23 채널)' : (currentLang === 'en' ? 'YouTube (23 Channels)' : 'YouTube (23 ช่อง)');
+    const fbLabel = currentLang === 'kr' ? '페이스북 (2 채널)' : (currentLang === 'en' ? 'Facebook (2 Channels)' : 'Facebook (2 ช่อง)');
+
+    platformChartInstance = new Chart(ctxPie, {
+      type: 'doughnut',
+      data: {
+        labels: [ytLabel, fbLabel],
+        datasets: [{
+          data: [ytCount, fbCount],
+          backgroundColor: ['#f85149', '#388bfd'],
+          borderColor: '#1b202e',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#e8ecf2', font: { family: 'Kanit', size: 12 } } }
+        }
+      }
     });
   }
 
@@ -734,60 +983,110 @@
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
     dot.className = "status-dot syncing";
-    syncText.innerText = currentLang === 'kr' ? "구글 시트에서 최신 데이터 가져오는 중..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...";
+    syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...");
 
     fetch(SCRIPT_URL)
       .then(res => res.json())
-      .then(rows => {
-        parseSheetData(rows);
+      .then(data => {
+        if (data.schedule && data.schedule.length > 0) parseSchedule(data.schedule);
+        if (data.summary && data.summary.length > 0) parseSummary(data.summary);
+        if (data.liveData && data.liveData.length > 0) parseLiveData(data.liveData);
+
         dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)";
+        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)");
         renderAll();
       })
       .catch(err => {
         console.error(err);
-        dot.className = "status-dot error";
-        syncText.innerText = currentLang === 'kr' ? "연결 실패 (기본 데이터 사용)" : "เชื่อมต่อไม่สำเร็จ (แสดงข้อมูลสำรอง)";
+        dot.className = "status-dot";
+        syncText.innerText = currentLang === 'kr' ? "동기화 실패 (기본 데이터 사용)" : (currentLang === 'en' ? "Sync Failed (Using fallback data)" : "เชื่อมต่อไม่สำเร็จ (แสดงข้อมูลสำรอง)");
         renderAll();
       });
   }
 
-  function parseSheetData(rows) {
+  function parseSchedule(rows) {
     const newKols = [];
     for (let r = 4; r < rows.length; r++) {
       const row = rows[r];
       let name = row[1];
       if (!name || name === "Branding") continue;
-
       if (r === 13) name = "SC Forlife";
       if (r === 25) name = "VCartz";
 
       const times = [];
       for (let c = 2; c < 24; c++) {
         let val = row[c];
-        if (val === undefined || val === null || val === "") {
-          times.push(null);
-        } else {
+        if (!val) times.push(null);
+        else {
           let s = String(val).replace('น.', '').replace('น', '').replace('.', ':').trim();
           if (s === 'เวลาเกมเปิด') s = '08:00';
           if (s.length <= 2 && !isNaN(s)) s = s.padStart(2, '0') + ":00";
           times.push(s);
         }
       }
-      newKols.push({ name: name, times: times });
+      newKols.push({ name, times });
     }
-    if (newKols.length > 0) {
-      kolsData = newKols;
-    }
+    if (newKols.length > 0) kolsSchedule = newKols;
   }
 
-  function switchView(viewId, btn) {
+  function parseSummary(rows) {
+    const newSummary = [];
+    for (let r = 6; r < rows.length; r++) {
+      const row = rows[r];
+      const name = row[1];
+      if (!name || name.includes("รวมทั้งหมด")) continue;
+      newSummary.push({
+        name: name,
+        platform: (name === "TIMTIMChannel" || name === "YOGURTz") ? "Facebook" : "YouTube",
+        done: Number(row[2]) || 0,
+        views: Number(row[3]) || 0,
+        peak: Number(row[4]) || 0,
+        shares: Number(row[5]) || 0,
+        likes: Number(row[6]) || 0
+      });
+    }
+    if (newSummary.length > 0) kolsSummaryReport = newSummary;
+  }
+
+  function parseLiveData(rows) {
+    const newRecords = [];
+    for (let r = 2; r < rows.length; r++) {
+      const row = rows[r];
+      const name = row[1];
+      const url = row[5];
+      if (!name) continue;
+      if (url || Number(row[6]) > 0) {
+        newRecords.push({
+          no: row[0] || (r - 1),
+          name: name,
+          liveNo: row[2] || "Live",
+          date: row[3] || "-",
+          platform: row[4] || "YouTube",
+          url: url || "",
+          views: Number(row[6]) || 0,
+          peak: Number(row[7]) || 0,
+          shares: Number(row[8]) || 0,
+          status: row[10] || "จบแล้ว"
+        });
+      }
+    }
+    if (newRecords.length > 0) liveDataRecords = newRecords;
+  }
+
+  function switchMainSection(sectionId, btn) {
+    document.getElementById('schedule-section').style.display = 'none';
+    document.getElementById('report-section').style.display = 'none';
+    document.getElementById(sectionId).style.display = 'block';
+    document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function switchScheduleSubView(viewId, btn) {
     document.getElementById('daily-view').style.display = 'none';
     document.getElementById('table-aug-view').style.display = 'none';
     document.getElementById('table-sep-view').style.display = 'none';
-    
     document.getElementById(viewId).style.display = 'block';
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
@@ -795,25 +1094,27 @@
     currentLang = lang;
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
     document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
     document.querySelectorAll('[data-th]').forEach(el => {
-      el.innerText = lang === 'kr' ? el.getAttribute('data-kr') : el.getAttribute('data-th');
+      if (lang === 'kr') {
+        el.innerText = el.getAttribute('data-kr') || el.getAttribute('data-th');
+      } else if (lang === 'en') {
+        el.innerText = el.getAttribute('data-en') || el.getAttribute('data-th');
+      } else {
+        el.innerText = el.getAttribute('data-th');
+      }
     });
-
     renderAll();
   }
 
-  function filterKOLTable(tableId, query) {
+  function filterTable(tableId, query) {
     const q = query.toLowerCase();
     const table = document.getElementById(tableId);
     const tr = table.getElementsByTagName('tr');
-
     for (let i = 1; i < tr.length; i++) {
-      const kolNameCell = tr[i].getElementsByTagName('td')[0];
-      if (kolNameCell) {
-        const txtValue = kolNameCell.textContent || kolNameCell.innerText;
-        tr[i].style.display = txtValue.toLowerCase().indexOf(q) > -1 ? "" : "none";
-      }
+      const text = tr[i].textContent || tr[i].innerText;
+      tr[i].style.display = text.toLowerCase().indexOf(q) > -1 ? "" : "none";
     }
   }
 
