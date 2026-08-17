@@ -562,7 +562,7 @@
       </div>
       <div class="kpi-card">
         <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-kr="🎥 완료된 라이브 방송수" data-en="🎥 Completed Streams">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
-        <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span></div>
+        <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:18px; color:var(--ro-text-muted);">/ 264</span></div>
         <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของแคมเปญ" data-kr="전체 캠เป인의 0.0% 진행됨" data-en="0.0% Campaign Progress">คิดเป็น 0.0% ของแคมเปญ</div>
       </div>
     </div>
@@ -915,9 +915,9 @@
     document.getElementById('kpiTotalViews').innerText = totalViews.toLocaleString();
     document.getElementById('kpiPeakViews').innerText = totalPeak.toLocaleString();
     document.getElementById('kpiTotalShares').innerText = totalShares.toLocaleString();
-    document.getElementById('kpiCompletedStreams').innerHTML = `${totalDone} <span style="font-size:18px; color:var(--ro-text-muted);">/ 249</span>`;
+    document.getElementById('kpiCompletedStreams').innerHTML = `${totalDone} <span style="font-size:18px; color:var(--ro-text-muted);">/ 264</span>`;
 
-    const progressPct = ((totalDone / 249) * 100).toFixed(1);
+    const progressPct = ((totalDone / 264) * 100).toFixed(1);
     const subEl = document.getElementById('kpiProgressSub');
     if (subEl) {
       if (currentLang === 'kr') subEl.innerText = `전체 캠เป인의 ${progressPct}% 진행됨`;
