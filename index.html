@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ragnarok Zero: Global - 264 KOLs Master Portal & Advanced Analytics</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   :root {
@@ -36,7 +36,7 @@
       radial-gradient(circle at 10% 25%, rgba(230, 190, 101, 0.08) 0%, transparent 40%),
       linear-gradient(180deg, #0f121a 0%, #0a0c12 100%);
     color: var(--ro-text);
-    font-family: 'Kanit', 'Noto Sans KR', sans-serif;
+    font-family: 'Kanit', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
     min-height: 100vh;
     padding: 20px 16px 60px;
   }
@@ -67,9 +67,9 @@
     background: #11141e;
     border: 1px solid var(--ro-border-gold);
     color: var(--ro-gold-light);
-    padding: 5px 11px;
+    padding: 5px 10px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -150,7 +150,7 @@
   .main-nav-tabs {
     display: flex;
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
     margin-bottom: 22px;
     flex-wrap: wrap;
   }
@@ -159,15 +159,15 @@
     background: linear-gradient(180deg, #1c2332 0%, #121621 100%);
     border: 1px solid var(--ro-border);
     color: var(--ro-text-muted);
-    padding: 12px 24px;
-    font-size: 15.5px;
+    padding: 11px 18px;
+    font-size: 14.5px;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
   }
 
   .nav-tab-btn:hover, .nav-tab-btn.active {
@@ -359,10 +359,10 @@
 
   .detail-container {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: 16px;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .detail-container { grid-template-columns: 1fr; }
   }
 
@@ -398,15 +398,65 @@
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
 
-  .vod-item-row {
+  .vod-feedback-card {
+    background: #141824;
+    border: 1px solid #28334a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .vod-feedback-card:last-child { margin-bottom: 0; }
+
+  .vod-header-line {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px dashed rgba(48, 60, 84, 0.5);
-    font-size: 12.5px;
+    font-size: 13px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(48, 60, 84, 0.6);
   }
-  .vod-item-row:last-child { border-bottom: none; }
+
+  .feedback-meta-line {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .feedback-content-box {
+    background: rgba(56, 139, 253, 0.06);
+    border-left: 3px solid var(--ro-blue);
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: #c9d1d9;
+    line-height: 1.45;
+  }
+
+  .feedback-action-box {
+    background: rgba(230, 190, 101, 0.08);
+    border-left: 3px solid var(--ro-gold);
+    padding: 6px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 11.5px;
+    color: var(--ro-gold-light);
+    margin-top: 6px;
+  }
+
+  .sentiment-badge {
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .sentiment-badge.pos { background: rgba(63, 185, 80, 0.2); color: #56d364; border: 1px solid #3fb950; }
+  .sentiment-badge.neu { background: rgba(56, 139, 253, 0.2); color: #79c0ff; border: 1px solid #388bfd; }
+  .sentiment-badge.neg { background: rgba(248, 81, 73, 0.2); color: #ff7b72; border: 1px solid #f85149; }
 
   /* KOL Avatar & Link */
   .kol-name { 
@@ -487,7 +537,45 @@
   }
   tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
 
-  /* ================= ENLARGED MATRIX STYLING ================= */
+  /* ================= FEEDBACK SECTION STYLING ================= */
+  .feedback-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .feedback-mini-card {
+    background: linear-gradient(180deg, #192130 0%, #121622 100%);
+    border: 1px solid var(--ro-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feedback-category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .fb-cat-pill {
+    background: #11141e;
+    border: 1px solid #333f56;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    color: var(--ro-text);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .fb-cat-pill strong { color: var(--ro-gold-light); }
+
+  /* Matrix Layout */
   .matrix-giant-container {
     display: flex;
     flex-direction: column;
@@ -537,16 +625,6 @@
   .matrix-giant-table td {
     padding: 12px 16px;
     font-size: 13.5px;
-  }
-
-  /* Heatmap Table Enlarged */
-  .heatmap-table th {
-    font-size: 12px;
-    padding: 10px 6px;
-  }
-  .heatmap-table td {
-    font-size: 13px;
-    padding: 12px 6px;
   }
 
   /* Schedule Cards Layout */
@@ -676,70 +754,74 @@
   <div class="header">
     <div class="lang-switch">
       <button class="lang-btn active" id="btn-th" onclick="setLanguage('th')">🇹🇭 ไทย</button>
+      <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 EN</button>
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
-      <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플鲁언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
+    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナロクゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-ja="⚔️ KOLマスターライブポータル & 高度な分析 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
   <!-- Real-time Sync & Export Bar -->
   <div class="sync-bar">
     <div class="sync-status">
       <span class="status-dot" id="statusDot"></span>
-      <span id="syncText" data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" data-kr="상태: 구글 시트 실시간 연동 완료 (자동 동기화)" data-en="Status: Connected to Google Sheets (Auto Sync On)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
+      <span id="syncText" data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" data-en="Status: Connected to Google Sheets (Auto Sync On)" data-kr="상태: 구글 시트 실시간 연동 완료 (자동 동기화)" data-ja="ステータス: Googleスプレッドシート接続完了 (自動同期)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
     </div>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-      <button class="btn-action" onclick="exportMasterToCSV()" data-th="📥 ส่งออกตารางสรุป (CSV)" data-kr="📥 마스터 리포트 내보내기 (CSV)" data-en="📥 Export Summary CSV">📥 ส่งออกตารางสรุป (CSV)</button>
-      <button class="btn-action" onclick="fetchLiveData()" data-th="🔄 ซิงค์ข้อมูลล่าสุด" data-kr="🔄 최신 데이터 동기화" data-en="🔄 Sync Latest Data">🔄 ซิงค์ข้อมูลล่าสุด</button>
+      <button class="btn-action" onclick="exportMasterToCSV()" data-th="📥 ส่งออกตารางสรุป (CSV)" data-en="📥 Export Summary CSV" data-kr="📥 마스터 리포트 내보내기 (CSV)" data-ja="📥 サマリーCSV出力">📥 ส่งออกตารางสรุป (CSV)</button>
+      <button class="btn-action" onclick="fetchLiveData()" data-th="🔄 ซิงค์ข้อมูลล่าสุด" data-en="🔄 Sync Latest Data" data-kr="🔄 최신 데이터 동기화" data-ja="🔄 最新データ同期">🔄 ซิงค์ข้อมูลล่าสุด</button>
     </div>
   </div>
 
-  <!-- Main Navigation Tabs -->
+  <!-- Main Navigation Tabs (4 Tabs) -->
   <div class="main-nav-tabs">
     <button class="nav-tab-btn active" onclick="switchMainSection('master-section', this)">
-      <span>👑</span> <span data-th="ตารางสรุปรายคน (KOLs Master Table)" data-kr="인플루언서 종합 마스터 테이블" data-en="KOLs Master Table">ตารางสรุปรายคน (KOLs Master Table)</span>
+      <span>👑</span> <span data-th="ตารางสรุปรายคน (KOLs Master Table)" data-en="KOLs Master Table" data-kr="인플루언서 종합 마스터 테이블" data-ja="KOLマスターテーブル">ตารางสรุปรายคน (KOLs Master Table)</span>
     </button>
     <button class="nav-tab-btn" onclick="switchMainSection('analytics-section', this)">
-      <span>📈</span> <span data-th="ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)" data-kr="캠페인 성과 심층 분석 매트릭스" data-en="Campaign Performance Matrix">ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)</span>
+      <span>📈</span> <span data-th="ตารางวิเคราะห์สถิติภาพรวม (Campaign Matrix)" data-en="Campaign Performance Matrix" data-kr="캠페인 성과 심층 분석 매트릭스" data-ja="キャンペーン分析マトリックス">ตารางวิเคราะห์สถิติภาพรวม (Campaign Matrix)</span>
     </button>
     <button class="nav-tab-btn" onclick="switchMainSection('schedule-daily-section', this)">
-      <span>📅</span> <span data-th="ผังเวลาไลฟ์รายวัน (Daily Time Slots)" data-kr="일자별 타임슬롯 일정표" data-en="Daily Time Slots Schedule">ผังเวลาไลฟ์รายวัน (Daily Time Slots)</span>
+      <span>📅</span> <span data-th="ผังเวลาไลฟ์รายวัน (Daily Time Slots)" data-en="Daily Time Slots Schedule" data-kr="일자별 타임슬롯 일정표" data-ja="日別タイムスロットスケジュール">ผังเวลาไลฟ์รายวัน (Daily Time Slots)</span>
+    </button>
+    <button class="nav-tab-btn" onclick="switchMainSection('feedback-summary-section', this)">
+      <span>💬</span> <span data-th="สรุปความคิดเห็นผู้ชม (Feedback Hub)" data-en="Viewer Feedback Hub" data-kr="시청자 피드백 요약 허브" data-ja="視聴者フィードバックハブ">สรุปความคิดเห็นผู้ชม (Feedback Hub)</span>
     </button>
   </div>
 
   <!-- Top KPI Cards (Target = 264 Streams) -->
   <div class="kpi-grid">
     <div class="kpi-card gold-border">
-      <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-kr="🔥 총 누적 조회수 (Total Views)" data-en="🔥 Total Campaign Views">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
+      <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-en="🔥 Total Campaign Views" data-kr="🔥 총 누적 조회수 (Total Views)" data-ja="🔥 総キャンペーン視聴回数">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
       <div class="kpi-value" id="kpiTotalViews">0</div>
-      <div class="kpi-sub" id="kpiAvgViewsSub" data-th="เฉลี่ย 0 วิว / สตรีม" data-kr="회당 평균 0 조회수" data-en="Avg 0 views / stream">เฉลี่ย 0 วิว / สตรีม</div>
+      <div class="kpi-sub" id="kpiAvgViewsSub" data-th="เฉลี่ย 0 วิว / สตรีม" data-en="Avg 0 views / stream" data-kr="회당 평균 0 조회수" data-ja="平均0視聴/配信">เฉลี่ย 0 วิว / สตรีม</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)" data-kr="👥 최고 동시 시청자수 (Peak CCU)" data-en="👥 Peak Concurrent Viewers">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
+      <div class="kpi-title" data-th="👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)" data-en="👥 Peak Concurrent Viewers" data-kr="👥 최고 동시 시청자수 (Peak CCU)" data-ja="👥 最高同時接続数 (Peak CCU)">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
       <div class="kpi-value" id="kpiPeakViews">0</div>
-      <div class="kpi-sub" data-th="สถิติ Peak รวมของทุกช่อง" data-kr="전체 채널 최고 피크 합산" data-en="Highest Concurrent Peak Across All Channels">สถิติ Peak รวมของทุกช่อง</div>
+      <div class="kpi-sub" data-th="สถิติ Peak รวมของทุกช่อง" data-en="Highest Concurrent Peak Across All Channels" data-kr="전체 채널 최고 피크 합산" data-ja="全チャンネル最高同時接続数の合計">สถิติ Peak รวมของทุกช่อง</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-kr="🔄 총 공유수 (Total Shares)" data-en="🔄 Total Social Shares">🔄 ยอดแชร์รวม (Total Shares)</div>
+      <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-en="🔄 Total Social Shares" data-kr="🔄 총 공유수 (Total Shares)" data-ja="🔄 総シェア数 (Total Shares)">🔄 ยอดแชร์รวม (Total Shares)</div>
       <div class="kpi-value" id="kpiTotalShares">0</div>
-      <div class="kpi-sub" id="kpiEngageSub" data-th="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-en="Engagement Rate: 0.0%">Engagement Rate: 0.0%</div>
+      <div class="kpi-sub" id="kpiEngageSub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="エンゲージメント率: 0.0%">Engagement Rate: 0.0%</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-kr="🎥 완료된 라이브 방송수" data-en="🎥 Completed Streams">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
+      <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-en="🎥 Completed Streams" data-kr="🎥 완료된 라이브 방송수" data-ja="🎥 完了した配信数">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
       <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:17px; color:var(--ro-text-muted);">/ 264</span></div>
-      <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)" data-kr="전체 목표(264회)의 0.0% 진행됨" data-en="0.0% of Campaign Target (264 Streams)">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
+      <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)" data-en="0.0% of Campaign Target (264 Streams)" data-kr="전체 목표(264회)의 0.0% 진행됨" data-ja="キャンペーン目標(264配信)の0.0%達成">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
     </div>
   </div>
 
   <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-kr="🏆 최고 조회수 인플루언서" data-en="🏆 Top KOLs Views Leaderboard">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="🏆 Top KOLs Views Leaderboard" data-kr="🏆 최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
       <canvas id="topKolsChart"></canvas>
     </div>
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-kr="🌐 플랫폼 점유율" data-en="🌐 Platform Share Ratio">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="🌐 Platform Share Ratio" data-kr="🌐 플랫폼 점유율" data-ja="🌐 プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
       <canvas id="platformChart"></canvas>
     </div>
   </div>
@@ -748,13 +830,13 @@
   <div id="master-section">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)" data-kr="👑 통합 마스터 테이블 (행을 클릭하여 방송 일정 및 VOD 확인)" data-en="👑 Master Consolidated Table (Click any row to view schedule & VODs)">👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)</div>
+        <div class="panel-title" data-th="👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)" data-en="👑 Master Consolidated Table (Click any row to view schedule & VODs)" data-kr="👑 통합 마스터 테이블 (행을 클릭하여 방송 일정 및 VOD 확인)" data-ja="👑 マスター統合テーブル (行をクリックして配信スケジュールとVODを確認)">👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)</div>
       </div>
 
       <!-- Filter Controls: Platform + Search -->
       <div class="filter-bar">
         <div class="platform-filter-group">
-          <button class="filter-pill active" onclick="setMasterPlatformFilter('all', this)" data-th="ทั้งหมด (All)" data-kr="전체" data-en="All Platforms">ทั้งหมด (All)</button>
+          <button class="filter-pill active" onclick="setMasterPlatformFilter('all', this)" data-th="ทั้งหมด (All)" data-en="All Platforms" data-kr="전체" data-ja="全て">ทั้งหมด (All)</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('YouTube', this)">🔴 YouTube</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('Twitch', this)">🟣 Twitch</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('Facebook', this)">🔵 Facebook</button>
@@ -768,25 +850,25 @@
           <thead>
             <tr>
               <th style="width: 40px;"></th>
-              <th style="width: 50px;" data-th="ลำดับ" data-kr="No." data-en="No.">ลำดับ</th>
+              <th style="width: 50px;" data-th="ลำดับ" data-en="No." data-kr="No." data-ja="No.">ลำดับ</th>
               <th class="sortable" onclick="sortMasterTable('name')" style="text-align:left; min-width:210px;">
-                <span data-th="รายชื่อ KOL" data-kr="인플루언서 이름" data-en="KOL Name">รายชื่อ KOL</span> ⬍
+                <span data-th="รายชื่อ KOL" data-en="KOL Name" data-kr="인플루언서 이름" data-ja="KOL名">รายชื่อ KOL</span> ⬍
               </th>
-              <th style="width: 100px;" data-th="ช่องทาง" data-kr="플랫폼" data-en="Platform">ช่องทาง</th>
-              <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-kr="진행도" data-en="Progress">
-                <span data-th="ความคืบหน้า" data-kr="진행도" data-en="Progress">ความคืบหน้า</span> ⬍
+              <th style="width: 100px;" data-th="ช่องทาง" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">ช่องทาง</th>
+              <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">
+                <span data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">ความคืบหน้า</span> ⬍
               </th>
-              <th class="sortable" onclick="sortMasterTable('views')" data-th="Total Views" data-kr="누적 조회수" data-en="Total Views">
-                <span data-th="Total Views" data-kr="누적 조회수" data-en="Total Views">Total Views</span> ⬍
+              <th class="sortable" onclick="sortMasterTable('views')" data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">
+                <span data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</span> ⬍
               </th>
-              <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-kr="최고 동시 시청자" data-en="Peak CCU">
-                <span data-th="Peak CCU" data-kr="최고 동시 시청자" data-en="Peak CCU">Peak CCU</span> ⬍
+              <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">
+                <span data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU</span> ⬍
               </th>
-              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-kr="공유수" data-en="Shares">
-                <span data-th="Shares" data-kr="공유수" data-en="Shares">Shares</span> ⬍
+              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">
+                <span data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">Shares</span> ⬍
               </th>
-              <th class="sortable" onclick="sortMasterTable('likes')" data-th="Likes" data-kr="좋아요" data-en="Likes">
-                <span data-th="Likes" data-kr="좋아요" data-en="Likes">Likes</span> ⬍
+              <th class="sortable" onclick="sortMasterTable('likes')" data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">
+                <span data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">Likes</span> ⬍
               </th>
             </tr>
           </thead>
@@ -796,20 +878,20 @@
 
       <!-- Pagination & Row Count -->
       <div class="pagination-bar">
-        <span id="masterShowingText">แสดง 1-10 จาก 39 รายการ</span>
+        <span id="masterShowingText" data-th="แสดง 1-10 จาก 39 รายการ" data-en="Showing 1-10 of 39 items" data-kr="39개 중 1-10개 표시" data-ja="39件中 1〜10件を表示">แสดง 1-10 จาก 39 รายการ</span>
         <div class="page-btn-group" id="masterPaginationGroup"></div>
       </div>
     </div>
   </div>
 
-  <!-- ================= SECTION 2: ENLARGED & ADVANCED ANALYTICS MATRIX ================= -->
+  <!-- ================= SECTION 2: ADVANCED ANALYTICS MATRIX ================= -->
   <div id="analytics-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)" data-kr="📊 캠페인 종합 성과 심층 분석 매트릭스" data-en="📊 Campaign Performance Analytics Matrix">
+        <div class="panel-title" data-th="📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)" data-en="📊 Campaign Performance Analytics Matrix" data-kr="📊 캠페인 종합 성과 심층 분석 매트릭스" data-ja="📊 キャンペーンパフォーマンス分析マトリックス">
           📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)
         </div>
-        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-kr="🖨️ 리포트 인쇄 / PDF 저장" data-en="🖨️ Print / Save PDF">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
+        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-en="🖨️ Print / Save PDF" data-kr="🖨️ 리포트 인쇄 / PDF 저장" data-ja="🖨️ 印刷 / PDF保存">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
       </div>
 
       <div class="matrix-giant-container">
@@ -818,23 +900,23 @@
         <div class="matrix-giant-card gold-glow">
           <div class="matrix-header-row">
             <div class="matrix-giant-title">
-              <span>🌐</span> <span data-th="1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)" data-kr="1. 플랫폼별 성과 심층 비교 분석" data-en="1. Platform Deep-Dive Performance Matrix">1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)</span>
+              <span>🌐</span> <span data-th="1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)" data-en="1. Platform Deep-Dive Performance Matrix" data-kr="1. 플랫폼별 성과 심층 비교 분석" data-ja="1. プラットフォーム別パフォーマンス詳細マトリックス">1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)</span>
             </div>
-            <span class="badge-tag gold" data-th="ครอบคลุม 4 แพลตฟอร์มหลัก" data-kr="4개 주요 플랫폼 통합" data-en="4 Main Platforms Covered">ครอบคลุม 4 แพลตฟอร์มหลัก</span>
+            <span class="badge-tag gold" data-th="ครอบคลุม 4 แพลตฟอร์มหลัก" data-en="4 Main Platforms Covered" data-kr="4개 주요 플랫폼 통합" data-ja="主要4プラットフォーム対応">ครอบคลุม 4 แพลตฟอร์มหลัก</span>
           </div>
 
           <div class="table-wrapper">
             <table class="matrix-giant-table">
               <thead>
                 <tr>
-                  <th style="text-align:left; min-width: 140px;" data-th="แพลตฟอร์ม" data-kr="플랫폼" data-en="Platform">แพลตฟอร์ม</th>
-                  <th data-th="จำนวน KOLs" data-kr="인플루언서 수" data-en="KOLs Count">จำนวน KOLs</th>
-                  <th data-th="สตรีมที่จบแล้ว" data-kr="완료 방송" data-en="Completed Streams">สตรีมที่จบแล้ว</th>
-                  <th data-th="Total Views" data-kr="누적 조회수" data-en="Total Views">Total Views</th>
-                  <th data-th="Peak CCU รวม" data-kr="최고 동시 시청자" data-en="Peak CCU Sum">Peak CCU รวม</th>
-                  <th data-th="เฉลี่ยวิว / สตรีม" data-kr="회당 평균 조회수" data-en="Avg Views/Stream">เฉลี่ยวิว / สตรีม</th>
-                  <th data-th="Total Shares" data-kr="총 공유수" data-en="Total Shares">Total Shares</th>
-                  <th data-th="Engagement Rate" data-kr="참여율" data-en="Engagement Rate">Engagement Rate</th>
+                  <th style="text-align:left; min-width: 140px;" data-th="แพลตฟอร์ม" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">แพลตฟอร์ม</th>
+                  <th data-th="จำนวน KOLs" data-en="KOLs Count" data-kr="인플루언서 수" data-ja="KOL数">จำนวน KOLs</th>
+                  <th data-th="สตรีมที่จบแล้ว" data-en="Completed Streams" data-kr="완료 방송" data-ja="完了した配信">สตรีมที่จบแล้ว</th>
+                  <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
+                  <th data-th="Peak CCU รวม" data-en="Peak CCU Sum" data-kr="최고 동시 시청자" data-ja="最高同時接続合計">Peak CCU รวม</th>
+                  <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
+                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
+                  <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
                 </tr>
               </thead>
               <tbody id="platformGiantMatrixBody"></tbody>
@@ -846,22 +928,22 @@
         <div class="matrix-giant-card">
           <div class="matrix-header-row">
             <div class="matrix-giant-title">
-              <span>⏱️</span> <span data-th="2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)" data-kr="2. 캠페인 단계별 방송 분포 및 전략 분석" data-en="2. Campaign Timeline Strategy & Phase Breakdown">2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)</span>
+              <span>⏱️</span> <span data-th="2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)" data-en="2. Campaign Timeline Strategy & Phase Breakdown" data-kr="2. 캠페인 단계별 방송 분포 및 전략 분석" data-ja="2. キャンペーンタイムライン戦略">2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)</span>
             </div>
-            <span class="badge-tag done" data-th="เป้าหมายรวม: 264 สตรีม (100%)" data-kr="전체 목표: 264회 방송 (100%)" data-en="Total Target: 264 Streams (100%)">เป้าหมายรวม: 264 สตรีม (100%)</span>
+            <span class="badge-tag done" data-th="เป้าหมายรวม: 264 สตรีม (100%)" data-en="Total Target: 264 Streams (100%)" data-kr="전체 목표: 264회 방송 (100%)" data-ja="全体目標: 264配信 (100%)">เป้าหมายรวม: 264 สตรีม (100%)</span>
           </div>
 
           <div class="table-wrapper">
             <table class="matrix-giant-table">
               <thead>
                 <tr>
-                  <th style="text-align:left; min-width: 180px;" data-th="ช่วงเวลาของแคมเปญ (Phase)" data-kr="캠페인 단계 (Phase)" data-en="Campaign Phase">ช่วงเวลาของแคมเปญ (Phase)</th>
-                  <th data-th="ระยะเวลา (วันที่)" data-kr="기간 (일자)" data-en="Date Range">ระยะเวลา (วันที่)</th>
-                  <th data-th="จำนวนวัน" data-kr="일수" data-en="Days">จำนวนวัน</th>
-                  <th data-th="จำนวนรอบสตรีม" data-kr="방송 회차" data-en="Scheduled Streams">จำนวนรอบสตรีม</th>
-                  <th data-th="เฉลี่ยสตรีม / วัน" data-kr="일일 평균 방송" data-en="Avg Streams/Day">เฉลี่ยสตรีม / วัน</th>
-                  <th data-th="สัดส่วนแคมเปญ" data-kr="비중" data-en="Share %">สัดส่วนแคมเปญ</th>
-                  <th data-th="ระดับความหนาแน่น" data-kr="방송 집중도" data-en="Intensity Status">ระดับความหนาแน่น</th>
+                  <th style="text-align:left; min-width: 180px;" data-th="ช่วงเวลาของแคมเปญ (Phase)" data-en="Campaign Phase" data-kr="캠페인 단계 (Phase)" data-ja="キャンペーンフェーズ">ช่วงเวลาของแคมเปญ (Phase)</th>
+                  <th data-th="ระยะเวลา (วันที่)" data-en="Date Range" data-kr="기간 (일자)" data-ja="期間">ระยะเวลา (วันที่)</th>
+                  <th data-th="จำนวนวัน" data-en="Days" data-kr="일수" data-ja="日数">จำนวนวัน</th>
+                  <th data-th="จำนวนรอบสตรีม" data-en="Scheduled Streams" data-kr="방송 회차" data-ja="予定配信回数">จำนวนรอบสตรีม</th>
+                  <th data-th="เฉลี่ยสตรีม / วัน" data-en="Avg Streams/Day" data-kr="일일 평균 방송" data-ja="平均配信数/日">เฉลี่ยสตรีม / วัน</th>
+                  <th data-th="สัดส่วนแคมเปญ" data-en="Share %" data-kr="비중" data-ja="割合 %">สัดส่วนแคมเปญ</th>
+                  <th data-th="ระดับความหนาแน่น" data-en="Intensity Status" data-kr="방송 집중도" data-ja="集中度ステータス">ระดับความหนาแน่น</th>
                 </tr>
               </thead>
               <tbody>
@@ -869,45 +951,45 @@
                   <td style="text-align:left; font-weight:700; color:var(--ro-gold-light);">
                     🔥 Phase 1: Grand Open & Launch Peak
                   </td>
-                  <td>18 - 23 ส.ค. 2569</td>
-                  <td>6 วัน</td>
-                  <td><strong style="font-size:15px; color:var(--ro-gold-light);">137</strong> สตรีม</td>
-                  <td><strong>22.8</strong> สตรีม/วัน</td>
+                  <td data-th="18 - 23 ส.ค. 2569" data-en="Aug 18 - 23, 2026" data-kr="2026년 8월 18일 - 23일" data-ja="2026年8月18日〜23日">18 - 23 ส.ค. 2569</td>
+                  <td data-th="6 วัน" data-en="6 Days" data-kr="6일" data-ja="6日間">6 วัน</td>
+                  <td><strong style="font-size:15px; color:var(--ro-gold-light);">137</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
+                  <td><strong>22.8</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
                   <td><strong>51.9%</strong></td>
-                  <td><span class="badge-tag done">🔴 หนาแน่นสูงสุด (Peak Wave)</span></td>
+                  <td><span class="badge-tag done" data-th="🔴 หนาแน่นสูงสุด (Peak Wave)" data-en="🔴 Peak Wave" data-kr="🔴 최고 집중 구간" data-ja="🔴 ピークウェーブ">🔴 หนาแน่นสูงสุด (Peak Wave)</span></td>
                 </tr>
                 <tr>
                   <td style="text-align:left; font-weight:700; color:#58a6ff;">
                     ⚡ Phase 2: Mid-Campaign Community Drive
                   </td>
-                  <td>24 - 31 ส.ค. 2569</td>
-                  <td>8 วัน</td>
-                  <td><strong style="font-size:15px; color:#58a6ff;">68</strong> สตรีม</td>
-                  <td><strong>8.5</strong> สตรีม/วัน</td>
+                  <td data-th="24 - 31 ส.ค. 2569" data-en="Aug 24 - 31, 2026" data-kr="2026년 8월 24일 - 31일" data-ja="2026年8月24日〜31日">24 - 31 ส.ค. 2569</td>
+                  <td data-th="8 วัน" data-en="8 Days" data-kr="8일" data-ja="8日間">8 วัน</td>
+                  <td><strong style="font-size:15px; color:#58a6ff;">68</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
+                  <td><strong>8.5</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
                   <td><strong>25.8%</strong></td>
-                  <td><span class="badge-tag fb">🔵 ต่อเนื่องทุกวัน (Sustain)</span></td>
+                  <td><span class="badge-tag fb" data-th="🔵 ต่อเนื่องทุกวัน (Sustain)" data-en="🔵 Sustain Wave" data-kr="🔵 지속 유지 구간" data-ja="🔵 サステインウェーブ">🔵 ต่อเนื่องทุกวัน (Sustain)</span></td>
                 </tr>
                 <tr>
                   <td style="text-align:left; font-weight:700; color:#a371f7;">
                     🛡️ Phase 3: Finale & Guild Wars Focus
                   </td>
-                  <td>1 - 8 ก.ย. 2569</td>
-                  <td>8 วัน</td>
-                  <td><strong style="font-size:15px; color:#a371f7;">59</strong> สตรีม</td>
-                  <td><strong>7.4</strong> สตรีม/วัน</td>
+                  <td data-th="1 - 8 ก.ย. 2569" data-en="Sep 1 - 8, 2026" data-kr="2026년 9월 1일 - 8일" data-ja="2026年9月1日〜8日">1 - 8 ก.ย. 2569</td>
+                  <td data-th="8 วัน" data-en="8 Days" data-kr="8일" data-ja="8日間">8 วัน</td>
+                  <td><strong style="font-size:15px; color:#a371f7;">59</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
+                  <td><strong>7.4</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
                   <td><strong>22.3%</strong></td>
-                  <td><span class="badge-tag twitch">🟣 สตรีมส่งท้าย (Finale Push)</span></td>
+                  <td><span class="badge-tag twitch" data-th="🟣 สตรีมส่งท้าย (Finale Push)" data-en="🟣 Finale Push" data-kr="🟣 피날레 푸시" data-ja="🟣 フィナーレプッシュ">🟣 สตรีมส่งท้าย (Finale Push)</span></td>
                 </tr>
                 <tr style="font-weight:700; background:rgba(230,190,101,0.08);">
-                  <td style="text-align:left; color:var(--ro-gold); font-size:14.5px;">
+                  <td style="text-align:left; color:var(--ro-gold); font-size:14.5px;" data-th="👑 รวมทั้งสิ้นตลอดแคมเปญ (Grand Total)" data-en="👑 Grand Total" data-kr="👑 캠페인 총합" data-ja="👑 総合計">
                     👑 รวมทั้งสิ้นตลอดแคมเปญ (Grand Total)
                   </td>
-                  <td style="color:var(--ro-gold);">18 ส.ค. - 8 ก.ย. 2569</td>
-                  <td>22 วัน</td>
-                  <td style="color:var(--ro-gold-light); font-size:15.5px;">264 สตรีม</td>
-                  <td style="color:var(--ro-gold);">12.0 สตรีม/วัน</td>
+                  <td style="color:var(--ro-gold);" data-th="18 ส.ค. - 8 ก.ย. 2569" data-en="Aug 18 - Sep 8, 2026" data-kr="8월 18일 - 9월 8일" data-ja="8月18日〜9月8日">18 ส.ค. - 8 ก.ย. 2569</td>
+                  <td data-th="22 วัน" data-en="22 Days" data-kr="22일" data-ja="22日間">22 วัน</td>
+                  <td style="color:var(--ro-gold-light); font-size:15.5px;">264 <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
+                  <td style="color:var(--ro-gold);">12.0 <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
                   <td style="color:var(--ro-gold-light);">100.0%</td>
-                  <td><span class="badge-tag gold">Full Campaign Target</span></td>
+                  <td><span class="badge-tag gold" data-th="Full Campaign Target" data-en="Full Campaign Target" data-kr="전체 캠페인 목표" data-ja="キャンペーン全体目標">Full Campaign Target</span></td>
                 </tr>
               </tbody>
             </table>
@@ -918,12 +1000,12 @@
         <div class="matrix-giant-card">
           <div class="matrix-header-row">
             <div class="matrix-giant-title">
-              <span>⏰</span> <span data-th="3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)" data-kr="3. 시간대별 라이브 집중도 히트맵 분석" data-en="3. 24-Hour Time Slot Distribution Heatmap Matrix">3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)</span>
+              <span>⏰</span> <span data-th="3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)" data-en="3. 24-Hour Time Slot Distribution Heatmap Matrix" data-kr="3. 시간대별 라이브 집중도 히트맵 분석" data-ja="3. 24時間タイムスロット分布ヒートマップ">3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)</span>
             </div>
             <div style="font-size: 12px; color: var(--ro-text-muted); display: flex; gap: 10px; align-items:center;">
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(230,190,101,0.5);border-radius:2px;"></span> Peak (25+)</span>
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(56,139,253,0.4);border-radius:2px;"></span> Medium (15-24)</span>
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(63,185,80,0.3);border-radius:2px;"></span> Regular (1-14)</span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(230,190,101,0.5);border-radius:2px;"></span> <span data-th="Peak (25+)" data-en="Peak (25+)" data-kr="피크 (25+)" data-ja="ピーク (25+)">Peak (25+)</span></span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(56,139,253,0.4);border-radius:2px;"></span> <span data-th="Medium (15-24)" data-en="Medium (15-24)" data-kr="중간 (15-24)" data-ja="中程度 (15-24)">Medium (15-24)</span></span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(63,185,80,0.3);border-radius:2px;"></span> <span data-th="Regular (1-14)" data-en="Regular (1-14)" data-kr="일반 (1-14)" data-ja="通常 (1-14)">Regular (1-14)</span></span>
             </div>
           </div>
 
@@ -931,7 +1013,7 @@
             <table class="heatmap-table matrix-giant-table">
               <thead>
                 <tr>
-                  <th style="min-width: 130px; text-align:left;" data-th="ช่วงเวลา (Time Slot)" data-kr="시간대 (Slot)" data-en="Time Slot">ช่วงเวลา</th>
+                  <th style="min-width: 130px; text-align:left;" data-th="ช่วงเวลา (Time Slot)" data-en="Time Slot" data-kr="시간대 (Slot)" data-ja="タイムスロット">ช่วงเวลา</th>
                   <th>08:00</th><th>09:00</th><th>10:00</th><th>11:00</th>
                   <th>12:00</th><th>13:00</th><th>14:00</th><th>15:00</th>
                   <th>16:00</th><th>17:00</th><th>18:00</th><th>19:00</th>
@@ -951,13 +1033,72 @@
   <div id="schedule-daily-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약 (8/18 - 9/8)" data-en="⚔️ Daily Stream Time Slot Breakdown (Aug 18 - Sep 8, 2026)">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
+        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-en="⚔️ Daily Stream Time Slot Breakdown (Aug 18 - Sep 8, 2026)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약 (8/18 - 9/8)" data-ja="⚔️ 日別配信タイムスロット詳細 (8月18日〜9月8日)">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
       </div>
       <div class="grid-days" id="dailyCardsContainer"></div>
     </div>
   </div>
 
-  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 포털" data-en="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal">
+  <!-- ================= SECTION 4: VIEWER FEEDBACK OVERVIEW ================= -->
+  <div id="feedback-summary-section" style="display:none;">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-en="💬 Community Viewer Feedback Hub" data-kr="💬 시청자 반응 및 커뮤니티 피드백 허브" data-ja="💬 視聴者リアクション & コミュニティフィードバックハブ">
+          💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)
+        </div>
+      </div>
+
+      <!-- Quick Feedback Overview Cards -->
+      <div class="feedback-compact-grid">
+        <div class="feedback-mini-card">
+          <div>
+            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ยอดความคิดเห็นรวม (Comments)" data-en="Total Comments" data-kr="총 댓글수" data-ja="総コメント数">ยอดความคิดเห็นรวม (Comments)</div>
+            <div style="font-size:24px; font-weight:700; color:var(--ro-gold-light);" id="fbTotalCommentsCount">0</div>
+          </div>
+          <span style="font-size:26px;">💬</span>
+        </div>
+        <div class="feedback-mini-card">
+          <div>
+            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ความรู้สึกเชิงบวก (Positive Ratio)" data-en="Positive Ratio" data-kr="긍정 반응 비율" data-ja="ポジティブ率">ความรู้สึกเชิงบวก (Positive Ratio)</div>
+            <div style="font-size:24px; font-weight:700; color:#56d364;" id="fbPositiveRatio">0%</div>
+          </div>
+          <span style="font-size:26px;">👍</span>
+        </div>
+        <div class="feedback-mini-card">
+          <div>
+            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ประเด็นที่มีการพูดถึงมากสุด" data-en="Top Discussed Topic" data-kr="최다 언급 카테고리" data-ja="最も話題になったトピック">ประเด็นที่มีการพูดถึงมากสุด</div>
+            <div style="font-size:18px; font-weight:700; color:#58a6ff;" id="fbTopCategory">-</div>
+          </div>
+          <span style="font-size:26px;">🔥</span>
+        </div>
+      </div>
+
+      <!-- Categories Summary Pills -->
+      <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:" data-en="📂 Category Breakdown:" data-kr="📂 카테고리별 피드백 분포:" data-ja="📂 カテゴリ別フィードバック分布:">📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:</div>
+      <div class="feedback-category-pills" id="feedbackCategoryPills"></div>
+
+      <!-- Recent Highlighted Feedback Table -->
+      <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:" data-en="🌟 Recent Key Feedback & Action Items:" data-kr="🌟 최근 주요 피드백 및 조치 사항:" data-ja="🌟 最近の主要なフィードバックと対応事項:">🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:</div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">No.</th>
+              <th style="min-width: 150px; text-align:left;" data-th="KOL Name" data-en="KOL Name" data-kr="인플루언서" data-ja="KOL名">KOL Name</th>
+              <th style="min-width: 100px;" data-th="วันที่" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
+              <th style="min-width: 140px;" data-th="หมวดหมู่" data-en="Category" data-kr="카테고리" data-ja="カテゴリ">หมวดหมู่</th>
+              <th style="min-width: 120px;" data-th="ความรู้สึก" data-en="Sentiment" data-kr="반응 (감성)" data-ja="センチメント">ความรู้สึก</th>
+              <th style="text-align:left; min-width: 320px;" data-th="ตัวอย่างความคิดเห็นเด่น" data-en="Top Comments / Feedback" data-kr="주요 피드백 내용" data-ja="主なコメント・フィードバック">ตัวอย่างความคิดเห็นเด่น</th>
+              <th style="text-align:left; min-width: 220px;" data-th="Action ที่ต้องตามต่อ" data-en="Action Required" data-kr="조치 사항" data-ja="必要なアクション">Action ที่ต้องตามต่อ</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackOverviewTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-en="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 포털" data-ja="© 2026 グラビティゲームテック | ラグナロクゼロ リアルタイムライブポータル">
     © 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal
   </div>
 
@@ -1059,7 +1200,7 @@
     "BreakGate": "https://unavatar.io/youtube/BreakGate",
     "RUBSARB (จ๊อบ)": "https://unavatar.io/youtube/RUBSARBproduction",
     "Genghiskhanz": "https://unavatar.io/youtube/GenghisKhanz",
-    "THISKK": "https://unavatar.io/twitch/thiskk"
+    "THISKK": "https://www.twitch.tv/thiskk"
   };
 
   function getCleanName(name) {
@@ -1099,6 +1240,29 @@
     return '<span class="badge-tag yt">YouTube</span>';
   }
 
+  function getSentimentBadge(sentiment) {
+    const s = String(sentiment || '').toLowerCase();
+    if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge pos">👍 ポジティブ (Positive)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge pos">👍 긍정적 (Positive)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge pos">👍 Positive</span>';
+      return '<span class="sentiment-badge pos">👍 เชิงบวก (Positive)</span>';
+    }
+    if (s.includes('ลบ') || s.includes('negative') || s.includes('neg')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge neg">⚠️ 問題 (Negative)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge neg">⚠️ 부정적 (Negative)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge neg">⚠️ Negative</span>';
+      return '<span class="sentiment-badge neg">⚠️ ปัญหา (Negative)</span>';
+    }
+    if (s.includes('กลาง') || s.includes('neutral') || s.includes('neu')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge neu">💬 中立 (Neutral)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge neu">💬 중립 (Neutral)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge neu">💬 Neutral</span>';
+      return '<span class="sentiment-badge neu">💬 ทั่วไป (Neutral)</span>';
+    }
+    return '<span class="badge-tag wait">-</span>';
+  }
+
   function getKolTargetCount(name) {
     const clean = getCleanName(name);
     const found = kolsSchedule.find(k => getCleanName(k.name) === clean);
@@ -1118,28 +1282,28 @@
   }
 
   const DATE_CONFIG = [
-    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
-    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", en: "Wednesday, August 19, 2026" },
-    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", en: "Thursday, August 20, 2026" },
-    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", en: "Friday, August 21, 2026" },
-    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", en: "Saturday, August 22, 2026", isHighlight: true },
-    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", en: "Sunday, August 23, 2026", isHighlight: true },
-    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", en: "Monday, August 24, 2026" },
-    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", en: "Tuesday, August 25, 2026" },
-    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", en: "Wednesday, August 26, 2026" },
-    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", en: "Thursday, August 27, 2026" },
-    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", en: "Friday, August 28, 2026" },
-    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", en: "Saturday, August 29, 2026" },
-    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", en: "Sunday, August 30, 2026" },
-    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", en: "Monday, August 31, 2026" },
-    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", en: "Tuesday, September 1, 2026", isHighlight: true },
-    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", en: "Wednesday, September 2, 2026" },
-    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", en: "Thursday, September 3, 2026" },
-    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", en: "Friday, September 4, 2026" },
-    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", en: "Saturday, September 5, 2026" },
-    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", en: "Sunday, September 6, 2026" },
-    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", en: "Monday, September 7, 2026" },
-    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", en: "Tuesday, September 8, 2026" }
+    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", ja: "2026年8月18日 (火) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
+    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", ja: "2026年8月19日 (水)", en: "Wednesday, August 19, 2026" },
+    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", ja: "2026年8月20日 (木)", en: "Thursday, August 20, 2026" },
+    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", ja: "2026年8月21日 (金)", en: "Friday, August 21, 2026" },
+    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", ja: "2026年8月22日 (土)", en: "Saturday, August 22, 2026", isHighlight: true },
+    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", ja: "2026年8月23日 (日)", en: "Sunday, August 23, 2026", isHighlight: true },
+    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", ja: "2026年8月24日 (月)", en: "Monday, August 24, 2026" },
+    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", ja: "2026年8月25日 (火)", en: "Tuesday, August 25, 2026" },
+    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", ja: "2026年8月26日 (水)", en: "Wednesday, August 26, 2026" },
+    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", ja: "2026年8月27日 (木)", en: "Thursday, August 27, 2026" },
+    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", ja: "2026年8月28日 (金)", en: "Friday, August 28, 2026" },
+    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", ja: "2026年8月29日 (土)", en: "Saturday, August 29, 2026" },
+    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", ja: "2026年8月30日 (日)", en: "Sunday, August 30, 2026" },
+    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", ja: "2026年8月31日 (月)", en: "Monday, August 31, 2026" },
+    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", ja: "2026年9月1日 (火)", en: "Tuesday, September 1, 2026", isHighlight: true },
+    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", ja: "2026年9月2日 (水)", en: "Wednesday, September 2, 2026" },
+    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", ja: "2026年9月3日 (木)", en: "Thursday, September 3, 2026" },
+    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", ja: "2026年9月4日 (金)", en: "Friday, September 4, 2026" },
+    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", ja: "2026年9月5日 (土)", en: "Saturday, September 5, 2026" },
+    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", ja: "2026年9月6日 (日)", en: "Sunday, September 6, 2026" },
+    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", ja: "2026年9月7日 (月)", en: "Monday, September 7, 2026" },
+    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", ja: "2026年9月8日 (火)", en: "Tuesday, September 8, 2026" }
   ];
 
   let kolsSchedule = [
@@ -1184,6 +1348,7 @@
   }));
 
   let liveDataRecords = [];
+  let feedbackDataRecords = [];
   let expandedKols = new Set();
 
   let masterState = {
@@ -1199,6 +1364,7 @@
     renderDailyCards();
     renderMasterTable();
     renderAnalyticsMatrix();
+    renderFeedbackHub();
     renderCharts();
   }
 
@@ -1228,6 +1394,10 @@
       if (currentLang === 'kr') {
         title = cfg.kr;
         countTag = `${totalSlots}회 방송`;
+        timeUnit = "";
+      } else if (currentLang === 'ja') {
+        title = cfg.ja;
+        countTag = `${totalSlots}配信`;
         timeUnit = "";
       } else if (currentLang === 'en') {
         title = cfg.en;
@@ -1278,6 +1448,7 @@
     const subEl = document.getElementById('kpiProgressSub');
     if (subEl) {
       if (currentLang === 'kr') subEl.innerText = `전체 목표(${TOTAL_CAMPAIGN_TARGET}회)의 ${progressPct}% 진행됨`;
+      else if (currentLang === 'ja') subEl.innerText = `キャンペーン目標(${TOTAL_CAMPAIGN_TARGET}配信)の${progressPct}%達成`;
       else if (currentLang === 'en') subEl.innerText = `${progressPct}% of Campaign Target (${TOTAL_CAMPAIGN_TARGET} Streams)`;
       else subEl.innerText = `คิดเป็น ${progressPct}% ของเป้าหมายแคมเปญ (${TOTAL_CAMPAIGN_TARGET} สตรีม)`;
     }
@@ -1285,6 +1456,7 @@
     const avgSubEl = document.getElementById('kpiAvgViewsSub');
     if (avgSubEl) {
       if (currentLang === 'kr') avgSubEl.innerText = `회당 평균 ${avgViewsPerStream.toLocaleString()} 조회수`;
+      else if (currentLang === 'ja') avgSubEl.innerText = `平均${avgViewsPerStream.toLocaleString()}視聴/配信`;
       else if (currentLang === 'en') avgSubEl.innerText = `Avg ${avgViewsPerStream.toLocaleString()} views / stream`;
       else avgSubEl.innerText = `เฉลี่ย ${avgViewsPerStream.toLocaleString()} วิว / สตรีม`;
     }
@@ -1326,7 +1498,7 @@
     tbody.innerHTML = "";
 
     if (paginatedItems.length === 0) {
-      const emptyMsg = currentLang === 'kr' ? "해당 조건의 인플루언서가 없습니다" : (currentLang === 'en' ? "No KOLs found matching criteria" : "ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก");
+      const emptyMsg = currentLang === 'kr' ? "해당 조건의 인플루언서가 없습니다" : (currentLang === 'ja' ? "条件に一致するKOLが見つかりません" : (currentLang === 'en' ? "No KOLs found matching criteria" : "ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก"));
       tbody.innerHTML = `<tr><td colspan="9" class="no-data-msg">${emptyMsg}</td></tr>`;
     } else {
       paginatedItems.forEach((item, i) => {
@@ -1361,14 +1533,16 @@
 
     const showingTextEl = document.getElementById('masterShowingText');
     if (totalItems === 0) {
-      showingTextEl.innerText = currentLang === 'kr' ? "0개 항목" : (currentLang === 'en' ? "0 items" : "0 รายการ");
+      showingTextEl.innerText = currentLang === 'kr' ? "0개 항목" : (currentLang === 'ja' ? "0件" : (currentLang === 'en' ? "0 items" : "0 รายการ"));
     } else {
       if (currentLang === 'kr') {
-        showingTextEl.innerText = `${totalItems}명 중 ${startIdx + 1}-${endIdx} 표시 (클릭시 세부일정/VOD 펼침)`;
+        showingTextEl.innerText = `${totalItems}명 중 ${startIdx + 1}-${endIdx} 표시`;
+      } else if (currentLang === 'ja') {
+        showingTextEl.innerText = `${totalItems}件中 ${startIdx + 1}〜${endIdx}件を表示`;
       } else if (currentLang === 'en') {
-        showingTextEl.innerText = `Showing ${startIdx + 1}-${endIdx} of ${totalItems} KOLs (Click to expand VODs/Schedule)`;
+        showingTextEl.innerText = `Showing ${startIdx + 1}-${endIdx} of ${totalItems} items`;
       } else {
-        showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ (คลิกแถวเพื่อดูตาราง & คลิป VOD)`;
+        showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
       }
     }
 
@@ -1423,8 +1597,8 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:left; font-weight:600;">${plat.badge}</td>
-        <td><strong>${kCount}</strong> ท่าน</td>
-        <td><strong style="color:var(--ro-gold-light);">${done}</strong> สตรีม</td>
+        <td><strong>${kCount}</strong> ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
+        <td><strong style="color:var(--ro-gold-light);">${done}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
         <td style="font-weight:700; color:var(--ro-gold); text-align:right; font-size:14px;">${views.toLocaleString()}</td>
         <td style="text-align:right; font-weight:600;">${peak.toLocaleString()}</td>
         <td style="text-align:right; color:#58a6ff;">${avgViews.toLocaleString()}</td>
@@ -1440,9 +1614,10 @@
     const trTotal = document.createElement('tr');
     trTotal.style.background = "rgba(230,190,101,0.08)";
     trTotal.style.fontWeight = "700";
+    const totalPlatLabel = currentLang==='kr'?'👑 전체 플랫폼 합계':(currentLang==='ja'?'👑 全プラットフォーム総合計':'👑 รวมทุกแพลตฟอร์ม');
     trTotal.innerHTML = `
-      <td style="text-align:left; color:var(--ro-gold); font-size:14px;">👑 รวมทุกแพลตฟอร์ม</td>
-      <td style="color:var(--ro-gold-light);">${sumKols} ท่าน</td>
+      <td style="text-align:left; color:var(--ro-gold); font-size:14px;">${totalPlatLabel}</td>
+      <td style="color:var(--ro-gold-light);">${sumKols} ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
       <td style="color:var(--ro-gold-light);">${sumDone} / ${TOTAL_CAMPAIGN_TARGET}</td>
       <td style="color:var(--ro-gold-light); text-align:right; font-size:14.5px;">${sumViews.toLocaleString()}</td>
       <td style="text-align:right;">${sumPeak.toLocaleString()}</td>
@@ -1482,12 +1657,83 @@
       cellsHtml += `<td style="background:${bgStyle}; text-align:center;">${badgeHtml}</td>`;
     });
 
+    const slotLabel = currentLang==='kr'?'방송 회차':(currentLang==='ja'?'配信回数':'จำนวนรอบไลฟ์');
     hBody.innerHTML = `
       <tr>
-        <td style="font-weight:700; color:var(--ro-gold-light); text-align:left;">จำนวนรอบไลฟ์</td>
+        <td style="font-weight:700; color:var(--ro-gold-light); text-align:left;">${slotLabel}</td>
         ${cellsHtml}
       </tr>
     `;
+  }
+
+  // ================= FEEDBACK HUB RENDER =================
+  function renderFeedbackHub() {
+    const list = feedbackDataRecords.length > 0 ? feedbackDataRecords : [];
+    
+    let totalComments = 0;
+    let posCount = 0;
+    const catCounts = {};
+
+    list.forEach(item => {
+      totalComments += (item.commentsCount || 0);
+      const s = String(item.sentiment || '').toLowerCase();
+      if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) posCount++;
+
+      const c = item.category || 'Gameplay / General';
+      catCounts[c] = (catCounts[c] || 0) + 1;
+    });
+
+    document.getElementById('fbTotalCommentsCount').innerText = totalComments.toLocaleString();
+    const posPct = list.length > 0 ? Math.round((posCount / list.length) * 100) : 0;
+    document.getElementById('fbPositiveRatio').innerText = `${posPct}% (${posCount}/${list.length})`;
+
+    let topCat = "-";
+    let maxCatCount = 0;
+    Object.keys(catCounts).forEach(cat => {
+      if (catCounts[cat] > maxCatCount) {
+        maxCatCount = catCounts[cat];
+        topCat = cat;
+      }
+    });
+    document.getElementById('fbTopCategory').innerText = topCat;
+
+    // Render Category Pills
+    const pillsContainer = document.getElementById('feedbackCategoryPills');
+    pillsContainer.innerHTML = "";
+    if (Object.keys(catCounts).length === 0) {
+      pillsContainer.innerHTML = '<span style="color:var(--ro-text-muted); font-size:12px;">ยังไม่มีข้อมูลหมวดหมู่</span>';
+    } else {
+      Object.keys(catCounts).forEach(cat => {
+        const countUnit = currentLang==='kr'?'건':(currentLang==='ja'?'件':'เรื่อง');
+        pillsContainer.innerHTML += `
+          <div class="fb-cat-pill">
+            <span>📂 ${cat}</span>
+            <strong>(${catCounts[cat]} ${countUnit})</strong>
+          </div>`;
+      });
+    }
+
+    // Render Compact Table
+    const tbody = document.getElementById('feedbackOverviewTableBody');
+    tbody.innerHTML = "";
+
+    if (list.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="no-data-msg">ยังไม่มีข้อมูลความคิดเห็นจากชีต KOL_Video_Feedback</td></tr>';
+    } else {
+      list.slice(0, 15).forEach((fb, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td style="text-align:left; font-weight:600;">${getKolTag(fb.name)}</td>
+          <td>${fb.date || '-'}</td>
+          <td><span class="badge-tag wait" style="font-size:11px;">📂 ${fb.category || '-'}</span></td>
+          <td>${getSentimentBadge(fb.sentiment)}</td>
+          <td style="text-align:left; font-size:12px; max-width:340px; white-space:normal; line-height:1.4;">${fb.feedback || '-'}</td>
+          <td style="text-align:left; font-size:12px; color:var(--ro-gold-light);">${fb.action || '-'}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
   }
 
   function toggleKolExpand(name) {
@@ -1515,24 +1761,46 @@
     if (!schedBadgesHtml) schedBadgesHtml = '<span style="color:var(--ro-text-muted); font-size:12px;">ไม่มีตารางเวลาที่ระบุ</span>';
 
     const kolVods = liveDataRecords.filter(r => getCleanName(r.name) === clean);
+    const kolFeedbacks = feedbackDataRecords.filter(f => getCleanName(f.name) === clean);
+
     let vodsHtml = "";
-    if (kolVods.length > 0) {
-      kolVods.forEach(v => {
-        const vodBtn = v.url ? `<a href="${v.url}" target="_blank" rel="noopener" class="vod-link-btn">▶ ดูคลิป</a>` : '-';
+    if (kolVods.length > 0 || kolFeedbacks.length > 0) {
+      const combinedList = kolVods.length > 0 ? kolVods : kolFeedbacks;
+      combinedList.forEach((v, index) => {
+        const matchedFb = kolFeedbacks.find(f => (f.liveNo === v.liveNo || f.url === v.url)) || {};
+        const url = v.url || matchedFb.url;
+        const vodBtn = url ? `<a href="${url}" target="_blank" rel="noopener" class="vod-link-btn">▶ ดูคลิป</a>` : '-';
+        
+        const category = matchedFb.category ? `<span class="badge-tag wait" style="font-size:11px;">📂 ${matchedFb.category}</span>` : '';
+        const sentimentBadge = getSentimentBadge(matchedFb.sentiment);
+        const commentsCount = (matchedFb.commentsCount || v.commentsCount) ? `💬 ${(matchedFb.commentsCount || v.commentsCount).toLocaleString()} คอมเมนต์` : '';
+        const feedbackText = matchedFb.feedback || v.feedback || '';
+        const actionText = matchedFb.action ? `<div class="feedback-action-box">📌 <strong>Action:</strong> ${matchedFb.action}</div>` : '';
+
+        const feedbackBlock = feedbackText ? `
+          <div class="feedback-content-box">
+            ${feedbackText}
+          </div>` : '';
+
         vodsHtml += `
-          <div class="vod-item-row">
-            <span><strong>${v.liveNo}</strong> (${v.date})</span>
-            <span>👁️ ${v.views.toLocaleString()} | 👥 ${v.peak.toLocaleString()}</span>
-            <span>${vodBtn}</span>
+          <div class="vod-feedback-card">
+            <div class="vod-header-line">
+              <span><strong>${v.liveNo || matchedFb.liveNo || `Live #${index+1}`}</strong> (${v.date || matchedFb.date || '-'})</span>
+              <span style="color:var(--ro-gold-light); font-weight:600;">👁️ ${(v.views || 0).toLocaleString()} | 👥 ${(v.peak || 0).toLocaleString()} ${commentsCount ? '| ' + commentsCount : ''}</span>
+              <span>${vodBtn}</span>
+            </div>
+            ${(category || sentimentBadge) ? `<div class="feedback-meta-line">${category} ${sentimentBadge}</div>` : ''}
+            ${feedbackBlock}
+            ${actionText}
           </div>`;
       });
     } else {
-      const noVodMsg = currentLang === 'kr' ? "아직 등록된 VOD가 없습니다" : (currentLang === 'en' ? "No VOD records yet" : "ยังไม่มีบันทึกคลิปย้อนหลัง");
+      const noVodMsg = currentLang === 'kr' ? "아직 등록된 VOD 및 피드백이 없습니다" : (currentLang === 'ja' ? "登録されたVOD・フィードバックはありません" : (currentLang === 'en' ? "No VOD & Feedback records yet" : "ยังไม่มีบันทึกคลิปและข้อความ Feedback"));
       vodsHtml = `<span style="color:var(--ro-text-muted); font-size:12px;">${noVodMsg}</span>`;
     }
 
-    const schedTitle = currentLang === 'kr' ? "📅 방송 일정 (Schedule Dates)" : (currentLang === 'en' ? "📅 Scheduled Stream Dates" : "📅 ตารางรอบที่สตรีม (Scheduled Slots)");
-    const vodTitle = currentLang === 'kr' ? "🔴 완료된 라이브 및 VOD (Stream VODs)" : (currentLang === 'en' ? "🔴 Completed Streams & VODs" : "🔴 บันทึกคลิปที่ไลฟ์แล้ว & ลิงก์ VOD");
+    const schedTitle = currentLang === 'kr' ? "📅 방송 일정 (Schedule Dates)" : (currentLang === 'ja' ? "📅 配信スケジュール" : (currentLang === 'en' ? "📅 Scheduled Stream Dates" : "📅 ตารางรอบที่สตรีม (Scheduled Slots)"));
+    const vodTitle = currentLang === 'kr' ? "🔴 완료된 라이브 및 시청자 피드백 (VODs & Community Feedback)" : (currentLang === 'ja' ? "🔴 完了した配信 & 視聴者フィードバック" : (currentLang === 'en' ? "🔴 Completed Streams & Community Feedback" : "🔴 บันทึกคลิป VOD และความคิดเห็นจากผู้ชม (Video Feedback)"));
 
     return `
       <div class="detail-container">
@@ -1670,7 +1938,7 @@
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
     dot.className = "status-dot syncing";
-    syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...");
+    syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'ja' ? "データ同期中..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets..."));
 
     fetch(SCRIPT_URL)
       .then(res => res.json())
@@ -1678,15 +1946,16 @@
         if (data.schedule && data.schedule.length > 0) parseSchedule(data.schedule);
         if (data.summary && data.summary.length > 0) parseSummary(data.summary);
         if (data.liveData && data.liveData.length > 0) parseLiveData(data.liveData);
+        if (data.feedback && data.feedback.length > 0) parseFeedbackSheet(data.feedback);
 
         dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)");
+        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'ja' ? "同期完了 (スプレッドシート連携済み)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)"));
         renderAll();
       })
       .catch(err => {
         console.error(err);
         dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ");
+        syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'ja' ? "同期失敗" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ"));
         renderAll();
       });
   }
@@ -1753,6 +2022,7 @@
       const rawPeak = row[7];
       const rawShares = row[8];
       const status = row[10] || "";
+      const feedback = row[11] || "";
 
       if (!name) continue;
 
@@ -1777,17 +2047,50 @@
           views: views,
           peak: peak,
           shares: shares,
-          status: status || "จบแล้ว"
+          status: status || "จบแล้ว",
+          feedback: feedback
         });
       }
     }
     liveDataRecords = newRecords;
   }
 
+  function parseFeedbackSheet(rows) {
+    const newFeedbacks = [];
+    const startRow = rows.length > 4 && rows[3][1] ? 4 : 1;
+    for (let r = startRow; r < rows.length; r++) {
+      const row = rows[r];
+      const name = getCleanName(row[1]);
+      if (!name || name.includes("ชื่อ KOL")) continue;
+
+      const cleanNum = (val) => {
+        if (!val) return 0;
+        let s = String(val).replace(/,/g, '').trim();
+        return Number(s) || 0;
+      };
+
+      newFeedbacks.push({
+        no: row[0],
+        name: name,
+        date: row[2] || "-",
+        liveNo: row[3] || "",
+        platform: row[4] || detectPlatformByName(name),
+        url: row[5] || "",
+        commentsCount: cleanNum(row[6]),
+        category: row[7] || "Gameplay / General",
+        sentiment: row[8] || "กลาง (Neutral)",
+        feedback: row[9] || "",
+        action: row[10] || ""
+      });
+    }
+    if (newFeedbacks.length > 0) feedbackDataRecords = newFeedbacks;
+  }
+
   function switchMainSection(sectionId, btn) {
     document.getElementById('master-section').style.display = 'none';
     document.getElementById('analytics-section').style.display = 'none';
     document.getElementById('schedule-daily-section').style.display = 'none';
+    document.getElementById('feedback-summary-section').style.display = 'none';
     document.getElementById(sectionId).style.display = 'block';
     document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -1796,12 +2099,15 @@
   function setLanguage(lang) {
     currentLang = lang;
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
-    document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
+    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
 
     document.querySelectorAll('[data-th]').forEach(el => {
       if (lang === 'kr') {
         el.innerText = el.getAttribute('data-kr') || el.getAttribute('data-th');
+      } else if (lang === 'ja') {
+        el.innerText = el.getAttribute('data-ja') || el.getAttribute('data-th');
       } else if (lang === 'en') {
         el.innerText = el.getAttribute('data-en') || el.getAttribute('data-th');
       } else {
