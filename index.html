@@ -11,14 +11,14 @@
     --ro-gold: #e6be65;
     --ro-gold-light: #fff2a3;
     --ro-gold-dark: #8c6820;
-    --ro-bg: #10131c;
-    --ro-panel: #171c28;
-    --ro-panel-light: #1f2636;
-    --ro-panel-hover: #262f42;
-    --ro-border: #2f3a52;
-    --ro-border-gold: #c29541;
+    --ro-bg: #0f121a;
+    --ro-panel: #161c28;
+    --ro-panel-light: #1f2738;
+    --ro-panel-hover: #273247;
+    --ro-border: #303c54;
+    --ro-border-gold: #d4a347;
     --ro-text: #e8ecf2;
-    --ro-text-muted: #8d9bb5;
+    --ro-text-muted: #95a3bd;
     --ro-blue: #388bfd;
     --ro-green: #3fb950;
     --ro-purple: #a371f7;
@@ -32,26 +32,26 @@
   body {
     background-color: var(--ro-bg);
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(56, 139, 253, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 10% 25%, rgba(230, 190, 101, 0.06) 0%, transparent 40%),
-      linear-gradient(180deg, #10131c 0%, #0c0e15 100%);
+      radial-gradient(circle at 50% 0%, rgba(56, 139, 253, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 10% 25%, rgba(230, 190, 101, 0.08) 0%, transparent 40%),
+      linear-gradient(180deg, #0f121a 0%, #0a0c12 100%);
     color: var(--ro-text);
     font-family: 'Kanit', 'Noto Sans KR', sans-serif;
     min-height: 100vh;
     padding: 20px 16px 60px;
   }
 
-  .container { max-width: 1450px; margin: 0 auto; }
+  .container { max-width: 1520px; margin: 0 auto; }
 
   /* Header */
   .header {
     text-align: center;
-    padding: 24px 20px 18px;
+    padding: 26px 20px 20px;
     margin-bottom: 20px;
-    background: linear-gradient(180deg, rgba(23, 28, 40, 0.95) 0%, rgba(16, 19, 28, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(22, 28, 40, 0.95) 0%, rgba(15, 18, 26, 0.98) 100%);
     border: 1.5px solid var(--ro-border-gold);
     border-radius: 12px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(230, 190, 101, 0.1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), inset 0 0 18px rgba(230, 190, 101, 0.12);
     position: relative;
   }
 
@@ -67,7 +67,7 @@
     background: #11141e;
     border: 1px solid var(--ro-border-gold);
     color: var(--ro-gold-light);
-    padding: 4px 10px;
+    padding: 5px 11px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 600;
@@ -83,14 +83,14 @@
   .sub-title {
     font-family: 'Cinzel', serif;
     font-size: 13px;
-    letter-spacing: 3px;
+    letter-spacing: 3.5px;
     color: var(--ro-gold);
     text-transform: uppercase;
     margin-bottom: 4px;
   }
 
   .main-title {
-    font-size: 26px;
+    font-size: 27px;
     font-weight: 700;
     color: #ffffff;
     background: linear-gradient(180deg, #ffffff 30%, var(--ro-gold-light) 100%);
@@ -103,7 +103,7 @@
     background: var(--ro-panel);
     border: 1px solid var(--ro-border);
     border-radius: 10px;
-    padding: 10px 16px;
+    padding: 12px 18px;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
@@ -116,13 +116,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--ro-text-muted);
   }
 
   .status-dot {
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--ro-green);
     box-shadow: 0 0 8px var(--ro-green);
@@ -131,12 +131,12 @@
   .status-dot.syncing { background: var(--ro-gold); box-shadow: 0 0 8px var(--ro-gold); }
 
   .btn-action {
-    background: linear-gradient(180deg, #2a3347 0%, #1a202d 100%);
+    background: linear-gradient(180deg, #2a3449 0%, #19202c 100%);
     border: 1px solid var(--ro-border-gold);
     color: var(--ro-gold-light);
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 6px;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
@@ -150,17 +150,17 @@
   .main-nav-tabs {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 14px;
+    margin-bottom: 22px;
     flex-wrap: wrap;
   }
 
   .nav-tab-btn {
-    background: linear-gradient(180deg, #1b212f 0%, #131722 100%);
+    background: linear-gradient(180deg, #1c2332 0%, #121621 100%);
     border: 1px solid var(--ro-border);
     color: var(--ro-text-muted);
-    padding: 10px 22px;
-    font-size: 15px;
+    padding: 12px 24px;
+    font-size: 15.5px;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
@@ -171,32 +171,32 @@
   }
 
   .nav-tab-btn:hover, .nav-tab-btn.active {
-    background: linear-gradient(180deg, #273144 0%, #171d29 100%);
+    background: linear-gradient(180deg, #2a3449 0%, #171e2b 100%);
     border-color: var(--ro-gold);
     color: var(--ro-gold-light);
-    box-shadow: 0 0 12px rgba(230, 190, 101, 0.25);
+    box-shadow: 0 0 14px rgba(230, 190, 101, 0.28);
     transform: translateY(-1px);
   }
 
   /* KPI Grid */
   .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+    margin-bottom: 22px;
   }
 
   .kpi-card {
-    background: linear-gradient(180deg, #1c2230 0%, #141822 100%);
+    background: linear-gradient(180deg, #1c2332 0%, #131722 100%);
     border: 1px solid var(--ro-border);
     border-radius: 10px;
-    padding: 16px;
+    padding: 18px;
     position: relative;
   }
   .kpi-card.gold-border { border-color: var(--ro-border-gold); }
   
   .kpi-title {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--ro-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -204,7 +204,7 @@
   }
 
   .kpi-value {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     color: #ffffff;
     font-family: 'Cinzel', 'Kanit', sans-serif;
@@ -213,7 +213,7 @@
   .kpi-card.gold-border .kpi-value { color: var(--ro-gold-light); }
 
   .kpi-sub {
-    font-size: 11.5px;
+    font-size: 12px;
     color: var(--ro-text-muted);
     margin-top: 4px;
   }
@@ -223,18 +223,18 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   @media (max-width: 1024px) {
     .charts-grid { grid-template-columns: 1fr; }
   }
 
   .chart-box {
-    background: linear-gradient(180deg, #1b202d 0%, #131722 100%);
+    background: linear-gradient(180deg, #1c2332 0%, #131722 100%);
     border: 1px solid var(--ro-border);
     border-radius: 10px;
-    padding: 16px;
-    height: 320px;
+    padding: 18px;
+    height: 330px;
     position: relative;
   }
 
@@ -242,24 +242,24 @@
     background: var(--ro-panel);
     border: 1px solid var(--ro-border);
     border-radius: 10px;
-    padding: 18px;
+    padding: 22px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
-    border-bottom: 1px solid var(--ro-border);
-    padding-bottom: 10px;
+    margin-bottom: 16px;
+    border-bottom: 1.5px solid var(--ro-border);
+    padding-bottom: 12px;
     flex-wrap: wrap;
     gap: 10px;
   }
 
   .panel-title {
-    font-size: 17px;
+    font-size: 18.5px;
     color: var(--ro-gold);
     font-weight: 600;
     display: flex;
@@ -287,15 +287,15 @@
     background: #12151f;
     border: 1px solid var(--ro-border);
     color: var(--ro-text-muted);
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 18px;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
   }
   .filter-pill:hover, .filter-pill.active {
-    background: #21293a;
+    background: #232b3d;
     border-color: var(--ro-gold);
     color: var(--ro-gold-light);
   }
@@ -309,22 +309,22 @@
     border-radius: 8px;
     border: 1px solid var(--ro-border);
     position: relative;
-    max-height: 540px;
+    max-height: 560px;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 13.5px;
     text-align: left;
     white-space: nowrap;
   }
 
   th {
-    background: linear-gradient(180deg, #242c3d 0%, #181d29 100%);
+    background: linear-gradient(180deg, #273144 0%, #1a202c 100%);
     color: var(--ro-gold-light);
     font-weight: 600;
-    padding: 9px 12px;
+    padding: 11px 14px;
     border-bottom: 2px solid var(--ro-border-gold);
     border-right: 1px solid var(--ro-border);
     text-align: center;
@@ -334,12 +334,12 @@
     user-select: none;
   }
   th.sortable { cursor: pointer; }
-  th.sortable:hover { color: #ffffff; background: #2f384c; }
+  th.sortable:hover { color: #ffffff; background: #334057; }
 
   td {
-    padding: 9px 12px;
+    padding: 10px 14px;
     border-bottom: 1px solid var(--ro-border);
-    border-right: 1px solid rgba(47, 58, 82, 0.5);
+    border-right: 1px solid rgba(48, 60, 84, 0.5);
     text-align: center;
     background: var(--ro-panel);
   }
@@ -351,8 +351,8 @@
 
   /* Expanded Detail Box */
   tr.detail-row td {
-    background: #12151e !important;
-    padding: 14px 18px !important;
+    background: #11141e !important;
+    padding: 16px 22px !important;
     text-align: left;
     border-bottom: 2px solid var(--ro-border-gold);
   }
@@ -360,7 +360,7 @@
   .detail-container {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 14px;
+    gap: 16px;
   }
   @media (max-width: 900px) {
     .detail-container { grid-template-columns: 1fr; }
@@ -370,13 +370,13 @@
     background: var(--ro-panel);
     border: 1px solid var(--ro-border);
     border-radius: 8px;
-    padding: 12px 14px;
+    padding: 14px 16px;
   }
   .detail-title {
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--ro-gold);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -389,11 +389,11 @@
   }
 
   .schedule-badge {
-    background: #171b26;
-    border: 1px solid #333d52;
+    background: #171c28;
+    border: 1px solid #333f56;
     border-radius: 4px;
-    padding: 3px 7px;
-    font-size: 11px;
+    padding: 4px 8px;
+    font-size: 11.5px;
     color: #e6edf3;
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
@@ -402,9 +402,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 0;
-    border-bottom: 1px dashed rgba(47, 58, 82, 0.5);
-    font-size: 12px;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(48, 60, 84, 0.5);
+    font-size: 12.5px;
   }
   .vod-item-row:last-child { border-bottom: none; }
 
@@ -420,9 +420,9 @@
 
   .badge-tag {
     display: inline-block;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 500;
   }
   .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
@@ -430,7 +430,7 @@
   .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
   .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
   .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
-  .badge-tag.wait { background: rgba(141, 155, 181, 0.15); border: 1px solid #2f3a52; color: #8d9bb5; }
+  .badge-tag.wait { background: rgba(149, 163, 189, 0.15); border: 1px solid #303c54; color: #95a3bd; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
 
   .vod-link-btn {
@@ -438,44 +438,95 @@
     text-decoration: none;
     background: rgba(230, 190, 101, 0.1);
     border: 1px solid var(--ro-border-gold);
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 4px;
-    font-size: 11.5px;
+    font-size: 12px;
   }
   .vod-link-btn:hover { background: var(--ro-gold); color: #10131c; }
 
   .expand-indicator {
     display: inline-block;
-    font-size: 10px;
+    font-size: 11px;
     color: var(--ro-text-muted);
     transition: transform 0.2s;
   }
   tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
 
-  /* Matrix Analytics Layout */
-  .matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 16px;
+  /* ================= ENLARGED MATRIX STYLING ================= */
+  .matrix-giant-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
-  .matrix-card {
-    background: linear-gradient(180deg, #191f2c 0%, #12151e 100%);
-    border: 1px solid var(--ro-border);
-    border-radius: 8px;
-    padding: 14px;
+  .matrix-giant-card {
+    background: linear-gradient(180deg, #1a2130 0%, #121622 100%);
+    border: 1.5px solid var(--ro-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  }
+  .matrix-giant-card.gold-glow {
+    border-color: var(--ro-border-gold);
+    box-shadow: 0 0 16px rgba(230, 190, 101, 0.14);
   }
 
-  .matrix-title {
-    font-size: 13.5px;
-    color: var(--ro-gold-light);
-    font-weight: 600;
-    margin-bottom: 10px;
+  .matrix-header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 14px;
     border-bottom: 1px solid var(--ro-border);
-    padding-bottom: 6px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .matrix-giant-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ro-gold-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .matrix-giant-table {
+    font-size: 14px;
+  }
+  .matrix-giant-table th {
+    padding: 12px 16px;
+    font-size: 14px;
+    background: linear-gradient(180deg, #2b364a 0%, #1c2330 100%);
+  }
+  .matrix-giant-table td {
+    padding: 12px 16px;
+    font-size: 13.5px;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 7px;
+    background: #10141e;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #388bfd, var(--ro-gold));
+  }
+
+  /* Heatmap Table Enlarged */
+  .heatmap-table th {
+    font-size: 12px;
+    padding: 10px 6px;
+  }
+  .heatmap-table td {
+    font-size: 13px;
+    padding: 12px 6px;
   }
 
   /* Schedule Cards Layout */
@@ -547,10 +598,10 @@
     background: #11141e;
     border: 1px solid var(--ro-border);
     color: var(--ro-text-muted);
-    padding: 3px 9px;
+    padding: 4px 10px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 12.5px;
     transition: all 0.2s;
   }
   .page-btn.active, .page-btn:hover {
@@ -562,7 +613,7 @@
   .search-box {
     background: #11141e;
     border: 1px solid var(--ro-border);
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 6px;
     color: #fff;
     font-size: 13px;
@@ -575,7 +626,7 @@
     text-align: center;
     padding: 26px;
     color: var(--ro-text-muted);
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   .footer {
@@ -630,7 +681,7 @@
       <span>👑</span> <span data-th="ตารางสรุปรายคน (KOLs Master Table)" data-kr="인플루언서 종합 마스터 테이블" data-en="KOLs Master Table">ตารางสรุปรายคน (KOLs Master Table)</span>
     </button>
     <button class="nav-tab-btn" onclick="switchMainSection('analytics-section', this)">
-      <span>📈</span> <span data-th="ตารางวิเคราะห์สถิติ & แพลตฟอร์ม (Analytics Matrix)" data-kr="성과 분석 및 플랫폼 매트릭스" data-en="Performance Analytics Matrix">ตารางวิเคราะห์สถิติ & แพลตฟอร์ม (Analytics Matrix)</span>
+      <span>📈</span> <span data-th="ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)" data-kr="캠페인 성과 심층 분석 매트릭스" data-en="Campaign Performance Matrix">ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)</span>
     </button>
     <button class="nav-tab-btn" onclick="switchMainSection('schedule-daily-section', this)">
       <span>📅</span> <span data-th="ผังเวลาไลฟ์รายวัน (Daily Time Slots)" data-kr="일자별 타임슬롯 일정표" data-en="Daily Time Slots Schedule">ผังเวลาไลฟ์รายวัน (Daily Time Slots)</span>
@@ -711,7 +762,7 @@
               <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-kr="최고 동시 시청자" data-en="Peak CCU">
                 <span data-th="Peak CCU" data-kr="최고 동시 시청자" data-en="Peak CCU">Peak CCU</span> ⬍
               </th>
-              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-kr="공유数" data-en="Shares">
+              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-kr="공유수" data-en="Shares">
                 <span data-th="Shares" data-kr="공유수" data-en="Shares">Shares</span> ⬍
               </th>
               <th class="sortable" onclick="sortMasterTable('likes')" data-th="Likes" data-kr="좋아요" data-en="Likes">
@@ -731,106 +782,147 @@
     </div>
   </div>
 
-  <!-- ================= SECTION 2: ANALYTICS MATRIX ================= -->
+  <!-- ================= SECTION 2: ENLARGED & ADVANCED ANALYTICS MATRIX ================= -->
   <div id="analytics-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="📈 ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)" data-kr="📈 캠페인 성과 분석 매트릭스" data-en="📈 Campaign Performance Analytics Matrix">📈 ตารางวิเคราะห์สถิติภาพรวม (Campaign Performance Matrix)</div>
+        <div class="panel-title" data-th="📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)" data-kr="📊 캠페인 종합 성과 심층 분석 매트릭스" data-en="📊 Campaign Performance Analytics Matrix">
+          📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)
+        </div>
+        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-kr="🖨️ 리포트 인쇄 / PDF 저장" data-en="🖨️ Print / Save PDF">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
       </div>
 
-      <div class="matrix-grid">
-        <!-- Card 1: Platform Analytics -->
-        <div class="matrix-card">
-          <div class="matrix-title">
-            <span data-th="🌐 วิเคราะห์สถิติตามแพลตฟอร์ม" data-kr="🌐 플랫폼별 성과 분석" data-en="🌐 Platform Breakdown">🌐 วิเคราะห์สถิติตามแพลตฟอร์ม</span>
+      <div class="matrix-giant-container">
+
+        <!-- Table 1: Platform Comprehensive Performance Matrix -->
+        <div class="matrix-giant-card gold-glow">
+          <div class="matrix-header-row">
+            <div class="matrix-giant-title">
+              <span>🌐</span> <span data-th="1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)" data-kr="1. 플랫폼별 성과 심층 비교 분석" data-en="1. Platform Deep-Dive Performance Matrix">1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)</span>
+            </div>
+            <span class="badge-tag gold" data-th="ครอบคลุม 4 แพลตฟอร์มหลัก" data-kr="4개 주요 플랫폼 통합" data-en="4 Main Platforms Covered">ครอบคลุม 4 แพลตฟอร์มหลัก</span>
           </div>
-          <div class="table-wrapper" style="max-height: 260px;">
-            <table>
+
+          <div class="table-wrapper">
+            <table class="matrix-giant-table">
               <thead>
                 <tr>
-                  <th style="text-align:left;">Platform</th>
-                  <th>KOLs</th>
-                  <th>Total Views</th>
-                  <th>Peak CCU</th>
-                  <th>Avg Views/KOL</th>
+                  <th style="text-align:left; min-width: 140px;" data-th="แพลตฟอร์ม" data-kr="플랫폼" data-en="Platform">แพลตฟอร์ม</th>
+                  <th data-th="จำนวน KOLs" data-kr="인플루언서 수" data-en="KOLs Count">จำนวน KOLs</th>
+                  <th data-th="สตรีมที่จบแล้ว" data-kr="완료 방송" data-en="Completed Streams">สตรีมที่จบแล้ว</th>
+                  <th data-th="Total Views" data-kr="누적 조회수" data-en="Total Views">Total Views</th>
+                  <th data-th="Peak CCU รวม" data-kr="최고 동시 시청자" data-en="Peak CCU Sum">Peak CCU รวม</th>
+                  <th data-th="เฉลี่ยวิว / สตรีม" data-kr="회당 평균 조회수" data-en="Avg Views/Stream">เฉลี่ยวิว / สตรีม</th>
+                  <th data-th="Total Shares" data-kr="총 공유수" data-en="Total Shares">Total Shares</th>
+                  <th data-th="Engagement Rate" data-kr="참여율" data-en="Engagement Rate">Engagement Rate</th>
                 </tr>
               </thead>
-              <tbody id="platformMatrixBody"></tbody>
+              <tbody id="platformGiantMatrixBody"></tbody>
             </table>
           </div>
         </div>
 
-        <!-- Card 2: Schedule Phases Analysis -->
-        <div class="matrix-card">
-          <div class="matrix-title">
-            <span data-th="⏱️ วิเคราะห์ช่วงเวลาของแคมเปญ" data-kr="⏱️ 캠페인 단계별 방송 분석" data-en="⏱️ Campaign Phase Analysis">⏱️ วิเคราะห์ช่วงเวลาของแคมเปญ</span>
-            <span class="badge-tag gold">เป้าหมาย: 264 ไลฟ์</span>
+        <!-- Table 2: Campaign Phases & Timeline Strategy -->
+        <div class="matrix-giant-card">
+          <div class="matrix-header-row">
+            <div class="matrix-giant-title">
+              <span>⏱️</span> <span data-th="2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)" data-kr="2. 캠페인 단계별 방송 분포 및 전략 분석" data-en="2. Campaign Timeline Strategy & Phase Breakdown">2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)</span>
+            </div>
+            <span class="badge-tag done" data-th="เป้าหมายรวม: 264 สตรีม (100%)" data-kr="전체 목표: 264회 방송 (100%)" data-en="Total Target: 264 Streams (100%)">เป้าหมายรวม: 264 สตรีม (100%)</span>
           </div>
-          <div class="table-wrapper" style="max-height: 260px;">
-            <table>
+
+          <div class="table-wrapper">
+            <table class="matrix-giant-table">
               <thead>
                 <tr>
-                  <th style="text-align:left;">ช่วงเวลา (Phase)</th>
-                  <th>ระยะเวลา</th>
-                  <th>รอบสตรีม</th>
-                  <th>สัดส่วน</th>
-                  <th>ความหนาแน่น</th>
+                  <th style="text-align:left; min-width: 180px;" data-th="ช่วงเวลาของแคมเปญ (Phase)" data-kr="캠페인 단계 (Phase)" data-en="Campaign Phase">ช่วงเวลาของแคมเปญ (Phase)</th>
+                  <th data-th="ระยะเวลา (วันที่)" data-kr="기간 (일자)" data-en="Date Range">ระยะเวลา (วันที่)</th>
+                  <th data-th="จำนวนวัน" data-kr="일수" data-en="Days">จำนวนวัน</th>
+                  <th data-th="จำนวนรอบสตรีม" data-kr="방송 회차" data-en="Scheduled Streams">จำนวนรอบสตรีม</th>
+                  <th data-th="เฉลี่ยสตรีม / วัน" data-kr="일일 평균 방송" data-en="Avg Streams/Day">เฉลี่ยสตรีม / วัน</th>
+                  <th data-th="สัดส่วนแคมเปญ" data-kr="비중" data-en="Share %">สัดส่วนแคมเปญ</th>
+                  <th data-th="ระดับความหนาแน่น" data-kr="방송 집중도" data-en="Intensity Status">ระดับความหนาแน่น</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="text-align:left; font-weight:600; color:var(--ro-gold-light);">Grand Open Phase</td>
-                  <td>18 - 23 ส.ค. (6 วัน)</td>
-                  <td><strong>137</strong></td>
-                  <td>51.9%</td>
-                  <td><span class="badge-tag done">หนาแน่นสูงสุด</span></td>
+                  <td style="text-align:left; font-weight:700; color:var(--ro-gold-light);">
+                    🔥 Phase 1: Grand Open & Launch Peak
+                  </td>
+                  <td>18 - 23 ส.ค. 2569</td>
+                  <td>6 วัน</td>
+                  <td><strong style="font-size:15px; color:var(--ro-gold-light);">137</strong> สตรีม</td>
+                  <td><strong>22.8</strong> สตรีม/วัน</td>
+                  <td><strong>51.9%</strong></td>
+                  <td><span class="badge-tag done">🔴 หนาแน่นสูงสุด (Peak Wave)</span></td>
                 </tr>
                 <tr>
-                  <td style="text-align:left; font-weight:600; color:#58a6ff;">Mid-Campaign (Aug)</td>
-                  <td>24 - 31 ส.ค. (8 วัน)</td>
-                  <td><strong>68</strong></td>
-                  <td>25.8%</td>
-                  <td><span class="badge-tag done">ต่อเนื่อง</span></td>
+                  <td style="text-align:left; font-weight:700; color:#58a6ff;">
+                    ⚡ Phase 2: Mid-Campaign Community Drive
+                  </td>
+                  <td>24 - 31 ส.ค. 2569</td>
+                  <td>8 วัน</td>
+                  <td><strong style="font-size:15px; color:#58a6ff;">68</strong> สตรีม</td>
+                  <td><strong>8.5</strong> สตรีม/วัน</td>
+                  <td><strong>25.8%</strong></td>
+                  <td><span class="badge-tag fb">🔵 ต่อเนื่องทุกวัน (Sustain)</span></td>
                 </tr>
                 <tr>
-                  <td style="text-align:left; font-weight:600; color:#a371f7;">Finale Phase (Sep)</td>
-                  <td>1 - 8 ก.ย. (8 วัน)</td>
-                  <td><strong>59</strong></td>
-                  <td>22.3%</td>
-                  <td><span class="badge-tag done">สตรีมส่งท้าย</span></td>
+                  <td style="text-align:left; font-weight:700; color:#a371f7;">
+                    🛡️ Phase 3: Finale & Guild Wars Focus
+                  </td>
+                  <td>1 - 8 ก.ย. 2569</td>
+                  <td>8 วัน</td>
+                  <td><strong style="font-size:15px; color:#a371f7;">59</strong> สตรีม</td>
+                  <td><strong>7.4</strong> สตรีม/วัน</td>
+                  <td><strong>22.3%</strong></td>
+                  <td><span class="badge-tag twitch">🟣 สตรีมส่งท้าย (Finale Push)</span></td>
                 </tr>
                 <tr style="font-weight:700; background:rgba(230,190,101,0.08);">
-                  <td style="text-align:left; color:var(--ro-gold);">รวมทั้งสิ้น (Grand Total)</td>
+                  <td style="text-align:left; color:var(--ro-gold); font-size:14.5px;">
+                    👑 รวมทั้งสิ้นตลอดแคมเปญ (Grand Total)
+                  </td>
+                  <td style="color:var(--ro-gold);">18 ส.ค. - 8 ก.ย. 2569</td>
                   <td>22 วัน</td>
-                  <td style="color:var(--ro-gold-light);">264 สตรีม</td>
-                  <td>100.0%</td>
-                  <td><span class="badge-tag gold">Full Campaign</span></td>
+                  <td style="color:var(--ro-gold-light); font-size:15.5px;">264 สตรีม</td>
+                  <td style="color:var(--ro-gold);">12.0 สตรีม/วัน</td>
+                  <td style="color:var(--ro-gold-light);">100.0%</td>
+                  <td><span class="badge-tag gold">Full Campaign Target</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Card 3: Top Time Slots Heatmap -->
-        <div class="matrix-card" style="grid-column: 1 / -1;">
-          <div class="matrix-title">
-            <span data-th="⏰ สถิติช่วงเวลาไลฟ์ยอดนิยมตลอดแคมเปญ (Time Slot Distribution)" data-kr="⏰ 인기 방송 시간대 분포" data-en="⏰ Peak Time Slot Distribution Across Campaign">⏰ สถิติช่วงเวลาไลฟ์ยอดนิยมตลอดแคมเปญ (Time Slot Distribution)</span>
+        <!-- Table 3: Time Slot Distribution Heatmap Matrix -->
+        <div class="matrix-giant-card">
+          <div class="matrix-header-row">
+            <div class="matrix-giant-title">
+              <span>⏰</span> <span data-th="3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)" data-kr="3. 시간대별 라이브 집중도 히트맵 분석" data-en="3. 24-Hour Time Slot Distribution Heatmap Matrix">3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)</span>
+            </div>
+            <div style="font-size: 12px; color: var(--ro-text-muted); display: flex; gap: 10px; align-items:center;">
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(230,190,101,0.5);border-radius:2px;"></span> Peak (25+)</span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(56,139,253,0.4);border-radius:2px;"></span> Medium (15-24)</span>
+              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(63,185,80,0.3);border-radius:2px;"></span> Regular (1-14)</span>
+            </div>
           </div>
-          <div class="table-wrapper" style="max-height: 240px;">
-            <table>
+
+          <div class="table-wrapper">
+            <table class="heatmap-table matrix-giant-table">
               <thead>
                 <tr>
-                  <th>ช่วงเวลา (Slot)</th>
-                  <th>08:00 น.</th><th>09:00 น.</th><th>10:00 น.</th><th>11:00 น.</th>
-                  <th>12:00 น.</th><th>13:00 น.</th><th>14:00 น.</th><th>15:00 น.</th>
-                  <th>16:00 น.</th><th>17:00 น.</th><th>18:00 น.</th><th>19:00 น.</th>
-                  <th>20:00 น.</th><th>21:00 น.</th><th>22:00 น.</th>
+                  <th style="min-width: 130px; text-align:left;" data-th="ช่วงเวลา (Time Slot)" data-kr="시간대 (Slot)" data-en="Time Slot">ช่วงเวลา</th>
+                  <th>08:00</th><th>09:00</th><th>10:00</th><th>11:00</th>
+                  <th>12:00</th><th>13:00</th><th>14:00</th><th>15:00</th>
+                  <th>16:00</th><th>17:00</th><th>18:00</th><th>19:00</th>
+                  <th>20:00</th><th>21:00</th><th>22:00</th>
                 </tr>
               </thead>
-              <tbody id="timeslotHeatmapBody"></tbody>
+              <tbody id="timeslotGiantHeatmapBody"></tbody>
             </table>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -1220,27 +1312,68 @@
   }
 
   function renderAnalyticsMatrix() {
-    const platforms = ['YouTube', 'Twitch', 'Facebook', 'SOOP'];
-    const pBody = document.getElementById('platformMatrixBody');
+    const platforms = [
+      { name: 'YouTube', badge: '<span class="badge-tag yt">🔴 YouTube</span>' },
+      { name: 'Twitch', badge: '<span class="badge-tag twitch">🟣 Twitch</span>' },
+      { name: 'Facebook', badge: '<span class="badge-tag fb">🔵 Facebook</span>' },
+      { name: 'SOOP', badge: '<span class="badge-tag soop">🟢 SOOP</span>' }
+    ];
+
+    const pBody = document.getElementById('platformGiantMatrixBody');
     pBody.innerHTML = "";
 
+    let sumKols = 0, sumDone = 0, sumViews = 0, sumPeak = 0, sumShares = 0, sumLikes = 0;
+
     platforms.forEach(plat => {
-      const kols = kolsSummaryReport.filter(k => k.platform.toLowerCase() === plat.toLowerCase());
+      const kols = kolsSummaryReport.filter(k => k.platform.toLowerCase() === plat.name.toLowerCase());
       const kCount = kols.length;
+      const done = kols.reduce((sum, k) => sum + k.done, 0);
       const views = kols.reduce((sum, k) => sum + k.views, 0);
       const peak = kols.reduce((sum, k) => sum + k.peak, 0);
-      const avgViews = kCount > 0 ? Math.round(views / kCount) : 0;
+      const shares = kols.reduce((sum, k) => sum + k.shares, 0);
+      const likes = kols.reduce((sum, k) => sum + k.likes, 0);
+
+      sumKols += kCount;
+      sumDone += done;
+      sumViews += views;
+      sumPeak += peak;
+      sumShares += shares;
+      sumLikes += likes;
+
+      const avgViews = done > 0 ? Math.round(views / done) : 0;
+      const engRate = views > 0 ? (((shares + likes) / views) * 100).toFixed(2) : "0.00";
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td style="text-align:left;">${getPlatformBadge(plat)}</td>
+        <td style="text-align:left; font-weight:600;">${plat.badge}</td>
         <td><strong>${kCount}</strong> ท่าน</td>
-        <td style="font-weight:600; color:var(--ro-gold); text-align:right;">${views.toLocaleString()}</td>
-        <td style="text-align:right;">${peak.toLocaleString()}</td>
-        <td style="text-align:right;">${avgViews.toLocaleString()}</td>
+        <td><strong style="color:var(--ro-gold-light);">${done}</strong> สตรีม</td>
+        <td style="font-weight:700; color:var(--ro-gold); text-align:right; font-size:14px;">${views.toLocaleString()}</td>
+        <td style="text-align:right; font-weight:600;">${peak.toLocaleString()}</td>
+        <td style="text-align:right; color:#58a6ff;">${avgViews.toLocaleString()}</td>
+        <td style="text-align:right;">${shares.toLocaleString()}</td>
+        <td style="text-align:right; font-weight:600; color:#56d364;">${engRate}%</td>
       `;
       pBody.appendChild(tr);
     });
+
+    const totalAvgViews = sumDone > 0 ? Math.round(sumViews / sumDone) : 0;
+    const totalEngRate = sumViews > 0 ? (((sumShares + sumLikes) / sumViews) * 100).toFixed(2) : "0.00";
+
+    const trTotal = document.createElement('tr');
+    trTotal.style.background = "rgba(230,190,101,0.08)";
+    trTotal.style.fontWeight = "700";
+    trTotal.innerHTML = `
+      <td style="text-align:left; color:var(--ro-gold); font-size:14px;">👑 รวมทุกแพลตฟอร์ม</td>
+      <td style="color:var(--ro-gold-light);">${sumKols} ท่าน</td>
+      <td style="color:var(--ro-gold-light);">${sumDone} / ${TOTAL_CAMPAIGN_TARGET}</td>
+      <td style="color:var(--ro-gold-light); text-align:right; font-size:14.5px;">${sumViews.toLocaleString()}</td>
+      <td style="text-align:right;">${sumPeak.toLocaleString()}</td>
+      <td style="text-align:right; color:#58a6ff;">${totalAvgViews.toLocaleString()}</td>
+      <td style="text-align:right;">${sumShares.toLocaleString()}</td>
+      <td style="text-align:right; color:#56d364;">${totalEngRate}%</td>
+    `;
+    pBody.appendChild(trTotal);
 
     const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
     const heatCounts = {};
@@ -1252,18 +1385,32 @@
       });
     });
 
-    const hBody = document.getElementById('timeslotHeatmapBody');
+    const hBody = document.getElementById('timeslotGiantHeatmapBody');
     let cellsHtml = "";
     hours.forEach(h => {
       const c = heatCounts[h];
-      let bgStyle = "rgba(255, 255, 255, 0.03)";
-      if (c >= 25) bgStyle = "rgba(230, 190, 101, 0.35); font-weight:700; color:var(--ro-gold-light);";
-      else if (c >= 15) bgStyle = "rgba(56, 139, 253, 0.25); font-weight:600; color:#58a6ff;";
-      else if (c > 0) bgStyle = "rgba(63, 185, 80, 0.15); color:#56d364;";
-      cellsHtml += `<td style="background:${bgStyle};">${c} ครั้ง</td>`;
+      let bgStyle = "rgba(255, 255, 255, 0.02)";
+      let badgeHtml = `<span style="color:#8d9bb5;">${c}</span>`;
+      
+      if (c >= 25) {
+        bgStyle = "rgba(230, 190, 101, 0.35); border:1px solid var(--ro-border-gold);";
+        badgeHtml = `<strong style="color:var(--ro-gold-light); font-size:14.5px;">${c}</strong><br><span style="font-size:10px; color:var(--ro-gold);">🔥 Peak</span>`;
+      } else if (c >= 15) {
+        bgStyle = "rgba(56, 139, 253, 0.25); border:1px solid rgba(56,139,253,0.4);";
+        badgeHtml = `<strong style="color:#58a6ff; font-size:14px;">${c}</strong><br><span style="font-size:10px; color:#79c0ff;">⚡ High</span>`;
+      } else if (c > 0) {
+        bgStyle = "rgba(63, 185, 80, 0.14);";
+        badgeHtml = `<span style="color:#56d364; font-weight:600;">${c}</span>`;
+      }
+      cellsHtml += `<td style="background:${bgStyle}; text-align:center;">${badgeHtml}</td>`;
     });
 
-    hBody.innerHTML = `<tr><td style="font-weight:600; color:var(--ro-gold-light);">รวมรอบไลฟ์</td>${cellsHtml}</tr>`;
+    hBody.innerHTML = `
+      <tr>
+        <td style="font-weight:700; color:var(--ro-gold-light); text-align:left;">จำนวนรอบไลฟ์</td>
+        ${cellsHtml}
+      </tr>
+    `;
   }
 
   function toggleKolExpand(name) {
@@ -1398,8 +1545,8 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: '#8d9bb5', font: { family: 'Kanit' } }, grid: { display: false } },
-          y: { ticks: { color: '#8d9bb5', font: { family: 'Kanit' } }, grid: { color: 'rgba(47, 58, 82, 0.4)' }, beginAtZero: true }
+          x: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { display: false } },
+          y: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { color: 'rgba(48, 60, 84, 0.4)' }, beginAtZero: true }
         }
       }
     });
@@ -1428,7 +1575,7 @@
         datasets: [{
           data: [ytCount, twitchCount, fbCount, soopCount],
           backgroundColor: ['#f85149', '#9146ff', '#388bfd', '#00d282'],
-          borderColor: '#171c28',
+          borderColor: '#161c28',
           borderWidth: 2
         }]
       },
