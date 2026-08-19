@@ -408,7 +408,42 @@
   }
   .vod-item-row:last-child { border-bottom: none; }
 
-  .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
+  /* KOL Avatar & Link */
+  .kol-name { 
+    font-weight: 600; 
+    color: #ffffff; 
+    text-align: left; 
+  }
+  
+  .kol-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .kol-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--ro-border-gold);
+    background: #192130;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .kol-avatar-sm {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--ro-border-gold);
+    vertical-align: middle;
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+
   .kol-link {
     color: #ffffff;
     text-decoration: none;
@@ -502,21 +537,6 @@
   .matrix-giant-table td {
     padding: 12px 16px;
     font-size: 13.5px;
-  }
-
-  .progress-track {
-    width: 100%;
-    height: 7px;
-    background: #10141e;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 6px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  .progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    background: linear-gradient(90deg, #388bfd, var(--ro-gold));
   }
 
   /* Heatmap Table Enlarged */
@@ -660,7 +680,7 @@
       <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">🇺🇸 English</button>
     </div>
     <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
+    <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플鲁언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
   <!-- Real-time Sync & Export Bar -->
@@ -749,7 +769,7 @@
             <tr>
               <th style="width: 40px;"></th>
               <th style="width: 50px;" data-th="ลำดับ" data-kr="No." data-en="No.">ลำดับ</th>
-              <th class="sortable" onclick="sortMasterTable('name')" style="text-align:left; min-width:180px;">
+              <th class="sortable" onclick="sortMasterTable('name')" style="text-align:left; min-width:210px;">
                 <span data-th="รายชื่อ KOL" data-kr="인플루언서 이름" data-en="KOL Name">รายชื่อ KOL</span> ⬍
               </th>
               <th style="width: 100px;" data-th="ช่องทาง" data-kr="플랫폼" data-en="Platform">ช่องทาง</th>
@@ -996,22 +1016,79 @@
     "THISKK": "https://www.twitch.tv/thiskk"
   };
 
+  // Direct High-Res Profile Picture (Avatar) Mapping
+  const KOL_AVATARS = {
+    // 25 Main KOLs
+    "Jaymeander": "https://unavatar.io/youtube/JayMeander",
+    "KamonWay": "https://unavatar.io/youtube/KamonWay",
+    "Jungko": "https://unavatar.io/youtube/junqko20",
+    "Shipdont": "https://unavatar.io/youtube/shipdont",
+    "basz17": "https://unavatar.io/youtube/baszsone17",
+    "Doraraz": "https://unavatar.io/youtube/Doraraz",
+    "FOMU Ch.": "https://unavatar.io/youtube/fomuch",
+    "Jeon": "https://unavatar.io/youtube/JeonNaKub",
+    "NCZ": "https://unavatar.io/youtube/NCZCH",
+    "SC Forlife": "https://unavatar.io/youtube/SCForlife",
+    "TIMTIMChannel": "https://unavatar.io/facebook/TIMTIMChannelLive",
+    "TKGaming": "https://unavatar.io/youtube/TKGaming156",
+    "Viva-Tz": "https://unavatar.io/youtube/viva-tz",
+    "WhiteBearZBank": "https://unavatar.io/youtube/WhiteBearZBank",
+    "แชงค์888": "https://unavatar.io/youtube/YTShanks888",
+    "bAllz HD": "https://unavatar.io/youtube/bAllzHD",
+    "YOGURTz": "https://unavatar.io/facebook/YOGURTzzz",
+    "ลุงโย - Yogurting": "https://unavatar.io/youtube/%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2",
+    "MimiwPK": "https://unavatar.io/youtube/mimiwpk",
+    "PoP Chanal": "https://unavatar.io/youtube/popchanal8349",
+    "ValduzCH": "https://unavatar.io/youtube/valduzch",
+    "VCartz": "https://unavatar.io/youtube/VCartz",
+    "OhBIGz": "https://unavatar.io/youtube/OhBIGz",
+    "ZixmaOne": "https://unavatar.io/youtube/ZixmaOne",
+    "iamaii": "https://unavatar.io/youtube/iammaii",
+
+    // 14 Additional KOLs
+    "MinORu": "https://unavatar.io/youtube/MinORuOnly",
+    "พี่แว่น": "https://unavatar.io/youtube/pvanpbas",
+    "NoctisAK47": "https://unavatar.io/twitch/noctisak47",
+    "Ezqulusia": "https://unavatar.io/youtube/GreenEzqelusia",
+    "Gssspotted": "https://unavatar.io/twitch/gssspotted",
+    "Takluz": "https://unavatar.io/twitch/takluz",
+    "Bounglengame": "https://unavatar.io/youtube/bigboungstudio",
+    "NAKLAS GAMER": "https://unavatar.io/youtube/NAKLASGAMER",
+    "SKIZZ TV (Feat. OPZ)": "https://unavatar.io/youtube/SkizzTV59",
+    "โกโจ อ้วน (พี่ซี๊ด)": "https://unavatar.io/youtube/%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99",
+    "BreakGate": "https://unavatar.io/youtube/BreakGate",
+    "RUBSARB (จ๊อบ)": "https://unavatar.io/youtube/RUBSARBproduction",
+    "Genghiskhanz": "https://unavatar.io/youtube/GenghisKhanz",
+    "THISKK": "https://unavatar.io/twitch/thiskk"
+  };
+
   function getCleanName(name) {
     return String(name || '').trim();
+  }
+
+  function getKolAvatarUrl(name) {
+    const clean = getCleanName(name);
+    if (KOL_AVATARS[clean]) return KOL_AVATARS[clean];
+    const initials = encodeURIComponent(clean.substring(0, 2).toUpperCase());
+    return `https://ui-avatars.com/api/?name=${initials}&background=1f2738&color=e6be65&bold=true&length=2&rounded=true`;
   }
 
   function getKolTag(name) {
     const clean = getCleanName(name);
     const url = KOL_LINKS[clean];
-    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${clean} ↗</a>`;
-    return `<span class="kol-pill">${clean}</span>`;
+    const avatarUrl = getKolAvatarUrl(clean);
+    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar-sm" alt="${clean}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65'" loading="lazy">`;
+    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${imgHtml}${clean} ↗</a>`;
+    return `<span class="kol-pill">${imgHtml}${clean}</span>`;
   }
 
   function getKolNameHtml(name) {
     const clean = getCleanName(name);
     const url = KOL_LINKS[clean];
-    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a>`;
-    return clean;
+    const avatarUrl = getKolAvatarUrl(clean);
+    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar" alt="${clean}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65'" loading="lazy">`;
+    if (url) return `<div class="kol-name-cell">${imgHtml}<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a></div>`;
+    return `<div class="kol-name-cell">${imgHtml}<span>${clean}</span></div>`;
   }
 
   function getPlatformBadge(platform) {
