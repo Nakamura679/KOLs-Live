@@ -758,7 +758,7 @@
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
       <button class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナ로크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナロ크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
     <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-ja="⚔️ KOLマスターライブポータル & 高度な分析 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
@@ -814,7 +814,7 @@
     </div>
   </div>
 
-  <!-- Charts Row -->
+  <!-- Charts Row (Moved Daily Performance Breakdown right after Top KOLs Chart) -->
   <div class="charts-grid">
     <div class="chart-box">
       <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="🏆 Top KOLs Views Leaderboard" data-kr="🏆 최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
@@ -823,6 +823,33 @@
     <div class="chart-box">
       <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="🌐 Platform Share Ratio" data-kr="🌐 플랫폼 점유율" data-ja="🌐 プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
       <canvas id="platformChart"></canvas>
+    </div>
+  </div>
+
+  <!-- ================= NEW: DAILY PERFORMANCE BREAKDOWN TABLE (MOVED HERE) ================= -->
+  <div class="panel" style="margin-bottom: 22px;">
+    <div class="panel-header">
+      <div class="panel-title">
+        <span>📅</span> <span data-th="4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)" data-en="4. Daily Performance Breakdown" data-kr="4. 일자별 성과 상세 비교 분석" data-ja="4. 日別パフォーマンス詳細分析">4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)</span>
+      </div>
+      <span class="badge-tag gold" data-th="ข้อมูลอัปเดตตามจริงจาก Live_Data" data-en="Live Data Breakdown" data-kr="실시간 데이터 기반" data-ja="リアルタイムデータ">ข้อมูลอัปเดตตามจริงจาก Live_Data</span>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="matrix-giant-table">
+        <thead>
+          <tr>
+            <th style="text-align:left; min-width: 140px;" data-th="วันที่ (Date)" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
+            <th data-th="จำนวนสตรีม" data-en="Streams Count" data-kr="방송 횟수" data-ja="配信数">จำนวนสตรีม</th>
+            <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
+            <th data-th="Peak CCU สูงสุด" data-en="Peak CCU Max" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU สูงสุด</th>
+            <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
+            <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
+            <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
+          </tr>
+        </thead>
+        <tbody id="dailyPerformanceMatrixBody"></tbody>
+      </table>
     </div>
   </div>
 
@@ -1033,7 +1060,7 @@
   <div id="schedule-daily-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-en="⚔️ Daily Stream Time Slot Breakdown (Aug 18 - Sep 8, 2026)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약 (8/18 - 9/8)" data-ja="⚔️ 日別配信タイムスロット詳細 (8月18日〜9月8日)">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
+        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-kr="⚔️ 일자별 타임 슬롯 상세 요약 (8/18 - 9/8)" data-ja="⚔️ 日別配信タイムスロット詳細 (8月18日〜9月8日)">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
       </div>
       <div class="grid-days" id="dailyCardsContainer"></div>
     </div>
@@ -1043,7 +1070,7 @@
   <div id="feedback-summary-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-en="💬 Community Viewer Feedback Hub" data-kr="💬 시청자 반응 및 커뮤니티 피드백 허브" data-ja="💬 視聴者リアクション & コミュニティフィードバックハブ">
+        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-kr="💬 시청자 반응 및 커뮤니티 피드백 허브" data-ja="💬 視聴者リアクション & コミュニティフィードバックハブ">
           💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)
         </div>
       </div>
@@ -1364,6 +1391,7 @@
     renderDailyCards();
     renderMasterTable();
     renderAnalyticsMatrix();
+    renderDailyPerformanceMatrix();
     renderFeedbackHub();
     renderCharts();
   }
@@ -1666,11 +1694,60 @@
     `;
   }
 
+  // ================= NEW: RENDER DAILY PERFORMANCE MATRIX =================
+  function renderDailyPerformanceMatrix() {
+    const tbody = document.getElementById('dailyPerformanceMatrixBody');
+    if (!tbody) return;
+    tbody.innerHTML = "";
+
+    const dateMap = {};
+    DATE_CONFIG.forEach(d => {
+      dateMap[d.key] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
+    });
+
+    liveDataRecords.forEach(rec => {
+      const dKey = rec.date ? rec.date.trim() : '-';
+      if (!dateMap[dKey]) {
+        dateMap[dKey] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
+      }
+      dateMap[dKey].streams++;
+      dateMap[dKey].views += (rec.views || 0);
+      dateMap[dKey].peak = Math.max(dateMap[dKey].peak, rec.peak || 0);
+      dateMap[dKey].shares += (rec.shares || 0);
+    });
+
+    let hasData = false;
+    Object.keys(dateMap).forEach(dateStr => {
+      const item = dateMap[dateStr];
+      if (item.streams > 0 || item.views > 0) {
+        hasData = true;
+        const avgV = item.streams > 0 ? Math.round(item.views / item.streams) : 0;
+        const eng = item.views > 0 ? (((item.shares) / item.views) * 100).toFixed(2) : "0.00";
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="text-align:left; font-weight:600; color:var(--ro-gold-light);">${dateStr}</td>
+          <td><strong>${item.streams}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
+          <td style="font-weight:700; color:var(--ro-gold); text-align:right;">${item.views.toLocaleString()}</td>
+          <td style="text-align:right;">${item.peak.toLocaleString()}</td>
+          <td style="text-align:right; color:#58a6ff;">${avgV.toLocaleString()}</td>
+          <td style="text-align:right;">${item.shares.toLocaleString()}</td>
+          <td style="text-align:right; color:#56d364;">${eng}%</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    });
+
+    if (!hasData) {
+      const noDataText = currentLang==='kr'?'라이브 데이터가 없습니다':(currentLang==='ja'?'ライブデータがありません':'ยังไม่มีข้อมูลสตรีมรายวันในระบบ Live_Data');
+      tbody.innerHTML = `<tr><td colspan="7" class="no-data-msg">${noDataText}</td></tr>`;
+    }
+  }
+
   // ================= FEEDBACK HUB RENDER (FILTERED: ONLY WITH COMMENTS/FEEDBACK) =================
   function renderFeedbackHub() {
     const rawList = feedbackDataRecords.length > 0 ? feedbackDataRecords : [];
     
-    // 👉 กรองแสดงเฉพาะรายการที่มีคอมเมนต์ หรือมีข้อความ Feedback จริงๆ เท่านั้น
     const list = rawList.filter(item => {
       const hasComments = Number(item.commentsCount || 0) > 0;
       const hasText = item.feedback && item.feedback.trim() !== '' && !item.feedback.includes('ปิดรับความคิดเห็น / ไม่มีคอมเมนต์');
