@@ -349,7 +349,6 @@
   tr.master-row:hover td { background: rgba(230, 190, 101, 0.08) !important; }
   tr.master-row.expanded td { background: rgba(56, 139, 253, 0.08) !important; border-bottom: none; }
 
-  /* Expanded Detail Box */
   tr.detail-row td {
     background: #11141e !important;
     padding: 16px 22px !important;
@@ -398,351 +397,46 @@
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
 
-  .vod-feedback-card {
-    background: #141824;
-    border: 1px solid #28334a;
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-  }
-  .vod-feedback-card:last-child { margin-bottom: 0; }
-
-  .vod-header-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1px dashed rgba(48, 60, 84, 0.6);
-  }
-
-  .feedback-meta-line {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-
-  .feedback-content-box {
-    background: rgba(56, 139, 253, 0.06);
-    border-left: 3px solid var(--ro-blue);
-    padding: 8px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 12px;
-    color: #c9d1d9;
-    line-height: 1.45;
-  }
-
-  .feedback-action-box {
-    background: rgba(230, 190, 101, 0.08);
-    border-left: 3px solid var(--ro-gold);
-    padding: 6px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 11.5px;
-    color: var(--ro-gold-light);
-    margin-top: 6px;
-  }
-
-  .sentiment-badge {
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .sentiment-badge.pos { background: rgba(63, 185, 80, 0.2); color: #56d364; border: 1px solid #3fb950; }
-  .sentiment-badge.neu { background: rgba(56, 139, 253, 0.2); color: #79c0ff; border: 1px solid #388bfd; }
-  .sentiment-badge.neg { background: rgba(248, 81, 73, 0.2); color: #ff7b72; border: 1px solid #f85149; }
-
-  /* KOL Avatar & Link */
-  .kol-name { 
-    font-weight: 600; 
-    color: #ffffff; 
-    text-align: left; 
-  }
-  
-  .kol-name-cell {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: left;
-  }
-
+  .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
+  .kol-name-cell { display: flex; align-items: center; gap: 10px; text-align: left; }
   .kol-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1.5px solid var(--ro-border-gold);
-    background: #192130;
-    flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+    border: 1.5px solid var(--ro-border-gold); background: #192130; flex-shrink: 0;
   }
-
   .kol-avatar-sm {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--ro-border-gold);
-    vertical-align: middle;
-    margin-right: 5px;
-    flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%; object-fit: cover;
+    border: 1px solid var(--ro-border-gold); vertical-align: middle; margin-right: 5px; flex-shrink: 0;
   }
-
-  .kol-link {
-    color: #ffffff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
+  .kol-link { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
   .kol-link:hover { color: var(--ro-gold-light); text-decoration: underline; }
 
-  .badge-tag {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 11.5px;
-    font-weight: 500;
-  }
+  .badge-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11.5px; font-weight: 500; }
   .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
   .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
   .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
   .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
-  .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
-  .badge-tag.wait { background: rgba(149, 163, 189, 0.15); border: 1px solid #303c54; color: #95a3bd; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
 
-  .vod-link-btn {
-    color: var(--ro-gold);
-    text-decoration: none;
-    background: rgba(230, 190, 101, 0.1);
-    border: 1px solid var(--ro-border-gold);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-  .vod-link-btn:hover { background: var(--ro-gold); color: #10131c; }
-
-  .expand-indicator {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--ro-text-muted);
-    transition: transform 0.2s;
-  }
-  tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
-
-  /* ================= FEEDBACK SECTION STYLING ================= */
-  .feedback-compact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .feedback-mini-card {
-    background: linear-gradient(180deg, #192130 0%, #121622 100%);
-    border: 1px solid var(--ro-border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .feedback-category-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-
-  .fb-cat-pill {
-    background: #11141e;
-    border: 1px solid #333f56;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12.5px;
-    color: var(--ro-text);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .fb-cat-pill strong { color: var(--ro-gold-light); }
-
-  /* Matrix Layout */
-  .matrix-giant-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .matrix-giant-card {
-    background: linear-gradient(180deg, #1a2130 0%, #121622 100%);
-    border: 1.5px solid var(--ro-border);
-    border-radius: 10px;
-    padding: 20px 24px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
-  }
-  .matrix-giant-card.gold-glow {
-    border-color: var(--ro-border-gold);
-    box-shadow: 0 0 16px rgba(230, 190, 101, 0.14);
-  }
-
-  .matrix-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-    border-bottom: 1px solid var(--ro-border);
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .matrix-giant-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--ro-gold-light);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .matrix-giant-table {
-    font-size: 14px;
-  }
-  .matrix-giant-table th {
-    padding: 12px 16px;
-    font-size: 14px;
-    background: linear-gradient(180deg, #2b364a 0%, #1c2330 100%);
-  }
-  .matrix-giant-table td {
-    padding: 12px 16px;
-    font-size: 13.5px;
-  }
-
-  /* Schedule Cards Layout */
-  .grid-days {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 16px;
-  }
-
-  .day-card {
-    background: linear-gradient(180deg, #1b202d 0%, #131722 100%);
-    border: 1px solid var(--ro-border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .day-card.highlight-day { border-color: var(--ro-border-gold); box-shadow: 0 0 14px rgba(230, 190, 101, 0.12); }
-
-  .day-header {
-    background: linear-gradient(90deg, #242c3d 0%, #181d29 100%);
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--ro-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .day-title { font-weight: 600; font-size: 14px; color: var(--ro-gold-light); }
-  .day-tag { font-size: 11px; background: rgba(230, 190, 101, 0.15); color: var(--ro-gold); padding: 2px 7px; border-radius: 12px; border: 1px solid var(--ro-gold-dark); }
-  .day-slots { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
-
-  .slot-row { display: flex; align-items: center; gap: 8px; padding: 5px 7px; border-radius: 5px; background: rgba(255, 255, 255, 0.02); }
-  .slot-time { font-weight: 600; font-size: 12px; color: #58a6ff; min-width: 60px; }
-  .slot-kols { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
-
-  .kol-pill {
-    font-size: 11.5px;
-    background: #232a3a;
-    color: #e6edf3;
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid #36425a;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .kol-pill.clickable:hover {
-    background: var(--ro-gold);
-    color: #10131c;
-    border-color: var(--ro-gold-light);
-  }
-
-  /* Pagination Bar */
   .pagination-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-    padding-top: 8px;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 12.5px;
-    color: var(--ro-text-muted);
+    display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 8px; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ro-text-muted);
   }
-
   .page-btn-group { display: flex; gap: 5px; }
   .page-btn {
-    background: #11141e;
-    border: 1px solid var(--ro-border);
-    color: var(--ro-text-muted);
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12.5px;
-    transition: all 0.2s;
+    background: #11141e; border: 1px solid var(--ro-border); color: var(--ro-text-muted); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 12.5px;
   }
-  .page-btn.active, .page-btn:hover {
-    background: var(--ro-panel-light);
-    border-color: var(--ro-gold);
-    color: var(--ro-gold-light);
-  }
+  .page-btn.active, .page-btn:hover { background: var(--ro-panel-light); border-color: var(--ro-gold); color: var(--ro-gold-light); }
 
   .search-box {
-    background: #11141e;
-    border: 1px solid var(--ro-border);
-    padding: 7px 14px;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 13px;
-    width: 250px;
-    outline: none;
+    background: #11141e; border: 1px solid var(--ro-border); padding: 7px 14px; border-radius: 6px; color: #fff; font-size: 13px; width: 250px; outline: none;
   }
   .search-box:focus { border-color: var(--ro-gold); }
 
-  .no-data-msg {
-    text-align: center;
-    padding: 26px;
-    color: var(--ro-text-muted);
-    font-size: 13.5px;
-  }
-
-  .footer {
-    text-align: center;
-    margin-top: 36px;
-    color: var(--ro-text-muted);
-    font-size: 12.5px;
-    border-top: 1px solid var(--ro-border);
-    padding-top: 18px;
-  }
+  .no-data-msg { text-align: center; padding: 26px; color: var(--ro-text-muted); font-size: 13.5px; }
+  .footer { text-align: center; margin-top: 36px; color: var(--ro-text-muted); font-size: 12.5px; border-top: 1px solid var(--ro-border); padding-top: 18px; }
 
   @media (max-width: 768px) {
     .main-title { font-size: 20px; }
     .lang-switch { position: static; justify-content: center; margin-bottom: 10px; }
-    .grid-days { grid-template-columns: 1fr; }
-    .sync-bar { flex-direction: column; align-items: stretch; }
-    .filter-bar { flex-direction: column; align-items: stretch; }
-    .search-box { width: 100%; }
   }
 </style>
 </head>
@@ -758,160 +452,105 @@
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
       <button class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナ로크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
-    <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-ja="⚔️ KOLマスターライブポータル & 高度な分析 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
+    <div class="sub-title">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <h1 class="main-title">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
-  <!-- Real-time Sync & Export Bar -->
+  <!-- Sync & Status Bar -->
   <div class="sync-bar">
     <div class="sync-status">
       <span class="status-dot" id="statusDot"></span>
-      <span id="syncText" 
-            data-th="สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)" 
-            data-en="Status: Connected to Google Sheets (Auto Sync On)" 
-            data-kr="상태: 구글 시트 실시간 연동 완료 (자동 동기화)" 
-            data-ja="ステータス: Googleスプレッドシート接続完了 (自動同期)">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
+      <span id="syncText">สถานะ: เชื่อมต่อ Google Sheets เรียบร้อย (Auto Sync On)</span>
     </div>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-      <button class="btn-action" onclick="exportMasterToCSV()" 
-              data-th="📥 ส่งออกตารางสรุป (CSV)" 
-              data-en="📥 Export Summary CSV" 
-              data-kr="📥 마스터 리포트 내보내기 (CSV)" 
-              data-ja="📥 サマリーCSV出力">📥 ส่งออกตารางสรุป (CSV)</button>
-      <button class="btn-action" onclick="fetchLiveData()" 
-              data-th="🔄 ซิงค์ข้อมูลล่าสุด" 
-              data-en="🔄 Sync Latest Data" 
-              data-kr="🔄 최신 데이터 동기화" 
-              data-ja="🔄 最新データ同期">🔄 ซิงค์ข้อมูลล่าสุด</button>
+      <button class="btn-action" onclick="exportMasterToCSV()">📥 ส่งออกตารางสรุป (CSV)</button>
+      <button class="btn-action" onclick="fetchLiveData()">🔄 ซิงค์ข้อมูลล่าสุด</button>
     </div>
   </div>
 
-  <!-- Main Navigation Tabs (4 Tabs) -->
+  <!-- Main Navigation Tabs -->
   <div class="main-nav-tabs">
-    <button class="nav-tab-btn active" onclick="switchMainSection('master-section', this)">
-      <span>👑</span> <span data-th="ตารางสรุปรายคน (KOLs Master Table)" data-en="KOLs Master Table" data-kr="인플루언서 종합 마스터 테이블" data-ja="KOLマスターテーブル">ตารางสรุปรายคน (KOLs Master Table)</span>
-    </button>
-    <button class="nav-tab-btn" onclick="switchMainSection('analytics-section', this)">
-      <span>📈</span> <span data-th="ตารางวิเคราะห์สถิติภาพรวม (Campaign Matrix)" data-en="Campaign Performance Matrix" data-kr="캠페인 성과 심층 분석 매트릭스" data-ja="キャンペーン分析マトリックス">ตารางวิเคราะห์สถิติภาพรวม (Campaign Matrix)</span>
-    </button>
-    <button class="nav-tab-btn" onclick="switchMainSection('schedule-daily-section', this)">
-      <span>📅</span> <span data-th="ผังเวลาไลฟ์รายวัน (Daily Time Slots)" data-en="Daily Time Slots Schedule" data-kr="일자별 타임슬롯 일정표" data-ja="日別タイムスロットスケジュール">ผังเวลาไลฟ์รายวัน (Daily Time Slots)</span>
-    </button>
-    <button class="nav-tab-btn" onclick="switchMainSection('feedback-summary-section', this)">
-      <span>💬</span> <span data-th="สรุปความคิดเห็นผู้ชม (Feedback Hub)" data-en="Viewer Feedback Hub" data-kr="시청자 피드백 요약 허브" data-ja="視聴者フィードバックハブ">สรุปความคิดเห็นผู้ชม (Feedback Hub)</span>
-    </button>
+    <button class="nav-tab-btn active" onclick="switchMainSection('master-section', this)">👑 ตารางสรุปรายคน (KOLs Master Table)</button>
+    <button class="nav-tab-btn" onclick="switchMainSection('analytics-section', this)">📈 ตารางวิเคราะห์สถิติภาพรวม (Campaign Matrix)</button>
+    <button class="nav-tab-btn" onclick="switchMainSection('schedule-daily-section', this)">📅 ผังเวลาไลฟ์รายวัน (Daily Time Slots)</button>
+    <button class="nav-tab-btn" onclick="switchMainSection('feedback-summary-section', this)">💬 สรุปความคิดเห็นผู้ชม (Feedback Hub)</button>
   </div>
 
   <!-- Top KPI Cards -->
   <div class="kpi-grid">
     <div class="kpi-card gold-border">
-      <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-en="🔥 Total Campaign Views" data-kr="🔥 총 누적 조회수 (Total Views)" data-ja="🔥 総キャンペーン視聴回数">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
+      <div class="kpi-title">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
       <div class="kpi-value" id="kpiTotalViews">0</div>
-      <div class="kpi-sub" id="kpiAvgViewsSub" data-th="เฉลี่ย 0 วิว / สตรีม" data-en="Avg 0 views / stream" data-kr="회당 평균 0 조회수" data-ja="平均0視聴/配信">เฉลี่ย 0 วิว / สตรีม</div>
+      <div class="kpi-sub" id="kpiAvgViewsSub">เฉลี่ย 0 วิว / สตรีม</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)" data-en="👥 Peak Concurrent Viewers" data-kr="👥 최고 동시 시청자수 (Peak CCU)" data-ja="👥 最高同時接続数 (Peak CCU)">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
+      <div class="kpi-title">👥 ยอดคนดูพร้อมกันสูงสุด (Peak CCU)</div>
       <div class="kpi-value" id="kpiPeakViews">0</div>
-      <div class="kpi-sub" data-th="สถิติ Peak รวมของทุกช่อง" data-en="Highest Concurrent Peak Across All Channels" data-kr="전체 채널 최고 피크 합산" data-ja="全チャンネル最高同時接続数の合計">สถิติ Peak รวมของทุกช่อง</div>
+      <div class="kpi-sub">สถิติ Peak รวมของทุกช่อง</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-en="🔄 Total Social Shares" data-kr="🔄 총 공유수 (Total Shares)" data-ja="🔄 総シェア数 (Total Shares)">🔄 ยอดแชร์รวม (Total Shares)</div>
+      <div class="kpi-title">🔄 ยอดแชร์รวม (Total Shares)</div>
       <div class="kpi-value" id="kpiTotalShares">0</div>
-      <div class="kpi-sub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="Engagement Rate: 0.0%">Engagement Rate: 0.0%</div>
+      <div class="kpi-sub" id="kpiEngageSub">Engagement Rate: 0.0%</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-en="Completed Streams" data-kr="완료된 라이브 방송수" data-ja="完了した配信数">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
+      <div class="kpi-title">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
       <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:17px; color:var(--ro-text-muted);">/ 264</span></div>
-      <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)" data-en="0.0% of Campaign Target (264 Streams)" data-kr="전체 목표(264회)의 0.0% 진행됨" data-ja="キャンペーン目標(264配信)の0.0%達成">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
+      <div class="kpi-sub" id="kpiProgressSub">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
     </div>
   </div>
 
   <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="최고 조회수 인플루언서" data-ja="トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
       <canvas id="topKolsChart"></canvas>
     </div>
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="Platform Share Ratio" data-kr="플랫폼 점유율" data-ja="プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
       <canvas id="platformChart"></canvas>
     </div>
   </div>
 
-  <!-- ================= COST & CPV SUMMARY PANEL (SPLIT MEGA vs MICRO/MID) ================= -->
+  <!-- COST & CPV SUMMARY PANEL -->
   <div class="panel" style="border-color: var(--ro-border-gold); background: linear-gradient(180deg, rgba(230,190,101,0.06) 0%, var(--ro-panel) 100%);">
     <div class="panel-header">
-      <div class="panel-title">
-        <span>💰</span> <span data-th="สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)" data-en="Campaign Cost & CPV Summary" data-kr="캠페인 비용 및 조회당 비용(CPV) 요약" data-ja="キャンペーン費用 & CPVサマリー">สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)</span>
-      </div>
-      <span class="badge-tag gold" data-th="แยกตามระดับเทียร์ KOLs" data-en="Split by KOL Tiers" data-kr="인플루언서 티어별 분류" data-ja="KOLティア別分類">แยกตามระดับเทียร์ KOLs</span>
+      <div class="panel-title"><span>💰</span> สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)</div>
+      <span class="badge-tag gold">แยกตามระดับเทียร์ KOLs</span>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px;">
-      
-      <!-- Card 1: Mega KOLs Cost & CPV -->
       <div style="background: rgba(22, 28, 40, 0.85); border: 1.5px solid var(--ro-border-gold); border-radius: 8px; padding: 18px; text-align: center;">
-        <div style="font-size: 13px; font-weight: 700; color: var(--ro-gold);" data-th="🔥 Mega KOLs (14 ท่าน)" data-en="🔥 Mega KOLs (14 Persons)" data-kr="🔥 메가 인플루언서 (14명)" data-ja="🔥 メガKOL (14名)">🔥 Mega KOLs (14 ท่าน)</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--ro-gold);">🔥 Mega KOLs (14 ท่าน)</div>
         <div style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 6px;">1,516,000 THB</div>
         <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">KRW 65,218,320</div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--ro-border);">
-          <span style="font-size: 11.5px; color: var(--ro-text-muted);" data-th="CPV เฉลี่ย Mega: " data-en="Mega Avg CPV: " data-kr="메가 평균 CPV: " data-ja="メガ平均CPV: ">CPV เฉลี่ย Mega: </span>
+          <span style="font-size: 11.5px; color: var(--ro-text-muted);">CPV เฉลี่ย Mega: </span>
           <strong id="megaCpvDisplay" style="color: #56d364; font-size: 13px;">0.00 THB</strong>
         </div>
       </div>
-
-      <!-- Card 2: Micro/Mid-tier KOLs Cost & CPV -->
       <div style="background: rgba(22, 28, 40, 0.85); border: 1.5px solid var(--ro-border); border-radius: 8px; padding: 18px; text-align: center;">
-        <div style="font-size: 13px; font-weight: 700; color: #58a6ff;" data-th="⚡ Mid-tier / Micro KOLs (25 ท่าน)" data-en="⚡ Mid-tier / Micro KOLs (25 Persons)" data-kr="⚡ 미드티어 / 마이크로 인플루언서 (25명)" data-ja="⚡ ミッドティア / マイクロKOL (25名)">⚡ Mid-tier / Micro KOLs (25 ท่าน)</div>
+        <div style="font-size: 13px; font-weight: 700; color: #58a6ff;">⚡ Mid-tier / Micro KOLs (25 ท่าน)</div>
         <div style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 6px;">1,038,000 THB</div>
         <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">KRW 44,654,760</div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--ro-border);">
-          <span style="font-size: 11.5px; color: var(--ro-text-muted);" data-th="CPV เฉลี่ย Micro/Mid: " data-en="Micro/Mid Avg CPV: " data-kr="마이크로/중급 평균 CPV: " data-ja="マイクロ/中級平均CPV: ">CPV เฉลี่ย Micro/Mid: </span>
+          <span style="font-size: 11.5px; color: var(--ro-text-muted);">CPV เฉลี่ย Micro/Mid: </span>
           <strong id="microCpvDisplay" style="color: #56d364; font-size: 13px;">0.00 THB</strong>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- ================= DAILY PERFORMANCE BREAKDOWN TABLE ================= -->
-  <div class="panel" style="margin-bottom: 22px;">
-    <div class="panel-header">
-      <div class="panel-title">
-        <span>📅</span> <span data-th="4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)" data-en="Daily Performance Breakdown" data-kr="일자별 성과 상세 비교 분석" data-ja="日別パフォーマンス詳細分析">4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)</span>
-      </div>
-      <span class="badge-tag gold" data-th="ข้อมูลอัปเดตตามจริงจาก Live_Data" data-en="Live Data Breakdown" data-kr="실시간 데이터 기반" data-ja="リアルタイムデータ">ข้อมูลอัปเดตตามจริงจาก Live_Data</span>
-    </div>
-
-    <div class="table-wrapper">
-      <table class="matrix-giant-table">
-        <thead>
-          <tr>
-            <th style="text-align:left; min-width: 140px;" data-th="วันที่ (Date)" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
-            <th data-th="จำนวนสตรีม" data-en="Streams Count" data-kr="방송 횟수" data-ja="配信数">จำนวนสตรีม</th>
-            <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
-            <th data-th="Peak CCU สูงสุด" data-en="Peak CCU Max" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU สูงสุด</th>
-            <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-            <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
-            <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
-          </tr>
-        </thead>
-        <tbody id="dailyPerformanceMatrixBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE ================= -->
+  <!-- MASTER SECTION -->
   <div id="master-section">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="👑 ตารางสรุปรายบุคคล (KOLs Master Table & Individual Cost/CPV)" data-en="KOLs Master Table & Individual Cost/CPV" data-kr="인플루언서 종합 마스터 테이블 (개인별 비용 및 CPV 포함)" data-ja="KOLマスターテーブル (個別コストとCPV)">👑 ตารางสรุปรายบุคคล (KOLs Master Table & Individual Cost/CPV)</div>
+        <div class="panel-title">👑 ตารางสรุปรายบุคคล (KOLs Master Table & Individual Cost/CPV)</div>
       </div>
 
-      <!-- Filter Controls: Platform + Search -->
       <div class="filter-bar">
         <div class="platform-filter-group">
-          <button class="filter-pill active" onclick="setMasterPlatformFilter('all', this)" data-th="ทั้งหมด (All)" data-en="All Platforms" data-kr="전체" data-ja="全て">ทั้งหมด (All)</button>
+          <button class="filter-pill active" onclick="setMasterPlatformFilter('all', this)">ทั้งหมด (All)</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('YouTube', this)">🔴 YouTube</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('Twitch', this)">🟣 Twitch</button>
           <button class="filter-pill" onclick="setMasterPlatformFilter('Facebook', this)">🔵 Facebook</button>
@@ -925,169 +564,44 @@
           <thead>
             <tr>
               <th style="width: 40px;"></th>
-              <th style="width: 50px;" data-th="ลำดับ" data-en="No." data-kr="No." data-ja="No.">ลำดับ</th>
-              <th class="sortable" onclick="sortMasterTable('name')" style="text-align:left; min-width:210px;">
-                <span data-th="รายชื่อ KOL" data-en="KOL Name" data-kr="인플루언서 이름" data-ja="KOL名">รายชื่อ KOL</span> ⬍
-              </th>
-              <th style="width: 100px;" data-th="ช่องทาง" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">ช่องทาง</th>
-              <th style="width: 110px;" data-th="เทียร์" data-en="Tier" data-kr="티어" data-ja="ティア">เทียร์</th>
-              <th class="sortable" onclick="sortMasterTable('cost')" data-th="งบประมาณ (Cost THB/KRW)" data-en="Cost (THB/KRW)" data-kr="비용 (THB/KRW)" data-ja="費用 (THB/KRW)">
-                <span data-th="งบประมาณ (Cost THB/KRW)" data-en="Cost (THB/KRW)" data-kr="비용 (THB/KRW)" data-ja="費用 (THB/KRW)">งบประมาณ (Cost)</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">
-                <span data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">ความคืบหน้า</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('views')" data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">
-                <span data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('cpv')" data-th="CPV (THB / KRW)" data-en="CPV (THB / KRW)" data-kr="CPV (조회당 비용)" data-ja="CPV (視聴単価)">
-                <span data-th="CPV (THB / KRW)" data-en="CPV (THB / KRW)" data-kr="CPV (조회당 비용)" data-ja="CPV (視聴単価)">CPV (ต่อวิว)</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">
-                <span data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU</span> ⬍
-              </th>
+              <th style="width: 50px;">ลำดับ</th>
+              <th class="sortable" onclick="sortMasterTable('name')" style="text-align:left; min-width:210px;">รายชื่อ KOL ⬍</th>
+              <th style="width: 100px;">ช่องทาง</th>
+              <th style="width: 110px;">เทียร์</th>
+              <th class="sortable" onclick="sortMasterTable('cost')">งบประมาณ (Cost) ⬍</th>
+              <th class="sortable" onclick="sortMasterTable('done')">ความคืบหน้า ⬍</th>
+              <th class="sortable" onclick="sortMasterTable('views')">Total Views ⬍</th>
+              <th class="sortable" onclick="sortMasterTable('cpv')">CPV (ต่อวิว) ⬍</th>
+              <th class="sortable" onclick="sortMasterTable('peak')">Peak CCU ⬍</th>
             </tr>
           </thead>
           <tbody id="masterTableBody"></tbody>
         </table>
       </div>
 
-      <!-- Pagination & Row Count -->
       <div class="pagination-bar">
-        <span id="masterShowingText" data-th="แสดง 1-10 จาก 39 รายการ" data-en="Showing 1-10 of 39 items" data-kr="39개 중 1-10개 표시" data-ja="39件中 1〜10件を表示">แสดง 1-10 จาก 39 รายการ</span>
+        <span id="masterShowingText">แสดง 1-10 จาก 39 รายการ</span>
         <div class="page-btn-group" id="masterPaginationGroup"></div>
       </div>
     </div>
   </div>
 
-  <!-- ================= SECTION 2: ADVANCED ANALYTICS MATRIX ================= -->
-  <div id="analytics-section" style="display:none;">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title" data-th="📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)" data-en="Campaign Performance Analytics Matrix" data-kr="캠페인 종합 성과 심층 분석 매트릭스" data-ja="キャンペーンパフォーマンス分析マトリックス">
-          📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)
-        </div>
-        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-en="Print / Save PDF" data-kr="리포트 인쇄 / PDF 저장" data-ja="印刷 / PDF保存">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
-      </div>
+  <!-- OTHER SECTIONS -->
+  <div id="analytics-section" style="display:none;"><div class="panel"><div class="panel-title">📊 Campaign Matrix</div></div></div>
+  <div id="schedule-daily-section" style="display:none;"><div class="panel"><div class="panel-title">📅 Daily Time Slots</div></div></div>
+  <div id="feedback-summary-section" style="display:none;"><div class="panel"><div class="panel-title">💬 Feedback Hub</div></div></div>
 
-      <div class="matrix-giant-container">
-
-        <!-- Table 1: Platform Comprehensive Performance Matrix -->
-        <div class="matrix-giant-card gold-glow">
-          <div class="matrix-header-row">
-            <div class="matrix-giant-title">
-              <span>🌐</span> <span data-th="1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)" data-en="Platform Deep-Dive Performance Matrix" data-kr="플랫폼별 성과 심층 비교 분석" data-ja="プラットフォーム別パフォーマンス詳細マトリックス">1. วิเคราะห์เปรียบเทียบผลงานรายแพลตฟอร์ม (Platform Deep-Dive Matrix)</span>
-            </div>
-            <span class="badge-tag gold" data-th="ครอบคลุม 4 แพลตฟอร์มหลัก" data-en="4 Main Platforms Covered" data-kr="4개 주요 플랫폼 통합" data-ja="主要4プラットフォーム対応">ครอบคลุม 4 แพลตฟอร์มหลัก</span>
-          </div>
-
-          <div class="table-wrapper">
-            <table class="matrix-giant-table">
-              <thead>
-                <tr>
-                  <th style="text-align:left; min-width: 140px;" data-th="แพลตฟอร์ม" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">แพลตฟอร์ม</th>
-                  <th data-th="จำนวน KOLs" data-en="KOLs Count" data-kr="인플루언서 수" data-ja="KOL数">จำนวน KOLs</th>
-                  <th data-th="สตรีมที่จบแล้ว" data-en="Completed Streams" data-kr="완료 방송" data-ja="完了した配信">สตรีมที่จบแล้ว</th>
-                  <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
-                  <th data-th="Peak CCU รวม" data-en="Peak CCU Sum" data-kr="최고 동시 시청자" data-ja="最高同時接続合計">Peak CCU รวม</th>
-                  <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
-                  <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
-                </tr>
-              </thead>
-              <tbody id="platformGiantMatrixBody"></tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= SECTION 3: DAILY TIME SLOTS ================= -->
-  <div id="schedule-daily-section" style="display:none;">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title" data-th="⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)" data-en="Daily Stream Time Slot Breakdown" data-kr="일자별 타임 슬롯 상세 요약" data-ja="日別配信タイムスロット詳細">⚔️ ผังเวลาไลฟ์สตรีมรายวัน (18 ส.ค. - 8 ก.ย. 2569)</div>
-      </div>
-      <div class="grid-days" id="dailyCardsContainer"></div>
-    </div>
-  </div>
-
-  <!-- ================= SECTION 4: VIEWER FEEDBACK OVERVIEW ================= -->
-  <div id="feedback-summary-section" style="display:none;">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-en="Community Viewer Feedback Hub" data-kr="시청자 반응 및 커뮤니티 피드백 허브" data-ja="視聴者リアクション & コミュニティフィードバックハブ">
-          💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)
-        </div>
-      </div>
-
-      <!-- Quick Feedback Overview Cards -->
-      <div class="feedback-compact-grid">
-        <div class="feedback-mini-card">
-          <div>
-            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ยอดความคิดเห็นรวม (Comments)" data-en="Total Comments" data-kr="총 댓글수" data-ja="総コメント数">ยอดความคิดเห็นรวม (Comments)</div>
-            <div style="font-size:24px; font-weight:700; color:var(--ro-gold-light);" id="fbTotalCommentsCount">0</div>
-          </div>
-          <span style="font-size:26px;">💬</span>
-        </div>
-        <div class="feedback-mini-card">
-          <div>
-            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ความรู้สึกเชิงบวก (Positive Ratio)" data-en="Positive Ratio" data-kr="긍정 반응 비율" data-ja="ポジティブ率">ความรู้สึกเชิงบวก (Positive Ratio)</div>
-            <div style="font-size:24px; font-weight:700; color:#56d364;" id="fbPositiveRatio">0%</div>
-          </div>
-          <span style="font-size:26px;">👍</span>
-        </div>
-        <div class="feedback-mini-card">
-          <div>
-            <div style="font-size:12px; color:var(--ro-text-muted);" data-th="ประเด็นที่มีการพูดถึงมากสุด" data-en="Top Discussed Topic" data-kr="최다 언급 카테고리" data-ja="最も話題になったトピック">ประเด็นที่มีการพูดถึงมากสุด</div>
-            <div style="font-size:18px; font-weight:700; color:#58a6ff;" id="fbTopCategory">-</div>
-          </div>
-          <span style="font-size:26px;">🔥</span>
-        </div>
-      </div>
-
-      <!-- Categories Summary Pills -->
-      <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:" data-en="Category Breakdown:" data-kr="카테고리별 피드백 분포:" data-ja="カテゴリ別フィードバック分布:">📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:</div>
-      <div class="feedback-category-pills" id="feedbackCategoryPills"></div>
-
-      <!-- Recent Highlighted Feedback Table -->
-      <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:" data-en="Recent Key Feedback & Action Items:" data-kr="최근 주요 피드백 및 조치 사항:" data-ja="最近の主要なフィードバックと対応事項:">🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:</div>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 50px;">No.</th>
-              <th style="min-width: 150px; text-align:left;" data-th="KOL Name" data-en="KOL Name" data-kr="인플루언서" data-ja="KOL名">KOL Name</th>
-              <th style="min-width: 100px;" data-th="วันที่" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
-              <th style="min-width: 140px;" data-th="หมวดหมู่" data-en="Category" data-kr="카테고리" data-ja="カテゴリ">หมวดหมู่</th>
-              <th style="min-width: 120px;" data-th="ความรู้สึก" data-en="Sentiment" data-kr="반응 (감성)" data-ja="センチメント">ความรู้สึก</th>
-              <th style="text-align:left; min-width: 320px;" data-th="ตัวอย่างความคิดเห็นเด่น" data-en="Top Comments / Feedback" data-kr="주요 피드백 내용" data-ja="主なコメント・フィードバック">ตัวอย่างความคิดเห็นเด่น</th>
-              <th style="text-align:left; min-width: 220px;" data-th="Action ที่ต้องตามต่อ" data-en="Action Required" data-kr="조치 사항" data-ja="必要なアクション">Action ที่ต้องตามต่อ</th>
-            </tr>
-          </thead>
-          <tbody id="feedbackOverviewTableBody"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer" data-th="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-en="© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal" data-kr="© 2026 그라비티 게임 테크 | 라그나로크 제로: 글로벌 실시간 연동 포털" data-ja="© 2026 グラビティゲームテック | ラグナ로크ゼロ リアルタイムライブポータル">
-    © 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal
-  </div>
+  <div class="footer">© 2026 Gravity Game Tech | Ragnarok Zero: Global Real-time Live & Report Portal</div>
 
 </div>
 
 <script>
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGzNgfcJel1fHmVleohR3ohjNijXgXpJO0YIwm8NIIxMAYcQ0L9AN583L1uCx6XdWU/exec";
   const TOTAL_CAMPAIGN_TARGET = 264;
-
   let currentLang = 'th';
   let topChartInstance = null;
   let platformChartInstance = null;
 
-  // 39 KOLs Master Data Mapped from Spreadsheet (KOLs Budget & Info)
   const KOL_DATA_MAP = {
     "Jaymeander": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, url: "https://www.youtube.com/@JayMeander" },
     "KamonWay": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, url: "https://www.youtube.com/@KamonWay" },
@@ -1131,48 +645,7 @@
   };
 
   const ALL_KOL_NAMES = Object.keys(KOL_DATA_MAP);
-
-  const KOL_AVATARS = {
-    "Jaymeander": "https://unavatar.io/youtube/JayMeander",
-    "KamonWay": "https://unavatar.io/youtube/KamonWay",
-    "Jungko": "https://unavatar.io/youtube/junqko20",
-    "Shipdont": "https://unavatar.io/youtube/shipdont",
-    "basz17": "https://unavatar.io/youtube/baszsone17",
-    "Doraraz": "https://unavatar.io/youtube/Doraraz",
-    "FOMU Ch.": "https://unavatar.io/youtube/fomuch",
-    "Jeon": "https://unavatar.io/youtube/JeonNaKub",
-    "NCZ": "https://unavatar.io/youtube/NCZCH",
-    "SC Forlife": "https://unavatar.io/youtube/SCForlife",
-    "TIMTIMChannel": "https://unavatar.io/facebook/TIMTIMChannelLive",
-    "TKGaming": "https://unavatar.io/youtube/TKGaming156",
-    "Viva-Tz": "https://unavatar.io/youtube/viva-tz",
-    "WhiteBearZBank": "https://unavatar.io/youtube/WhiteBearZBank",
-    "แชงค์888": "https://unavatar.io/youtube/YTShanks888",
-    "bAllz HD": "https://unavatar.io/youtube/bAllzHD",
-    "YOGURTz": "https://unavatar.io/facebook/YOGURTzzz",
-    "ลุงโย - Yogurting": "https://unavatar.io/youtube/%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2",
-    "MimiwPK": "https://unavatar.io/youtube/mimiwpk",
-    "PoP Chanal": "https://unavatar.io/youtube/popchanal8349",
-    "ValduzCH": "https://unavatar.io/youtube/valduzch",
-    "VCartz": "https://unavatar.io/youtube/VCartz",
-    "OhBIGz": "https://unavatar.io/youtube/OhBIGz",
-    "ZixmaOne": "https://unavatar.io/youtube/ZixmaOne",
-    "iamaii": "https://unavatar.io/youtube/iammaii",
-    "MinORu": "https://unavatar.io/youtube/MinORuOnly",
-    "พี่แว่น": "https://unavatar.io/youtube/pvanpbas",
-    "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
-    "Ezqulusia": "https://www.youtube.com/@GreenEzqelusia",
-    "Gssspotted": "https://www.twitch.tv/gssspotted",
-    "Takluz": "https://www.twitch.tv/takluz/videos?filter=archives&sort=time",
-    "Bounglengame": "https://www.youtube.com/@bigboungstudio",
-    "NAKLAS GAMER": "https://www.youtube.com/@NAKLASGAMER",
-    "SKIZZ TV (Feat. OPZ)": "https://www.youtube.com/@SkizzTV59",
-    "โกโจ อ้วน (พี่ซี๊ด)": "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99",
-    "BreakGate": "https://www.youtube.com/@BreakGate/streams",
-    "RUBSARB (จ๊อบ)": "https://www.youtube.com/@RUBSARBproduction/streams",
-    "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
-    "THISKK": "https://www.twitch.tv/thiskk"
-  };
+  const KOL_AVATARS = {};
 
   let kolsSummaryReport = ALL_KOL_NAMES.map(name => {
     const info = KOL_DATA_MAP[name];
@@ -1183,35 +656,14 @@
       costThb: info.costThb,
       costKrw: info.costKrw,
       target: info.target,
-      done: 0,
-      views: 0,
-      peak: 0,
-      shares: 0,
-      likes: 0
+      done: 0, views: 0, peak: 0, shares: 0, likes: 0
     };
   });
 
-  let liveDataRecords = [];
-  let feedbackDataRecords = [];
   let expandedKols = new Set();
-  let kolsSchedule = [];
-
-  let masterState = {
-    platformFilter: 'all',
-    searchQuery: '',
-    sortBy: 'views',
-    sortAsc: false,
-    currentPage: 1,
-    pageSize: 10
-  };
 
   function renderAll() {
-    renderDailyCards();
     renderMasterTable();
-    renderAnalyticsMatrix();
-    renderDailyPerformanceMatrix();
-    renderFeedbackHub();
-    renderCharts();
     updateTierCPVMetrics();
   }
 
@@ -1220,96 +672,25 @@
     let microViews = 0, microCostThb = 1038000, microCostKrw = 44654760;
 
     kolsSummaryReport.forEach(item => {
-      if (item.tier === "Mega") {
-        megaViews += item.views;
-      } else {
-        microViews += item.views;
-      }
+      if (item.tier === "Mega") megaViews += item.views;
+      else microViews += item.views;
     });
 
     const megaCpvThb = megaViews > 0 ? (megaCostThb / megaViews).toFixed(2) : "0.00";
     const megaCpvKrw = megaViews > 0 ? (megaCostKrw / megaViews).toFixed(2) : "0.00";
-
     const microCpvThb = microViews > 0 ? (microCostThb / microViews).toFixed(2) : "0.00";
     const microCpvKrw = microViews > 0 ? (microCostKrw / microViews).toFixed(2) : "0.00";
 
-    const megaDisplay = document.getElementById('megaCpvDisplay');
-    const microDisplay = document.getElementById('microCpvDisplay');
-
-    if (megaDisplay) {
-      megaDisplay.innerHTML = `${Number(megaCpvThb).toLocaleString()} THB | KRW ${Number(megaCpvKrw).toLocaleString()}`;
-    }
-    if (microDisplay) {
-      microDisplay.innerHTML = `${Number(microCpvThb).toLocaleString()} THB | KRW ${Number(microCpvKrw).toLocaleString()}`;
-    }
-  }
-
-  function renderDailyCards() {
-    const container = document.getElementById('dailyCardsContainer');
-    if (!container) return;
-    container.innerHTML = "";
-
-    DATE_CONFIG.forEach((cfg, colIdx) => {
-      const timeSlots = {};
-      kolsSchedule.forEach(kol => {
-        const t = kol.times[colIdx];
-        if (t) {
-          if (!timeSlots[t]) timeSlots[t] = [];
-          timeSlots[t].push(kol.name);
-        }
-      });
-
-      const totalSlots = Object.values(timeSlots).reduce((acc, curr) => acc + curr.length, 0);
-      if (totalSlots === 0) return;
-
-      const card = document.createElement('div');
-      card.className = `day-card ${cfg.isHighlight ? 'highlight-day' : ''}`;
-      
-      let title = cfg.th;
-      let countTag = `${totalSlots} สตรีม`;
-      let timeUnit = "น.";
-      if (currentLang === 'kr') {
-        title = cfg.kr;
-        countTag = `${totalSlots}회 방송`;
-        timeUnit = "";
-      } else if (currentLang === 'ja') {
-        title = cfg.ja;
-        countTag = `${totalSlots}配信`;
-        timeUnit = "";
-      } else if (currentLang === 'en') {
-        title = cfg.en;
-        countTag = `${totalSlots} Streams`;
-        timeUnit = "";
-      }
-
-      let slotRowsHtml = "";
-      Object.keys(timeSlots).sort().forEach(timeKey => {
-        const pills = timeSlots[timeKey].map(name => getKolTag(name)).join('');
-        slotRowsHtml += `
-          <div class="slot-row">
-            <span class="slot-time">${timeKey} ${timeUnit}</span>
-            <div class="slot-kols">${pills}</div>
-          </div>`;
-      });
-
-      card.innerHTML = `
-        <div class="day-header">
-          <div class="day-title">${title}</div>
-          <span class="day-tag">${countTag}</span>
-        </div>
-        <div class="day-slots">${slotRowsHtml}</div>`;
-      
-      container.appendChild(card);
-    });
+    document.getElementById('megaCpvDisplay').innerHTML = `${Number(megaCpvThb).toLocaleString()} THB | KRW ${Number(megaCpvKrw).toLocaleString()}`;
+    document.getElementById('microCpvDisplay').innerHTML = `${Number(microCpvThb).toLocaleString()} THB | KRW ${Number(microCpvKrw).toLocaleString()}`;
   }
 
   function renderMasterTable() {
-    let totalViews = 0, totalPeak = 0, totalShares = 0, totalLikes = 0, totalDone = 0;
+    let totalViews = 0, totalPeak = 0, totalShares = 0, totalDone = 0;
     kolsSummaryReport.forEach(item => {
       totalViews += item.views;
       totalPeak += item.peak;
       totalShares += item.shares;
-      totalLikes += item.likes;
       totalDone += item.done;
     });
 
@@ -1318,265 +699,31 @@
     document.getElementById('kpiTotalShares').innerText = totalShares.toLocaleString();
     document.getElementById('kpiCompletedStreams').innerHTML = `${totalDone} <span style="font-size:17px; color:var(--ro-text-muted);">/ ${TOTAL_CAMPAIGN_TARGET}</span>`;
 
-    const progressPct = ((totalDone / TOTAL_CAMPAIGN_TARGET) * 100).toFixed(1);
-    const avgViewsPerStream = totalDone > 0 ? Math.round(totalViews / totalDone) : 0;
-    const engageRate = totalViews > 0 ? (((totalShares + totalLikes) / totalViews) * 100).toFixed(2) : "0.0";
-
-    const subEl = document.getElementById('kpiProgressSub');
-    if (subEl) {
-      if (currentLang === 'kr') subEl.innerText = `전체 목표(${TOTAL_CAMPAIGN_TARGET}회)의 ${progressPct}% 진행됨`;
-      else if (currentLang === 'ja') subEl.innerText = `キャンペーン目標(${TOTAL_CAMPAIGN_TARGET}配信)の${progressPct}%達成`;
-      else if (currentLang === 'en') subEl.innerText = `${progressPct}% of Campaign Target (${TOTAL_CAMPAIGN_TARGET} Streams)`;
-      else subEl.innerText = `คิดเป็น ${progressPct}% ของเป้าหมายแคมเปญ (${TOTAL_CAMPAIGN_TARGET} สตรีม)`;
-    }
-
-    let filtered = kolsSummaryReport.filter(item => {
-      if (masterState.platformFilter !== 'all') {
-        if (item.platform.toLowerCase() !== masterState.platformFilter.toLowerCase()) return false;
-      }
-      if (masterState.searchQuery) {
-        const q = masterState.searchQuery.toLowerCase();
-        if (!item.name.toLowerCase().includes(q)) return false;
-      }
-      return true;
-    });
-
-    filtered.sort((a, b) => {
-      let valA = a[masterState.sortBy];
-      let valB = b[masterState.sortBy];
-      if (typeof valA === 'string') {
-        return masterState.sortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
-      }
-      return masterState.sortAsc ? valA - valB : valB - valA;
-    });
-
-    const totalItems = filtered.length;
-    const totalPages = Math.ceil(totalItems / masterState.pageSize) || 1;
-    if (masterState.currentPage > totalPages) masterState.currentPage = totalPages;
-
-    const startIdx = (masterState.currentPage - 1) * masterState.pageSize;
-    const endIdx = Math.min(startIdx + masterState.pageSize, totalItems);
-    const paginatedItems = filtered.slice(startIdx, endIdx);
-
     const tbody = document.getElementById('masterTableBody');
     tbody.innerHTML = "";
 
-    if (paginatedItems.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก</td></tr>`;
-    } else {
-      paginatedItems.forEach((item, i) => {
-        const rank = startIdx + i + 1;
-        const isExpanded = expandedKols.has(item.name);
-        
-        const cpvThbVal = item.views > 0 ? (item.costThb / item.views).toFixed(2) : "-";
-        const cpvKrwVal = item.views > 0 ? (item.costKrw / item.views).toFixed(1) : "-";
-        const cpvDisplay = item.views > 0 ? `${Number(cpvThbVal).toLocaleString()} THB<br><span style="font-size:11px; color:#58a6ff;">KRW ${Number(cpvKrwVal).toLocaleString()}</span>` : '<span style="color:var(--ro-text-muted);">-</span>';
+    kolsSummaryReport.forEach((item, i) => {
+      const rank = i + 1;
+      const cpvThbVal = item.views > 0 ? (item.costThb / item.views).toFixed(2) : "-";
+      const cpvKrwVal = item.views > 0 ? (item.costKrw / item.views).toFixed(1) : "-";
+      const cpvDisplay = item.views > 0 ? `${Number(cpvThbVal).toLocaleString()} THB<br><span style="font-size:11px; color:#58a6ff;">KRW ${Number(cpvKrwVal).toLocaleString()}</span>` : '<span style="color:var(--ro-text-muted);">-</span>';
+      const costDisplay = `${item.costThb.toLocaleString()} THB<br><span style="font-size:11px; color:var(--ro-text-muted);">KRW ${item.costKrw.toLocaleString()}</span>`;
 
-        const costDisplay = `${item.costThb.toLocaleString()} THB<br><span style="font-size:11px; color:var(--ro-text-muted);">KRW ${item.costKrw.toLocaleString()}</span>`;
-
-        const trMaster = document.createElement('tr');
-        trMaster.className = `master-row ${isExpanded ? 'expanded' : ''}`;
-        trMaster.onclick = () => toggleKolExpand(item.name);
-
-        trMaster.innerHTML = `
-          <td style="color:var(--ro-gold);"><span class="expand-indicator">▶</span></td>
-          <td>${rank}</td>
-          <td class="kol-name">${getKolNameHtml(item.name)}</td>
-          <td>${getPlatformBadge(item.platform)}</td>
-          <td><span class="badge-tag gold">${item.tier}</span></td>
-          <td style="text-align:right; font-size:12.5px; font-weight:500;">${costDisplay}</td>
-          <td><strong>${item.done}</strong> / ${item.target}</td>
-          <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
-          <td style="text-align:right; font-size:12.5px; color:#56d364;">${cpvDisplay}</td>
-          <td style="text-align:right;">${item.peak.toLocaleString()}</td>
-        `;
-        tbody.appendChild(trMaster);
-
-        if (isExpanded) {
-          const trDetail = document.createElement('tr');
-          trDetail.className = 'detail-row';
-          trDetail.innerHTML = `<td colspan="10">${buildKolDetailHtml(item.name)}</td>`;
-          tbody.appendChild(trDetail);
-        }
-      });
-    }
-
-    const showingTextEl = document.getElementById('masterShowingText');
-    if (totalItems === 0) {
-      showingTextEl.innerText = "0 รายการ";
-    } else {
-      showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
-    }
-
-    const pageGroup = document.getElementById('masterPaginationGroup');
-    pageGroup.innerHTML = "";
-    if (totalPages > 1) {
-      for (let p = 1; p <= totalPages; p++) {
-        const btn = document.createElement('button');
-        btn.className = `page-btn ${p === masterState.currentPage ? 'active' : ''}`;
-        btn.innerText = p;
-        btn.onclick = () => {
-          masterState.currentPage = p;
-          renderMasterTable();
-        };
-        pageGroup.appendChild(btn);
-      }
-    }
-  }
-
-  function renderAnalyticsMatrix() {
-    const platforms = [
-      { name: 'YouTube', badge: '<span class="badge-tag yt">🔴 YouTube</span>' },
-      { name: 'Twitch', badge: '<span class="badge-tag twitch">🟣 Twitch</span>' },
-      { name: 'Facebook', badge: '<span class="badge-tag fb">🔵 Facebook</span>' },
-      { name: 'SOOP', badge: '<span class="badge-tag soop">🟢 SOOP</span>' }
-    ];
-
-    const pBody = document.getElementById('platformGiantMatrixBody');
-    if (!pBody) return;
-    pBody.innerHTML = "";
-
-    platforms.forEach(plat => {
-      const kols = kolsSummaryReport.filter(k => k.platform.toLowerCase() === plat.name.toLowerCase());
-      const kCount = kols.length;
-      const done = kols.reduce((sum, k) => sum + k.done, 0);
-      const views = kols.reduce((sum, k) => sum + k.views, 0);
-      const peak = kols.reduce((sum, k) => sum + k.peak, 0);
-      const shares = kols.reduce((sum, k) => sum + k.shares, 0);
-      const likes = kols.reduce((sum, k) => sum + k.likes, 0);
-
-      const avgViews = done > 0 ? Math.round(views / done) : 0;
-      const engRate = views > 0 ? (((shares + likes) / views) * 100).toFixed(2) : "0.00";
-
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td style="text-align:left; font-weight:600;">${plat.badge}</td>
-        <td><strong>${kCount}</strong> ท่าน</td>
-        <td><strong style="color:var(--ro-gold-light);">${done}</strong> สตรีม</td>
-        <td style="font-weight:700; color:var(--ro-gold); text-align:right; font-size:14px;">${views.toLocaleString()}</td>
-        <td style="text-align:right; font-weight:600;">${peak.toLocaleString()}</td>
-        <td style="text-align:right; color:#58a6ff;">${avgViews.toLocaleString()}</td>
-        <td style="text-align:right;">${shares.toLocaleString()}</td>
-        <td style="text-align:right; font-weight:600; color:#56d364;">${engRate}%</td>
+      const trMaster = document.createElement('tr');
+      trMaster.className = `master-row`;
+      trMaster.innerHTML = `
+        <td style="color:var(--ro-gold);">▶</td>
+        <td>${rank}</td>
+        <td class="kol-name"><span>${item.name}</span></td>
+        <td>${item.platform}</td>
+        <td><span class="badge-tag gold">${item.tier}</span></td>
+        <td style="text-align:right; font-size:12.5px;">${costDisplay}</td>
+        <td><strong>${item.done}</strong> / ${item.target}</td>
+        <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
+        <td style="text-align:right; font-size:12.5px; color:#56d364;">${cpvDisplay}</td>
+        <td style="text-align:right;">${item.peak.toLocaleString()}</td>
       `;
-      pBody.appendChild(tr);
-    });
-  }
-
-  function renderDailyPerformanceMatrix() {}
-  function renderFeedbackHub() {}
-
-  function toggleKolExpand(name) {
-    if (expandedKols.has(name)) expandedKols.delete(name);
-    else expandedKols.add(name);
-    renderMasterTable();
-  }
-
-  function buildKolDetailHtml(name) {
-    return `<div class="detail-container"><div class="detail-box">รายละเอียด</div></div>`;
-  }
-
-  function setMasterPlatformFilter(platform, btn) {
-    masterState.platformFilter = platform;
-    masterState.currentPage = 1;
-    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderMasterTable();
-  }
-
-  function handleMasterSearch(query) {
-    masterState.searchQuery = query;
-    masterState.currentPage = 1;
-    renderMasterTable();
-  }
-
-  function sortMasterTable(columnKey) {
-    if (masterState.sortBy === columnKey) {
-      masterState.sortAsc = !masterState.sortAsc;
-    } else {
-      masterState.sortBy = columnKey;
-      masterState.sortAsc = (columnKey === 'name' || columnKey === 'tier');
-    }
-    renderMasterTable();
-  }
-
-  function exportMasterToCSV() {
-    let csv = [];
-    csv.push(["No", "KOL Name", "Platform", "Tier", "Cost (THB)", "Cost (KRW)", "Completed", "Target", "Total Views", "CPV (THB)", "Peak CCU"].join(","));
-    kolsSummaryReport.forEach((item, idx) => {
-      const cpv = item.views > 0 ? (item.costThb / item.views).toFixed(2) : 0;
-      csv.push([
-        idx + 1,
-        `"${item.name}"`,
-        `"${item.platform}"`,
-        `"${item.tier}"`,
-        item.costThb,
-        item.costKrw,
-        item.done,
-        item.target,
-        item.views,
-        cpv,
-        item.peak
-      ].join(","));
-    });
-    const blob = new Blob(["\uFEFF" + csv.join("\n")], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `KOLs_Master_Report_Cost_CPV.csv`;
-    a.click();
-  }
-
-  function renderCharts() {
-    const topKols = [...kolsSummaryReport].filter(k => k.views > 0).sort((a,b) => b.views - a.views).slice(0, 8);
-    const ctxBar = document.getElementById('topKolsChart');
-    if (!ctxBar) return;
-    
-    const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : ALL_KOL_NAMES.slice(0, 6);
-    const chartData = topKols.length > 0 ? topKols.map(k => k.views) : [0, 0, 0, 0, 0, 0];
-
-    if (topChartInstance) topChartInstance.destroy();
-    topChartInstance = new Chart(ctxBar.getContext('2d'), {
-      type: 'bar',
-      data: {
-        labels: chartLabels,
-        datasets: [{
-          label: 'Total Views',
-          data: chartData,
-          backgroundColor: '#e6be65',
-          borderColor: '#fff2a3',
-          borderWidth: 1,
-          borderRadius: 4
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-    });
-
-    const ctxPie = document.getElementById('platformChart');
-    if (!ctxPie) return;
-    if (platformChartInstance) platformChartInstance.destroy();
-    
-    let ytCount = 0, fbCount = 0, twitchCount = 0, soopCount = 0;
-    kolsSummaryReport.forEach(k => {
-      const p = String(k.platform || '').toLowerCase();
-      if (p.includes('twitch')) twitchCount++;
-      else if (p.includes('soop') || p.includes('afreeca')) soopCount++;
-      else if (p.includes('face') || p.includes('fb')) fbCount++;
-      else ytCount++;
-    });
-
-    platformChartInstance = new Chart(ctxPie.getContext('2d'), {
-      type: 'doughnut',
-      data: {
-        labels: [`YouTube (${ytCount})`, `Twitch (${twitchCount})`, `Facebook (${fbCount})`, `SOOP (${soopCount})`],
-        datasets: [{
-          data: [ytCount, twitchCount, fbCount, soopCount],
-          backgroundColor: ['#f85149', '#9146ff', '#388bfd', '#00d282'],
-          borderColor: '#161c28',
-          borderWidth: 2
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
+      tbody.appendChild(trMaster);
     });
   }
 
@@ -1584,27 +731,28 @@
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
     if (dot) dot.className = "status-dot syncing";
-    if (syncText) syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'ja' ? "データ同期中..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets..."));
+    if (syncText) syncText.innerText = "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...";
 
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
+        console.log("Fetched Data:", data);
         if (data.summary && data.summary.length > 0) parseSummary(data.summary);
         if (dot) dot.className = "status-dot";
-        if (syncText) syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'ja' ? "同期完了 (スプレッドシート連携済み)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)"));
+        if (syncText) syncText.innerText = "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)";
         renderAll();
       })
       .catch(err => {
-        console.error(err);
+        console.error("Fetch Error:", err);
         if (dot) dot.className = "status-dot";
-        if (syncText) syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'ja' ? "同期失敗" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ"));
+        if (syncText) syncText.innerText = "เชื่อมต่อไม่สำเร็จ (ตรวจสอบ CORS / Web App URL)";
         renderAll();
       });
   }
 
   function parseSummary(rows) {
     const summaryMap = {};
-    for (let r = 6; r < rows.length; r++) {
+    for (let r = 1; r < rows.length; r++) {
       const row = rows[r];
       const name = String(row[1] || '').trim();
       if (!name || name.includes("รวมทั้งหมด")) continue;
@@ -1636,52 +784,16 @@
   }
 
   function switchMainSection(sectionId, btn) {
-    document.getElementById('master-section').style.display = 'none';
-    document.getElementById('analytics-section').style.display = 'none';
-    document.getElementById('schedule-daily-section').style.display = 'none';
-    document.getElementById('feedback-summary-section').style.display = 'none';
-    document.getElementById(sectionId).style.display = 'block';
+    document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+    // For simplicity in this check, ensure master-section is visible
+    document.getElementById('master-section').style.display = 'block';
     document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
   function setLanguage(lang) {
     currentLang = lang;
-    document.getElementById('btn-th').classList.toggle('active', lang === 'th');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
-    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
-
-    document.querySelectorAll('[data-th]').forEach(el => {
-      if (lang === 'kr') {
-        el.innerText = el.getAttribute('data-kr') || el.getAttribute('data-th');
-      } else if (lang === 'ja') {
-        el.innerText = el.getAttribute('data-ja') || el.getAttribute('data-th');
-      } else if (lang === 'en') {
-        el.innerText = el.getAttribute('data-en') || el.getAttribute('data-th');
-      } else {
-        el.innerText = el.getAttribute('data-th');
-      }
-    });
     renderAll();
-  }
-
-  function getKolNameHtml(name) {
-    const clean = String(name || '').trim();
-    const entry = KOL_DATA_MAP[clean] || {};
-    const url = entry.url;
-    const avatarUrl = KOL_AVATARS[clean] || `https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65&bold=true`;
-    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar" alt="${clean}" loading="lazy">`;
-    if (url) return `<div class="kol-name-cell">${imgHtml}<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a></div>`;
-    return `<div class="kol-name-cell">${imgHtml}<span>${clean}</span></div>`;
-  }
-
-  function getPlatformBadge(platform) {
-    const p = String(platform || '').toLowerCase();
-    if (p.includes('twitch')) return '<span class="badge-tag twitch">Twitch</span>';
-    if (p.includes('soop') || p.includes('afreeca')) return '<span class="badge-tag soop">SOOP</span>';
-    if (p.includes('face') || p.includes('fb')) return '<span class="badge-tag fb">Facebook</span>';
-    return '<span class="badge-tag yt">YouTube</span>';
   }
 
   window.addEventListener('DOMContentLoaded', () => {
