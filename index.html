@@ -418,6 +418,8 @@
   .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
   .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
   .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
+  .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
+  .badge-tag.wait { background: rgba(149, 163, 189, 0.15); border: 1px solid #303c54; color: #95a3bd; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
 
   .pagination-bar {
@@ -518,7 +520,7 @@
   <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="최고 조회수 인플루언서" data-ja="トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
       <canvas id="topKolsChart"></canvas>
     </div>
     <div class="chart-box">
@@ -644,7 +646,7 @@
                   <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
                   <th data-th="Peak CCU รวม" data-en="Peak CCU Sum" data-kr="최고 동시 시청자" data-ja="最高同時接続合計">Peak CCU รวม</th>
                   <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="총 공유수">Total Shares</th>
+                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
                   <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="engagement Rate">Engagement Rate</th>
                 </tr>
               </thead>
@@ -736,91 +738,54 @@
   let platformChartInstance = null;
 
   // 39 KOLs Master Data Mapped from Spreadsheet (KOLs Budget & Info)
-  let kolsSummaryReport = [
-    { name: "Jaymeander", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "KamonWay", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Jungko", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 160000, costKrw: 6883200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Shipdont", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 120000, costKrw: 5162400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "basz17", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Doraraz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "FOMU Ch.", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Jeon", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NCZ", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 28000, costKrw: 1204560, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "SC Forlife", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "TIMTIMChannel", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 33000, costKrw: 1419660, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "TKGaming", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Viva-Tz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "WhiteBearZBank", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "แชงค์888", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "bAllz HD", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 10000, costKrw: 430200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "YOGURTz", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ลุงโย - Yogurting", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "MimiwPK", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "PoP Chanal", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 48000, costKrw: 2064960, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ValduzCH", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "VCartz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 50000, costKrw: 2151000, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "OhBIGz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ZixmaOne", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 35000, costKrw: 1505700, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "iamaii", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "MinORu", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "พี่แว่น", platform: "SOOP", tier: "Mega", costThb: 80000, costKrw: 3441600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NoctisAK47", platform: "Twitch", tier: "Mega", costThb: 76000, costKrw: 3269520, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Ezqulusia", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Gssspotted", platform: "Twitch", tier: "Mega", costThb: 303000, costKrw: 13035060, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Takluz", platform: "Twitch", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Bounglengame", platform: "YouTube", tier: "Mega", costThb: 73000, costKrw: 3140460, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NAKLAS GAMER", platform: "YouTube", tier: "Mega", costThb: 50000, costKrw: 2151000, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "SKIZZ TV (Feat. OPZ)", platform: "YouTube", tier: "Mega", costThb: 330000, costKrw: 14196600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "โกโจ อ้วน (พี่ซี๊ด)", platform: "YouTube", tier: "Mega", costThb: 20000, costKrw: 860400, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "BreakGate", platform: "YouTube", tier: "Mega", costThb: 22000, costKrw: 946440, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "RUBSARB (จ๊อบ)", platform: "YouTube", tier: "Mega", costThb: 193000, costKrw: 8302860, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Genghiskhanz", platform: "YouTube", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "THISKK", platform: "Twitch", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 }
-  ];
-
-  const ALL_KOL_NAMES = kolsSummaryReport.map(k => k.name);
-
-  const KOL_LINKS = {
-    "Jaymeander": "https://www.youtube.com/@JayMeander",
-    "KamonWay": "https://www.youtube.com/@KamonWay",
-    "Jungko": "https://www.youtube.com/@junqko20",
-    "Shipdont": "https://www.youtube.com/@shipdont",
-    "basz17": "https://www.youtube.com/@baszsone17",
-    "Doraraz": "https://www.youtube.com/@Doraraz",
-    "FOMU Ch.": "https://www.youtube.com/@fomuch",
-    "Jeon": "https://www.youtube.com/@JeonNaKub",
-    "NCZ": "https://www.youtube.com/@NCZCH",
-    "SC Forlife": "https://www.youtube.com/@SCForlife",
-    "TIMTIMChannel": "https://www.facebook.com/TIMTIMChannelLive",
-    "TKGaming": "https://www.youtube.com/@TKGaming156",
-    "Viva-Tz": "https://www.youtube.com/@viva-tz",
-    "WhiteBearZBank": "https://www.youtube.com/@WhiteBearZBank",
-    "แชงค์888": "https://www.youtube.com/@YTShanks888",
-    "bAllz HD": "https://www.youtube.com/@bAllzHD",
-    "YOGURTz": "https://www.facebook.com/YOGURTzzz",
-    "ลุงโย - Yogurting": "https://www.youtube.com/@%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2",
-    "MimiwPK": "https://www.youtube.com/@mimiwpk",
-    "PoP Chanal": "https://www.youtube.com/@popchanal8349",
-    "ValduzCH": "https://www.youtube.com/@valduzch",
-    "VCartz": "https://www.youtube.com/@VCartz",
-    "OhBIGz": "https://www.youtube.com/@OhBIGz",
-    "ZixmaOne": "https://www.youtube.com/@ZixmaOne",
-    "iamaii": "https://www.youtube.com/@iammaii/streams",
-    "MinORu": "https://www.youtube.com/@MinORuOnly",
-    "พี่แว่น": "https://www.sooplive.com/station/pvanpbas",
-    "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
-    "Ezqulusia": "https://www.youtube.com/@GreenEzqelusia",
-    "Gssspotted": "https://www.twitch.tv/gssspotted",
-    "Takluz": "https://www.twitch.tv/takluz/videos?filter=archives&sort=time",
-    "Bounglengame": "https://www.youtube.com/@bigboungstudio",
-    "NAKLAS GAMER": "https://www.youtube.com/@NAKLASGAMER",
-    "SKIZZ TV (Feat. OPZ)": "https://www.youtube.com/@SkizzTV59",
-    "โกโจ อ้วน (พี่ซี๊ด)": "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99",
-    "BreakGate": "https://www.youtube.com/@BreakGate/streams",
-    "RUBSARB (จ๊อบ)": "https://www.youtube.com/@RUBSARBproduction/streams",
-    "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
-    "THISKK": "https://www.twitch.tv/thiskk"
+  const KOL_DATA_MAP = {
+    "Jaymeander": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, url: "https://www.youtube.com/@JayMeander" },
+    "KamonWay": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, url: "https://www.youtube.com/@KamonWay" },
+    "Jungko": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 160000, costKrw: 6883200, target: 10, url: "https://www.youtube.com/@junqko20" },
+    "Shipdont": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 120000, costKrw: 5162400, target: 10, url: "https://www.youtube.com/@shipdont" },
+    "basz17": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@baszsone17" },
+    "Doraraz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, url: "https://www.youtube.com/@Doraraz" },
+    "FOMU Ch.": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@fomuch" },
+    "Jeon": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@JeonNaKub" },
+    "NCZ": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 28000, costKrw: 1204560, target: 10, url: "https://www.youtube.com/@NCZCH" },
+    "SC Forlife": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@SCForlife" },
+    "TIMTIMChannel": { platform: "Facebook", tier: "Mid-tier / Micro", costThb: 33000, costKrw: 1419660, target: 10, url: "https://www.facebook.com/TIMTIMChannelLive" },
+    "TKGaming": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@TKGaming156" },
+    "Viva-Tz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@viva-tz" },
+    "WhiteBearZBank": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@WhiteBearZBank" },
+    "แชงค์888": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, url: "https://www.youtube.com/@YTShanks888" },
+    "bAllz HD": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 10000, costKrw: 430200, target: 10, url: "https://www.youtube.com/@bAllzHD" },
+    "YOGURTz": { platform: "Facebook", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, url: "https://www.facebook.com/YOGURTzzz" },
+    "ลุงโย - Yogurting": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2" },
+    "MimiwPK": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@mimiwpk" },
+    "PoP Chanal": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 48000, costKrw: 2064960, target: 10, url: "https://www.youtube.com/@popchanal8349" },
+    "ValduzCH": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, url: "https://www.youtube.com/@valduzch" },
+    "VCartz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 50000, costKrw: 2151000, target: 10, url: "https://www.youtube.com/@VCartz" },
+    "OhBIGz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, url: "https://www.youtube.com/@OhBIGz" },
+    "ZixmaOne": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 35000, costKrw: 1505700, target: 10, url: "https://www.youtube.com/@ZixmaOne" },
+    "iamaii": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, url: "https://www.youtube.com/@iammaii/streams" },
+    "MinORu": { platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.youtube.com/@MinORuOnly" },
+    "พี่แว่น": { platform: "SOOP", tier: "Mega", costThb: 80000, costKrw: 3441600, target: 1, url: "https://www.sooplive.com/station/pvanpbas" },
+    "NoctisAK47": { platform: "Twitch", tier: "Mega", costThb: 76000, costKrw: 3269520, target: 1, url: "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time" },
+    "Ezqulusia": { platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.youtube.com/@GreenEzqelusia" },
+    "Gssspotted": { platform: "Twitch", tier: "Mega", costThb: 303000, costKrw: 13035060, target: 1, url: "https://www.twitch.tv/gssspotted" },
+    "Takluz": { platform: "Twitch", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.twitch.tv/takluz/videos?filter=archives&sort=time" },
+    "Bounglengame": { platform: "YouTube", tier: "Mega", costThb: 73000, costKrw: 3140460, target: 1, url: "https://www.youtube.com/@bigboungstudio" },
+    "NAKLAS GAMER": { platform: "YouTube", tier: "Mega", costThb: 50000, costKrw: 2151000, target: 1, url: "https://www.youtube.com/@NAKLASGAMER" },
+    "SKIZZ TV (Feat. OPZ)": { platform: "YouTube", tier: "Mega", costThb: 330000, costKrw: 14196600, target: 1, url: "https://www.youtube.com/@SkizzTV59" },
+    "โกโจ อ้วน (พี่ซี๊ด)": { platform: "YouTube", tier: "Mega", costThb: 20000, costKrw: 860400, target: 1, url: "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99" },
+    "BreakGate": { platform: "YouTube", tier: "Mega", costThb: 22000, costKrw: 946440, target: 1, url: "https://www.youtube.com/@BreakGate/streams" },
+    "RUBSARB (จ๊อบ)": { platform: "YouTube", tier: "Mega", costThb: 193000, costKrw: 8302860, target: 1, url: "https://www.youtube.com/@RUBSARBproduction/streams" },
+    "Genghiskhanz": { platform: "YouTube", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, url: "https://www.youtube.com/@GenghisKhanz/streams" },
+    "THISKK": { platform: "Twitch", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, url: "https://www.twitch.tv/thiskk" }
   };
+
+  const ALL_KOL_NAMES = Object.keys(KOL_DATA_MAP);
+
+  const KOL_LINKS = {};
+  Object.keys(KOL_DATA_MAP).forEach(k => {
+    KOL_LINKS[k] = KOL_DATA_MAP[k].url;
+  });
 
   const KOL_AVATARS = {
     "Jaymeander": "https://unavatar.io/youtube/JayMeander",
@@ -863,6 +828,23 @@
     "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
     "THISKK": "https://www.twitch.tv/thiskk"
   };
+
+  let kolsSummaryReport = ALL_KOL_NAMES.map(name => {
+    const info = KOL_DATA_MAP[name];
+    return {
+      name: name,
+      platform: info.platform,
+      tier: info.tier,
+      costThb: info.costThb,
+      costKrw: info.costKrw,
+      target: info.target,
+      done: 0,
+      views: 0,
+      peak: 0,
+      shares: 0,
+      likes: 0
+    };
+  });
 
   let liveDataRecords = [];
   let feedbackDataRecords = [];
@@ -1338,7 +1320,7 @@
       });
   }
 
-  // ฟังก์ชันดึงข้อมูลงบประมาณจากชีต KOLs Budget & Info
+  // ฟังก์ชันดึงข้อมูลงบประมาณจากชีต KOLs Budget & Info ตามคอลัมน์จริง
   function parseBudget(rows) {
     const budgetMap = {};
     for (let r = 1; r < rows.length; r++) {
