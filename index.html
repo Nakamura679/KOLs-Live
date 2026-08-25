@@ -41,7 +41,7 @@
     padding: 20px 16px 60px;
   }
 
-  .container { max-width: 1520px; margin: 0 auto; }
+  .container { max-width: 1580px; margin: 0 auto; }
 
   /* Header */
   .header {
@@ -398,6 +398,66 @@
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
 
+  .vod-feedback-card {
+    background: #141824;
+    border: 1px solid #28334a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .vod-feedback-card:last-child { margin-bottom: 0; }
+
+  .vod-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(48, 60, 84, 0.6);
+  }
+
+  .feedback-meta-line {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .feedback-content-box {
+    background: rgba(56, 139, 253, 0.06);
+    border-left: 3px solid var(--ro-blue);
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: #c9d1d9;
+    line-height: 1.45;
+  }
+
+  .feedback-action-box {
+    background: rgba(230, 190, 101, 0.08);
+    border-left: 3px solid var(--ro-gold);
+    padding: 6px 12px;
+    border-radius: 0 4px 4px 0;
+    font-size: 11.5px;
+    color: var(--ro-gold-light);
+    margin-top: 6px;
+  }
+
+  .sentiment-badge {
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .sentiment-badge.pos { background: rgba(63, 185, 80, 0.2); color: #56d364; border: 1px solid #3fb950; }
+  .sentiment-badge.neu { background: rgba(56, 139, 253, 0.2); color: #79c0ff; border: 1px solid #388bfd; }
+  .sentiment-badge.neg { background: rgba(248, 81, 73, 0.2); color: #ff7b72; border: 1px solid #f85149; }
+
   /* KOL Avatar & Link */
   .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
   .kol-name-cell { display: flex; align-items: center; gap: 10px; text-align: left; }
@@ -421,6 +481,47 @@
   .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
   .badge-tag.wait { background: rgba(149, 163, 189, 0.15); border: 1px solid #303c54; color: #95a3bd; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
+
+  .vod-link-btn {
+    color: var(--ro-gold); text-decoration: none; background: rgba(230, 190, 101, 0.1);
+    border: 1px solid var(--ro-border-gold); padding: 3px 8px; border-radius: 4px; font-size: 12px;
+  }
+  .vod-link-btn:hover { background: var(--ro-gold); color: #10131c; }
+
+  .expand-indicator { display: inline-block; font-size: 11px; color: var(--ro-text-muted); transition: transform 0.2s; }
+  tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
+
+  /* Matrix Layout */
+  .matrix-giant-container { display: flex; flex-direction: column; gap: 24px; }
+  .matrix-giant-card {
+    background: linear-gradient(180deg, #1a2130 0%, #121622 100%);
+    border: 1.5px solid var(--ro-border); border-radius: 10px; padding: 20px 24px; box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  }
+  .matrix-giant-card.gold-glow { border-color: var(--ro-border-gold); box-shadow: 0 0 16px rgba(230, 190, 101, 0.14); }
+  .matrix-header-row {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--ro-border); padding-bottom: 10px; flex-wrap: wrap; gap: 10px;
+  }
+  .matrix-giant-title { font-size: 17px; font-weight: 700; color: var(--ro-gold-light); display: flex; align-items: center; gap: 8px; }
+  .matrix-giant-table { font-size: 14px; }
+  .matrix-giant-table th { padding: 12px 16px; font-size: 14px; background: linear-gradient(180deg, #2b364a 0%, #1c2330 100%); }
+  .matrix-giant-table td { padding: 12px 16px; font-size: 13.5px; }
+
+  /* Schedule Cards Layout */
+  .grid-days { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+  .day-card { background: linear-gradient(180deg, #1b202d 0%, #131722 100%); border: 1px solid var(--ro-border); border-radius: 10px; overflow: hidden; }
+  .day-card.highlight-day { border-color: var(--ro-border-gold); box-shadow: 0 0 14px rgba(230, 190, 101, 0.12); }
+  .day-header { background: linear-gradient(90deg, #242c3d 0%, #181d29 100%); padding: 9px 12px; border-bottom: 1px solid var(--ro-border); display: flex; justify-content: space-between; align-items: center; }
+  .day-title { font-weight: 600; font-size: 14px; color: var(--ro-gold-light); }
+  .day-tag { font-size: 11px; background: rgba(230, 190, 101, 0.15); color: var(--ro-gold); padding: 2px 7px; border-radius: 12px; border: 1px solid var(--ro-gold-dark); }
+  .day-slots { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .slot-row { display: flex; align-items: center; gap: 8px; padding: 5px 7px; border-radius: 5px; background: rgba(255, 255, 255, 0.02); }
+  .slot-time { font-weight: 600; font-size: 12px; color: #58a6ff; min-width: 60px; }
+  .slot-kols { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+
+  .kol-pill {
+    font-size: 11.5px; background: #232a3a; color: #e6edf3; padding: 2px 8px; border-radius: 4px; border: 1px solid #36425a; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+  }
+  .kol-pill.clickable:hover { background: var(--ro-gold); color: #10131c; border-color: var(--ro-gold-light); }
 
   .pagination-bar {
     display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 8px; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ro-text-muted);
@@ -508,7 +609,7 @@
     <div class="kpi-card">
       <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-en="🔄 Total Social Shares" data-kr="🔄 총 공유수 (Total Shares)" data-ja="🔄 総シェア数 (Total Shares)">🔄 ยอดแชร์รวม (Total Shares)</div>
       <div class="kpi-value" id="kpiTotalShares">0</div>
-      <div class="kpi-sub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="엔ゲージメント率: 0.0%">Engagement Rate: 0.0%</div>
+      <div class="kpi-sub" id="kpiEngagementSub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="エンゲージメント率: 0.0%">Engagement Rate: 0.0%</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-en="Completed Streams" data-kr="완료된 라이브 방송수" data-ja="完了した配信数">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
@@ -520,11 +621,11 @@
   <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="최고 조회수 인플루언서" data-ja="トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="🏆 최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
       <canvas id="topKolsChart"></canvas>
     </div>
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="Platform Share Ratio" data-kr="플랫폼 점유율" data-ja="プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="Platform Share Ratio" data-kr="🌐 플랫폼 점유율" data-ja="🌐 プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
       <canvas id="platformChart"></canvas>
     </div>
   </div>
@@ -560,6 +661,33 @@
     </div>
   </div>
 
+  <!-- ================= DAILY PERFORMANCE BREAKDOWN TABLE ================= -->
+  <div class="panel" style="margin-bottom: 22px;">
+    <div class="panel-header">
+      <div class="panel-title">
+        <span>📅</span> <span data-th="4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)" data-en="4. Daily Performance Breakdown" data-kr="4. 일자별 성과 상세 비교 분석" data-ja="4. 日別パフォーマンス詳細分析">4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)</span>
+      </div>
+      <span class="badge-tag gold" data-th="ข้อมูลอัปเดตตามจริงจาก Live_Data" data-en="Live Data Breakdown" data-kr="실시간 데이터 기반" data-ja="リアルタイムデータ">ข้อมูลอัปเดตตามจริงจาก Live_Data</span>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="matrix-giant-table">
+        <thead>
+          <tr>
+            <th style="text-align:left; min-width: 140px;" data-th="วันที่ (Date)" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
+            <th data-th="จำนวนสตรีม" data-en="Streams Count" data-kr="방송 횟수" data-ja="配信数">จำนวนสตรีม</th>
+            <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
+            <th data-th="Peak CCU สูงสุด" data-en="Peak CCU Max" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU สูงสุด</th>
+            <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
+            <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
+            <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="engagement Rate">Engagement Rate</th>
+          </tr>
+        </thead>
+        <tbody id="dailyPerformanceMatrixBody"></tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE ================= -->
   <div id="master-section">
     <div class="panel">
@@ -590,7 +718,7 @@
               </th>
               <th style="width: 100px;" data-th="ช่องทาง" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">ช่องทาง</th>
               <th style="width: 110px;" data-th="เทียร์" data-en="Tier" data-kr="티어" data-ja="ティア">เทียร์</th>
-              <th class="sortable" onclick="sortMasterTable('cost')">งบประมาณ (Cost THB/KRW) ⬍</th>
+              <th class="sortable" onclick="sortMasterTable('cost')">งบประมาณ (Cost) ⬍</th>
               <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">
                 <span data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">ความคืบหน้า</span> ⬍
               </th>
@@ -652,6 +780,60 @@
             </table>
           </div>
         </div>
+
+        <div class="matrix-giant-card">
+          <div class="matrix-header-row">
+            <div class="matrix-giant-title">
+              <span>⏱️</span> <span>2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)</span>
+            </div>
+            <span class="badge-tag done">เป้าหมายรวม: 264 สตรีม (100%)</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="matrix-giant-table">
+              <thead>
+                <tr>
+                  <th style="text-align:left; min-width: 180px;">ช่วงเวลาของแคมเปญ (Phase)</th>
+                  <th>ระยะเวลา (วันที่)</th>
+                  <th>จำนวนวัน</th>
+                  <th>จำนวนรอบสตรีม</th>
+                  <th>เฉลี่ยสตรีม / วัน</th>
+                  <th>สัดส่วนแคมเปญ</th>
+                  <th>ระดับความหนาแน่น</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align:left; font-weight:700; color:var(--ro-gold-light);">🔥 Phase 1: Grand Open & Launch Peak</td>
+                  <td>18 - 23 ส.ค. 2569</td>
+                  <td>6 วัน</td>
+                  <td><strong style="font-size:15px; color:var(--ro-gold-light);">137</strong> สตรีม</td>
+                  <td><strong>22.8</strong> สตรีม/วัน</td>
+                  <td><strong>51.9%</strong></td>
+                  <td><span class="badge-tag done">🔴 หนาแน่นสูงสุด (Peak Wave)</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:left; font-weight:700; color:#58a6ff;">⚡ Phase 2: Mid-Campaign Community Drive</td>
+                  <td>24 - 31 ส.ค. 2569</td>
+                  <td>8 วัน</td>
+                  <td><strong style="font-size:15px; color:#58a6ff;">68</strong> สตรีม</td>
+                  <td><strong>8.5</strong> สตรีม/วัน</td>
+                  <td><strong>25.8%</strong></td>
+                  <td><span class="badge-tag fb">🔵 ต่อเนื่องทุกวัน (Sustain)</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:left; font-weight:700; color:#a371f7;">🛡️ Phase 3: Finale & Guild Wars Focus</td>
+                  <td>1 - 8 ก.ย. 2569</td>
+                  <td>8 วัน</td>
+                  <td><strong style="font-size:15px; color:#a371f7;">59</strong> สตรีม</td>
+                  <td><strong>7.4</strong> สตรีม/วัน</td>
+                  <td><strong>22.3%</strong></td>
+                  <td><span class="badge-tag twitch">🟣 สตรีมส่งท้าย (Finale Push)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -735,76 +917,7 @@
   let topChartInstance = null;
   let platformChartInstance = null;
 
-  const DATE_CONFIG = [
-    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", ja: "2026年8月18日 (火) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
-    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", ja: "2026年8月19日 (水)", en: "Wednesday, August 19, 2026" },
-    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", ja: "2026年8月20日 (木)", en: "Thursday, August 20, 2026" },
-    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", ja: "2026年8月21日 (金)", en: "Friday, August 21, 2026" },
-    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", ja: "2026年8月22日 (土)", en: "Saturday, August 22, 2026", isHighlight: true },
-    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", ja: "2026年8月23日 (日)", en: "Sunday, August 23, 2026", isHighlight: true },
-    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", ja: "2026年8月24日 (月)", en: "Monday, August 24, 2026" },
-    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", ja: "2026年8月25日 (火)", en: "Tuesday, August 25, 2026" },
-    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", ja: "2026年8月26日 (水)", en: "Wednesday, August 26, 2026" },
-    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", ja: "2026年8月27日 (木)", en: "Thursday, August 27, 2026" },
-    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", ja: "2026年8月28日 (金)", en: "Friday, August 28, 2026" },
-    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", ja: "2026年8月29日 (土)", en: "Saturday, August 29, 2026" },
-    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", ja: "2026年8月30日 (日)", en: "Sunday, August 30, 2026" },
-    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", ja: "2026年8月31日 (月)", en: "Monday, August 31, 2026" },
-    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", ja: "2026年9月1日 (火)", en: "Tuesday, September 1, 2026", isHighlight: true },
-    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", ja: "2026年9月2日 (水)", en: "Wednesday, September 2, 2026" },
-    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", ja: "2026年9月3日 (木)", en: "Thursday, September 3, 2026" },
-    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", ja: "2026年9月4日 (金)", en: "Friday, September 4, 2026" },
-    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", ja: "2026年9月5日 (土)", en: "Saturday, September 5, 2026" },
-    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", ja: "2026年9月6日 (일)", en: "Sunday, September 6, 2026" },
-    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", ja: "2026年9月7日 (월)", en: "Monday, September 7, 2026" },
-    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", ja: "2026年9月8일 (화)", en: "Tuesday, September 8, 2026" }
-  ];
-
-  // 39 KOLs Master Data Mapped from Spreadsheet (KOLs Budget & Info)
-  let kolsSummaryReport = [
-    { name: "Jaymeander", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "KamonWay", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Jungko", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 160000, costKrw: 6883200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Shipdont", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 120000, costKrw: 5162400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "basz17", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Doraraz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "FOMU Ch.", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Jeon", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NCZ", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 28000, costKrw: 1204560, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "SC Forlife", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "TIMTIMChannel", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 33000, costKrw: 1419660, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "TKGaming", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Viva-Tz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "WhiteBearZBank", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "แชงค์888", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "bAllz HD", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 10000, costKrw: 430200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "YOGURTz", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ลุงโย - Yogurting", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "MimiwPK", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "PoP Chanal", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 48000, costKrw: 2064960, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ValduzCH", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "VCartz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 50000, costKrw: 2151000, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "OhBIGz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "ZixmaOne", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 35000, costKrw: 1505700, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "iamaii", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "MinORu", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "พี่แว่น", platform: "SOOP", tier: "Mega", costThb: 80000, costKrw: 3441600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NoctisAK47", platform: "Twitch", tier: "Mega", costThb: 76000, costKrw: 3269520, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Ezqulusia", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Gssspotted", platform: "Twitch", tier: "Mega", costThb: 303000, costKrw: 13035060, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Takluz", platform: "Twitch", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Bounglengame", platform: "YouTube", tier: "Mega", costThb: 73000, costKrw: 3140460, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "NAKLAS GAMER", platform: "YouTube", tier: "Mega", costThb: 50000, costKrw: 2151000, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "SKIZZ TV (Feat. OPZ)", platform: "YouTube", tier: "Mega", costThb: 330000, costKrw: 14196600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "โกโจ อ้วน (พี่ซี๊ด)", platform: "YouTube", tier: "Mega", costThb: 20000, costKrw: 860400, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "BreakGate", platform: "YouTube", tier: "Mega", costThb: 22000, costKrw: 946440, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "RUBSARB (จ๊อบ)", platform: "YouTube", tier: "Mega", costThb: 193000, costKrw: 8302860, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "Genghiskhanz", platform: "YouTube", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
-    { name: "THISKK", platform: "Twitch", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 }
-  ];
-
-  const ALL_KOL_NAMES = kolsSummaryReport.map(k => k.name);
-
+  // Complete KOL URL Mapping (39 KOLs)
   const KOL_LINKS = {
     "Jaymeander": "https://www.youtube.com/@JayMeander",
     "KamonWay": "https://www.youtube.com/@KamonWay",
@@ -889,10 +1002,52 @@
     "THISKK": "https://www.twitch.tv/thiskk"
   };
 
+  const ALL_KOL_NAMES = Object.keys(KOL_LINKS);
+
+  let kolsSummaryReport = ALL_KOL_NAMES.map(name => ({
+    name: name,
+    platform: detectPlatformByName(name),
+    tier: "Mid-tier / Micro",
+    costThb: 0,
+    costKrw: 0,
+    done: 0,
+    target: 10,
+    views: 0,
+    peak: 0,
+    shares: 0,
+    likes: 0
+  }));
+
   let liveDataRecords = [];
   let feedbackDataRecords = [];
   let expandedKols = new Set();
-  let kolsSchedule = [];
+  let kolsSchedule = [
+    { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
+    { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
+    { name: "Jungko", times: ["08:00","08:00","18:00","14:00","14:00","14:00",null,null,"10:00",null,null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,null] },
+    { name: "Shipdont", times: ["09:00","09:00","20:30","20:30","20:30","09:00",null,null,"09:00",null,null,"20:30",null,null,"09:00",null,null,"20:30",null,null,null,null] },
+    { name: "basz17", times: ["13:00","13:00","13:00","13:00","13:00","13:00","13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null] },
+    { name: "Doraraz", times: ["14:00","14:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null,null,null] },
+    { name: "FOMU Ch.", times: ["21:00","21:00","21:00",null,"21:00","21:00",null,"21:00",null,null,"21:00",null,"21:00",null,"21:00",null,null,null,"21:00",null,null,null] },
+    { name: "Jeon", times: ["16:00","20:00","16:30","16:30","16:30","14:00",null,null,null,"14:00",null,null,null,"16:30",null,null,null,"16:30",null,null,null,"16:30"] },
+    { name: "NCZ", times: ["15:00","15:00","15:00","20:30","20:30","15:00",null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null] },
+    { name: "SC Forlife", times: ["08:00","13:00","13:00","13:00","08:00","13:00",null,"13:00",null,null,null,"08:00",null,null,null,"13:00",null,null,null,"13:00",null,null] },
+    { name: "TIMTIMChannel", times: ["15:00","13:00",null,"13:00",null,"15:00","15:00",null,null,null,null,"15:00","15:00","15:00","15:00",null,null,"15:00",null,null,null,null] },
+    { name: "TKGaming", times: ["11:00","11:00","11:00","11:00","11:00",null,"11:00",null,"11:00",null,null,"11:00",null,null,"11:00",null,null,"11:00",null,null,null,null] },
+    { name: "Viva-Tz", times: [null,"15:30","10:00","10:00",null,null,null,"15:30","10:00","10:00",null,null,null,"10:00","10:00","10:00",null,null,null,"10:00",null,null] },
+    { name: "WhiteBearZBank", times: ["21:00",null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null] },
+    { name: "แชงค์888", times: ["09:00","09:00","09:00","09:00","09:00","09:00","09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null] },
+    { name: "bAllz HD", times: ["18:00","18:00","18:00","18:00","18:00","18:00","18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null] },
+    { name: "YOGURTz", times: ["08:00","16:00","16:00","16:00","16:00","16:00","16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null] },
+    { name: "ลุงโย - Yogurting", times: ["09:00","20:00","20:00","20:00","20:00","20:00","20:00",null,null,null,"20:00",null,null,null,"20:00",null,null,null,null,null,null,null] },
+    { name: "MimiwPK", times: ["19:00","19:00","19:00","19:00","19:00","19:00",null,null,"21:00",null,null,"19:00",null,null,"19:00",null,null,"19:00",null,null,null,null] },
+    { name: "PoP Chanal", times: ["08:00","22:00","17:00","22:00","22:00","22:00",null,null,null,"17:00",null,null,null,"14:00",null,null,null,"22:00",null,null,null,"17:00"] },
+    { name: "ValduzCH", times: ["14:00","14:00","14:00","14:00",null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00"] },
+    { name: "VCartz", times: ["08:00","13:00","22:00","13:00","22:00","22:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00"] },
+    { name: "OhBIGz", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00"] },
+    { name: "ZixmaOne", times: ["08:00","08:00","08:00","08:00","10:00","10:00","08:00",null,null,null,"08:00",null,null,null,"08:00",null,null,null,"10:00",null,null,null] },
+    { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
+  ];
 
   let masterState = {
     platformFilter: 'all',
@@ -902,6 +1057,31 @@
     currentPage: 1,
     pageSize: 10
   };
+
+  const DATE_CONFIG = [
+    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", ja: "2026年8月18日 (火) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
+    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", ja: "2026年8月19日 (水)", en: "Wednesday, August 19, 2026" },
+    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", ja: "2026年8月20日 (木)", en: "Thursday, August 20, 2026" },
+    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", ja: "2026年8月21日 (金)", en: "Friday, August 21, 2026" },
+    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", ja: "2026年8月22日 (土)", en: "Saturday, August 22, 2026", isHighlight: true },
+    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", ja: "2026年8月23日 (日)", en: "Sunday, August 23, 2026", isHighlight: true },
+    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", ja: "2026年8月24日 (月)", en: "Monday, August 24, 2026" },
+    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", ja: "2026年8月25日 (火)", en: "Tuesday, August 25, 2026" },
+    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", ja: "2026年8月26日 (水)", en: "Wednesday, August 26, 2026" },
+    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", ja: "2026年8月27日 (木)", en: "Thursday, August 27, 2026" },
+    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", ja: "2026年8月28日 (金)", en: "Friday, August 28, 2026" },
+    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", ja: "2026年8月29日 (土)", en: "Saturday, August 29, 2026" },
+    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", ja: "2026年8月30日 (日)", en: "Sunday, August 30, 2026" },
+    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", ja: "2026年8月31日 (月)", en: "Monday, August 31, 2026" },
+    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", ja: "2026年9月1日 (火)", en: "Tuesday, September 1, 2026", isHighlight: true },
+    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", ja: "2026年9月2日 (水)", en: "Wednesday, September 2, 2026" },
+    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", ja: "2026年9月3日 (木)", en: "Thursday, September 3, 2026" },
+    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", ja: "2026年9月4日 (金)", en: "Friday, September 4, 2026" },
+    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", ja: "2026年9月5日 (土)", en: "Saturday, September 5, 2026" },
+    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", ja: "2026年9月6日 (日)", en: "Sunday, September 6, 2026" },
+    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", ja: "2026年9月7日 (월)", en: "Monday, September 7, 2026" },
+    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", ja: "2026年9月8일 (화)", en: "Tuesday, September 8, 2026" }
+  ];
 
   function getCleanName(name) {
     return String(name || '').trim();
@@ -938,6 +1118,47 @@
     if (p.includes('soop') || p.includes('afreeca')) return '<span class="badge-tag soop">SOOP</span>';
     if (p.includes('face') || p.includes('fb')) return '<span class="badge-tag fb">Facebook</span>';
     return '<span class="badge-tag yt">YouTube</span>';
+  }
+
+  function getSentimentBadge(sentiment) {
+    const s = String(sentiment || '').toLowerCase();
+    if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge pos">👍 ポジティブ (Positive)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge pos">👍 긍정적 (Positive)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge pos">👍 Positive</span>';
+      return '<span class="sentiment-badge pos">👍 เชิงบวก (Positive)</span>';
+    }
+    if (s.includes('ลบ') || s.includes('negative') || s.includes('neg')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge neg">⚠️ 問題 (Negative)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge neg">⚠️ 부정적 (Negative)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge neg">⚠️ Negative</span>';
+      return '<span class="sentiment-badge neg">⚠️ ปัญหา (Negative)</span>';
+    }
+    if (s.includes('กลาง') || s.includes('neutral') || s.includes('neu')) {
+      if (currentLang === 'ja') return '<span class="sentiment-badge neu">💬 中立 (Neutral)</span>';
+      if (currentLang === 'kr') return '<span class="sentiment-badge neu">💬 중립 (Neutral)</span>';
+      if (currentLang === 'en') return '<span class="sentiment-badge neu">💬 Neutral</span>';
+      return '<span class="sentiment-badge neu">💬 ทั่วไป (Neutral)</span>';
+    }
+    return '<span class="badge-tag wait">-</span>';
+  }
+
+  function getKolTargetCount(name) {
+    const clean = getCleanName(name);
+    const found = kolsSchedule.find(k => getCleanName(k.name) === clean);
+    if (found && found.times) {
+      const count = found.times.filter(t => t !== null && t !== '').length;
+      if (count > 0) return count;
+    }
+    return 10;
+  }
+
+  function detectPlatformByName(name) {
+    const clean = getCleanName(name);
+    if (["NoctisAK47", "Gssspotted", "Takluz", "THISKK"].includes(clean)) return "Twitch";
+    if (["พี่แว่น"].includes(clean)) return "SOOP";
+    if (["TIMTIMChannel", "YOGURTz"].includes(clean)) return "Facebook";
+    return "YouTube";
   }
 
   function renderAll() {
