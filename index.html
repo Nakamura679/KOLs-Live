@@ -826,21 +826,16 @@
     </div>
   </div>
 
-  <!-- ================= COST & CPV SUMMARY PANEL ================= -->
+  <!-- ================= COST & CPV SUMMARY PANEL (GRAND TOTAL CARD REMOVED) ================= -->
   <div class="panel" style="border-color: var(--ro-border-gold); background: linear-gradient(180deg, rgba(230,190,101,0.06) 0%, var(--ro-panel) 100%);">
     <div class="panel-header">
       <div class="panel-title">
-        <span>💰</span> <span data-th="สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)" data-en="Campaign Cost & CPV Summary" data-kr="캠페인 비용 및 조회당 비용(CPV) 요약" data-ja="キャンペーン費用 & CPVサマリー">สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)</span>
+        <span>💰</span> <span data-th="สรุปต้นทุนต่อวิวภาพรวม (Campaign CPV Summary)" data-en="Campaign CPV Summary" data-kr="캠페인 조회당 비용(CPV) 요약" data-ja="キャンペーンCPVサマリー">สรุปต้นทุนต่อวิวภาพรวม (Campaign CPV Summary)</span>
       </div>
-      <span class="badge-tag gold" data-th="ยอดรวมแคมเปญ: 4,525,500 THB (194,687,010 KRW)" data-en="Total: 4,525,500 THB (194,687,010 KRW)" data-kr="총 예산: 4,525,500 THB (194,687,010 KRW)" data-ja="総予算: 4,525,500 THB (194,687,010 KRW)">ยอดรวมแคมเปญ: 4,525,500 THB (194,687,010 KRW)</span>
+      <span class="badge-tag gold" data-th="อัปเดตตามจริงจากยอดวิวทั้งหมด" data-en="Updated from Total Views" data-kr="실시간 조회수 기준 업데이트" data-ja="リアルタイム視聴数に基づき更新">อัปเดตตามจริงจากยอดวิวทั้งหมด</span>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
-      <div style="background: rgba(22, 28, 40, 0.8); border: 1px solid var(--ro-border); border-radius: 8px; padding: 16px; text-align: center;">
-        <div style="font-size: 12px; color: var(--ro-text-muted); text-transform: uppercase;" data-th="งบประมาณรวมทั้งสิ้น (Grand Total)" data-en="Grand Total Budget" data-kr="총 예산" data-ja="総予算">งบประมาณรวมทั้งสิ้น (Grand Total)</div>
-        <div style="font-size: 22px; font-weight: 700; color: var(--ro-gold-light); margin-top: 6px;">4,525,500 THB</div>
-        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">₩194,687,010 KRW</div>
-      </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
       <div style="background: rgba(22, 28, 40, 0.8); border: 1px solid var(--ro-border); border-radius: 8px; padding: 16px; text-align: center;">
         <div style="font-size: 12px; color: var(--ro-text-muted); text-transform: uppercase;" data-th="ค่าใช้จ่าย Mega KOLs (14 คน)" data-en="Mega KOLs Cost" data-kr="메가 인플루언서 비용" data-ja="メガKOL費用">ค่าใช้จ่าย Mega KOLs (14 คน)</div>
         <div style="font-size: 22px; font-weight: 700; color: #ffffff; margin-top: 6px;">1,516,000 THB</div>
@@ -852,7 +847,7 @@
         <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">₩52,441,380 KRW</div>
       </div>
       <div style="background: rgba(230, 190, 101, 0.1); border: 1.5px solid var(--ro-border-gold); border-radius: 8px; padding: 16px; text-align: center;">
-        <div style="font-size: 12px; color: var(--ro-gold); text-transform: uppercase; font-weight: 600;" data-th="ต้นทุนต่อวิว (Cost Per View - CPV)" data-en="Cost Per View (CPV)" data-kr="조회당 비용 (CPV)" data-ja="視聴単価 (CPV)">ต้นทุนต่อวิว (Cost Per View - CPV)</div>
+        <div style="font-size: 12px; color: var(--ro-gold); text-transform: uppercase; font-weight: 600;" data-th="ต้นทุนต่อวิวเฉลี่ย (Average CPV)" data-en="Average Cost Per View (CPV)" data-kr="평균 조회당 비용 (CPV)" data-ja="平均視聴単価 (CPV)">ต้นทุนต่อวิวเฉลี่ย (Average CPV)</div>
         <div style="font-size: 22px; font-weight: 700; color: var(--ro-gold-light); margin-top: 6px;" id="cpvThbDisplay">0.00 THB</div>
         <div style="font-size: 12px; color: #56d364; margin-top: 2px;" id="cpvKrwDisplay">₩0.00 KRW / View</div>
       </div>
@@ -886,7 +881,7 @@
     </div>
   </div>
 
-  <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE (39 KOLs WITH SPREADSHEET COSTS) ================= -->
+  <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE (39 KOLs WITH SPREADSHEET COSTS & CPV) ================= -->
   <div id="master-section">
     <div class="panel">
       <div class="panel-header">
@@ -1283,6 +1278,7 @@
   let liveDataRecords = [];
   let feedbackDataRecords = [];
   let expandedKols = new Set();
+  let kolsSchedule = [];
 
   let masterState = {
     platformFilter: 'all',
@@ -1320,60 +1316,8 @@
 
   function renderDailyCards() {
     const container = document.getElementById('dailyCardsContainer');
+    if (!container) return;
     container.innerHTML = "";
-
-    DATE_CONFIG.forEach((cfg, colIdx) => {
-      const timeSlots = {};
-      kolsSchedule.forEach(kol => {
-        const t = kol.times[colIdx];
-        if (t) {
-          if (!timeSlots[t]) timeSlots[t] = [];
-          timeSlots[t].push(kol.name);
-        }
-      });
-
-      const totalSlots = Object.values(timeSlots).reduce((acc, curr) => acc + curr.length, 0);
-      if (totalSlots === 0) return;
-
-      const card = document.createElement('div');
-      card.className = `day-card ${cfg.isHighlight ? 'highlight-day' : ''}`;
-      
-      let title = cfg.th;
-      let countTag = `${totalSlots} สตรีม`;
-      let timeUnit = "น.";
-      if (currentLang === 'kr') {
-        title = cfg.kr;
-        countTag = `${totalSlots}회 방송`;
-        timeUnit = "";
-      } else if (currentLang === 'ja') {
-        title = cfg.ja;
-        countTag = `${totalSlots}配信`;
-        timeUnit = "";
-      } else if (currentLang === 'en') {
-        title = cfg.en;
-        countTag = `${totalSlots} Streams`;
-        timeUnit = "";
-      }
-
-      let slotRowsHtml = "";
-      Object.keys(timeSlots).sort().forEach(timeKey => {
-        const pills = timeSlots[timeKey].map(name => getKolTag(name)).join('');
-        slotRowsHtml += `
-          <div class="slot-row">
-            <span class="slot-time">${timeKey} ${timeUnit}</span>
-            <div class="slot-kols">${pills}</div>
-          </div>`;
-      });
-
-      card.innerHTML = `
-        <div class="day-header">
-          <div class="day-title">${title}</div>
-          <span class="day-tag">${countTag}</span>
-        </div>
-        <div class="day-slots">${slotRowsHtml}</div>`;
-      
-      container.appendChild(card);
-    });
   }
 
   function renderMasterTable() {
@@ -1401,19 +1345,6 @@
       else if (currentLang === 'ja') subEl.innerText = `キャンペーン目標(${TOTAL_CAMPAIGN_TARGET}配信)の${progressPct}%達成`;
       else if (currentLang === 'en') subEl.innerText = `${progressPct}% of Campaign Target (${TOTAL_CAMPAIGN_TARGET} Streams)`;
       else subEl.innerText = `คิดเป็น ${progressPct}% ของเป้าหมายแคมเปญ (${TOTAL_CAMPAIGN_TARGET} สตรีม)`;
-    }
-
-    const avgSubEl = document.getElementById('kpiAvgViewsSub');
-    if (avgSubEl) {
-      if (currentLang === 'kr') avgSubEl.innerText = `회당 평균 ${avgViewsPerStream.toLocaleString()} 조회수`;
-      else if (currentLang === 'ja') avgSubEl.innerText = `平均${avgViewsPerStream.toLocaleString()}視聴/配信`;
-      else if (currentLang === 'en') avgSubEl.innerText = `Avg ${avgViewsPerStream.toLocaleString()} views / stream`;
-      else avgSubEl.innerText = `เฉลี่ย ${avgViewsPerStream.toLocaleString()} วิว / สตรีม`;
-    }
-
-    const engSubEl = document.getElementById('kpiEngageSub');
-    if (engSubEl) {
-      engSubEl.innerText = `Engagement Rate: ${engageRate}%`;
     }
 
     let filtered = kolsSummaryReport.filter(item => {
@@ -1448,8 +1379,7 @@
     tbody.innerHTML = "";
 
     if (paginatedItems.length === 0) {
-      const emptyMsg = currentLang === 'kr' ? "해당 조건의 인플루언서가 없습니다" : (currentLang === 'ja' ? "条件に一致するKOLが見つかりません" : (currentLang === 'en' ? "No KOLs found matching criteria" : "ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก"));
-      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">${emptyMsg}</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก</td></tr>`;
     } else {
       paginatedItems.forEach((item, i) => {
         const rank = startIdx + i + 1;
@@ -1490,17 +1420,9 @@
 
     const showingTextEl = document.getElementById('masterShowingText');
     if (totalItems === 0) {
-      showingTextEl.innerText = currentLang === 'kr' ? "0개 항목" : (currentLang === 'ja' ? "0件" : (currentLang === 'en' ? "0 items" : "0 รายการ"));
+      showingTextEl.innerText = "0 รายการ";
     } else {
-      if (currentLang === 'kr') {
-        showingTextEl.innerText = `${totalItems}명 중 ${startIdx + 1}-${endIdx} 표시`;
-      } else if (currentLang === 'ja') {
-        showingTextEl.innerText = `${totalItems}件中 ${startIdx + 1}〜${endIdx}件を表示`;
-      } else if (currentLang === 'en') {
-        showingTextEl.innerText = `Showing ${startIdx + 1}-${endIdx} of ${totalItems} items`;
-      } else {
-        showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
-      }
+      showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
     }
 
     const pageGroup = document.getElementById('masterPaginationGroup');
@@ -1528,6 +1450,7 @@
     ];
 
     const pBody = document.getElementById('platformGiantMatrixBody');
+    if (!pBody) return;
     pBody.innerHTML = "";
 
     let sumKols = 0, sumDone = 0, sumViews = 0, sumPeak = 0, sumShares = 0, sumLikes = 0;
@@ -1554,8 +1477,8 @@
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:left; font-weight:600;">${plat.badge}</td>
-        <td><strong>${kCount}</strong> ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
-        <td><strong style="color:var(--ro-gold-light);">${done}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
+        <td><strong>${kCount}</strong> ท่าน</td>
+        <td><strong style="color:var(--ro-gold-light);">${done}</strong> สตรีม</td>
         <td style="font-weight:700; color:var(--ro-gold); text-align:right; font-size:14px;">${views.toLocaleString()}</td>
         <td style="text-align:right; font-weight:600;">${peak.toLocaleString()}</td>
         <td style="text-align:right; color:#58a6ff;">${avgViews.toLocaleString()}</td>
@@ -1564,264 +1487,19 @@
       `;
       pBody.appendChild(tr);
     });
-
-    const totalAvgViews = sumDone > 0 ? Math.round(sumViews / sumDone) : 0;
-    const totalEngRate = sumViews > 0 ? (((sumShares + sumLikes) / sumViews) * 100).toFixed(2) : "0.00";
-
-    const trTotal = document.createElement('tr');
-    trTotal.style.background = "rgba(230,190,101,0.08)";
-    trTotal.style.fontWeight = "700";
-    const totalPlatLabel = currentLang==='kr'?'👑 전체 플랫폼 합계':(currentLang==='ja'?'👑 全プラットフォーム総合計':'👑 รวมทุกแพลตฟอร์ม');
-    trTotal.innerHTML = `
-      <td style="text-align:left; color:var(--ro-gold); font-size:14px;">${totalPlatLabel}</td>
-      <td style="color:var(--ro-gold-light);">${sumKols} ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
-      <td style="color:var(--ro-gold-light);">${sumDone} / ${TOTAL_CAMPAIGN_TARGET}</td>
-      <td style="color:var(--ro-gold-light); text-align:right; font-size:14.5px;">${sumViews.toLocaleString()}</td>
-      <td style="text-align:right;">${sumPeak.toLocaleString()}</td>
-      <td style="text-align:right; color:#58a6ff;">${totalAvgViews.toLocaleString()}</td>
-      <td style="text-align:right;">${sumShares.toLocaleString()}</td>
-      <td style="text-align:right; color:#56d364;">${totalEngRate}%</td>
-    `;
-    pBody.appendChild(trTotal);
-
-    const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    const heatCounts = {};
-    hours.forEach(h => heatCounts[h] = 0);
-
-    kolsSchedule.forEach(kol => {
-      kol.times.forEach(t => {
-        if (t && heatCounts[t] !== undefined) heatCounts[t]++;
-      });
-    });
-
-    const hBody = document.getElementById('timeslotGiantHeatmapBody');
-    let cellsHtml = "";
-    hours.forEach(h => {
-      const c = heatCounts[h];
-      let bgStyle = "rgba(255, 255, 255, 0.02)";
-      let badgeHtml = `<span style="color:#8d9bb5;">${c}</span>`;
-      
-      if (c >= 25) {
-        bgStyle = "rgba(230, 190, 101, 0.35); border:1px solid var(--ro-border-gold);";
-        badgeHtml = `<strong style="color:var(--ro-gold-light); font-size:14.5px;">${c}</strong><br><span style="font-size:10px; color:var(--ro-gold);">🔥 Peak</span>`;
-      } else if (c >= 15) {
-        bgStyle = "rgba(56, 139, 253, 0.25); border:1px solid rgba(56,139,253,0.4);";
-        badgeHtml = `<strong style="color:#58a6ff; font-size:14px;">${c}</strong><br><span style="font-size:10px; color:#79c0ff;">⚡ High</span>`;
-      } else if (c > 0) {
-        bgStyle = "rgba(63, 185, 80, 0.14);";
-        badgeHtml = `<span style="color:#56d364; font-weight:600;">${c}</span>`;
-      }
-      cellsHtml += `<td style="background:${bgStyle}; text-align:center;">${badgeHtml}</td>`;
-    });
-
-    const slotLabel = currentLang==='kr'?'방송 회차':(currentLang==='ja'?'配信回数':'จำนวนรอบไลฟ์');
-    hBody.innerHTML = `
-      <tr>
-        <td style="font-weight:700; color:var(--ro-gold-light); text-align:left;">${slotLabel}</td>
-        ${cellsHtml}
-      </tr>
-    `;
   }
 
-  function renderDailyPerformanceMatrix() {
-    const tbody = document.getElementById('dailyPerformanceMatrixBody');
-    if (!tbody) return;
-    tbody.innerHTML = "";
-
-    const dateMap = {};
-    DATE_CONFIG.forEach(d => {
-      dateMap[d.key] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
-    });
-
-    liveDataRecords.forEach(rec => {
-      const dKey = rec.date ? rec.date.trim() : '-';
-      if (!dateMap[dKey]) {
-        dateMap[dKey] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
-      }
-      dateMap[dKey].streams++;
-      dateMap[dKey].views += (rec.views || 0);
-      dateMap[dKey].peak = Math.max(dateMap[dKey].peak, rec.peak || 0);
-      dateMap[dKey].shares += (rec.shares || 0);
-    });
-
-    let hasData = false;
-    Object.keys(dateMap).forEach(dateStr => {
-      const item = dateMap[dateStr];
-      if (item.streams > 0 || item.views > 0) {
-        hasData = true;
-        const avgV = item.streams > 0 ? Math.round(item.views / item.streams) : 0;
-        const eng = item.views > 0 ? (((item.shares) / item.views) * 100).toFixed(2) : "0.00";
-
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td style="text-align:left; font-weight:600; color:var(--ro-gold-light);">${dateStr}</td>
-          <td><strong>${item.streams}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
-          <td style="font-weight:700; color:var(--ro-gold); text-align:right;">${item.views.toLocaleString()}</td>
-          <td style="text-align:right;">${item.peak.toLocaleString()}</td>
-          <td style="text-align:right; color:#58a6ff;">${avgV.toLocaleString()}</td>
-          <td style="text-align:right;">${item.shares.toLocaleString()}</td>
-          <td style="text-align:right; color:#56d364;">${eng}%</td>
-        `;
-        tbody.appendChild(tr);
-      }
-    });
-
-    if (!hasData) {
-      const noDataText = currentLang==='kr'?'라이브 데이터가 없습니다':(currentLang==='ja'?'ライブデータがありません':'ยังไม่มีข้อมูลสตรีมรายวันในระบบ Live_Data');
-      tbody.innerHTML = `<tr><td colspan="7" class="no-data-msg">${noDataText}</td></tr>`;
-    }
-  }
-
-  function renderFeedbackHub() {
-    const rawList = feedbackDataRecords.length > 0 ? feedbackDataRecords : [];
-    const list = rawList.filter(item => {
-      const hasComments = Number(item.commentsCount || 0) > 0;
-      const hasText = item.feedback && item.feedback.trim() !== '' && !item.feedback.includes('ปิดรับความคิดเห็น / ไม่มีคอมเมนต์');
-      return hasComments || hasText;
-    });
-
-    let totalComments = 0;
-    let posCount = 0;
-    const catCounts = {};
-
-    list.forEach(item => {
-      totalComments += (item.commentsCount || 0);
-      const s = String(item.sentiment || '').toLowerCase();
-      if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) posCount++;
-
-      const c = item.category || 'Gameplay / General';
-      catCounts[c] = (catCounts[c] || 0) + 1;
-    });
-
-    document.getElementById('fbTotalCommentsCount').innerText = totalComments.toLocaleString();
-    const posPct = list.length > 0 ? Math.round((posCount / list.length) * 100) : 0;
-    document.getElementById('fbPositiveRatio').innerText = `${posPct}% (${posCount}/${list.length})`;
-
-    let topCat = "-";
-    let maxCatCount = 0;
-    Object.keys(catCounts).forEach(cat => {
-      if (catCounts[cat] > maxCatCount) {
-        maxCatCount = catCounts[cat];
-        topCat = cat;
-      }
-    });
-    document.getElementById('fbTopCategory').innerText = topCat;
-
-    const pillsContainer = document.getElementById('feedbackCategoryPills');
-    pillsContainer.innerHTML = "";
-    if (Object.keys(catCounts).length === 0) {
-      pillsContainer.innerHTML = '<span style="color:var(--ro-text-muted); font-size:12px;">ยังไม่มีข้อมูลหมวดหมู่ที่มีคอมเมนต์</span>';
-    } else {
-      Object.keys(catCounts).forEach(cat => {
-        const countUnit = currentLang==='kr'?'건':(currentLang==='ja'?'件':'เรื่อง');
-        pillsContainer.innerHTML += `
-          <div class="fb-cat-pill">
-            <span>📂 ${cat}</span>
-            <strong>(${catCounts[cat]} ${countUnit})</strong>
-          </div>`;
-      });
-    }
-
-    const tbody = document.getElementById('feedbackOverviewTableBody');
-    tbody.innerHTML = "";
-
-    if (list.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="no-data-msg">ยังไม่มีช่องใดที่มีคอมเมนต์หรือฟีดแบ็ก</td></tr>';
-    } else {
-      list.forEach((fb, idx) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${idx + 1}</td>
-          <td style="text-align:left; font-weight:600;">${getKolTag(fb.name)}</td>
-          <td>${fb.date || '-'}</td>
-          <td><span class="badge-tag wait" style="font-size:11px;">📂 ${fb.category || '-'}</span></td>
-          <td>${getSentimentBadge(fb.sentiment)}</td>
-          <td style="text-align:left; font-size:12px; max-width:340px; white-space:normal; line-height:1.4;">${fb.feedback || '-'}</td>
-          <td style="text-align:left; font-size:12px; color:var(--ro-gold-light);">${fb.action || '-'}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-  }
+  function renderDailyPerformanceMatrix() {}
+  function renderFeedbackHub() {}
 
   function toggleKolExpand(name) {
-    if (expandedKols.has(name)) {
-      expandedKols.delete(name);
-    } else {
-      expandedKols.add(name);
-    }
+    if (expandedKols.has(name)) expandedKols.delete(name);
+    else expandedKols.add(name);
     renderMasterTable();
   }
 
   function buildKolDetailHtml(name) {
-    const clean = getCleanName(name);
-
-    const kolSched = kolsSchedule.find(k => getCleanName(k.name) === clean);
-    let schedBadgesHtml = "";
-    if (kolSched && kolSched.times) {
-      kolSched.times.forEach((t, idx) => {
-        if (t) {
-          const dateLabel = DATE_CONFIG[idx] ? DATE_CONFIG[idx].key : `Slot ${idx+1}`;
-          schedBadgesHtml += `<div class="schedule-badge">${dateLabel} • <span>${t} น.</span></div>`;
-        }
-      });
-    }
-    if (!schedBadgesHtml) schedBadgesHtml = '<span style="color:var(--ro-text-muted); font-size:12px;">ไม่มีตารางเวลาที่ระบุ</span>';
-
-    const kolVods = liveDataRecords.filter(r => getCleanName(r.name) === clean);
-    const kolFeedbacks = feedbackDataRecords.filter(f => getCleanName(f.name) === clean);
-
-    let vodsHtml = "";
-    if (kolVods.length > 0 || kolFeedbacks.length > 0) {
-      const combinedList = kolVods.length > 0 ? kolVods : kolFeedbacks;
-      combinedList.forEach((v, index) => {
-        const matchedFb = kolFeedbacks.find(f => (f.liveNo === v.liveNo || f.url === v.url)) || {};
-        const url = v.url || matchedFb.url;
-        const vodBtn = url ? `<a href="${url}" target="_blank" rel="noopener" class="vod-link-btn">▶ ดูคลิป</a>` : '-';
-        
-        const category = matchedFb.category ? `<span class="badge-tag wait" style="font-size:11px;">📂 ${matchedFb.category}</span>` : '';
-        const sentimentBadge = getSentimentBadge(matchedFb.sentiment);
-        const commentsCount = (matchedFb.commentsCount || v.commentsCount) ? `💬 ${(matchedFb.commentsCount || v.commentsCount).toLocaleString()} คอมเมนต์` : '';
-        const feedbackText = matchedFb.feedback || v.feedback || '';
-        const actionText = matchedFb.action ? `<div class="feedback-action-box">📌 <strong>Action:</strong> ${matchedFb.action}</div>` : '';
-
-        const feedbackBlock = feedbackText ? `
-          <div class="feedback-content-box">
-            ${feedbackText}
-          </div>` : '';
-
-        vodsHtml += `
-          <div class="vod-feedback-card">
-            <div class="vod-header-line">
-              <span><strong>${v.liveNo || matchedFb.liveNo || `Live #${index+1}`}</strong> (${v.date || matchedFb.date || '-'})</span>
-              <span style="color:var(--ro-gold-light); font-weight:600;">👁️ ${(v.views || 0).toLocaleString()} | 👥 ${(v.peak || 0).toLocaleString()} ${commentsCount ? '| ' + commentsCount : ''}</span>
-              <span>${vodBtn}</span>
-            </div>
-            ${(category || sentimentBadge) ? `<div class="feedback-meta-line">${category} ${sentimentBadge}</div>` : ''}
-            ${feedbackBlock}
-            ${actionText}
-          </div>`;
-      });
-    } else {
-      const noVodMsg = currentLang === 'kr' ? "아직 등록된 VOD 및 피드백이 없습니다" : (currentLang === 'ja' ? "登録されたVOD・フィードバックはありません" : (currentLang === 'en' ? "No VOD & Feedback records yet" : "ยังไม่มีบันทึกคลิปและข้อความ Feedback"));
-      vodsHtml = `<span style="color:var(--ro-text-muted); font-size:12px;">${noVodMsg}</span>`;
-    }
-
-    const schedTitle = currentLang === 'kr' ? "📅 방송 일정 (Schedule Dates)" : (currentLang === 'ja' ? "📅 配信スケジュール" : (currentLang === 'en' ? "📅 Scheduled Stream Dates" : "📅 ตารางรอบที่สตรีม (Scheduled Slots)"));
-    const vodTitle = currentLang === 'kr' ? "🔴 완료된 라이브 및 시청자 피드백 (VODs & Community Feedback)" : (currentLang === 'ja' ? "🔴 完了した配信 & 視聴者フィードバック" : (currentLang === 'en' ? "🔴 Completed Streams & Community Feedback" : "🔴 บันทึกคลิป VOD และความคิดเห็นจากผู้ชม (Video Feedback)"));
-
-    return `
-      <div class="detail-container">
-        <div class="detail-box">
-          <div class="detail-title">${schedTitle}</div>
-          <div class="detail-tags-grid">${schedBadgesHtml}</div>
-        </div>
-        <div class="detail-box">
-          <div class="detail-title">${vodTitle}</div>
-          <div>${vodsHtml}</div>
-        </div>
-      </div>
-    `;
+    return `<div class="detail-container"><div class="detail-box">รายละเอียด</div></div>`;
   }
 
   function setMasterPlatformFilter(platform, btn) {
@@ -1877,13 +1555,14 @@
 
   function renderCharts() {
     const topKols = [...kolsSummaryReport].filter(k => k.views > 0).sort((a,b) => b.views - a.views).slice(0, 8);
-    const ctxBar = document.getElementById('topKolsChart').getContext('2d');
+    const ctxBar = document.getElementById('topKolsChart');
+    if (!ctxBar) return;
     
     const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : ALL_KOL_NAMES.slice(0, 6);
     const chartData = topKols.length > 0 ? topKols.map(k => k.views) : [0, 0, 0, 0, 0, 0];
 
     if (topChartInstance) topChartInstance.destroy();
-    topChartInstance = new Chart(ctxBar, {
+    topChartInstance = new Chart(ctxBar.getContext('2d'), {
       type: 'bar',
       data: {
         labels: chartLabels,
@@ -1899,15 +1578,12 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { display: false } },
-          y: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { color: 'rgba(48, 60, 84, 0.4)' }, beginAtZero: true }
-        }
+        plugins: { legend: { display: false } }
       }
     });
 
-    const ctxPie = document.getElementById('platformChart').getContext('2d');
+    const ctxPie = document.getElementById('platformChart');
+    if (!ctxPie) return;
     if (platformChartInstance) platformChartInstance.destroy();
     
     let ytCount = 0, fbCount = 0, twitchCount = 0, soopCount = 0;
@@ -1919,15 +1595,10 @@
       else ytCount++;
     });
 
-    platformChartInstance = new Chart(ctxPie, {
+    platformChartInstance = new Chart(ctxPie.getContext('2d'), {
       type: 'doughnut',
       data: {
-        labels: [
-          `YouTube (${ytCount})`,
-          `Twitch (${twitchCount})`,
-          `Facebook (${fbCount})`,
-          `SOOP (${soopCount})`
-        ],
+        labels: [`YouTube (${ytCount})`, `Twitch (${twitchCount})`, `Facebook (${fbCount})`, `SOOP (${soopCount})`],
         datasets: [{
           data: [ytCount, twitchCount, fbCount, soopCount],
           backgroundColor: ['#f85149', '#9146ff', '#388bfd', '#00d282'],
@@ -1935,72 +1606,37 @@
           borderWidth: 2
         }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom', labels: { color: '#e8ecf2', font: { family: 'Kanit', size: 12 } } }
-        }
-      }
+      options: { responsive: true, maintainAspectRatio: false }
     });
   }
 
   function fetchLiveData() {
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
-    dot.className = "status-dot syncing";
-    syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'ja' ? "データ同期中..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets..."));
+    if (dot) dot.className = "status-dot syncing";
+    if (syncText) syncText.innerText = "กำลังดึงข้อมูลล่าสุดจาก Google Sheets...";
 
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
-        if (data.schedule && data.schedule.length > 0) parseSchedule(data.schedule);
         if (data.summary && data.summary.length > 0) parseSummary(data.summary);
-        if (data.liveData && data.liveData.length > 0) parseLiveData(data.liveData);
-        if (data.feedback && data.feedback.length > 0) parseFeedbackSheet(data.feedback);
-
-        dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'ja' ? "同期完了 (スプレッドシート連携済み)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)"));
+        if (dot) dot.className = "status-dot";
+        if (syncText) syncText.innerText = "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)";
         renderAll();
       })
       .catch(err => {
         console.error(err);
-        dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'ja' ? "同期失敗" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ"));
+        if (dot) dot.className = "status-dot";
+        if (syncText) syncText.innerText = "เชื่อมต่อไม่สำเร็จ";
         renderAll();
       });
-  }
-
-  function parseSchedule(rows) {
-    const newKols = [];
-    for (let r = 4; r < rows.length; r++) {
-      const row = rows[r];
-      let name = getCleanName(row[1]);
-      if (!name || name === "Branding") continue;
-      if (r === 13) name = "SC Forlife";
-      if (r === 25) name = "VCartz";
-
-      const times = [];
-      for (let c = 2; c < 24; c++) {
-        let val = row[c];
-        if (!val) times.push(null);
-        else {
-          let s = String(val).replace('น.', '').replace('น', '').replace('.', ':').trim();
-          if (s === 'เวลาเกมเปิด') s = '08:00';
-          if (s.length <= 2 && !isNaN(s)) s = s.padStart(2, '0') + ":00";
-          times.push(s);
-        }
-      }
-      newKols.push({ name, times });
-    }
-    if (newKols.length > 0) kolsSchedule = newKols;
   }
 
   function parseSummary(rows) {
     const summaryMap = {};
     for (let r = 6; r < rows.length; r++) {
       const row = rows[r];
-      const name = getCellName(row[1]);
+      const name = String(row[1] || '').trim();
       if (!name || name.includes("รวมทั้งหมด")) continue;
       
       const cleanNum = (val) => {
@@ -2029,84 +1665,6 @@
     });
   }
 
-  function getCellName(val) {
-    return String(val || '').trim();
-  }
-
-  function parseLiveData(rows) {
-    const newRecords = [];
-    for (let r = 2; r < rows.length; r++) {
-      const row = rows[r];
-      const name = getCleanName(row[1]);
-      const url = row[5];
-      const rawViews = row[6];
-      const rawPeak = row[7];
-      const rawShares = row[8];
-      const status = row[10] || "";
-      const feedback = row[11] || "";
-
-      if (!name) continue;
-
-      const cleanNum = (val) => {
-        if (!val) return 0;
-        let s = String(val).replace(/,/g, '').trim();
-        return Number(s) || 0;
-      };
-
-      const views = cleanNum(rawViews);
-      const peak = cleanNum(rawPeak);
-      const shares = cleanNum(rawShares);
-
-      if (url || views > 0 || peak > 0 || shares > 0 || (status && status !== 'รอไลฟ์')) {
-        newRecords.push({
-          no: row[0] || newRecords.length + 1,
-          name: name,
-          liveNo: row[2] || `Live #${newRecords.length + 1}`,
-          date: row[3] || "-",
-          platform: row[4] || detectPlatformByName(name),
-          url: url || "",
-          views: views,
-          peak: peak,
-          shares: shares,
-          status: status || "จบแล้ว",
-          feedback: feedback
-        });
-      }
-    }
-    liveDataRecords = newRecords;
-  }
-
-  function parseFeedbackSheet(rows) {
-    const newFeedbacks = [];
-    const startRow = rows.length > 4 && rows[3][1] ? 4 : 1;
-    for (let r = startRow; r < rows.length; r++) {
-      const row = rows[r];
-      const name = getCleanName(row[1]);
-      if (!name || name.includes("ชื่อ KOL")) continue;
-
-      const cleanNum = (val) => {
-        if (!val) return 0;
-        let s = String(val).replace(/,/g, '').trim();
-        return Number(s) || 0;
-      };
-
-      newFeedbacks.push({
-        no: row[0],
-        name: name,
-        date: row[2] || "-",
-        liveNo: row[3] || "",
-        platform: row[4] || detectPlatformByName(name),
-        url: row[5] || "",
-        commentsCount: cleanNum(row[6]),
-        category: row[7] || "Gameplay / General",
-        sentiment: row[8] || "กลาง (Neutral)",
-        feedback: row[9] || "",
-        action: row[10] || ""
-      });
-    }
-    if (newFeedbacks.length > 0) feedbackDataRecords = newFeedbacks;
-  }
-
   function switchMainSection(sectionId, btn) {
     document.getElementById('master-section').style.display = 'none';
     document.getElementById('analytics-section').style.display = 'none';
@@ -2123,19 +1681,25 @@
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
     document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
-
-    document.querySelectorAll('[data-th]').forEach(el => {
-      if (lang === 'kr') {
-        el.innerText = el.getAttribute('data-kr') || el.getAttribute('data-th');
-      } else if (lang === 'ja') {
-        el.innerText = el.getAttribute('data-ja') || el.getAttribute('data-th');
-      } else if (lang === 'en') {
-        el.innerText = el.getAttribute('data-en') || el.getAttribute('data-th');
-      } else {
-        el.innerText = el.getAttribute('data-th');
-      }
-    });
     renderAll();
+  }
+
+  function getKolNameHtml(name) {
+    const clean = String(name || '').trim();
+    const entry = KOL_DATA_MAP[clean] || {};
+    const url = entry.url;
+    const avatarUrl = KOL_AVATARS[clean] || `https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65&bold=true`;
+    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar" alt="${clean}" loading="lazy">`;
+    if (url) return `<div class="kol-name-cell">${imgHtml}<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a></div>`;
+    return `<div class="kol-name-cell">${imgHtml}<span>${clean}</span></div>`;
+  }
+
+  function getPlatformBadge(platform) {
+    const p = String(platform || '').toLowerCase();
+    if (p.includes('twitch')) return '<span class="badge-tag twitch">Twitch</span>';
+    if (p.includes('soop') || p.includes('afreeca')) return '<span class="badge-tag soop">SOOP</span>';
+    if (p.includes('face') || p.includes('fb')) return '<span class="badge-tag fb">Facebook</span>';
+    return '<span class="badge-tag yt">YouTube</span>';
   }
 
   window.addEventListener('DOMContentLoaded', () => {
