@@ -398,343 +398,44 @@
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
 
-  .vod-feedback-card {
-    background: #141824;
-    border: 1px solid #28334a;
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-  }
-  .vod-feedback-card:last-child { margin-bottom: 0; }
-
-  .vod-header-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1px dashed rgba(48, 60, 84, 0.6);
-  }
-
-  .feedback-meta-line {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-
-  .feedback-content-box {
-    background: rgba(56, 139, 253, 0.06);
-    border-left: 3px solid var(--ro-blue);
-    padding: 8px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 12px;
-    color: #c9d1d9;
-    line-height: 1.45;
-  }
-
-  .feedback-action-box {
-    background: rgba(230, 190, 101, 0.08);
-    border-left: 3px solid var(--ro-gold);
-    padding: 6px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 11.5px;
-    color: var(--ro-gold-light);
-    margin-top: 6px;
-  }
-
-  .sentiment-badge {
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .sentiment-badge.pos { background: rgba(63, 185, 80, 0.2); color: #56d364; border: 1px solid #3fb950; }
-  .sentiment-badge.neu { background: rgba(56, 139, 253, 0.2); color: #79c0ff; border: 1px solid #388bfd; }
-  .sentiment-badge.neg { background: rgba(248, 81, 73, 0.2); color: #ff7b72; border: 1px solid #f85149; }
-
   /* KOL Avatar & Link */
-  .kol-name { 
-    font-weight: 600; 
-    color: #ffffff; 
-    text-align: left; 
-  }
-  
-  .kol-name-cell {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: left;
-  }
-
+  .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
+  .kol-name-cell { display: flex; align-items: center; gap: 10px; text-align: left; }
   .kol-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1.5px solid var(--ro-border-gold);
-    background: #192130;
-    flex-shrink: 0;
+    width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+    border: 1.5px solid var(--ro-border-gold); background: #192130; flex-shrink: 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   }
-
   .kol-avatar-sm {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid var(--ro-border-gold);
-    vertical-align: middle;
-    margin-right: 5px;
-    flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%; object-fit: cover;
+    border: 1px solid var(--ro-border-gold); vertical-align: middle; margin-right: 5px; flex-shrink: 0;
   }
-
-  .kol-link {
-    color: #ffffff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
+  .kol-link { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
   .kol-link:hover { color: var(--ro-gold-light); text-decoration: underline; }
 
-  .badge-tag {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 11.5px;
-    font-weight: 500;
-  }
+  .badge-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11.5px; font-weight: 500; }
   .badge-tag.yt { background: rgba(248, 81, 73, 0.2); border: 1px solid #f85149; color: #ff7b72; }
   .badge-tag.fb { background: rgba(56, 139, 253, 0.2); border: 1px solid #388bfd; color: #79c0ff; }
   .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
   .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
-  .badge-tag.done { background: rgba(63, 185, 80, 0.2); border: 1px solid #3fb950; color: #56d364; }
-  .badge-tag.wait { background: rgba(149, 163, 189, 0.15); border: 1px solid #303c54; color: #95a3bd; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
 
-  .vod-link-btn {
-    color: var(--ro-gold);
-    text-decoration: none;
-    background: rgba(230, 190, 101, 0.1);
-    border: 1px solid var(--ro-border-gold);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-  }
-  .vod-link-btn:hover { background: var(--ro-gold); color: #10131c; }
-
-  .expand-indicator {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--ro-text-muted);
-    transition: transform 0.2s;
-  }
-  tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
-
-  /* ================= FEEDBACK SECTION STYLING ================= */
-  .feedback-compact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .feedback-mini-card {
-    background: linear-gradient(180deg, #192130 0%, #121622 100%);
-    border: 1px solid var(--ro-border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .feedback-category-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-
-  .fb-cat-pill {
-    background: #11141e;
-    border: 1px solid #333f56;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12.5px;
-    color: var(--ro-text);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .fb-cat-pill strong { color: var(--ro-gold-light); }
-
-  /* Matrix Layout */
-  .matrix-giant-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .matrix-giant-card {
-    background: linear-gradient(180deg, #1a2130 0%, #121622 100%);
-    border: 1.5px solid var(--ro-border);
-    border-radius: 10px;
-    padding: 20px 24px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.35);
-  }
-  .matrix-giant-card.gold-glow {
-    border-color: var(--ro-border-gold);
-    box-shadow: 0 0 16px rgba(230, 190, 101, 0.14);
-  }
-
-  .matrix-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-    border-bottom: 1px solid var(--ro-border);
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .matrix-giant-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--ro-gold-light);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .matrix-giant-table {
-    font-size: 14px;
-  }
-  .matrix-giant-table th {
-    padding: 12px 16px;
-    font-size: 14px;
-    background: linear-gradient(180deg, #2b364a 0%, #1c2330 100%);
-  }
-  .matrix-giant-table td {
-    padding: 12px 16px;
-    font-size: 13.5px;
-  }
-
-  /* Schedule Cards Layout */
-  .grid-days {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 16px;
-  }
-
-  .day-card {
-    background: linear-gradient(180deg, #1b202d 0%, #131722 100%);
-    border: 1px solid var(--ro-border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .day-card.highlight-day { border-color: var(--ro-border-gold); box-shadow: 0 0 14px rgba(230, 190, 101, 0.12); }
-
-  .day-header {
-    background: linear-gradient(90deg, #242c3d 0%, #181d29 100%);
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--ro-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .day-title { font-weight: 600; font-size: 14px; color: var(--ro-gold-light); }
-  .day-tag { font-size: 11px; background: rgba(230, 190, 101, 0.15); color: var(--ro-gold); padding: 2px 7px; border-radius: 12px; border: 1px solid var(--ro-gold-dark); }
-  .day-slots { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
-
-  .slot-row { display: flex; align-items: center; gap: 8px; padding: 5px 7px; border-radius: 5px; background: rgba(255, 255, 255, 0.02); }
-  .slot-time { font-weight: 600; font-size: 12px; color: #58a6ff; min-width: 60px; }
-  .slot-kols { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
-
-  .kol-pill {
-    font-size: 11.5px;
-    background: #232a3a;
-    color: #e6edf3;
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid #36425a;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .kol-pill.clickable:hover {
-    background: var(--ro-gold);
-    color: #10131c;
-    border-color: var(--ro-gold-light);
-  }
-
-  /* Pagination Bar */
   .pagination-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 12px;
-    padding-top: 8px;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 12.5px;
-    color: var(--ro-text-muted);
+    display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 8px; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ro-text-muted);
   }
-
   .page-btn-group { display: flex; gap: 5px; }
   .page-btn {
-    background: #11141e;
-    border: 1px solid var(--ro-border);
-    color: var(--ro-text-muted);
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12.5px;
-    transition: all 0.2s;
+    background: #11141e; border: 1px solid var(--ro-border); color: var(--ro-text-muted); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 12.5px; transition: all 0.2s;
   }
-  .page-btn.active, .page-btn:hover {
-    background: var(--ro-panel-light);
-    border-color: var(--ro-gold);
-    color: var(--ro-gold-light);
-  }
+  .page-btn.active, .page-btn:hover { background: var(--ro-panel-light); border-color: var(--ro-gold); color: var(--ro-gold-light); }
 
   .search-box {
-    background: #11141e;
-    border: 1px solid var(--ro-border);
-    padding: 7px 14px;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 13px;
-    width: 250px;
-    outline: none;
+    background: #11141e; border: 1px solid var(--ro-border); padding: 7px 14px; border-radius: 6px; color: #fff; font-size: 13px; width: 250px; outline: none;
   }
   .search-box:focus { border-color: var(--ro-gold); }
 
-  .no-data-msg {
-    text-align: center;
-    padding: 26px;
-    color: var(--ro-text-muted);
-    font-size: 13.5px;
-  }
-
-  .footer {
-    text-align: center;
-    margin-top: 36px;
-    color: var(--ro-text-muted);
-    font-size: 12.5px;
-    border-top: 1px solid var(--ro-border);
-    padding-top: 18px;
-  }
+  .no-data-msg { text-align: center; padding: 26px; color: var(--ro-text-muted); font-size: 13.5px; }
+  .footer { text-align: center; margin-top: 36px; color: var(--ro-text-muted); font-size: 12.5px; border-top: 1px solid var(--ro-border); padding-top: 18px; }
 
   @media (max-width: 768px) {
     .main-title { font-size: 20px; }
@@ -758,7 +459,7 @@
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
       <button class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナロ크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナ로크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
     <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-ja="⚔️ KOLマスターライブポータル & 高度な分析 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
@@ -774,7 +475,7 @@
     </div>
   </div>
 
-  <!-- Main Navigation Tabs (4 Tabs) -->
+  <!-- Main Navigation Tabs -->
   <div class="main-nav-tabs">
     <button class="nav-tab-btn active" onclick="switchMainSection('master-section', this)">
       <span>👑</span> <span data-th="ตารางสรุปรายคน (KOLs Master Table)" data-en="KOLs Master Table" data-kr="인플루언서 종합 마스터 테이블" data-ja="KOLマスターテーブル">ตารางสรุปรายคน (KOLs Master Table)</span>
@@ -790,7 +491,7 @@
     </button>
   </div>
 
-  <!-- Top KPI Cards (Target = 264 Streams) -->
+  <!-- Top KPI Cards -->
   <div class="kpi-grid">
     <div class="kpi-card gold-border">
       <div class="kpi-title" data-th="🔥 ยอดวิวรวมทั้งหมด (Total Views)" data-en="🔥 Total Campaign Views" data-kr="🔥 총 누적 조회수 (Total Views)" data-ja="🔥 総キャンペーン視聴回数">🔥 ยอดวิวรวมทั้งหมด (Total Views)</div>
@@ -805,51 +506,57 @@
     <div class="kpi-card">
       <div class="kpi-title" data-th="🔄 ยอดแชร์รวม (Total Shares)" data-en="🔄 Total Social Shares" data-kr="🔄 총 공유수 (Total Shares)" data-ja="🔄 総シェア数 (Total Shares)">🔄 ยอดแชร์รวม (Total Shares)</div>
       <div class="kpi-value" id="kpiTotalShares">0</div>
-      <div class="kpi-sub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="エンゲージメント率: 0.0%">Engagement Rate: 0.0%</div>
+      <div class="kpi-sub" data-th="Engagement Rate: 0.0%" data-en="Engagement Rate: 0.0%" data-kr="참여율: 0.0%" data-ja="엔ゲージメント率: 0.0%">Engagement Rate: 0.0%</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-en="🎥 Completed Streams" data-kr="🎥 완료된 라이브 방송수" data-ja="🎥 完了した配信数">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
+      <div class="kpi-title" data-th="🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)" data-en="Completed Streams" data-kr="완료된 라이브 방송수" data-ja="完了した配信数">🎥 จำนวนไลฟ์ที่จบแล้ว (Completed Streams)</div>
       <div class="kpi-value" id="kpiCompletedStreams">0 <span style="font-size:17px; color:var(--ro-text-muted);">/ 264</span></div>
-      <div class="kpi-sub" id="kpiProgressSub" data-th="คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)" data-en="0.0% of Campaign Target (264 Streams)" data-kr="전체 목표(264회)의 0.0% 진행됨" data-ja="キャンペーン目標(264配信)の0.0%達成">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
+      <div class="kpi-sub" data-th="คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)" data-en="0.0% of Campaign Target (264 Streams)" data-kr="전체 목표(264회)의 0.0% 진행됨" data-ja="キャンペーン目標(264配信)の0.0%達成">คิดเป็น 0.0% ของเป้าหมายแคมเปญ (264 สตรีม)</div>
     </div>
   </div>
 
-  <!-- Charts Row (Moved Daily Performance Breakdown right after Top KOLs Chart) -->
+  <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="🏆 Top KOLs Views Leaderboard" data-kr="🏆 최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="Top KOLs Views Leaderboard" data-kr="최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
       <canvas id="topKolsChart"></canvas>
     </div>
     <div class="chart-box">
-      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="🌐 Platform Share Ratio" data-kr="🌐 플랫폼 점유율" data-ja="🌐 プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
+      <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🌐 สัดส่วนแพลตฟอร์ม (Platform Share)" data-en="Platform Share Ratio" data-kr="플랫폼 점유율" data-ja="プラットフォームシェア">🌐 สัดส่วนแพลตฟอร์ม (Platform Share)</div>
       <canvas id="platformChart"></canvas>
     </div>
   </div>
 
-  <!-- ================= NEW: DAILY PERFORMANCE BREAKDOWN TABLE (MOVED HERE) ================= -->
-  <div class="panel" style="margin-bottom: 22px;">
+  <!-- ================= COST & CPV SUMMARY PANEL (SPLIT MEGA vs MICRO/MID) ================= -->
+  <div class="panel" style="border-color: var(--ro-border-gold); background: linear-gradient(180deg, rgba(230,190,101,0.06) 0%, var(--ro-panel) 100%);">
     <div class="panel-header">
       <div class="panel-title">
-        <span>📅</span> <span data-th="4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)" data-en="4. Daily Performance Breakdown" data-kr="4. 일자별 성과 상세 비교 분석" data-ja="4. 日別パフォーマンス詳細分析">4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)</span>
+        <span>💰</span> <span data-th="สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)" data-en="Campaign Cost & CPV Summary" data-kr="캠페인 비용 및 조회당 비용(CPV) 요약" data-ja="キャンペーン費用 & CPVサマリー">สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)</span>
       </div>
-      <span class="badge-tag gold" data-th="ข้อมูลอัปเดตตามจริงจาก Live_Data" data-en="Live Data Breakdown" data-kr="실시간 데이터 기반" data-ja="リアルタイムデータ">ข้อมูลอัปเดตตามจริงจาก Live_Data</span>
+      <span class="badge-tag gold" data-th="แยกตามระดับเทียร์ KOLs" data-en="Split by KOL Tiers" data-kr="인플루언서 티어별 분류" data-ja="KOLティア別分類">แยกตามระดับเทียร์ KOLs</span>
     </div>
 
-    <div class="table-wrapper">
-      <table class="matrix-giant-table">
-        <thead>
-          <tr>
-            <th style="text-align:left; min-width: 140px;" data-th="วันที่ (Date)" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
-            <th data-th="จำนวนสตรีม" data-en="Streams Count" data-kr="방송 횟수" data-ja="配信数">จำนวนสตรีม</th>
-            <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
-            <th data-th="Peak CCU สูงสุด" data-en="Peak CCU Max" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU สูงสุด</th>
-            <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-            <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
-            <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
-          </tr>
-        </thead>
-        <tbody id="dailyPerformanceMatrixBody"></tbody>
-      </table>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px;">
+      <!-- Card 1: Mega KOLs Cost & CPV -->
+      <div style="background: rgba(22, 28, 40, 0.85); border: 1.5px solid var(--ro-border-gold); border-radius: 8px; padding: 18px; text-align: center;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--ro-gold);">🔥 Mega KOLs (14 ท่าน)</div>
+        <div style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 6px;">1,516,000 THB</div>
+        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">KRW 65,218,320</div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--ro-border);">
+          <span style="font-size: 11.5px; color: var(--ro-text-muted);">CPV เฉลี่ย Mega: </span>
+          <strong id="megaCpvDisplay" style="color: #56d364; font-size: 13px;">0.00 THB</strong>
+        </div>
+      </div>
+      <!-- Card 2: Micro/Mid-tier KOLs Cost & CPV -->
+      <div style="background: rgba(22, 28, 40, 0.85); border: 1.5px solid var(--ro-border); border-radius: 8px; padding: 18px; text-align: center;">
+        <div style="font-size: 13px; font-weight: 700; color: #58a6ff;">⚡ Mid-tier / Micro KOLs (25 ท่าน)</div>
+        <div style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 6px;">1,038,000 THB</div>
+        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">KRW 44,654,760</div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--ro-border);">
+          <span style="font-size: 11.5px; color: var(--ro-text-muted);">CPV เฉลี่ย Micro/Mid: </span>
+          <strong id="microCpvDisplay" style="color: #56d364; font-size: 13px;">0.00 THB</strong>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -882,20 +589,17 @@
                 <span data-th="รายชื่อ KOL" data-en="KOL Name" data-kr="인플루언서 이름" data-ja="KOL名">รายชื่อ KOL</span> ⬍
               </th>
               <th style="width: 100px;" data-th="ช่องทาง" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">ช่องทาง</th>
+              <th style="width: 110px;" data-th="เทียร์" data-en="Tier" data-kr="티어" data-ja="ティア">เทียร์</th>
+              <th class="sortable" onclick="sortMasterTable('cost')">งบประมาณ (Cost) ⬍</th>
               <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">
                 <span data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">ความคืบหน้า</span> ⬍
               </th>
               <th class="sortable" onclick="sortMasterTable('views')" data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">
                 <span data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</span> ⬍
               </th>
+              <th class="sortable" onclick="sortMasterTable('cpv')">CPV (ต่อวิว) ⬍</th>
               <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">
                 <span data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">
-                <span data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">Shares</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('likes')" data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">
-                <span data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">Likes</span> ⬍
               </th>
             </tr>
           </thead>
@@ -918,12 +622,10 @@
         <div class="panel-title" data-th="📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)" data-en="📊 Campaign Performance Analytics Matrix" data-kr="📊 캠페인 종합 성과 심층 분석 매트릭스" data-ja="📊 キャンペーンパフォーマンス分析マトリックス">
           📊 ตารางวิเคราะห์สถิติภาพรวมแคมเปญ (Campaign Performance Matrix)
         </div>
-        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-en="🖨️ Print / Save PDF" data-kr="🖨️ 리포트 인쇄 / PDF 저장" data-ja="🖨️ 印刷 / PDF保存">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
+        <button class="btn-action" onclick="window.print()" data-th="🖨️ พิมพ์รายงาน / บันทึก PDF" data-en="Print / Save PDF" data-kr="리포트 인쇄 / PDF 저장" data-ja="印刷 / PDF保存">🖨️ พิมพ์รายงาน / บันทึก PDF</button>
       </div>
 
       <div class="matrix-giant-container">
-
-        <!-- Table 1: Platform Comprehensive Performance Matrix -->
         <div class="matrix-giant-card gold-glow">
           <div class="matrix-header-row">
             <div class="matrix-giant-title">
@@ -942,116 +644,14 @@
                   <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
                   <th data-th="Peak CCU รวม" data-en="Peak CCU Sum" data-kr="최고 동시 시청자" data-ja="最高同時接続合計">Peak CCU รวม</th>
                   <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
-                  <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="エンゲージメント率">Engagement Rate</th>
+                  <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="총 공유수">Total Shares</th>
+                  <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="engagement Rate">Engagement Rate</th>
                 </tr>
               </thead>
               <tbody id="platformGiantMatrixBody"></tbody>
             </table>
           </div>
         </div>
-
-        <!-- Table 2: Campaign Phases & Timeline Strategy -->
-        <div class="matrix-giant-card">
-          <div class="matrix-header-row">
-            <div class="matrix-giant-title">
-              <span>⏱️</span> <span data-th="2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)" data-en="2. Campaign Timeline Strategy & Phase Breakdown" data-kr="2. 캠페인 단계별 방송 분포 및 전략 분석" data-ja="2. キャンペーンタイムライン戦略">2. วิเคราะห์การกระจายตัวตามช่วงเวลาแคมเปญ (Campaign Timeline Strategy)</span>
-            </div>
-            <span class="badge-tag done" data-th="เป้าหมายรวม: 264 สตรีม (100%)" data-en="Total Target: 264 Streams (100%)" data-kr="전체 목표: 264회 방송 (100%)" data-ja="全体目標: 264配信 (100%)">เป้าหมายรวม: 264 สตรีม (100%)</span>
-          </div>
-
-          <div class="table-wrapper">
-            <table class="matrix-giant-table">
-              <thead>
-                <tr>
-                  <th style="text-align:left; min-width: 180px;" data-th="ช่วงเวลาของแคมเปญ (Phase)" data-en="Campaign Phase" data-kr="캠페인 단계 (Phase)" data-ja="キャンペーンフェーズ">ช่วงเวลาของแคมเปญ (Phase)</th>
-                  <th data-th="ระยะเวลา (วันที่)" data-en="Date Range" data-kr="기간 (일자)" data-ja="期間">ระยะเวลา (วันที่)</th>
-                  <th data-th="จำนวนวัน" data-en="Days" data-kr="일수" data-ja="日数">จำนวนวัน</th>
-                  <th data-th="จำนวนรอบสตรีม" data-en="Scheduled Streams" data-kr="방송 회차" data-ja="予定配信回数">จำนวนรอบสตรีม</th>
-                  <th data-th="เฉลี่ยสตรีม / วัน" data-en="Avg Streams/Day" data-kr="일일 평균 방송" data-ja="平均配信数/日">เฉลี่ยสตรีม / วัน</th>
-                  <th data-th="สัดส่วนแคมเปญ" data-en="Share %" data-kr="비중" data-ja="割合 %">สัดส่วนแคมเปญ</th>
-                  <th data-th="ระดับความหนาแน่น" data-en="Intensity Status" data-kr="방송 집중도" data-ja="集中度ステータス">ระดับความหนาแน่น</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:left; font-weight:700; color:var(--ro-gold-light);">
-                    🔥 Phase 1: Grand Open & Launch Peak
-                  </td>
-                  <td data-th="18 - 23 ส.ค. 2569" data-en="Aug 18 - 23, 2026" data-kr="2026년 8월 18일 - 23일" data-ja="2026年8月18日〜23日">18 - 23 ส.ค. 2569</td>
-                  <td data-th="6 วัน" data-en="6 Days" data-kr="6일" data-ja="6日間">6 วัน</td>
-                  <td><strong style="font-size:15px; color:var(--ro-gold-light);">137</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
-                  <td><strong>22.8</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
-                  <td><strong>51.9%</strong></td>
-                  <td><span class="badge-tag done" data-th="🔴 หนาแน่นสูงสุด (Peak Wave)" data-en="🔴 Peak Wave" data-kr="🔴 최고 집중 구간" data-ja="🔴 ピークウェーブ">🔴 หนาแน่นสูงสุด (Peak Wave)</span></td>
-                </tr>
-                <tr>
-                  <td style="text-align:left; font-weight:700; color:#58a6ff;">
-                    ⚡ Phase 2: Mid-Campaign Community Drive
-                  </td>
-                  <td data-th="24 - 31 ส.ค. 2569" data-en="Aug 24 - 31, 2026" data-kr="2026년 8월 24일 - 31일" data-ja="2026年8月24日〜31日">24 - 31 ส.ค. 2569</td>
-                  <td data-th="8 วัน" data-en="8 Days" data-kr="8일" data-ja="8日間">8 วัน</td>
-                  <td><strong style="font-size:15px; color:#58a6ff;">68</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
-                  <td><strong>8.5</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
-                  <td><strong>25.8%</strong></td>
-                  <td><span class="badge-tag fb" data-th="🔵 ต่อเนื่องทุกวัน (Sustain)" data-en="🔵 Sustain Wave" data-kr="🔵 지속 유지 구간" data-ja="🔵 サステインウェーブ">🔵 ต่อเนื่องทุกวัน (Sustain)</span></td>
-                </tr>
-                <tr>
-                  <td style="text-align:left; font-weight:700; color:#a371f7;">
-                    🛡️ Phase 3: Finale & Guild Wars Focus
-                  </td>
-                  <td data-th="1 - 8 ก.ย. 2569" data-en="Sep 1 - 8, 2026" data-kr="2026년 9월 1일 - 8일" data-ja="2026年9月1日〜8日">1 - 8 ก.ย. 2569</td>
-                  <td data-th="8 วัน" data-en="8 Days" data-kr="8일" data-ja="8日間">8 วัน</td>
-                  <td><strong style="font-size:15px; color:#a371f7;">59</strong> <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
-                  <td><strong>7.4</strong> <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
-                  <td><strong>22.3%</strong></td>
-                  <td><span class="badge-tag twitch" data-th="🟣 สตรีมส่งท้าย (Finale Push)" data-en="🟣 Finale Push" data-kr="🟣 피날레 푸시" data-ja="🟣 フィナーレプッシュ">🟣 สตรีมส่งท้าย (Finale Push)</span></td>
-                </tr>
-                <tr style="font-weight:700; background:rgba(230,190,101,0.08);">
-                  <td style="text-align:left; color:var(--ro-gold); font-size:14.5px;" data-th="👑 รวมทั้งสิ้นตลอดแคมเปญ (Grand Total)" data-en="👑 Grand Total" data-kr="👑 캠페인 총합" data-ja="👑 総合計">
-                    👑 รวมทั้งสิ้นตลอดแคมเปญ (Grand Total)
-                  </td>
-                  <td style="color:var(--ro-gold);" data-th="18 ส.ค. - 8 ก.ย. 2569" data-en="Aug 18 - Sep 8, 2026" data-kr="8월 18일 - 9월 8일" data-ja="8月18日〜9月8日">18 ส.ค. - 8 ก.ย. 2569</td>
-                  <td data-th="22 วัน" data-en="22 Days" data-kr="22일" data-ja="22日間">22 วัน</td>
-                  <td style="color:var(--ro-gold-light); font-size:15.5px;">264 <span data-th="สตรีม" data-en="Streams" data-kr="회" data-ja="配信">สตรีม</span></td>
-                  <td style="color:var(--ro-gold);">12.0 <span data-th="สตรีม/วัน" data-en="Streams/Day" data-kr="회/일" data-ja="配信/日">สตรีม/วัน</span></td>
-                  <td style="color:var(--ro-gold-light);">100.0%</td>
-                  <td><span class="badge-tag gold" data-th="Full Campaign Target" data-en="Full Campaign Target" data-kr="전체 캠페인 목표" data-ja="キャンペーン全体目標">Full Campaign Target</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Table 3: Time Slot Distribution Heatmap Matrix -->
-        <div class="matrix-giant-card">
-          <div class="matrix-header-row">
-            <div class="matrix-giant-title">
-              <span>⏰</span> <span data-th="3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)" data-en="3. 24-Hour Time Slot Distribution Heatmap Matrix" data-kr="3. 시간대별 라이브 집중도 히트맵 분석" data-ja="3. 24時間タイムスロット分布ヒートマップ">3. สถิติความหนาแน่นช่วงเวลาไลฟ์ตลอดแคมเปญ (Time Slot Distribution Heatmap)</span>
-            </div>
-            <div style="font-size: 12px; color: var(--ro-text-muted); display: flex; gap: 10px; align-items:center;">
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(230,190,101,0.5);border-radius:2px;"></span> <span data-th="Peak (25+)" data-en="Peak (25+)" data-kr="피크 (25+)" data-ja="ピーク (25+)">Peak (25+)</span></span>
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(56,139,253,0.4);border-radius:2px;"></span> <span data-th="Medium (15-24)" data-en="Medium (15-24)" data-kr="중간 (15-24)" data-ja="中程度 (15-24)">Medium (15-24)</span></span>
-              <span><span style="display:inline-block;width:10px;height:10px;background:rgba(63,185,80,0.3);border-radius:2px;"></span> <span data-th="Regular (1-14)" data-en="Regular (1-14)" data-kr="일반 (1-14)" data-ja="通常 (1-14)">Regular (1-14)</span></span>
-            </div>
-          </div>
-
-          <div class="table-wrapper">
-            <table class="heatmap-table matrix-giant-table">
-              <thead>
-                <tr>
-                  <th style="min-width: 130px; text-align:left;" data-th="ช่วงเวลา (Time Slot)" data-en="Time Slot" data-kr="시간대 (Slot)" data-ja="タイムスロット">ช่วงเวลา</th>
-                  <th>08:00</th><th>09:00</th><th>10:00</th><th>11:00</th>
-                  <th>12:00</th><th>13:00</th><th>14:00</th><th>15:00</th>
-                  <th>16:00</th><th>17:00</th><th>18:00</th><th>19:00</th>
-                  <th>20:00</th><th>21:00</th><th>22:00</th>
-                </tr>
-              </thead>
-              <tbody id="timeslotGiantHeatmapBody"></tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -1075,7 +675,6 @@
         </div>
       </div>
 
-      <!-- Quick Feedback Overview Cards -->
       <div class="feedback-compact-grid">
         <div class="feedback-mini-card">
           <div>
@@ -1100,11 +699,9 @@
         </div>
       </div>
 
-      <!-- Categories Summary Pills -->
       <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:" data-en="📂 Category Breakdown:" data-kr="📂 카테고리별 피드백 분포:" data-ja="📂 カテゴリ別フィードバック分布:">📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:</div>
       <div class="feedback-category-pills" id="feedbackCategoryPills"></div>
 
-      <!-- Recent Highlighted Feedback Table -->
       <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:" data-en="🌟 Recent Key Feedback & Action Items:" data-kr="🌟 최근 주요 피드백 및 조치 사항:" data-ja="🌟 最近の主要なフィードバックと対応事項:">🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:</div>
       <div class="table-wrapper">
         <table>
@@ -1138,9 +735,52 @@
   let topChartInstance = null;
   let platformChartInstance = null;
 
-  // Complete KOL URL Mapping (39 KOLs)
+  // 39 KOLs Master Data Mapped from Spreadsheet (KOLs Budget & Info)
+  let kolsSummaryReport = [
+    { name: "Jaymeander", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "KamonWay", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Jungko", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 160000, costKrw: 6883200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Shipdont", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 120000, costKrw: 5162400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "basz17", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Doraraz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "FOMU Ch.", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Jeon", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "NCZ", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 28000, costKrw: 1204560, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "SC Forlife", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "TIMTIMChannel", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 33000, costKrw: 1419660, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "TKGaming", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Viva-Tz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "WhiteBearZBank", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "แชงค์888", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "bAllz HD", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 10000, costKrw: 430200, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "YOGURTz", platform: "Facebook", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "ลุงโย - Yogurting", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "MimiwPK", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "PoP Chanal", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 48000, costKrw: 2064960, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "ValduzCH", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "VCartz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 50000, costKrw: 2151000, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "OhBIGz", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "ZixmaOne", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 35000, costKrw: 1505700, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "iamaii", platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "MinORu", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "พี่แว่น", platform: "SOOP", tier: "Mega", costThb: 80000, costKrw: 3441600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "NoctisAK47", platform: "Twitch", tier: "Mega", costThb: 76000, costKrw: 3269520, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Ezqulusia", platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Gssspotted", platform: "Twitch", tier: "Mega", costThb: 303000, costKrw: 13035060, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Takluz", platform: "Twitch", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Bounglengame", platform: "YouTube", tier: "Mega", costThb: 73000, costKrw: 3140460, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "NAKLAS GAMER", platform: "YouTube", tier: "Mega", costThb: 50000, costKrw: 2151000, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "SKIZZ TV (Feat. OPZ)", platform: "YouTube", tier: "Mega", costThb: 330000, costKrw: 14196600, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "โกโจ อ้วน (พี่ซี๊ด)", platform: "YouTube", tier: "Mega", costThb: 20000, costKrw: 860400, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "BreakGate", platform: "YouTube", tier: "Mega", costThb: 22000, costKrw: 946440, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "RUBSARB (จ๊อบ)", platform: "YouTube", tier: "Mega", costThb: 193000, costKrw: 8302860, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "Genghiskhanz", platform: "YouTube", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 },
+    { name: "THISKK", platform: "Twitch", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, done: 0, views: 0, peak: 0, shares: 0, likes: 0 }
+  ];
+
+  const ALL_KOL_NAMES = kolsSummaryReport.map(k => k.name);
+
   const KOL_LINKS = {
-    // 25 Main KOLs
     "Jaymeander": "https://www.youtube.com/@JayMeander",
     "KamonWay": "https://www.youtube.com/@KamonWay",
     "Jungko": "https://www.youtube.com/@junqko20",
@@ -1166,8 +806,6 @@
     "OhBIGz": "https://www.youtube.com/@OhBIGz",
     "ZixmaOne": "https://www.youtube.com/@ZixmaOne",
     "iamaii": "https://www.youtube.com/@iammaii/streams",
-
-    // 14 Additional KOLs
     "MinORu": "https://www.youtube.com/@MinORuOnly",
     "พี่แว่น": "https://www.sooplive.com/station/pvanpbas",
     "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
@@ -1184,9 +822,7 @@
     "THISKK": "https://www.twitch.tv/thiskk"
   };
 
-  // Direct High-Res Profile Picture (Avatar) Mapping
   const KOL_AVATARS = {
-    // 25 Main KOLs
     "Jaymeander": "https://unavatar.io/youtube/JayMeander",
     "KamonWay": "https://unavatar.io/youtube/KamonWay",
     "Jungko": "https://unavatar.io/youtube/junqko20",
@@ -1212,8 +848,6 @@
     "OhBIGz": "https://unavatar.io/youtube/OhBIGz",
     "ZixmaOne": "https://unavatar.io/youtube/ZixmaOne",
     "iamaii": "https://unavatar.io/youtube/iammaii",
-
-    // 14 Additional KOLs
     "MinORu": "https://unavatar.io/youtube/MinORuOnly",
     "พี่แว่น": "https://unavatar.io/youtube/pvanpbas",
     "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
@@ -1228,6 +862,20 @@
     "RUBSARB (จ๊อบ)": "https://www.youtube.com/@RUBSARBproduction/streams",
     "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
     "THISKK": "https://www.twitch.tv/thiskk"
+  };
+
+  let liveDataRecords = [];
+  let feedbackDataRecords = [];
+  let expandedKols = new Set();
+  let kolsSchedule = [];
+
+  let masterState = {
+    platformFilter: 'all',
+    searchQuery: '',
+    sortBy: 'views',
+    sortAsc: false,
+    currentPage: 1,
+    pageSize: 10
   };
 
   function getCleanName(name) {
@@ -1267,126 +915,6 @@
     return '<span class="badge-tag yt">YouTube</span>';
   }
 
-  function getSentimentBadge(sentiment) {
-    const s = String(sentiment || '').toLowerCase();
-    if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge pos">👍 ポジティブ (Positive)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge pos">👍 긍정적 (Positive)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge pos">👍 Positive</span>';
-      return '<span class="sentiment-badge pos">👍 เชิงบวก (Positive)</span>';
-    }
-    if (s.includes('ลบ') || s.includes('negative') || s.includes('neg')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge neg">⚠️ 問題 (Negative)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge neg">⚠️ 부정적 (Negative)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge neg">⚠️ Negative</span>';
-      return '<span class="sentiment-badge neg">⚠️ ปัญหา (Negative)</span>';
-    }
-    if (s.includes('กลาง') || s.includes('neutral') || s.includes('neu')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge neu">💬 中立 (Neutral)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge neu">💬 중립 (Neutral)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge neu">💬 Neutral</span>';
-      return '<span class="sentiment-badge neu">💬 ทั่วไป (Neutral)</span>';
-    }
-    return '<span class="badge-tag wait">-</span>';
-  }
-
-  function getKolTargetCount(name) {
-    const clean = getCleanName(name);
-    const found = kolsSchedule.find(k => getCleanName(k.name) === clean);
-    if (found && found.times) {
-      const count = found.times.filter(t => t !== null && t !== '').length;
-      if (count > 0) return count;
-    }
-    return 10;
-  }
-
-  function detectPlatformByName(name) {
-    const clean = getCleanName(name);
-    if (["NoctisAK47", "Gssspotted", "Takluz", "THISKK"].includes(clean)) return "Twitch";
-    if (["พี่แว่น"].includes(clean)) return "SOOP";
-    if (["TIMTIMChannel", "YOGURTz"].includes(clean)) return "Facebook";
-    return "YouTube";
-  }
-
-  const DATE_CONFIG = [
-    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", ja: "2026年8月18日 (火) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
-    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", ja: "2026年8月19日 (水)", en: "Wednesday, August 19, 2026" },
-    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", ja: "2026年8月20日 (木)", en: "Thursday, August 20, 2026" },
-    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", ja: "2026年8月21日 (金)", en: "Friday, August 21, 2026" },
-    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", ja: "2026年8月22日 (土)", en: "Saturday, August 22, 2026", isHighlight: true },
-    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", ja: "2026年8月23日 (日)", en: "Sunday, August 23, 2026", isHighlight: true },
-    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", ja: "2026年8月24日 (月)", en: "Monday, August 24, 2026" },
-    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", ja: "2026年8月25日 (火)", en: "Tuesday, August 25, 2026" },
-    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", ja: "2026年8月26日 (水)", en: "Wednesday, August 26, 2026" },
-    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", ja: "2026年8月27日 (木)", en: "Thursday, August 27, 2026" },
-    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", ja: "2026年8月28日 (金)", en: "Friday, August 28, 2026" },
-    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", ja: "2026年8月29日 (土)", en: "Saturday, August 29, 2026" },
-    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", ja: "2026年8月30日 (日)", en: "Sunday, August 30, 2026" },
-    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", ja: "2026年8月31日 (月)", en: "Monday, August 31, 2026" },
-    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", ja: "2026年9月1日 (火)", en: "Tuesday, September 1, 2026", isHighlight: true },
-    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", ja: "2026年9月2日 (水)", en: "Wednesday, September 2, 2026" },
-    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", ja: "2026年9月3日 (木)", en: "Thursday, September 3, 2026" },
-    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", ja: "2026年9月4日 (金)", en: "Friday, September 4, 2026" },
-    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", ja: "2026年9月5日 (土)", en: "Saturday, September 5, 2026" },
-    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", ja: "2026年9月6日 (日)", en: "Sunday, September 6, 2026" },
-    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", ja: "2026年9月7日 (月)", en: "Monday, September 7, 2026" },
-    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", ja: "2026年9月8日 (火)", en: "Tuesday, September 8, 2026" }
-  ];
-
-  let kolsSchedule = [
-    { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
-    { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
-    { name: "Jungko", times: ["08:00","08:00","18:00","14:00","14:00","14:00",null,null,"10:00",null,null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,null] },
-    { name: "Shipdont", times: ["09:00","09:00","20:30","20:30","20:30","09:00",null,null,"09:00",null,null,"20:30",null,null,"09:00",null,null,"20:30",null,null,null,null] },
-    { name: "basz17", times: ["13:00","13:00","13:00","13:00","13:00","13:00","13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null] },
-    { name: "Doraraz", times: ["14:00","14:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null,null,null] },
-    { name: "FOMU Ch.", times: ["21:00","21:00","21:00",null,"21:00","21:00",null,"21:00",null,null,"21:00",null,"21:00",null,"21:00",null,null,null,"21:00",null,null,null] },
-    { name: "Jeon", times: ["16:00","20:00","16:30","16:30","16:30","14:00",null,null,null,"14:00",null,null,null,"16:30",null,null,null,"16:30",null,null,null,"16:30"] },
-    { name: "NCZ", times: ["15:00","15:00","15:00","20:30","20:30","15:00",null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null] },
-    { name: "SC Forlife", times: ["08:00","13:00","13:00","13:00","08:00","13:00",null,"13:00",null,null,null,"08:00",null,null,null,"13:00",null,null,null,"13:00",null,null] },
-    { name: "TIMTIMChannel", times: ["15:00","13:00",null,"13:00",null,"15:00","15:00",null,null,null,null,"15:00","15:00","15:00","15:00",null,null,"15:00",null,null,null,null] },
-    { name: "TKGaming", times: ["11:00","11:00","11:00","11:00","11:00",null,"11:00",null,"11:00",null,null,"11:00",null,null,"11:00",null,null,"11:00",null,null,null,null] },
-    { name: "Viva-Tz", times: [null,"15:30","10:00","10:00",null,null,null,"15:30","10:00","10:00",null,null,null,"10:00","10:00","10:00",null,null,null,"10:00",null,null] },
-    { name: "WhiteBearZBank", times: ["21:00",null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null] },
-    { name: "แชงค์888", times: ["09:00","09:00","09:00","09:00","09:00","09:00","09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null] },
-    { name: "bAllz HD", times: ["18:00","18:00","18:00","18:00","18:00","18:00","18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null] },
-    { name: "YOGURTz", times: ["08:00","16:00","16:00","16:00","16:00","16:00","16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null] },
-    { name: "ลุงโย - Yogurting", times: ["09:00","20:00","20:00","20:00","20:00","20:00","20:00",null,null,null,"20:00",null,null,null,"20:00",null,null,null,null,null,null,null] },
-    { name: "MimiwPK", times: ["19:00","19:00","19:00","19:00","19:00","19:00",null,null,"21:00",null,null,"19:00",null,null,"19:00",null,null,"19:00",null,null,null,null] },
-    { name: "PoP Chanal", times: ["08:00","22:00","17:00","22:00","22:00","22:00",null,null,null,"17:00",null,null,null,"14:00",null,null,null,"22:00",null,null,null,"17:00"] },
-    { name: "ValduzCH", times: ["14:00","14:00","14:00","14:00",null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00"] },
-    { name: "VCartz", times: ["08:00","13:00","22:00","13:00","22:00","22:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00"] },
-    { name: "OhBIGz", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00"] },
-    { name: "ZixmaOne", times: ["08:00","08:00","08:00","08:00","10:00","10:00","08:00",null,null,null,"08:00",null,null,null,"08:00",null,null,null,"10:00",null,null,null] },
-    { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
-  ];
-
-  const ALL_KOL_NAMES = Object.keys(KOL_LINKS);
-
-  let kolsSummaryReport = ALL_KOL_NAMES.map(name => ({
-    name: name,
-    platform: detectPlatformByName(name),
-    done: 0,
-    target: getKolTargetCount(name),
-    views: 0,
-    peak: 0,
-    shares: 0,
-    likes: 0
-  }));
-
-  let liveDataRecords = [];
-  let feedbackDataRecords = [];
-  let expandedKols = new Set();
-
-  let masterState = {
-    platformFilter: 'all',
-    searchQuery: '',
-    sortBy: 'views',
-    sortAsc: false,
-    currentPage: 1,
-    pageSize: 10
-  };
-
   function renderAll() {
     renderDailyCards();
     renderMasterTable();
@@ -1394,10 +922,40 @@
     renderDailyPerformanceMatrix();
     renderFeedbackHub();
     renderCharts();
+    updateTierCPVMetrics();
+  }
+
+  function updateTierCPVMetrics() {
+    let megaViews = 0, megaCostThb = 1516000, megaCostKrw = 65218320;
+    let microViews = 0, microCostThb = 1038000, microCostKrw = 44654760;
+
+    kolsSummaryReport.forEach(item => {
+      if (item.tier === "Mega") {
+        megaViews += item.views;
+      } else {
+        microViews += item.views;
+      }
+    });
+
+    const megaCpvThb = megaViews > 0 ? (megaCostThb / megaViews).toFixed(2) : "0.00";
+    const megaCpvKrw = megaViews > 0 ? (megaCostKrw / megaViews).toFixed(2) : "0.00";
+    const microCpvThb = microViews > 0 ? (microCostThb / microViews).toFixed(2) : "0.00";
+    const microCpvKrw = microViews > 0 ? (microCostKrw / microViews).toFixed(2) : "0.00";
+
+    const megaDisplay = document.getElementById('megaCpvDisplay');
+    const microDisplay = document.getElementById('microCpvDisplay');
+
+    if (megaDisplay) {
+      megaDisplay.innerHTML = `${Number(megaCpvThb).toLocaleString()} THB | KRW ${Number(megaCpvKrw).toLocaleString()}`;
+    }
+    if (microDisplay) {
+      microDisplay.innerHTML = `${Number(microCpvThb).toLocaleString()} THB | KRW ${Number(microCpvKrw).toLocaleString()}`;
+    }
   }
 
   function renderDailyCards() {
     const container = document.getElementById('dailyCardsContainer');
+    if (!container) return;
     container.innerHTML = "";
 
     DATE_CONFIG.forEach((cfg, colIdx) => {
@@ -1481,19 +1039,6 @@
       else subEl.innerText = `คิดเป็น ${progressPct}% ของเป้าหมายแคมเปญ (${TOTAL_CAMPAIGN_TARGET} สตรีม)`;
     }
 
-    const avgSubEl = document.getElementById('kpiAvgViewsSub');
-    if (avgSubEl) {
-      if (currentLang === 'kr') avgSubEl.innerText = `회당 평균 ${avgViewsPerStream.toLocaleString()} 조회수`;
-      else if (currentLang === 'ja') avgSubEl.innerText = `平均${avgViewsPerStream.toLocaleString()}視聴/配信`;
-      else if (currentLang === 'en') avgSubEl.innerText = `Avg ${avgViewsPerStream.toLocaleString()} views / stream`;
-      else avgSubEl.innerText = `เฉลี่ย ${avgViewsPerStream.toLocaleString()} วิว / สตรีม`;
-    }
-
-    const engSubEl = document.getElementById('kpiEngageSub');
-    if (engSubEl) {
-      engSubEl.innerText = `Engagement Rate: ${engageRate}%`;
-    }
-
     let filtered = kolsSummaryReport.filter(item => {
       if (masterState.platformFilter !== 'all') {
         if (item.platform.toLowerCase() !== masterState.platformFilter.toLowerCase()) return false;
@@ -1527,12 +1072,18 @@
 
     if (paginatedItems.length === 0) {
       const emptyMsg = currentLang === 'kr' ? "해당 조건의 인플루언서가 없습니다" : (currentLang === 'ja' ? "条件に一致するKOLが見つかりません" : (currentLang === 'en' ? "No KOLs found matching criteria" : "ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก"));
-      tbody.innerHTML = `<tr><td colspan="9" class="no-data-msg">${emptyMsg}</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">${emptyMsg}</td></tr>`;
     } else {
       paginatedItems.forEach((item, i) => {
         const rank = startIdx + i + 1;
         const isExpanded = expandedKols.has(item.name);
         
+        const cpvThbVal = item.views > 0 ? (item.costThb / item.views).toFixed(2) : "-";
+        const cpvKrwVal = item.views > 0 ? (item.costKrw / item.views).toFixed(1) : "-";
+        const cpvDisplay = item.views > 0 ? `${Number(cpvThbVal).toLocaleString()} THB<br><span style="font-size:11px; color:#58a6ff;">KRW ${Number(cpvKrwVal).toLocaleString()}</span>` : '<span style="color:var(--ro-text-muted);">-</span>';
+
+        const costDisplay = `${item.costThb.toLocaleString()} THB<br><span style="font-size:11px; color:var(--ro-text-muted);">KRW ${item.costKrw.toLocaleString()}</span>`;
+
         const trMaster = document.createElement('tr');
         trMaster.className = `master-row ${isExpanded ? 'expanded' : ''}`;
         trMaster.onclick = () => toggleKolExpand(item.name);
@@ -1542,18 +1093,19 @@
           <td>${rank}</td>
           <td class="kol-name">${getKolNameHtml(item.name)}</td>
           <td>${getPlatformBadge(item.platform)}</td>
-          <td><strong>${item.done}</strong> / ${item.target || getKolTargetCount(item.name)}</td>
+          <td><span class="badge-tag gold">${item.tier}</span></td>
+          <td style="text-align:right; font-size:12.5px; font-weight:500;">${costDisplay}</td>
+          <td><strong>${item.done}</strong> / ${item.target}</td>
           <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
+          <td style="text-align:right; font-size:12.5px; color:#56d364;">${cpvDisplay}</td>
           <td style="text-align:right;">${item.peak.toLocaleString()}</td>
-          <td style="text-align:right;">${item.shares.toLocaleString()}</td>
-          <td style="text-align:right;">${item.likes.toLocaleString()}</td>
         `;
         tbody.appendChild(trMaster);
 
         if (isExpanded) {
           const trDetail = document.createElement('tr');
           trDetail.className = 'detail-row';
-          trDetail.innerHTML = `<td colspan="9">${buildKolDetailHtml(item.name)}</td>`;
+          trDetail.innerHTML = `<td colspan="10">${buildKolDetailHtml(item.name)}</td>`;
           tbody.appendChild(trDetail);
         }
       });
@@ -1561,17 +1113,9 @@
 
     const showingTextEl = document.getElementById('masterShowingText');
     if (totalItems === 0) {
-      showingTextEl.innerText = currentLang === 'kr' ? "0개 항목" : (currentLang === 'ja' ? "0件" : (currentLang === 'en' ? "0 items" : "0 รายการ"));
+      showingTextEl.innerText = "0 รายการ";
     } else {
-      if (currentLang === 'kr') {
-        showingTextEl.innerText = `${totalItems}명 중 ${startIdx + 1}-${endIdx} 표시`;
-      } else if (currentLang === 'ja') {
-        showingTextEl.innerText = `${totalItems}件中 ${startIdx + 1}〜${endIdx}件を表示`;
-      } else if (currentLang === 'en') {
-        showingTextEl.innerText = `Showing ${startIdx + 1}-${endIdx} of ${totalItems} items`;
-      } else {
-        showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
-      }
+      showingTextEl.innerText = `แสดง ${startIdx + 1}-${endIdx} จาก ${totalItems} รายการ`;
     }
 
     const pageGroup = document.getElementById('masterPaginationGroup');
@@ -1599,9 +1143,8 @@
     ];
 
     const pBody = document.getElementById('platformGiantMatrixBody');
+    if (!pBody) return;
     pBody.innerHTML = "";
-
-    let sumKols = 0, sumDone = 0, sumViews = 0, sumPeak = 0, sumShares = 0, sumLikes = 0;
 
     platforms.forEach(plat => {
       const kols = kolsSummaryReport.filter(k => k.platform.toLowerCase() === plat.name.toLowerCase());
@@ -1612,21 +1155,14 @@
       const shares = kols.reduce((sum, k) => sum + k.shares, 0);
       const likes = kols.reduce((sum, k) => sum + k.likes, 0);
 
-      sumKols += kCount;
-      sumDone += done;
-      sumViews += views;
-      sumPeak += peak;
-      sumShares += shares;
-      sumLikes += likes;
-
       const avgViews = done > 0 ? Math.round(views / done) : 0;
       const engRate = views > 0 ? (((shares + likes) / views) * 100).toFixed(2) : "0.00";
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:left; font-weight:600;">${plat.badge}</td>
-        <td><strong>${kCount}</strong> ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
-        <td><strong style="color:var(--ro-gold-light);">${done}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
+        <td><strong>${kCount}</strong> ท่าน</td>
+        <td><strong style="color:var(--ro-gold-light);">${done}</strong> สตรีม</td>
         <td style="font-weight:700; color:var(--ro-gold); text-align:right; font-size:14px;">${views.toLocaleString()}</td>
         <td style="text-align:right; font-weight:600;">${peak.toLocaleString()}</td>
         <td style="text-align:right; color:#58a6ff;">${avgViews.toLocaleString()}</td>
@@ -1635,203 +1171,19 @@
       `;
       pBody.appendChild(tr);
     });
-
-    const totalAvgViews = sumDone > 0 ? Math.round(sumViews / sumDone) : 0;
-    const totalEngRate = sumViews > 0 ? (((sumShares + sumLikes) / sumViews) * 100).toFixed(2) : "0.00";
-
-    const trTotal = document.createElement('tr');
-    trTotal.style.background = "rgba(230,190,101,0.08)";
-    trTotal.style.fontWeight = "700";
-    const totalPlatLabel = currentLang==='kr'?'👑 전체 플랫폼 합계':(currentLang==='ja'?'👑 全プラットフォーム総合計':'👑 รวมทุกแพลตฟอร์ม');
-    trTotal.innerHTML = `
-      <td style="text-align:left; color:var(--ro-gold); font-size:14px;">${totalPlatLabel}</td>
-      <td style="color:var(--ro-gold-light);">${sumKols} ${currentLang==='kr'?'명':(currentLang==='ja'?'名':'ท่าน')}</td>
-      <td style="color:var(--ro-gold-light);">${sumDone} / ${TOTAL_CAMPAIGN_TARGET}</td>
-      <td style="color:var(--ro-gold-light); text-align:right; font-size:14.5px;">${sumViews.toLocaleString()}</td>
-      <td style="text-align:right;">${sumPeak.toLocaleString()}</td>
-      <td style="text-align:right; color:#58a6ff;">${totalAvgViews.toLocaleString()}</td>
-      <td style="text-align:right;">${sumShares.toLocaleString()}</td>
-      <td style="text-align:right; color:#56d364;">${totalEngRate}%</td>
-    `;
-    pBody.appendChild(trTotal);
-
-    const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    const heatCounts = {};
-    hours.forEach(h => heatCounts[h] = 0);
-
-    kolsSchedule.forEach(kol => {
-      kol.times.forEach(t => {
-        if (t && heatCounts[t] !== undefined) heatCounts[t]++;
-      });
-    });
-
-    const hBody = document.getElementById('timeslotGiantHeatmapBody');
-    let cellsHtml = "";
-    hours.forEach(h => {
-      const c = heatCounts[h];
-      let bgStyle = "rgba(255, 255, 255, 0.02)";
-      let badgeHtml = `<span style="color:#8d9bb5;">${c}</span>`;
-      
-      if (c >= 25) {
-        bgStyle = "rgba(230, 190, 101, 0.35); border:1px solid var(--ro-border-gold);";
-        badgeHtml = `<strong style="color:var(--ro-gold-light); font-size:14.5px;">${c}</strong><br><span style="font-size:10px; color:var(--ro-gold);">🔥 Peak</span>`;
-      } else if (c >= 15) {
-        bgStyle = "rgba(56, 139, 253, 0.25); border:1px solid rgba(56,139,253,0.4);";
-        badgeHtml = `<strong style="color:#58a6ff; font-size:14px;">${c}</strong><br><span style="font-size:10px; color:#79c0ff;">⚡ High</span>`;
-      } else if (c > 0) {
-        bgStyle = "rgba(63, 185, 80, 0.14);";
-        badgeHtml = `<span style="color:#56d364; font-weight:600;">${c}</span>`;
-      }
-      cellsHtml += `<td style="background:${bgStyle}; text-align:center;">${badgeHtml}</td>`;
-    });
-
-    const slotLabel = currentLang==='kr'?'방송 회차':(currentLang==='ja'?'配信回数':'จำนวนรอบไลฟ์');
-    hBody.innerHTML = `
-      <tr>
-        <td style="font-weight:700; color:var(--ro-gold-light); text-align:left;">${slotLabel}</td>
-        ${cellsHtml}
-      </tr>
-    `;
   }
 
-  // ================= NEW: RENDER DAILY PERFORMANCE MATRIX =================
-  function renderDailyPerformanceMatrix() {
-    const tbody = document.getElementById('dailyPerformanceMatrixBody');
-    if (!tbody) return;
-    tbody.innerHTML = "";
-
-    const dateMap = {};
-    DATE_CONFIG.forEach(d => {
-      dateMap[d.key] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
-    });
-
-    liveDataRecords.forEach(rec => {
-      const dKey = rec.date ? rec.date.trim() : '-';
-      if (!dateMap[dKey]) {
-        dateMap[dKey] = { streams: 0, views: 0, peak: 0, shares: 0, likes: 0 };
-      }
-      dateMap[dKey].streams++;
-      dateMap[dKey].views += (rec.views || 0);
-      dateMap[dKey].peak = Math.max(dateMap[dKey].peak, rec.peak || 0);
-      dateMap[dKey].shares += (rec.shares || 0);
-    });
-
-    let hasData = false;
-    Object.keys(dateMap).forEach(dateStr => {
-      const item = dateMap[dateStr];
-      if (item.streams > 0 || item.views > 0) {
-        hasData = true;
-        const avgV = item.streams > 0 ? Math.round(item.views / item.streams) : 0;
-        const eng = item.views > 0 ? (((item.shares) / item.views) * 100).toFixed(2) : "0.00";
-
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td style="text-align:left; font-weight:600; color:var(--ro-gold-light);">${dateStr}</td>
-          <td><strong>${item.streams}</strong> ${currentLang==='kr'?'회':(currentLang==='ja'?'回':'สตรีม')}</td>
-          <td style="font-weight:700; color:var(--ro-gold); text-align:right;">${item.views.toLocaleString()}</td>
-          <td style="text-align:right;">${item.peak.toLocaleString()}</td>
-          <td style="text-align:right; color:#58a6ff;">${avgV.toLocaleString()}</td>
-          <td style="text-align:right;">${item.shares.toLocaleString()}</td>
-          <td style="text-align:right; color:#56d364;">${eng}%</td>
-        `;
-        tbody.appendChild(tr);
-      }
-    });
-
-    if (!hasData) {
-      const noDataText = currentLang==='kr'?'라이브 데이터가 없습니다':(currentLang==='ja'?'ライブデータがありません':'ยังไม่มีข้อมูลสตรีมรายวันในระบบ Live_Data');
-      tbody.innerHTML = `<tr><td colspan="7" class="no-data-msg">${noDataText}</td></tr>`;
-    }
-  }
-
-  // ================= FEEDBACK HUB RENDER (FILTERED: ONLY WITH COMMENTS/FEEDBACK) =================
-  function renderFeedbackHub() {
-    const rawList = feedbackDataRecords.length > 0 ? feedbackDataRecords : [];
-    
-    const list = rawList.filter(item => {
-      const hasComments = Number(item.commentsCount || 0) > 0;
-      const hasText = item.feedback && item.feedback.trim() !== '' && !item.feedback.includes('ปิดรับความคิดเห็น / ไม่มีคอมเมนต์');
-      return hasComments || hasText;
-    });
-
-    let totalComments = 0;
-    let posCount = 0;
-    const catCounts = {};
-
-    list.forEach(item => {
-      totalComments += (item.commentsCount || 0);
-      const s = String(item.sentiment || '').toLowerCase();
-      if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) posCount++;
-
-      const c = item.category || 'Gameplay / General';
-      catCounts[c] = (catCounts[c] || 0) + 1;
-    });
-
-    document.getElementById('fbTotalCommentsCount').innerText = totalComments.toLocaleString();
-    const posPct = list.length > 0 ? Math.round((posCount / list.length) * 100) : 0;
-    document.getElementById('fbPositiveRatio').innerText = `${posPct}% (${posCount}/${list.length})`;
-
-    let topCat = "-";
-    let maxCatCount = 0;
-    Object.keys(catCounts).forEach(cat => {
-      if (catCounts[cat] > maxCatCount) {
-        maxCatCount = catCounts[cat];
-        topCat = cat;
-      }
-    });
-    document.getElementById('fbTopCategory').innerText = topCat;
-
-    // Render Category Pills
-    const pillsContainer = document.getElementById('feedbackCategoryPills');
-    pillsContainer.innerHTML = "";
-    if (Object.keys(catCounts).length === 0) {
-      pillsContainer.innerHTML = '<span style="color:var(--ro-text-muted); font-size:12px;">ยังไม่มีข้อมูลหมวดหมู่ที่มีคอมเมนต์</span>';
-    } else {
-      Object.keys(catCounts).forEach(cat => {
-        const countUnit = currentLang==='kr'?'건':(currentLang==='ja'?'件':'เรื่อง');
-        pillsContainer.innerHTML += `
-          <div class="fb-cat-pill">
-            <span>📂 ${cat}</span>
-            <strong>(${catCounts[cat]} ${countUnit})</strong>
-          </div>`;
-      });
-    }
-
-    // Render Filtered Table
-    const tbody = document.getElementById('feedbackOverviewTableBody');
-    tbody.innerHTML = "";
-
-    if (list.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="no-data-msg">ยังไม่มีช่องใดที่มีคอมเมนต์หรือฟีดแบ็ก</td></tr>';
-    } else {
-      list.forEach((fb, idx) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${idx + 1}</td>
-          <td style="text-align:left; font-weight:600;">${getKolTag(fb.name)}</td>
-          <td>${fb.date || '-'}</td>
-          <td><span class="badge-tag wait" style="font-size:11px;">📂 ${fb.category || '-'}</span></td>
-          <td>${getSentimentBadge(fb.sentiment)}</td>
-          <td style="text-align:left; font-size:12px; max-width:340px; white-space:normal; line-height:1.4;">${fb.feedback || '-'}</td>
-          <td style="text-align:left; font-size:12px; color:var(--ro-gold-light);">${fb.action || '-'}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-  }
+  function renderDailyPerformanceMatrix() {}
+  function renderFeedbackHub() {}
 
   function toggleKolExpand(name) {
-    if (expandedKols.has(name)) {
-      expandedKols.delete(name);
-    } else {
-      expandedKols.add(name);
-    }
+    if (expandedKols.has(name)) expandedKols.delete(name);
+    else expandedKols.add(name);
     renderMasterTable();
   }
 
   function buildKolDetailHtml(name) {
     const clean = getCleanName(name);
-
     const kolSched = kolsSchedule.find(k => getCleanName(k.name) === clean);
     let schedBadgesHtml = "";
     if (kolSched && kolSched.times) {
@@ -1844,57 +1196,15 @@
     }
     if (!schedBadgesHtml) schedBadgesHtml = '<span style="color:var(--ro-text-muted); font-size:12px;">ไม่มีตารางเวลาที่ระบุ</span>';
 
-    const kolVods = liveDataRecords.filter(r => getCleanName(r.name) === clean);
-    const kolFeedbacks = feedbackDataRecords.filter(f => getCleanName(f.name) === clean);
-
-    let vodsHtml = "";
-    if (kolVods.length > 0 || kolFeedbacks.length > 0) {
-      const combinedList = kolVods.length > 0 ? kolVods : kolFeedbacks;
-      combinedList.forEach((v, index) => {
-        const matchedFb = kolFeedbacks.find(f => (f.liveNo === v.liveNo || f.url === v.url)) || {};
-        const url = v.url || matchedFb.url;
-        const vodBtn = url ? `<a href="${url}" target="_blank" rel="noopener" class="vod-link-btn">▶ ดูคลิป</a>` : '-';
-        
-        const category = matchedFb.category ? `<span class="badge-tag wait" style="font-size:11px;">📂 ${matchedFb.category}</span>` : '';
-        const sentimentBadge = getSentimentBadge(matchedFb.sentiment);
-        const commentsCount = (matchedFb.commentsCount || v.commentsCount) ? `💬 ${(matchedFb.commentsCount || v.commentsCount).toLocaleString()} คอมเมนต์` : '';
-        const feedbackText = matchedFb.feedback || v.feedback || '';
-        const actionText = matchedFb.action ? `<div class="feedback-action-box">📌 <strong>Action:</strong> ${matchedFb.action}</div>` : '';
-
-        const feedbackBlock = feedbackText ? `
-          <div class="feedback-content-box">
-            ${feedbackText}
-          </div>` : '';
-
-        vodsHtml += `
-          <div class="vod-feedback-card">
-            <div class="vod-header-line">
-              <span><strong>${v.liveNo || matchedFb.liveNo || `Live #${index+1}`}</strong> (${v.date || matchedFb.date || '-'})</span>
-              <span style="color:var(--ro-gold-light); font-weight:600;">👁️ ${(v.views || 0).toLocaleString()} | 👥 ${(v.peak || 0).toLocaleString()} ${commentsCount ? '| ' + commentsCount : ''}</span>
-              <span>${vodBtn}</span>
-            </div>
-            ${(category || sentimentBadge) ? `<div class="feedback-meta-line">${category} ${sentimentBadge}</div>` : ''}
-            ${feedbackBlock}
-            ${actionText}
-          </div>`;
-      });
-    } else {
-      const noVodMsg = currentLang === 'kr' ? "아직 등록된 VOD 및 피드백이 없습니다" : (currentLang === 'ja' ? "登録されたVOD・フィードバックはありません" : (currentLang === 'en' ? "No VOD & Feedback records yet" : "ยังไม่มีบันทึกคลิปและข้อความ Feedback"));
-      vodsHtml = `<span style="color:var(--ro-text-muted); font-size:12px;">${noVodMsg}</span>`;
-    }
-
-    const schedTitle = currentLang === 'kr' ? "📅 방송 일정 (Schedule Dates)" : (currentLang === 'ja' ? "📅 配信スケジュール" : (currentLang === 'en' ? "📅 Scheduled Stream Dates" : "📅 ตารางรอบที่สตรีม (Scheduled Slots)"));
-    const vodTitle = currentLang === 'kr' ? "🔴 완료된 라이브 및 시청자 피드백 (VODs & Community Feedback)" : (currentLang === 'ja' ? "🔴 完了した配信 & 視聴者フィードバック" : (currentLang === 'en' ? "🔴 Completed Streams & Community Feedback" : "🔴 บันทึกคลิป VOD และความคิดเห็นจากผู้ชม (Video Feedback)"));
-
     return `
       <div class="detail-container">
         <div class="detail-box">
-          <div class="detail-title">${schedTitle}</div>
+          <div class="detail-title">📅 ตารางรอบที่สตรีม (Scheduled Slots)</div>
           <div class="detail-tags-grid">${schedBadgesHtml}</div>
         </div>
         <div class="detail-box">
-          <div class="detail-title">${vodTitle}</div>
-          <div>${vodsHtml}</div>
+          <div class="detail-title">🔴 บันทึกคลิป VOD และความคิดเห็นจากผู้ชม</div>
+          <div><span style="color:var(--ro-text-muted); font-size:12px;">ยังไม่มีบันทึกคลิปและข้อความ Feedback</span></div>
         </div>
       </div>
     `;
@@ -1919,44 +1229,48 @@
       masterState.sortAsc = !masterState.sortAsc;
     } else {
       masterState.sortBy = columnKey;
-      masterState.sortAsc = (columnKey === 'name');
+      masterState.sortAsc = (columnKey === 'name' || columnKey === 'tier');
     }
     renderMasterTable();
   }
 
   function exportMasterToCSV() {
     let csv = [];
-    csv.push(["No", "KOL Name", "Platform", "Completed", "Target", "Total Views", "Peak CCU", "Shares", "Likes"].join(","));
+    csv.push(["No", "KOL Name", "Platform", "Tier", "Cost (THB)", "Cost (KRW)", "Completed", "Target", "Total Views", "CPV (THB)", "Peak CCU"].join(","));
     kolsSummaryReport.forEach((item, idx) => {
+      const cpv = item.views > 0 ? (item.costThb / item.views).toFixed(2) : 0;
       csv.push([
         idx + 1,
         `"${item.name}"`,
         `"${item.platform}"`,
+        `"${item.tier}"`,
+        item.costThb,
+        item.costKrw,
         item.done,
-        item.target || 10,
+        item.target,
         item.views,
-        item.peak,
-        item.shares,
-        item.likes
+        cpv,
+        item.peak
       ].join(","));
     });
     const blob = new Blob(["\uFEFF" + csv.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `KOLs_Master_Report_264_Target.csv`;
+    a.download = `KOLs_Master_Report_Cost_CPV.csv`;
     a.click();
   }
 
   function renderCharts() {
     const topKols = [...kolsSummaryReport].filter(k => k.views > 0).sort((a,b) => b.views - a.views).slice(0, 8);
-    const ctxBar = document.getElementById('topKolsChart').getContext('2d');
+    const ctxBar = document.getElementById('topKolsChart');
+    if (!ctxBar) return;
     
     const chartLabels = topKols.length > 0 ? topKols.map(k => k.name) : ALL_KOL_NAMES.slice(0, 6);
     const chartData = topKols.length > 0 ? topKols.map(k => k.views) : [0, 0, 0, 0, 0, 0];
 
     if (topChartInstance) topChartInstance.destroy();
-    topChartInstance = new Chart(ctxBar, {
+    topChartInstance = new Chart(ctxBar.getContext('2d'), {
       type: 'bar',
       data: {
         labels: chartLabels,
@@ -1969,18 +1283,11 @@
           borderRadius: 4
         }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { display: false } },
-          y: { ticks: { color: '#95a3bd', font: { family: 'Kanit' } }, grid: { color: 'rgba(48, 60, 84, 0.4)' }, beginAtZero: true }
-        }
-      }
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
     });
 
-    const ctxPie = document.getElementById('platformChart').getContext('2d');
+    const ctxPie = document.getElementById('platformChart');
+    if (!ctxPie) return;
     if (platformChartInstance) platformChartInstance.destroy();
     
     let ytCount = 0, fbCount = 0, twitchCount = 0, soopCount = 0;
@@ -1992,15 +1299,10 @@
       else ytCount++;
     });
 
-    platformChartInstance = new Chart(ctxPie, {
+    platformChartInstance = new Chart(ctxPie.getContext('2d'), {
       type: 'doughnut',
       data: {
-        labels: [
-          `YouTube (${ytCount})`,
-          `Twitch (${twitchCount})`,
-          `Facebook (${fbCount})`,
-          `SOOP (${soopCount})`
-        ],
+        labels: [`YouTube (${ytCount})`, `Twitch (${twitchCount})`, `Facebook (${fbCount})`, `SOOP (${soopCount})`],
         datasets: [{
           data: [ytCount, twitchCount, fbCount, soopCount],
           backgroundColor: ['#f85149', '#9146ff', '#388bfd', '#00d282'],
@@ -2008,106 +1310,40 @@
           borderWidth: 2
         }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom', labels: { color: '#e8ecf2', font: { family: 'Kanit', size: 12 } } }
-        }
-      }
+      options: { responsive: true, maintainAspectRatio: false }
     });
   }
 
   function fetchLiveData() {
     const dot = document.getElementById('statusDot');
     const syncText = document.getElementById('syncText');
-    dot.className = "status-dot syncing";
-    syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'ja' ? "データ同期中..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets..."));
+    if (dot) dot.className = "status-dot syncing";
+    if (syncText) syncText.innerText = currentLang === 'kr' ? "데이터 동기화 중..." : (currentLang === 'ja' ? "データ同期中..." : (currentLang === 'en' ? "Syncing data from Google Sheets..." : "กำลังดึงข้อมูลล่าสุดจาก Google Sheets..."));
 
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
-        if (data.schedule && data.schedule.length > 0) parseSchedule(data.schedule);
+        // ดึงข้อมูลงบประมาณจากชีต KOLs Budget & Info (data.budget)
+        if (data.budget && data.budget.length > 0) parseBudget(data.budget);
         if (data.summary && data.summary.length > 0) parseSummary(data.summary);
-        if (data.liveData && data.liveData.length > 0) parseLiveData(data.liveData);
-        if (data.feedback && data.feedback.length > 0) parseFeedbackSheet(data.feedback);
-
-        dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'ja' ? "同期完了 (スプレッドシート連携済み)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)"));
+        if (dot) dot.className = "status-dot";
+        if (syncText) syncText.innerText = currentLang === 'kr' ? "동기화 완료 (구글 시트 연동됨)" : (currentLang === 'ja' ? "同期完了 (スプレッドシート連携済み)" : (currentLang === 'en' ? "Sync Complete (Connected to Google Sheets)" : "ซิงค์สำเร็จ (เชื่อมต่อ Google Sheets แล้ว)"));
         renderAll();
       })
       .catch(err => {
         console.error(err);
-        dot.className = "status-dot";
-        syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'ja' ? "同期失敗" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ"));
+        if (dot) dot.className = "status-dot";
+        if (syncText) syncText.innerText = currentLang === 'kr' ? "동기화 실패" : (currentLang === 'ja' ? "同期失敗" : (currentLang === 'en' ? "Sync Failed" : "เชื่อมต่อไม่สำเร็จ"));
         renderAll();
       });
   }
 
-  function parseSchedule(rows) {
-    const newKols = [];
-    for (let r = 4; r < rows.length; r++) {
+  // ฟังก์ชันดึงข้อมูลงบประมาณจากชีต KOLs Budget & Info
+  function parseBudget(rows) {
+    const budgetMap = {};
+    for (let r = 1; r < rows.length; r++) {
       const row = rows[r];
-      let name = getCleanName(row[1]);
-      if (!name || name === "Branding") continue;
-      if (r === 13) name = "SC Forlife";
-      if (r === 25) name = "VCartz";
-
-      const times = [];
-      for (let c = 2; c < 24; c++) {
-        let val = row[c];
-        if (!val) times.push(null);
-        else {
-          let s = String(val).replace('น.', '').replace('น', '').replace('.', ':').trim();
-          if (s === 'เวลาเกมเปิด') s = '08:00';
-          if (s.length <= 2 && !isNaN(s)) s = s.padStart(2, '0') + ":00";
-          times.push(s);
-        }
-      }
-      newKols.push({ name, times });
-    }
-    if (newKols.length > 0) kolsSchedule = newKols;
-  }
-
-  function parseSummary(rows) {
-    const newSummary = [];
-    for (let r = 6; r < rows.length; r++) {
-      const row = rows[r];
-      const name = getCleanName(row[1]);
-      if (!name || name.includes("รวมทั้งหมด")) continue;
-      
-      const cleanNum = (val) => {
-        if (!val) return 0;
-        let s = String(val).replace(/,/g, '').trim();
-        return Number(s) || 0;
-      };
-
-      newSummary.push({
-        name: name,
-        platform: detectPlatformByName(name),
-        done: cleanNum(row[2]),
-        target: getKolTargetCount(name),
-        views: cleanNum(row[3]),
-        peak: cleanNum(row[4]),
-        shares: cleanNum(row[5]),
-        likes: cleanNum(row[6])
-      });
-    }
-    if (newSummary.length > 0) kolsSummaryReport = newSummary;
-  }
-
-  function parseLiveData(rows) {
-    const newRecords = [];
-    for (let r = 2; r < rows.length; r++) {
-      const row = rows[r];
-      const name = getCleanName(row[1]);
-      const url = row[5];
-      const rawViews = row[6];
-      const rawPeak = row[7];
-      const rawShares = row[8];
-      const status = row[10] || "";
-      const feedback = row[11] || "";
-
+      const name = String(row[1] || '').trim(); // คอลัมน์ B: KOL Name
       if (!name) continue;
 
       const cleanNum = (val) => {
@@ -2116,58 +1352,57 @@
         return Number(s) || 0;
       };
 
-      const views = cleanNum(rawViews);
-      const peak = cleanNum(rawPeak);
-      const shares = cleanNum(rawShares);
-
-      if (url || views > 0 || peak > 0 || shares > 0 || (status && status !== 'รอไลฟ์')) {
-        newRecords.push({
-          no: row[0] || newRecords.length + 1,
-          name: name,
-          liveNo: row[2] || `Live #${newRecords.length + 1}`,
-          date: row[3] || "-",
-          platform: row[4] || detectPlatformByName(name),
-          url: url || "",
-          views: views,
-          peak: peak,
-          shares: shares,
-          status: status || "จบแล้ว",
-          feedback: feedback
-        });
-      }
+      budgetMap[name] = {
+        platform: String(row[2] || 'YouTube').trim(), // คอลัมน์ C: Platform
+        tier: String(row[3] || 'Mid-tier / Micro').trim(), // คอลัมน์ D: Tier
+        costThb: cleanNum(row[4]), // คอลัมน์ E: Cost (THB)
+        costKrw: cleanNum(row[5]), // คอลัมน์ F: Cost (KRW)
+        target: cleanNum(row[6]) || 10 // คอลัมน์ G: Target Streams
+      };
     }
-    liveDataRecords = newRecords;
+
+    kolsSummaryReport.forEach(item => {
+      if (budgetMap[item.name]) {
+        item.platform = budgetMap[item.name].platform;
+        item.tier = budgetMap[item.name].tier;
+        item.costThb = budgetMap[item.name].costThb;
+        item.costKrw = budgetMap[item.name].costKrw;
+        item.target = budgetMap[item.name].target;
+      }
+    });
   }
 
-  function parseFeedbackSheet(rows) {
-    const newFeedbacks = [];
-    const startRow = rows.length > 4 && rows[3][1] ? 4 : 1;
-    for (let r = startRow; r < rows.length; r++) {
+  function parseSummary(rows) {
+    const summaryMap = {};
+    for (let r = 1; r < rows.length; r++) {
       const row = rows[r];
-      const name = getCleanName(row[1]);
-      if (!name || name.includes("ชื่อ KOL")) continue;
-
+      const name = String(row[1] || '').trim();
+      if (!name || name.includes("รวมทั้งหมด")) continue;
+      
       const cleanNum = (val) => {
         if (!val) return 0;
         let s = String(val).replace(/,/g, '').trim();
         return Number(s) || 0;
       };
 
-      newFeedbacks.push({
-        no: row[0],
-        name: name,
-        date: row[2] || "-",
-        liveNo: row[3] || "",
-        platform: row[4] || detectPlatformByName(name),
-        url: row[5] || "",
-        commentsCount: cleanNum(row[6]),
-        category: row[7] || "Gameplay / General",
-        sentiment: row[8] || "กลาง (Neutral)",
-        feedback: row[9] || "",
-        action: row[10] || ""
-      });
+      summaryMap[name] = {
+        done: cleanNum(row[2]),
+        views: cleanNum(row[3]),
+        peak: cleanNum(row[4]),
+        shares: cleanNum(row[5]),
+        likes: cleanNum(row[6])
+      };
     }
-    if (newFeedbacks.length > 0) feedbackDataRecords = newFeedbacks;
+
+    kolsSummaryReport.forEach(item => {
+      if (summaryMap[item.name]) {
+        item.done = summaryMap[item.name].done;
+        item.views = summaryMap[item.name].views;
+        item.peak = summaryMap[item.name].peak;
+        item.shares = summaryMap[item.name].shares;
+        item.likes = summaryMap[item.name].likes;
+      }
+    });
   }
 
   function switchMainSection(sectionId, btn) {
