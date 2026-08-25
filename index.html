@@ -41,7 +41,7 @@
     padding: 20px 16px 60px;
   }
 
-  .container { max-width: 1520px; margin: 0 auto; }
+  .container { max-width: 1580px; margin: 0 auto; }
 
   /* Header */
   .header {
@@ -758,7 +758,7 @@
       <button class="lang-btn" id="btn-kr" onclick="setLanguage('kr')">🇰🇷 한국어</button>
       <button class="lang-btn" id="btn-ja" onclick="setLanguage('ja')">🇯🇵 日本語</button>
     </div>
-    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナロ크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
+    <div class="sub-title" data-th="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-en="GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL" data-kr="그라비티 게임 테크 • 라그나로크 제로 : 글로벌" data-ja="グラビティゲームテック • ラグナ로크ゼロ : グローバル">GRAVITY GAME TECH • RAGNAROK ZERO : GLOBAL</div>
     <h1 class="main-title" data-th="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-en="⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️" data-kr="⚔️ 인플루언서 마스터 라이브 포털 및 성과 심층 분석 🛡️" data-ja="⚔️ KOLマスターライブポータル & 高度な分析 🛡️">⚔️ KOLs Master Live Portal & Advanced Analytics 🛡️</h1>
   </div>
 
@@ -814,7 +814,7 @@
     </div>
   </div>
 
-  <!-- Charts Row (Moved Daily Performance Breakdown right after Top KOLs Chart) -->
+  <!-- Charts Row -->
   <div class="charts-grid">
     <div class="chart-box">
       <div class="panel-title" style="font-size:14.5px; margin-bottom:8px;" data-th="🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)" data-en="🏆 Top KOLs Views Leaderboard" data-kr="🏆 최고 조회수 인플루언서" data-ja="🏆 トップKOL視聴数ランキング">🏆 Top KOLs ยอดวิวสูงสุด (Views Leaderboard)</div>
@@ -826,7 +826,40 @@
     </div>
   </div>
 
-  <!-- ================= NEW: DAILY PERFORMANCE BREAKDOWN TABLE (MOVED HERE) ================= -->
+  <!-- ================= COST & CPV SUMMARY PANEL ================= -->
+  <div class="panel" style="border-color: var(--ro-border-gold); background: linear-gradient(180deg, rgba(230,190,101,0.06) 0%, var(--ro-panel) 100%);">
+    <div class="panel-header">
+      <div class="panel-title">
+        <span>💰</span> <span data-th="สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)" data-en="Campaign Cost & CPV Summary" data-kr="캠페인 비용 및 조회당 비용(CPV) 요약" data-ja="キャンペーン費用 & CPVサマリー">สรุปงบประมาณและต้นทุนต่อวิว (Campaign Cost & CPV Summary)</span>
+      </div>
+      <span class="badge-tag gold" data-th="ยอดรวมแคมเปญ: 4,525,500 THB (194,687,010 KRW)" data-en="Total: 4,525,500 THB (194,687,010 KRW)" data-kr="총 예산: 4,525,500 THB (194,687,010 KRW)" data-ja="総予算: 4,525,500 THB (194,687,010 KRW)">ยอดรวมแคมเปญ: 4,525,500 THB (194,687,010 KRW)</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
+      <div style="background: rgba(22, 28, 40, 0.8); border: 1px solid var(--ro-border); border-radius: 8px; padding: 16px; text-align: center;">
+        <div style="font-size: 12px; color: var(--ro-text-muted); text-transform: uppercase;" data-th="งบประมาณรวมทั้งสิ้น (Grand Total)" data-en="Grand Total Budget" data-kr="총 예산" data-ja="総予算">งบประมาณรวมทั้งสิ้น (Grand Total)</div>
+        <div style="font-size: 22px; font-weight: 700; color: var(--ro-gold-light); margin-top: 6px;">4,525,500 THB</div>
+        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">₩194,687,010 KRW</div>
+      </div>
+      <div style="background: rgba(22, 28, 40, 0.8); border: 1px solid var(--ro-border); border-radius: 8px; padding: 16px; text-align: center;">
+        <div style="font-size: 12px; color: var(--ro-text-muted); text-transform: uppercase;" data-th="ค่าใช้จ่าย Mega KOLs (14 คน)" data-en="Mega KOLs Cost" data-kr="메가 인플루언서 비용" data-ja="メガKOL費用">ค่าใช้จ่าย Mega KOLs (14 คน)</div>
+        <div style="font-size: 22px; font-weight: 700; color: #ffffff; margin-top: 6px;">1,516,000 THB</div>
+        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">₩65,218,320 KRW</div>
+      </div>
+      <div style="background: rgba(22, 28, 40, 0.8); border: 1px solid var(--ro-border); border-radius: 8px; padding: 16px; text-align: center;">
+        <div style="font-size: 12px; color: var(--ro-text-muted); text-transform: uppercase;" data-th="ค่าใช้จ่าย Micro/Mid KOLs (25 คน)" data-en="Micro/Mid KOLs Cost" data-kr="마이크로/중급 인플루언서 비용" data-ja="マイクロ/中級KOL費用">ค่าใช้จ่าย Micro/Mid KOLs (25 คน)</div>
+        <div style="font-size: 22px; font-weight: 700; color: #ffffff; margin-top: 6px;">1,219,000 THB</div>
+        <div style="font-size: 12px; color: #58a6ff; margin-top: 2px;">₩52,441,380 KRW</div>
+      </div>
+      <div style="background: rgba(230, 190, 101, 0.1); border: 1.5px solid var(--ro-border-gold); border-radius: 8px; padding: 16px; text-align: center;">
+        <div style="font-size: 12px; color: var(--ro-gold); text-transform: uppercase; font-weight: 600;" data-th="ต้นทุนต่อวิว (Cost Per View - CPV)" data-en="Cost Per View (CPV)" data-kr="조회당 비용 (CPV)" data-ja="視聴単価 (CPV)">ต้นทุนต่อวิว (Cost Per View - CPV)</div>
+        <div style="font-size: 22px; font-weight: 700; color: var(--ro-gold-light); margin-top: 6px;" id="cpvThbDisplay">0.00 THB</div>
+        <div style="font-size: 12px; color: #56d364; margin-top: 2px;" id="cpvKrwDisplay">₩0.00 KRW / View</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DAILY PERFORMANCE BREAKDOWN TABLE ================= -->
   <div class="panel" style="margin-bottom: 22px;">
     <div class="panel-header">
       <div class="panel-title">
@@ -853,11 +886,11 @@
     </div>
   </div>
 
-  <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE ================= -->
+  <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE (39 KOLs WITH SPREADSHEET COSTS) ================= -->
   <div id="master-section">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)" data-en="👑 Master Consolidated Table (Click any row to view schedule & VODs)" data-kr="👑 통합 마스터 테이블 (행을 클릭하여 방송 일정 및 VOD 확인)" data-ja="👑 マスター統合テーブル (行をクリックして配信スケジュールとVODを確認)">👑 ตารางสรุปภาพรวมครบวงจร (คลิกแถวเพื่อดูตารางเวลาและคลิป VOD)</div>
+        <div class="panel-title" data-th="👑 ตารางสรุปรายบุคคล (KOLs Master Table & Individual Cost/CPV)" data-en="👑 KOLs Master Table & Individual Cost/CPV" data-kr="👑 인플루언서 마스터 테이블 (개인별 비용 및 CPV 포함)" data-ja="👑 KOLsマスターテーブル (個別コストとCPV)">👑 ตารางสรุปรายบุคคล (KOLs Master Table & Individual Cost/CPV)</div>
       </div>
 
       <!-- Filter Controls: Platform + Search -->
@@ -882,20 +915,21 @@
                 <span data-th="รายชื่อ KOL" data-en="KOL Name" data-kr="인플루언서 이름" data-ja="KOL名">รายชื่อ KOL</span> ⬍
               </th>
               <th style="width: 100px;" data-th="ช่องทาง" data-en="Platform" data-kr="플랫폼" data-ja="プラットフォーム">ช่องทาง</th>
+              <th style="width: 110px;" data-th="เทียร์" data-en="Tier" data-kr="티어" data-ja="ティア">เทียร์</th>
+              <th class="sortable" onclick="sortMasterTable('cost')" data-th="งบประมาณ (Cost THB/KRW)" data-en="Cost (THB/KRW)" data-kr="비용 (THB/KRW)" data-ja="費用 (THB/KRW)">
+                <span data-th="งบประมาณ (Cost THB/KRW)" data-en="Cost (THB/KRW)" data-kr="비용 (THB/KRW)" data-ja="費用 (THB/KRW)">งบประมาณ (Cost)</span> ⬍
+              </th>
               <th class="sortable" onclick="sortMasterTable('done')" data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">
                 <span data-th="ความคืบหน้า" data-en="Progress" data-kr="진행도" data-ja="進捗状況">ความคืบหน้า</span> ⬍
               </th>
               <th class="sortable" onclick="sortMasterTable('views')" data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">
                 <span data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</span> ⬍
               </th>
+              <th class="sortable" onclick="sortMasterTable('cpv')" data-th="CPV (THB / KRW)" data-en="CPV (THB / KRW)" data-kr="CPV (조회당 비용)" data-ja="CPV (視聴単価)">
+                <span data-th="CPV (THB / KRW)" data-en="CPV (THB / KRW)" data-kr="CPV (조회당 비용)" data-ja="CPV (視聴単価)">CPV (ต่อวิว)</span> ⬍
+              </th>
               <th class="sortable" onclick="sortMasterTable('peak')" data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">
                 <span data-th="Peak CCU" data-en="Peak CCU" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('shares')" data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">
-                <span data-th="Shares" data-en="Shares" data-kr="공유수" data-ja="シェア数">Shares</span> ⬍
-              </th>
-              <th class="sortable" onclick="sortMasterTable('likes')" data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">
-                <span data-th="Likes" data-en="Likes" data-kr="좋아요" data-ja="いいね">Likes</span> ⬍
               </th>
             </tr>
           </thead>
@@ -1070,7 +1104,7 @@
   <div id="feedback-summary-section" style="display:none;">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-kr="💬 시청자 반응 및 커뮤니티 피드백 허브" data-ja="💬 視聴者リアクション & コミュニティフィードバックハブ">
+        <div class="panel-title" data-th="💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)" data-en="💬 Community Viewer Feedback Hub" data-kr="💬 시청자 반응 및 커뮤니티 피드백 허브" data-ja="💬 視聴者リアクション & コミュニティフィードバックハブ">
           💬 สรุปความคิดเห็นและฟีดแบ็กจากผู้ชม (Community Feedback Hub)
         </div>
       </div>
@@ -1134,59 +1168,60 @@
 <script>
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGzNgfcJel1fHmVleohR3ohjNijXgXpJO0YIwm8NIIxMAYcQ0L9AN583L1uCx6XdWU/exec";
   const TOTAL_CAMPAIGN_TARGET = 264;
+  const TOTAL_CAMPAIGN_BUDGET_THB = 4525500;
+  const TOTAL_CAMPAIGN_BUDGET_KRW = 194687010;
+
   let currentLang = 'th';
   let topChartInstance = null;
   let platformChartInstance = null;
 
-  // Complete KOL URL Mapping (39 KOLs)
-  const KOL_LINKS = {
-    // 25 Main KOLs
-    "Jaymeander": "https://www.youtube.com/@JayMeander",
-    "KamonWay": "https://www.youtube.com/@KamonWay",
-    "Jungko": "https://www.youtube.com/@junqko20",
-    "Shipdont": "https://www.youtube.com/@shipdont",
-    "basz17": "https://www.youtube.com/@baszsone17",
-    "Doraraz": "https://www.youtube.com/@Doraraz",
-    "FOMU Ch.": "https://www.youtube.com/@fomuch",
-    "Jeon": "https://www.youtube.com/@JeonNaKub",
-    "NCZ": "https://www.youtube.com/@NCZCH",
-    "SC Forlife": "https://www.youtube.com/@SCForlife",
-    "TIMTIMChannel": "https://www.facebook.com/TIMTIMChannelLive",
-    "TKGaming": "https://www.youtube.com/@TKGaming156",
-    "Viva-Tz": "https://www.youtube.com/@viva-tz",
-    "WhiteBearZBank": "https://www.youtube.com/@WhiteBearZBank",
-    "แชงค์888": "https://www.youtube.com/@YTShanks888",
-    "bAllz HD": "https://www.youtube.com/@bAllzHD",
-    "YOGURTz": "https://www.facebook.com/YOGURTzzz",
-    "ลุงโย - Yogurting": "https://www.youtube.com/@%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2",
-    "MimiwPK": "https://www.youtube.com/@mimiwpk",
-    "PoP Chanal": "https://www.youtube.com/@popchanal8349",
-    "ValduzCH": "https://www.youtube.com/@valduzch",
-    "VCartz": "https://www.youtube.com/@VCartz",
-    "OhBIGz": "https://www.youtube.com/@OhBIGz",
-    "ZixmaOne": "https://www.youtube.com/@ZixmaOne",
-    "iamaii": "https://www.youtube.com/@iammaii/streams",
-
-    // 14 Additional KOLs
-    "MinORu": "https://www.youtube.com/@MinORuOnly",
-    "พี่แว่น": "https://www.sooplive.com/station/pvanpbas",
-    "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
-    "Ezqulusia": "https://www.youtube.com/@GreenEzqelusia",
-    "Gssspotted": "https://www.twitch.tv/gssspotted",
-    "Takluz": "https://www.twitch.tv/takluz/videos?filter=archives&sort=time",
-    "Bounglengame": "https://www.youtube.com/@bigboungstudio",
-    "NAKLAS GAMER": "https://www.youtube.com/@NAKLASGAMER",
-    "SKIZZ TV (Feat. OPZ)": "https://www.youtube.com/@SkizzTV59",
-    "โกโจ อ้วน (พี่ซี๊ด)": "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99",
-    "BreakGate": "https://www.youtube.com/@BreakGate/streams",
-    "RUBSARB (จ๊อบ)": "https://www.youtube.com/@RUBSARBproduction/streams",
-    "Genghiskhanz": "https://www.youtube.com/@GenghisKhanz/streams",
-    "THISKK": "https://www.twitch.tv/thiskk"
+  // 39 KOLs Master Data Mapped from Spreadsheet (KOLs Budget & Info)
+  const KOL_DATA_MAP = {
+    "Jaymeander": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 75000, costKrw: 3226500, target: 10, url: "https://www.youtube.com/@JayMeander" },
+    "KamonWay": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 45000, costKrw: 1935900, target: 10, url: "https://www.youtube.com/@KamonWay" },
+    "Jungko": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 160000, costKrw: 6883200, target: 10, url: "https://www.youtube.com/@junqko20" },
+    "Shipdont": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 120000, costKrw: 5162400, target: 10, url: "https://www.youtube.com/@shipdont" },
+    "basz17": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@baszsone17" },
+    "Doraraz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, url: "https://www.youtube.com/@Doraraz" },
+    "FOMU Ch.": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@fomuch" },
+    "Jeon": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@JeonNaKub" },
+    "NCZ": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 28000, costKrw: 1204560, target: 10, url: "https://www.youtube.com/@NCZCH" },
+    "SC Forlife": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@SCForlife" },
+    "TIMTIMChannel": { platform: "Facebook", tier: "Mid-tier / Micro", costThb: 33000, costKrw: 1419660, target: 10, url: "https://www.facebook.com/TIMTIMChannelLive" },
+    "TKGaming": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@TKGaming156" },
+    "Viva-Tz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@viva-tz" },
+    "WhiteBearZBank": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 25000, costKrw: 1075500, target: 10, url: "https://www.youtube.com/@WhiteBearZBank" },
+    "แชงค์888": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, url: "https://www.youtube.com/@YTShanks888" },
+    "bAllz HD": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 10000, costKrw: 430200, target: 10, url: "https://www.youtube.com/@bAllzHD" },
+    "YOGURTz": { platform: "Facebook", tier: "Mid-tier / Micro", costThb: 20000, costKrw: 860400, target: 10, url: "https://www.facebook.com/YOGURTzzz" },
+    "ลุงโย - Yogurting": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 15000, costKrw: 645300, target: 10, url: "https://www.youtube.com/@%E0%B8%A5%E0%B8%B8%E0%B8%87%E0%B9%82%E0%B8%A2" },
+    "MimiwPK": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 8000, costKrw: 344160, target: 10, url: "https://www.youtube.com/@mimiwpk" },
+    "PoP Chanal": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 48000, costKrw: 2064960, target: 10, url: "https://www.youtube.com/@popchanal8349" },
+    "ValduzCH": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 30000, costKrw: 1290600, target: 10, url: "https://www.youtube.com/@valduzch" },
+    "VCartz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 50000, costKrw: 2151000, target: 10, url: "https://www.youtube.com/@VCartz" },
+    "OhBIGz": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, url: "https://www.youtube.com/@OhBIGz" },
+    "ZixmaOne": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 35000, costKrw: 1505700, target: 10, url: "https://www.youtube.com/@ZixmaOne" },
+    "iamaii": { platform: "YouTube", tier: "Mid-tier / Micro", costThb: 95000, costKrw: 4086900, target: 10, url: "https://www.youtube.com/@iammaii/streams" },
+    "MinORu": { platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.youtube.com/@MinORuOnly" },
+    "พี่แว่น": { platform: "SOOP", tier: "Mega", costThb: 80000, costKrw: 3441600, target: 1, url: "https://www.sooplive.com/station/pvanpbas" },
+    "NoctisAK47": { platform: "Twitch", tier: "Mega", costThb: 76000, costKrw: 3269520, target: 1, url: "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time" },
+    "Ezqulusia": { platform: "YouTube", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.youtube.com/@GreenEzqelusia" },
+    "Gssspotted": { platform: "Twitch", tier: "Mega", costThb: 303000, costKrw: 13035060, target: 1, url: "https://www.twitch.tv/gssspotted" },
+    "Takluz": { platform: "Twitch", tier: "Mega", costThb: 83000, costKrw: 3570660, target: 1, url: "https://www.twitch.tv/takluz/videos?filter=archives&sort=time" },
+    "Bounglengame": { platform: "YouTube", tier: "Mega", costThb: 73000, costKrw: 3140460, target: 1, url: "https://www.youtube.com/@bigboungstudio" },
+    "NAKLAS GAMER": { platform: "YouTube", tier: "Mega", costThb: 50000, costKrw: 2151000, target: 1, url: "https://www.youtube.com/@NAKLASGAMER" },
+    "SKIZZ TV (Feat. OPZ)": { platform: "YouTube", tier: "Mega", costThb: 330000, costKrw: 14196600, target: 1, url: "https://www.youtube.com/@SkizzTV59" },
+    "โกโจ อ้วน (พี่ซี๊ด)": { platform: "YouTube", tier: "Mega", costThb: 20000, costKrw: 860400, target: 1, url: "https://www.youtube.com/@%E0%B9%82%E0%B8%81%E0%B9%82%E0%B8%88%E0%B8%AD%E0%B9%89%E0%B8%A7%E0%B8%99" },
+    "BreakGate": { platform: "YouTube", tier: "Mega", costThb: 22000, costKrw: 946440, target: 1, url: "https://www.youtube.com/@BreakGate/streams" },
+    "RUBSARB (จ๊อบ)": { platform: "YouTube", tier: "Mega", costThb: 193000, costKrw: 8302860, target: 1, url: "https://www.youtube.com/@RUBSARBproduction/streams" },
+    "Genghiskhanz": { platform: "YouTube", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, url: "https://www.youtube.com/@GenghisKhanz/streams" },
+    "THISKK": { platform: "Twitch", tier: "Mega", costThb: 60000, costKrw: 2581200, target: 1, url: "https://www.twitch.tv/thiskk" }
   };
+
+  const ALL_KOL_NAMES = Object.keys(KOL_DATA_MAP);
 
   // Direct High-Res Profile Picture (Avatar) Mapping
   const KOL_AVATARS = {
-    // 25 Main KOLs
     "Jaymeander": "https://unavatar.io/youtube/JayMeander",
     "KamonWay": "https://unavatar.io/youtube/KamonWay",
     "Jungko": "https://unavatar.io/youtube/junqko20",
@@ -1212,8 +1247,6 @@
     "OhBIGz": "https://unavatar.io/youtube/OhBIGz",
     "ZixmaOne": "https://unavatar.io/youtube/ZixmaOne",
     "iamaii": "https://unavatar.io/youtube/iammaii",
-
-    // 14 Additional KOLs
     "MinORu": "https://unavatar.io/youtube/MinORuOnly",
     "พี่แว่น": "https://unavatar.io/youtube/pvanpbas",
     "NoctisAK47": "https://www.twitch.tv/noctisak47/videos?filter=archives&sort=time",
@@ -1230,149 +1263,22 @@
     "THISKK": "https://www.twitch.tv/thiskk"
   };
 
-  function getCleanName(name) {
-    return String(name || '').trim();
-  }
-
-  function getKolAvatarUrl(name) {
-    const clean = getCleanName(name);
-    if (KOL_AVATARS[clean]) return KOL_AVATARS[clean];
-    const initials = encodeURIComponent(clean.substring(0, 2).toUpperCase());
-    return `https://ui-avatars.com/api/?name=${initials}&background=1f2738&color=e6be65&bold=true&length=2&rounded=true`;
-  }
-
-  function getKolTag(name) {
-    const clean = getCleanName(name);
-    const url = KOL_LINKS[clean];
-    const avatarUrl = getKolAvatarUrl(clean);
-    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar-sm" alt="${clean}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65'" loading="lazy">`;
-    if (url) return `<a href="${url}" target="_blank" rel="noopener" class="kol-pill clickable">${imgHtml}${clean} ↗</a>`;
-    return `<span class="kol-pill">${imgHtml}${clean}</span>`;
-  }
-
-  function getKolNameHtml(name) {
-    const clean = getCleanName(name);
-    const url = KOL_LINKS[clean];
-    const avatarUrl = getKolAvatarUrl(clean);
-    const imgHtml = `<img src="${avatarUrl}" class="kol-avatar" alt="${clean}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(clean.substring(0,2))}&background=1f2738&color=e6be65'" loading="lazy">`;
-    if (url) return `<div class="kol-name-cell">${imgHtml}<a href="${url}" target="_blank" rel="noopener" class="kol-link">${clean} ↗</a></div>`;
-    return `<div class="kol-name-cell">${imgHtml}<span>${clean}</span></div>`;
-  }
-
-  function getPlatformBadge(platform) {
-    const p = String(platform || '').toLowerCase();
-    if (p.includes('twitch')) return '<span class="badge-tag twitch">Twitch</span>';
-    if (p.includes('soop') || p.includes('afreeca')) return '<span class="badge-tag soop">SOOP</span>';
-    if (p.includes('face') || p.includes('fb')) return '<span class="badge-tag fb">Facebook</span>';
-    return '<span class="badge-tag yt">YouTube</span>';
-  }
-
-  function getSentimentBadge(sentiment) {
-    const s = String(sentiment || '').toLowerCase();
-    if (s.includes('บวก') || s.includes('positive') || s.includes('pos')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge pos">👍 ポジティブ (Positive)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge pos">👍 긍정적 (Positive)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge pos">👍 Positive</span>';
-      return '<span class="sentiment-badge pos">👍 เชิงบวก (Positive)</span>';
-    }
-    if (s.includes('ลบ') || s.includes('negative') || s.includes('neg')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge neg">⚠️ 問題 (Negative)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge neg">⚠️ 부정적 (Negative)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge neg">⚠️ Negative</span>';
-      return '<span class="sentiment-badge neg">⚠️ ปัญหา (Negative)</span>';
-    }
-    if (s.includes('กลาง') || s.includes('neutral') || s.includes('neu')) {
-      if (currentLang === 'ja') return '<span class="sentiment-badge neu">💬 中立 (Neutral)</span>';
-      if (currentLang === 'kr') return '<span class="sentiment-badge neu">💬 중립 (Neutral)</span>';
-      if (currentLang === 'en') return '<span class="sentiment-badge neu">💬 Neutral</span>';
-      return '<span class="sentiment-badge neu">💬 ทั่วไป (Neutral)</span>';
-    }
-    return '<span class="badge-tag wait">-</span>';
-  }
-
-  function getKolTargetCount(name) {
-    const clean = getCleanName(name);
-    const found = kolsSchedule.find(k => getCleanName(k.name) === clean);
-    if (found && found.times) {
-      const count = found.times.filter(t => t !== null && t !== '').length;
-      if (count > 0) return count;
-    }
-    return 10;
-  }
-
-  function detectPlatformByName(name) {
-    const clean = getCleanName(name);
-    if (["NoctisAK47", "Gssspotted", "Takluz", "THISKK"].includes(clean)) return "Twitch";
-    if (["พี่แว่น"].includes(clean)) return "SOOP";
-    if (["TIMTIMChannel", "YOGURTz"].includes(clean)) return "Facebook";
-    return "YouTube";
-  }
-
-  const DATE_CONFIG = [
-    { key: "18 ส.ค.", th: "วันอังคารที่ 18 ส.ค. 2569 (Grand Open)", kr: "8월 18일 (화) - Grand Open", ja: "2026年8月18日 (火) - Grand Open", en: "Tuesday, August 18, 2026 (Grand Open)", isHighlight: true },
-    { key: "19 ส.ค.", th: "วันพุธที่ 19 ส.ค. 2569", kr: "8월 19일 (수)", ja: "2026年8月19日 (水)", en: "Wednesday, August 19, 2026" },
-    { key: "20 ส.ค.", th: "วันพฤหัสบดีที่ 20 ส.ค. 2569", kr: "8월 20일 (목)", ja: "2026年8月20日 (木)", en: "Thursday, August 20, 2026" },
-    { key: "21 ส.ค.", th: "วันศุกร์ที่ 21 ส.ค. 2569", kr: "8월 21일 (금)", ja: "2026年8月21日 (金)", en: "Friday, August 21, 2026" },
-    { key: "22 ส.ค.", th: "วันเสาร์ที่ 22 ส.ค. 2569", kr: "8월 22일 (토)", ja: "2026年8月22日 (土)", en: "Saturday, August 22, 2026", isHighlight: true },
-    { key: "23 ส.ค.", th: "วันอาทิตย์ที่ 23 ส.ค. 2569", kr: "8월 23일 (일)", ja: "2026年8月23日 (日)", en: "Sunday, August 23, 2026", isHighlight: true },
-    { key: "24 ส.ค.", th: "วันจันทร์ที่ 24 ส.ค. 2569", kr: "8월 24일 (월)", ja: "2026年8月24日 (月)", en: "Monday, August 24, 2026" },
-    { key: "25 ส.ค.", th: "วันอังคารที่ 25 ส.ค. 2569", kr: "8월 25일 (화)", ja: "2026年8月25日 (火)", en: "Tuesday, August 25, 2026" },
-    { key: "26 ส.ค.", th: "วันพุธที่ 26 ส.ค. 2569", kr: "8월 26일 (수)", ja: "2026年8月26日 (水)", en: "Wednesday, August 26, 2026" },
-    { key: "27 ส.ค.", th: "วันพฤหัสบดีที่ 27 ส.ค. 2569", kr: "8월 27일 (목)", ja: "2026年8月27日 (木)", en: "Thursday, August 27, 2026" },
-    { key: "28 ส.ค.", th: "วันศุกร์ที่ 28 ส.ค. 2569", kr: "8월 28일 (금)", ja: "2026年8月28日 (金)", en: "Friday, August 28, 2026" },
-    { key: "29 ส.ค.", th: "วันเสาร์ที่ 29 ส.ค. 2569", kr: "8월 29일 (토)", ja: "2026年8月29日 (土)", en: "Saturday, August 29, 2026" },
-    { key: "30 ส.ค.", th: "วันอาทิตย์ที่ 30 ส.ค. 2569", kr: "8월 30일 (일)", ja: "2026年8月30日 (日)", en: "Sunday, August 30, 2026" },
-    { key: "31 ส.ค.", th: "วันจันทร์ที่ 31 ส.ค. 2569", kr: "8월 31일 (월)", ja: "2026年8月31日 (月)", en: "Monday, August 31, 2026" },
-    { key: "1 ก.ย.", th: "วันอังคารที่ 1 ก.ย. 2569", kr: "9월 1일 (화)", ja: "2026年9月1日 (火)", en: "Tuesday, September 1, 2026", isHighlight: true },
-    { key: "2 ก.ย.", th: "วันพุธที่ 2 ก.ย. 2569", kr: "9월 2일 (수)", ja: "2026年9月2日 (水)", en: "Wednesday, September 2, 2026" },
-    { key: "3 ก.ย.", th: "วันพฤหัสบดีที่ 3 ก.ย. 2569", kr: "9월 3일 (목)", ja: "2026年9月3日 (木)", en: "Thursday, September 3, 2026" },
-    { key: "4 ก.ย.", th: "วันศุกร์ที่ 4 ก.ย. 2569", kr: "9월 4일 (금)", ja: "2026年9月4日 (金)", en: "Friday, September 4, 2026" },
-    { key: "5 ก.ย.", th: "วันเสาร์ที่ 5 ก.ย. 2569", kr: "9월 5일 (토)", ja: "2026年9月5日 (土)", en: "Saturday, September 5, 2026" },
-    { key: "6 ก.ย.", th: "วันอาทิตย์ที่ 6 ก.ย. 2569", kr: "9월 6일 (일)", ja: "2026年9月6日 (日)", en: "Sunday, September 6, 2026" },
-    { key: "7 ก.ย.", th: "วันจันทร์ที่ 7 ก.ย. 2569", kr: "9월 7일 (월)", ja: "2026年9月7日 (月)", en: "Monday, September 7, 2026" },
-    { key: "8 ก.ย.", th: "วันอังคารที่ 8 ก.ย. 2569", kr: "9월 8일 (화)", ja: "2026年9月8日 (火)", en: "Tuesday, September 8, 2026" }
-  ];
-
-  let kolsSchedule = [
-    { name: "Jaymeander", times: ["08:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null] },
-    { name: "KamonWay", times: ["21:00","17:00","17:00","17:00","20:00","20:00",null,null,null,"20:00",null,"20:00",null,null,null,"20:00",null,null,null,"20:00",null,null] },
-    { name: "Jungko", times: ["08:00","08:00","18:00","14:00","14:00","14:00",null,null,"10:00",null,null,"14:00",null,null,"14:00",null,null,"14:00",null,null,null,null] },
-    { name: "Shipdont", times: ["09:00","09:00","20:30","20:30","20:30","09:00",null,null,"09:00",null,null,"20:30",null,null,"09:00",null,null,"20:30",null,null,null,null] },
-    { name: "basz17", times: ["13:00","13:00","13:00","13:00","13:00","13:00","13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null] },
-    { name: "Doraraz", times: ["14:00","14:00","14:00","14:00","14:00","14:00",null,"14:00",null,null,"14:00",null,null,null,"14:00",null,null,null,"14:00",null,null,null] },
-    { name: "FOMU Ch.", times: ["21:00","21:00","21:00",null,"21:00","21:00",null,"21:00",null,null,"21:00",null,"21:00",null,"21:00",null,null,null,"21:00",null,null,null] },
-    { name: "Jeon", times: ["16:00","20:00","16:30","16:30","16:30","14:00",null,null,null,"14:00",null,null,null,"16:30",null,null,null,"16:30",null,null,null,"16:30"] },
-    { name: "NCZ", times: ["15:00","15:00","15:00","20:30","20:30","15:00",null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null,null,"20:30",null,null] },
-    { name: "SC Forlife", times: ["08:00","13:00","13:00","13:00","08:00","13:00",null,"13:00",null,null,null,"08:00",null,null,null,"13:00",null,null,null,"13:00",null,null] },
-    { name: "TIMTIMChannel", times: ["15:00","13:00",null,"13:00",null,"15:00","15:00",null,null,null,null,"15:00","15:00","15:00","15:00",null,null,"15:00",null,null,null,null] },
-    { name: "TKGaming", times: ["11:00","11:00","11:00","11:00","11:00",null,"11:00",null,"11:00",null,null,"11:00",null,null,"11:00",null,null,"11:00",null,null,null,null] },
-    { name: "Viva-Tz", times: [null,"15:30","10:00","10:00",null,null,null,"15:30","10:00","10:00",null,null,null,"10:00","10:00","10:00",null,null,null,"10:00",null,null] },
-    { name: "WhiteBearZBank", times: ["21:00",null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null,null,null,"21:00",null,"15:00","21:00",null] },
-    { name: "แชงค์888", times: ["09:00","09:00","09:00","09:00","09:00","09:00","09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null,"09:00",null,null,null] },
-    { name: "bAllz HD", times: ["18:00","18:00","18:00","18:00","18:00","18:00","18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null,"18:00",null,null,null] },
-    { name: "YOGURTz", times: ["08:00","16:00","16:00","16:00","16:00","16:00","16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null,"16:00",null,null,null] },
-    { name: "ลุงโย - Yogurting", times: ["09:00","20:00","20:00","20:00","20:00","20:00","20:00",null,null,null,"20:00",null,null,null,"20:00",null,null,null,null,null,null,null] },
-    { name: "MimiwPK", times: ["19:00","19:00","19:00","19:00","19:00","19:00",null,null,"21:00",null,null,"19:00",null,null,"19:00",null,null,"19:00",null,null,null,null] },
-    { name: "PoP Chanal", times: ["08:00","22:00","17:00","22:00","22:00","22:00",null,null,null,"17:00",null,null,null,"14:00",null,null,null,"22:00",null,null,null,"17:00"] },
-    { name: "ValduzCH", times: ["14:00","14:00","14:00","14:00",null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00",null,null,null,null,null,"14:00","14:00"] },
-    { name: "VCartz", times: ["08:00","13:00","22:00","13:00","22:00","22:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00",null,null,null,"13:00"] },
-    { name: "OhBIGz", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00",null,null,null,"17:00"] },
-    { name: "ZixmaOne", times: ["08:00","08:00","08:00","08:00","10:00","10:00","08:00",null,null,null,"08:00",null,null,null,"08:00",null,null,null,"10:00",null,null,null] },
-    { name: "iamaii", times: ["08:00","12:00","12:00","12:00","12:00","12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,"12:00",null,null,null,null] }
-  ];
-
-  const ALL_KOL_NAMES = Object.keys(KOL_LINKS);
-
-  let kolsSummaryReport = ALL_KOL_NAMES.map(name => ({
-    name: name,
-    platform: detectPlatformByName(name),
-    done: 0,
-    target: getKolTargetCount(name),
-    views: 0,
-    peak: 0,
-    shares: 0,
-    likes: 0
-  }));
+  let kolsSummaryReport = ALL_KOL_NAMES.map(name => {
+    const info = KOL_DATA_MAP[name];
+    return {
+      name: name,
+      platform: info.platform,
+      tier: info.tier,
+      costThb: info.costThb,
+      costKrw: info.costKrw,
+      target: info.target,
+      done: 0,
+      views: 0,
+      peak: 0,
+      shares: 0,
+      likes: 0
+    };
+  });
 
   let liveDataRecords = [];
   let feedbackDataRecords = [];
@@ -1394,6 +1300,22 @@
     renderDailyPerformanceMatrix();
     renderFeedbackHub();
     renderCharts();
+    updateCPVMetric();
+  }
+
+  function updateCPVMetric() {
+    let totalViews = 0;
+    kolsSummaryReport.forEach(item => {
+      totalViews += item.views;
+    });
+
+    const cpvThb = totalViews > 0 ? (TOTAL_CAMPAIGN_BUDGET_THB / totalViews).toFixed(2) : "0.00";
+    const cpvKrw = totalViews > 0 ? (TOTAL_CAMPAIGN_BUDGET_KRW / totalViews).toFixed(2) : "0.00";
+
+    const thbEl = document.getElementById('cpvThbDisplay');
+    const krwEl = document.getElementById('cpvKrwDisplay');
+    if (thbEl) thbEl.innerText = `${Number(cpvThb).toLocaleString()} THB`;
+    if (krwEl) krwEl.innerText = `₩${Number(cpvKrw).toLocaleString()} KRW / View`;
   }
 
   function renderDailyCards() {
@@ -1527,12 +1449,18 @@
 
     if (paginatedItems.length === 0) {
       const emptyMsg = currentLang === 'kr' ? "해당 조건의 인플루언서가 없습니다" : (currentLang === 'ja' ? "条件に一致するKOLが見つかりません" : (currentLang === 'en' ? "No KOLs found matching criteria" : "ไม่พบรายชื่อ KOL ตามเงื่อนไขที่เลือก"));
-      tbody.innerHTML = `<tr><td colspan="9" class="no-data-msg">${emptyMsg}</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="10" class="no-data-msg">${emptyMsg}</td></tr>`;
     } else {
       paginatedItems.forEach((item, i) => {
         const rank = startIdx + i + 1;
         const isExpanded = expandedKols.has(item.name);
         
+        const cpvThbVal = item.views > 0 ? (item.costThb / item.views).toFixed(2) : "-";
+        const cpvKrwVal = item.views > 0 ? (item.costKrw / item.views).toFixed(1) : "-";
+        const cpvDisplay = item.views > 0 ? `${Number(cpvThbVal).toLocaleString()} THB<br><span style="font-size:11px; color:#58a6ff;">₩${Number(cpvKrwVal).toLocaleString()} KRW</span>` : '<span style="color:var(--ro-text-muted);">-</span>';
+
+        const costDisplay = `${item.costThb.toLocaleString()} THB<br><span style="font-size:11px; color:var(--ro-text-muted);">₩${item.costKrw.toLocaleString()} KRW</span>`;
+
         const trMaster = document.createElement('tr');
         trMaster.className = `master-row ${isExpanded ? 'expanded' : ''}`;
         trMaster.onclick = () => toggleKolExpand(item.name);
@@ -1542,18 +1470,19 @@
           <td>${rank}</td>
           <td class="kol-name">${getKolNameHtml(item.name)}</td>
           <td>${getPlatformBadge(item.platform)}</td>
-          <td><strong>${item.done}</strong> / ${item.target || getKolTargetCount(item.name)}</td>
+          <td><span class="badge-tag gold">${item.tier}</span></td>
+          <td style="text-align:right; font-size:12.5px; font-weight:500;">${costDisplay}</td>
+          <td><strong>${item.done}</strong> / ${item.target}</td>
           <td style="text-align:right; font-weight:600; color:var(--ro-gold);">${item.views.toLocaleString()}</td>
+          <td style="text-align:right; font-size:12.5px; color:#56d364;">${cpvDisplay}</td>
           <td style="text-align:right;">${item.peak.toLocaleString()}</td>
-          <td style="text-align:right;">${item.shares.toLocaleString()}</td>
-          <td style="text-align:right;">${item.likes.toLocaleString()}</td>
         `;
         tbody.appendChild(trMaster);
 
         if (isExpanded) {
           const trDetail = document.createElement('tr');
           trDetail.className = 'detail-row';
-          trDetail.innerHTML = `<td colspan="9">${buildKolDetailHtml(item.name)}</td>`;
+          trDetail.innerHTML = `<td colspan="10">${buildKolDetailHtml(item.name)}</td>`;
           tbody.appendChild(trDetail);
         }
       });
@@ -1694,7 +1623,6 @@
     `;
   }
 
-  // ================= NEW: RENDER DAILY PERFORMANCE MATRIX =================
   function renderDailyPerformanceMatrix() {
     const tbody = document.getElementById('dailyPerformanceMatrixBody');
     if (!tbody) return;
@@ -1744,10 +1672,8 @@
     }
   }
 
-  // ================= FEEDBACK HUB RENDER (FILTERED: ONLY WITH COMMENTS/FEEDBACK) =================
   function renderFeedbackHub() {
     const rawList = feedbackDataRecords.length > 0 ? feedbackDataRecords : [];
-    
     const list = rawList.filter(item => {
       const hasComments = Number(item.commentsCount || 0) > 0;
       const hasText = item.feedback && item.feedback.trim() !== '' && !item.feedback.includes('ปิดรับความคิดเห็น / ไม่มีคอมเมนต์');
@@ -1781,7 +1707,6 @@
     });
     document.getElementById('fbTopCategory').innerText = topCat;
 
-    // Render Category Pills
     const pillsContainer = document.getElementById('feedbackCategoryPills');
     pillsContainer.innerHTML = "";
     if (Object.keys(catCounts).length === 0) {
@@ -1797,7 +1722,6 @@
       });
     }
 
-    // Render Filtered Table
     const tbody = document.getElementById('feedbackOverviewTableBody');
     tbody.innerHTML = "";
 
@@ -1919,32 +1843,35 @@
       masterState.sortAsc = !masterState.sortAsc;
     } else {
       masterState.sortBy = columnKey;
-      masterState.sortAsc = (columnKey === 'name');
+      masterState.sortAsc = (columnKey === 'name' || columnKey === 'tier');
     }
     renderMasterTable();
   }
 
   function exportMasterToCSV() {
     let csv = [];
-    csv.push(["No", "KOL Name", "Platform", "Completed", "Target", "Total Views", "Peak CCU", "Shares", "Likes"].join(","));
+    csv.push(["No", "KOL Name", "Platform", "Tier", "Cost (THB)", "Cost (KRW)", "Completed", "Target", "Total Views", "CPV (THB)", "Peak CCU"].join(","));
     kolsSummaryReport.forEach((item, idx) => {
+      const cpv = item.views > 0 ? (item.costThb / item.views).toFixed(2) : 0;
       csv.push([
         idx + 1,
         `"${item.name}"`,
         `"${item.platform}"`,
+        `"${item.tier}"`,
+        item.costThb,
+        item.costKrw,
         item.done,
-        item.target || 10,
+        item.target,
         item.views,
-        item.peak,
-        item.shares,
-        item.likes
+        cpv,
+        item.peak
       ].join(","));
     });
     const blob = new Blob(["\uFEFF" + csv.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `KOLs_Master_Report_264_Target.csv`;
+    a.download = `KOLs_Master_Report_Cost_CPV.csv`;
     a.click();
   }
 
@@ -2070,10 +1997,10 @@
   }
 
   function parseSummary(rows) {
-    const newSummary = [];
+    const summaryMap = {};
     for (let r = 6; r < rows.length; r++) {
       const row = rows[r];
-      const name = getCleanName(row[1]);
+      const name = getCellName(row[1]);
       if (!name || name.includes("รวมทั้งหมด")) continue;
       
       const cleanNum = (val) => {
@@ -2082,18 +2009,28 @@
         return Number(s) || 0;
       };
 
-      newSummary.push({
-        name: name,
-        platform: detectPlatformByName(name),
+      summaryMap[name] = {
         done: cleanNum(row[2]),
-        target: getKolTargetCount(name),
         views: cleanNum(row[3]),
         peak: cleanNum(row[4]),
         shares: cleanNum(row[5]),
         likes: cleanNum(row[6])
-      });
+      };
     }
-    if (newSummary.length > 0) kolsSummaryReport = newSummary;
+
+    kolsSummaryReport.forEach(item => {
+      if (summaryMap[item.name]) {
+        item.done = summaryMap[item.name].done;
+        item.views = summaryMap[item.name].views;
+        item.peak = summaryMap[item.name].peak;
+        item.shares = summaryMap[item.name].shares;
+        item.likes = summaryMap[item.name].likes;
+      }
+    });
+  }
+
+  function getCellName(val) {
+    return String(val || '').trim();
   }
 
   function parseLiveData(rows) {
