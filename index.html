@@ -41,7 +41,7 @@
     padding: 20px 16px 60px;
   }
 
-  .container { max-width: 1520px; margin: 0 auto; }
+  .container { max-width: 1580px; margin: 0 auto; }
 
   /* Header */
   .header {
@@ -398,66 +398,6 @@
   }
   .schedule-badge span { color: var(--ro-gold-light); font-weight: 600; }
 
-  .vod-feedback-card {
-    background: #141824;
-    border: 1px solid #28334a;
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-  }
-  .vod-feedback-card:last-child { margin-bottom: 0; }
-
-  .vod-header-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1px dashed rgba(48, 60, 84, 0.6);
-  }
-
-  .feedback-meta-line {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-
-  .feedback-content-box {
-    background: rgba(56, 139, 253, 0.06);
-    border-left: 3px solid var(--ro-blue);
-    padding: 8px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 12px;
-    color: #c9d1d9;
-    line-height: 1.45;
-  }
-
-  .feedback-action-box {
-    background: rgba(230, 190, 101, 0.08);
-    border-left: 3px solid var(--ro-gold);
-    padding: 6px 12px;
-    border-radius: 0 4px 4px 0;
-    font-size: 11.5px;
-    color: var(--ro-gold-light);
-    margin-top: 6px;
-  }
-
-  .sentiment-badge {
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .sentiment-badge.pos { background: rgba(63, 185, 80, 0.2); color: #56d364; border: 1px solid #3fb950; }
-  .sentiment-badge.neu { background: rgba(56, 139, 253, 0.2); color: #79c0ff; border: 1px solid #388bfd; }
-  .sentiment-badge.neg { background: rgba(248, 81, 73, 0.2); color: #ff7b72; border: 1px solid #f85149; }
-
   /* KOL Avatar & Link */
   .kol-name { font-weight: 600; color: #ffffff; text-align: left; }
   .kol-name-cell { display: flex; align-items: center; gap: 10px; text-align: left; }
@@ -465,10 +405,6 @@
     width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
     border: 1.5px solid var(--ro-border-gold); background: #192130; flex-shrink: 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-  }
-  .kol-avatar-sm {
-    width: 20px; height: 20px; border-radius: 50%; object-fit: cover;
-    border: 1px solid var(--ro-border-gold); vertical-align: middle; margin-right: 5px; flex-shrink: 0;
   }
   .kol-link { color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
   .kol-link:hover { color: var(--ro-gold-light); text-decoration: underline; }
@@ -479,47 +415,6 @@
   .badge-tag.twitch { background: rgba(145, 70, 255, 0.2); border: 1px solid #9146ff; color: #d2a8ff; }
   .badge-tag.soop { background: rgba(0, 210, 130, 0.2); border: 1px solid #00d282; color: #56f5b0; }
   .badge-tag.gold { background: rgba(230, 190, 101, 0.18); border: 1px solid var(--ro-border-gold); color: var(--ro-gold-light); }
-
-  .vod-link-btn {
-    color: var(--ro-gold); text-decoration: none; background: rgba(230, 190, 101, 0.1);
-    border: 1px solid var(--ro-border-gold); padding: 3px 8px; border-radius: 4px; font-size: 12px;
-  }
-  .vod-link-btn:hover { background: var(--ro-gold); color: #10131c; }
-
-  .expand-indicator { display: inline-block; font-size: 11px; color: var(--ro-text-muted); transition: transform 0.2s; }
-  tr.expanded .expand-indicator { transform: rotate(90deg); color: var(--ro-gold); }
-
-  /* Matrix Layout */
-  .matrix-giant-container { display: flex; flex-direction: column; gap: 24px; }
-  .matrix-giant-card {
-    background: linear-gradient(180deg, #1a2130 0%, #121622 100%);
-    border: 1.5px solid var(--ro-border); border-radius: 10px; padding: 20px 24px; box-shadow: 0 4px 18px rgba(0,0,0,0.35);
-  }
-  .matrix-giant-card.gold-glow { border-color: var(--ro-border-gold); box-shadow: 0 0 16px rgba(230, 190, 101, 0.14); }
-  .matrix-header-row {
-    display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--ro-border); padding-bottom: 10px; flex-wrap: wrap; gap: 10px;
-  }
-  .matrix-giant-title { font-size: 17px; font-weight: 700; color: var(--ro-gold-light); display: flex; align-items: center; gap: 8px; }
-  .matrix-giant-table { font-size: 14px; }
-  .matrix-giant-table th { padding: 12px 16px; font-size: 14px; background: linear-gradient(180deg, #2b364a 0%, #1c2330 100%); }
-  .matrix-giant-table td { padding: 12px 16px; font-size: 13.5px; }
-
-  /* Schedule Cards Layout */
-  .grid-days { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
-  .day-card { background: linear-gradient(180deg, #1b202d 0%, #131722 100%); border: 1px solid var(--ro-border); border-radius: 10px; overflow: hidden; }
-  .day-card.highlight-day { border-color: var(--ro-border-gold); box-shadow: 0 0 14px rgba(230, 190, 101, 0.12); }
-  .day-header { background: linear-gradient(90deg, #242c3d 0%, #181d29 100%); padding: 9px 12px; border-bottom: 1px solid var(--ro-border); display: flex; justify-content: space-between; align-items: center; }
-  .day-title { font-weight: 600; font-size: 14px; color: var(--ro-gold-light); }
-  .day-tag { font-size: 11px; background: rgba(230, 190, 101, 0.15); color: var(--ro-gold); padding: 2px 7px; border-radius: 12px; border: 1px solid var(--ro-gold-dark); }
-  .day-slots { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
-  .slot-row { display: flex; align-items: center; gap: 8px; padding: 5px 7px; border-radius: 5px; background: rgba(255, 255, 255, 0.02); }
-  .slot-time { font-weight: 600; font-size: 12px; color: #58a6ff; min-width: 60px; }
-  .slot-kols { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
-
-  .kol-pill {
-    font-size: 11.5px; background: #232a3a; color: #e6edf3; padding: 2px 8px; border-radius: 4px; border: 1px solid #36425a; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
-  }
-  .kol-pill.clickable:hover { background: var(--ro-gold); color: #10131c; border-color: var(--ro-gold-light); }
 
   .pagination-bar {
     display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 8px; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ro-text-muted);
@@ -541,10 +436,6 @@
   @media (max-width: 768px) {
     .main-title { font-size: 20px; }
     .lang-switch { position: static; justify-content: center; margin-bottom: 10px; }
-    .grid-days { grid-template-columns: 1fr; }
-    .sync-bar { flex-direction: column; align-items: stretch; }
-    .filter-bar { flex-direction: column; align-items: stretch; }
-    .search-box { width: 100%; }
   }
 </style>
 </head>
@@ -659,33 +550,6 @@
     </div>
   </div>
 
-  <!-- ================= DAILY PERFORMANCE BREAKDOWN TABLE ================= -->
-  <div class="panel" style="margin-bottom: 22px;">
-    <div class="panel-header">
-      <div class="panel-title">
-        <span>📅</span> <span data-th="4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)" data-en="4. Daily Performance Breakdown" data-kr="4. 일자별 성과 상세 비교 분석" data-ja="4. 日別パフォーマンス詳細分析">4. วิเคราะห์เปรียบเทียบผลงานรายวัน (Daily Performance Breakdown)</span>
-      </div>
-      <span class="badge-tag gold" data-th="ข้อมูลอัปเดตตามจริงจาก Live_Data" data-en="Live Data Breakdown" data-kr="실시간 데이터 기반" data-ja="リアルタイムデータ">ข้อมูลอัปเดตตามจริงจาก Live_Data</span>
-    </div>
-
-    <div class="table-wrapper">
-      <table class="matrix-giant-table">
-        <thead>
-          <tr>
-            <th style="text-align:left; min-width: 140px;" data-th="วันที่ (Date)" data-en="Date" data-kr="일자" data-ja="日付">วันที่</th>
-            <th data-th="จำนวนสตรีม" data-en="Streams Count" data-kr="방송 횟수" data-ja="配信数">จำนวนสตรีม</th>
-            <th data-th="Total Views" data-en="Total Views" data-kr="누적 조회수" data-ja="総視聴回数">Total Views</th>
-            <th data-th="Peak CCU สูงสุด" data-en="Peak CCU Max" data-kr="최고 동시 시청자" data-ja="最高同時接続">Peak CCU สูงสุด</th>
-            <th data-th="เฉลี่ยวิว / สตรีม" data-en="Avg Views/Stream" data-kr="회당 평균 조회수" data-ja="平均視聴回数/配信">เฉลี่ยวิว / สตรีม</th>
-            <th data-th="Total Shares" data-en="Total Shares" data-kr="총 공유수" data-ja="総シェア数">Total Shares</th>
-            <th data-th="Engagement Rate" data-en="Engagement Rate" data-kr="참여율" data-ja="engagement Rate">Engagement Rate</th>
-          </tr>
-        </thead>
-        <tbody id="dailyPerformanceMatrixBody"></tbody>
-      </table>
-    </div>
-  </div>
-
   <!-- ================= SECTION 1: MASTER CONSOLIDATED TABLE ================= -->
   <div id="master-section">
     <div class="panel">
@@ -756,8 +620,6 @@
       </div>
 
       <div class="matrix-giant-container">
-
-        <!-- Table 1: Platform Comprehensive Performance Matrix -->
         <div class="matrix-giant-card gold-glow">
           <div class="matrix-header-row">
             <div class="matrix-giant-title">
@@ -784,7 +646,6 @@
             </table>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -808,7 +669,6 @@
         </div>
       </div>
 
-      <!-- Quick Feedback Overview Cards -->
       <div class="feedback-compact-grid">
         <div class="feedback-mini-card">
           <div>
@@ -833,11 +693,9 @@
         </div>
       </div>
 
-      <!-- Categories Summary Pills -->
       <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:" data-en="📂 Category Breakdown:" data-kr="📂 카테고리별 피드백 분포:" data-ja="📂 カテゴリ別フィードバック分布:">📂 การกระจายตัวตามหมวดหมู่ความคิดเห็น:</div>
       <div class="feedback-category-pills" id="feedbackCategoryPills"></div>
 
-      <!-- Recent Highlighted Feedback Table -->
       <div style="font-size:13px; font-weight:600; color:var(--ro-gold); margin-bottom:8px;" data-th="🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:" data-en="🌟 Recent Key Feedback & Action Items:" data-kr="🌟 최근 주요 피드백 및 조치 사항:" data-ja="🌟 最近の主要なフィードバックと対応事項:">🌟 ข้อความความคิดเห็นและประเด็นสำคัญล่าสุด:</div>
       <div class="table-wrapper">
         <table>
@@ -916,7 +774,6 @@
 
   const ALL_KOL_NAMES = Object.keys(KOL_DATA_MAP);
 
-  // Alias KOL_LINKS to KOL_DATA_MAP for backward compatibility
   const KOL_LINKS = {};
   Object.keys(KOL_DATA_MAP).forEach(k => {
     KOL_LINKS[k] = KOL_DATA_MAP[k].url;
